@@ -56,6 +56,29 @@ public class Pedido {
     private Cliente cliente;
 
     /**
+     * Constructor para inicializar una instancia del Pedido.
+     * 
+     * @param id Dato Long que representa el id del Pedido.
+     * @param numeroUnico Objeto String que representa el número del Pedido.
+     * @param fecha Objeto LocalDateTime que representa la fecha de realización del Pedido.
+     * @param direccionEnvio Objeto Direccion que representa la dirección de envío del Pedido.
+     * @param metodoPago Objeto MetodoPago que representa el método de pago con el que se pagó el Pedido.
+     * @param carrito Objeto Carrito que representa el carrito a partir del cual se creó el Pedido.
+     * @param cliente Objeto Cliente que representa el Cliente que realizó el Pedido.
+     */
+    public Pedido(Long id, String numeroUnico, LocalDateTime fecha, Direccion direccionEnvio, MetodoPago metodoPago, Carrito carrito, Cliente cliente) {
+        this.id = id;
+        this.numeroUnico = numeroUnico;
+        this.fecha = fecha;
+        this.direccionEnvio = direccionEnvio;
+        this.metodoPago = metodoPago;
+        this.carrito = carrito;
+        this.cliente = cliente;
+    }
+
+    
+    
+    /**
      * Permite obtener el número de este Pedido.
      * @return Objeto String que representa el número del Pedido.
      */
