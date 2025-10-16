@@ -25,9 +25,10 @@ public class Libro {
     private String editorial;
     private int noPaginas;
     private Date fechaPublicacion;
-    private List<Resenia> resenia;
+    private List<Resenia> resenias;
 
-    public Libro(int id, String titulo, String isbn, double precio, String descripcion, int stock, String imagen, Categoria categoria, String editorial, int noPaginas, Date fechaPublicacion) {
+    public Libro(int id, String titulo, String isbn, double precio, String descripcion, int stock, String imagen, Categoria categoria, String editorial, 
+            int noPaginas, Date fechaPublicacion) {
         this.id = id;
         this.titulo = titulo;
         this.isbn = isbn;
@@ -39,7 +40,7 @@ public class Libro {
         this.editorial = editorial;
         this.noPaginas = noPaginas;
         this.fechaPublicacion = fechaPublicacion;
-        this.resenia = new ArrayList<>();
+        this.resenias = new ArrayList<>();
     }
 
     public int getId() {
@@ -130,12 +131,12 @@ public class Libro {
         this.fechaPublicacion = fechaPublicacion;
     }
 
-    public List<Resenia> getResenia() {
-        return resenia;
+    public List<Resenia> getResenias() {
+        return resenias;
     }
 
-    public void setResenia(List<Resenia> resenia) {
-        this.resenia = new ArrayList<>();
+    public void setResenias(List<Resenia> resenia) {
+        this.resenias = new ArrayList<>();
     }
 
 }
