@@ -4,7 +4,10 @@ package dominio;
  * Clase abstracta que representa a un usuario del sistema. Puede ser un cliente
  * o un administrador.
  *
- * @author chris fitch lopez 252379
+ * @author Norma Alicia Beltrán Martín - 252102
+ * @author Oscar Adrián Castán López - 260318
+ * @author Chris Fitch Lopez - 252379
+ * @author Manuel Romo López - 253080
  */
 public abstract class Usuario {
 

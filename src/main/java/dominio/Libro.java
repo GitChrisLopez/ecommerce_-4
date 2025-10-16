@@ -8,7 +8,10 @@ import java.util.List;
  * Representa un libro dentro del catalogo del sistema de comercio. Contiene
  * informacion basica del producto, su categoria y sus resenias.
  *
- * @author chris fitch lopez 252379
+ * @author Norma Alicia Beltrán Martín - 252102
+ * @author Oscar Adrián Castán López - 260318
+ * @author Chris Fitch Lopez - 252379
+ * @author Manuel Romo López - 253080
  */
 public class Libro {
 

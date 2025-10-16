@@ -1,18 +1,16 @@
-
 package dominio;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Cliente.java 
- * Clase que representa a un cliente del sistema. Extiende de
+ * Cliente.java Clase que representa a un cliente del sistema. Extiende de
  * Usuario y contiene información específica como su teléfono, direcciones de
  * envío, el carrito de compras actual y el historial de pedidos.
  *
  * @author Norma Alicia Beltrán Martín - 252102
- * @author
- * @author
+ * @author Oscar Adrián Castán López - 260318
+ * @author Chris Fitch Lopez - 252379
  * @author Manuel Romo López - 253080
  *
  * Fecha: 15/10/2025
@@ -42,9 +40,9 @@ public class Cliente extends Usuario {
     private List<Pedido> pedidos;
 
     /**
-     * Constructor para inicializar una instancia de Cliente.
-     * Llama al constructor de la superclase (Usuario) para establecer
-     * los datos básicos.
+     * Constructor para inicializar una instancia de Cliente. Llama al
+     * constructor de la superclase (Usuario) para establecer los datos básicos.
+     *
      * @param id Dato int que representa el id del Cliente.
      * @param nombre Objeto String que representa el nombre del Cliente.
      * @param correo Objeto String que representa el correo electrónico del
