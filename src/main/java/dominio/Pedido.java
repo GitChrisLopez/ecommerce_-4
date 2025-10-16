@@ -1,8 +1,8 @@
 
-package Dominio;
+package dominio;
 
-import Dominio.enums.MetodoPago;
-import Dominio.enums.Estado;
+import dominio.enumeradores.MetodoPago;
+import dominio.enumeradores.Estado;
 import java.time.LocalDateTime;
 
 /**

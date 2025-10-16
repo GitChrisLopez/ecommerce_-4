@@ -1,5 +1,5 @@
 
-package Dominio;
+package dominio;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;

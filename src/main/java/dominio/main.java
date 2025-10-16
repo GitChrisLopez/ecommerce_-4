@@ -1,6 +1,6 @@
 
 
-package Dominio;
+package dominio;
 
 /**
  *

@@ -1,5 +1,5 @@
 
-package Dominio.enums;
+package dominio.enumeradores;
 
 /**
  *
