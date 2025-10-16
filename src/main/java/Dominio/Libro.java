@@ -1,11 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Dominio;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -24,11 +21,11 @@ public class Libro {
     private Categoria categoria;
     private String editorial;
     private int noPaginas;
-    private Date fechaPublicacion;
+    private LocalDateTime fechaPublicacion;
     private List<Resenia> resenias;
 
     public Libro(Long id, String titulo, String isbn, double precio, String descripcion, int stock, String imagen, Categoria categoria, String editorial, 
-            int noPaginas, Date fechaPublicacion) {
+            int noPaginas, LocalDateTime fechaPublicacion) {
         this.id = id;
         this.titulo = titulo;
         this.isbn = isbn;
@@ -115,11 +112,11 @@ public class Libro {
         this.noPaginas = noPaginas;
     }
 
-    public Date getFechaPublicacion() {
+    public LocalDateTime getFechaPublicacion() {
         return fechaPublicacion;
     }
 
-    public void setFechaPublicacion(Date fechaPublicacion) {
+    public void setFechaPublicacion(LocalDateTime fechaPublicacion) {
         this.fechaPublicacion = fechaPublicacion;
     }
 

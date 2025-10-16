@@ -7,8 +7,8 @@ package Dominio;
  */
 public class Categoria {
     
-    Long id;
-    String nombre;
+    private Long id;
+    private String nombre;
 
     public Categoria(Long id, String nombre) {
         this.id = id;

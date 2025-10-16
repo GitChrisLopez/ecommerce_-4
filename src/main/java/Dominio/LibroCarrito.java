@@ -4,9 +4,9 @@ package Dominio;
 
 public class LibroCarrito {
     
-    Long id;
-    int cantidad;
-    double precioUnitario;
+    private Long id;
+    private int cantidad;
+    private double precioUnitario;
 
     public LibroCarrito(Long id, int cantidad, double precioUnitario) {
         this.id = id;

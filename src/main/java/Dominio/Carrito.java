@@ -9,9 +9,9 @@ import java.util.List;
  */
 public class Carrito {
     
-    int id;
-    double total;
-    List<LibroCarrito> libros;
+    private int id;
+    private double total;
+    private List<LibroCarrito> libros;
 
     public Carrito(int id, double total, List<LibroCarrito> libros) {
         this.id = id;

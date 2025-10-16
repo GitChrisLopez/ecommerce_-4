@@ -1,6 +1,7 @@
 
 package Dominio;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
@@ -12,10 +13,10 @@ public class Resenia {
     private Libro libro;
     private int calificacion;
     private String comentario;
-    private Date fecha;
+    private LocalDateTime fecha;
     private Usuario usuario;
 
-    public Resenia(Long id, Libro libro, int calificacion, String comentario, Date fecha, Usuario usuario) {
+    public Resenia(Long id, Libro libro, int calificacion, String comentario, LocalDateTime fecha, Usuario usuario) {
         this.id = id;
         this.libro = libro;
         this.calificacion = calificacion;
@@ -48,11 +49,11 @@ public class Resenia {
         this.comentario = comentario;
     }
 
-    public Date getFecha() {
+    public LocalDateTime getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(LocalDateTime fecha) {
         this.fecha = fecha;
     }
 
