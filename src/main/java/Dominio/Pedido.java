@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
  * Clase que representa un pedido realizado por un Cliente
  * al finalizar una compra y realizar su pago.
  * 
- * @author 
+ * @author Norma Alicia Beltrán Martín - 252102
  * @author 
  * @author 
  * @author Manuel Romo López - 253080

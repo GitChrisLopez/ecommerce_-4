@@ -10,13 +10,13 @@ package Dominio;
  */
 public abstract class Usuario {
 
-    private int id;
+    private Long id;
     private String nombre;
     private String correo;
     private String contrasenia;
     private boolean activo;
 
-    public Usuario(int id, String nombre, String correo, String contrasenia) {
+    public Usuario(Long id, String nombre, String correo, String contrasenia) {
         this.id = id;
         this.nombre = nombre;
         this.correo = correo;
@@ -24,11 +24,11 @@ public abstract class Usuario {
         this.activo = true;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
