@@ -73,15 +73,6 @@ public class Direccion {
     }
 
     /**
-     * Permite establecer el id de esta Dirección.
-     *
-     * @param id Dato Long que representa el id de la Dirección.
-     */
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    /**
      * Permite obtener el código postal de esta Dirección.
      *
      * @return Objeto String que representa el código postal.

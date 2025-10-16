@@ -104,6 +104,13 @@ public class Libro {
     }
 
     /**
+     * @return identificador del libro.
+     */
+    public Long getId() {
+        return id;
+    }
+
+    /**
      * @return titulo del libro
      */
     public String getTitulo() {

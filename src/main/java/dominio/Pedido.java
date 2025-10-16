@@ -1,4 +1,3 @@
-
 package dominio;
 
 import dominio.enumeradores.MetodoPago;
@@ -7,18 +6,18 @@ import java.time.LocalDateTime;
 
 /**
  *
- * Pedido.java
- * Clase que representa un pedido realizado por un Cliente
- * al finalizar una compra y realizar su pago.
- * 
+ * Pedido.java Clase que representa un pedido realizado por un Cliente al
+ * finalizar una compra y realizar su pago.
+ *
  * @author Norma Alicia Beltrán Martín - 252102
- * @author 
- * @author 
+ * @author
+ * @author
  * @author Manuel Romo López - 253080
- * 
+ *
  * Fecha: 15/10/2025
  */
 public class Pedido {
+
     /**
      * Dato Long que representa el id del Pedido.
      */
@@ -32,7 +31,7 @@ public class Pedido {
      */
     private LocalDateTime fecha;
     /**
-     * Objeto 
+     * Objeto
      */
     private Estado estado;
     /**
@@ -40,16 +39,16 @@ public class Pedido {
      */
     private Direccion direccionEnvio;
     /**
-     * Objeto MetodoPago que representa el método de pago que se utilizó
- para pagar el Pedido.
+     * Objeto MetodoPago que representa el método de pago que se utilizó para
+     * pagar el Pedido.
      */
     private MetodoPago metodoPago;
     /**
-     * Objeto Carrito que representa el Carrito a partir del cual
-     * se realizó el Pedido.
+     * Objeto Carrito que representa el Carrito a partir del cual se realizó el
+     * Pedido.
      */
     private Carrito carrito;
-    
+
     /**
      * Objeto Cliente que representa el Cliente que realizó el Pedido.
      */
@@ -57,14 +56,19 @@ public class Pedido {
 
     /**
      * Constructor para inicializar una instancia del Pedido.
-     * 
+     *
      * @param id Dato Long que representa el id del Pedido.
      * @param numeroUnico Objeto String que representa el número del Pedido.
-     * @param fecha Objeto LocalDateTime que representa la fecha de realización del Pedido.
-     * @param direccionEnvio Objeto Direccion que representa la dirección de envío del Pedido.
-     * @param metodoPago Objeto MetodoPago que representa el método de pago con el que se pagó el Pedido.
-     * @param carrito Objeto Carrito que representa el carrito a partir del cual se creó el Pedido.
-     * @param cliente Objeto Cliente que representa el Cliente que realizó el Pedido.
+     * @param fecha Objeto LocalDateTime que representa la fecha de realización
+     * del Pedido.
+     * @param direccionEnvio Objeto Direccion que representa la dirección de
+     * envío del Pedido.
+     * @param metodoPago Objeto MetodoPago que representa el método de pago con
+     * el que se pagó el Pedido.
+     * @param carrito Objeto Carrito que representa el carrito a partir del cual
+     * se creó el Pedido.
+     * @param cliente Objeto Cliente que representa el Cliente que realizó el
+     * Pedido.
      */
     public Pedido(Long id, String numeroUnico, LocalDateTime fecha, Direccion direccionEnvio, MetodoPago metodoPago, Carrito carrito, Cliente cliente) {
         this.id = id;
@@ -77,7 +81,15 @@ public class Pedido {
     }
 
     /**
+     * @return identificador del pedido.
+     */
+    public Long getId() {
+        return id;
+    }
+
+    /**
      * Permite obtener el número de este Pedido.
+     *
      * @return Objeto String que representa el número del Pedido.
      */
     public String getNumeroUnico() {
@@ -86,6 +98,7 @@ public class Pedido {
 
     /**
      * Permite establecer el número de este Pedido.
+     *
      * @param numeroUnico Objeto String que representa el número del Pedido.
      */
     public void setNumeroUnico(String numeroUnico) {
@@ -94,7 +107,9 @@ public class Pedido {
 
     /**
      * Permite obtener la fecha de realización del Pedido.
-     * @return Objeto LocalDateTime que representa la fecha en que se hizo el Pedido.
+     *
+     * @return Objeto LocalDateTime que representa la fecha en que se hizo el
+     * Pedido.
      */
     public LocalDateTime getFecha() {
         return fecha;
@@ -102,7 +117,9 @@ public class Pedido {
 
     /**
      * Permite establecer la fecha de realización del Pedido.
-     * @param fecha bjeto LocalDateTime que representa la fecha en que se hizo el Pedido.
+     *
+     * @param fecha bjeto LocalDateTime que representa la fecha en que se hizo
+     * el Pedido.
      */
     public void setFecha(LocalDateTime fecha) {
         this.fecha = fecha;
@@ -110,6 +127,7 @@ public class Pedido {
 
     /**
      * Permite obtener el estado del Pedido.
+     *
      * @return Objeto Estado que representa el Estado del Pedido.
      */
     public Estado getEstado() {
@@ -118,6 +136,7 @@ public class Pedido {
 
     /**
      * Permite establecer el estado del Pedido.
+     *
      * @param estado Objeto Estado que representa el Estado del Pedido.
      */
     public void setEstado(Estado estado) {
@@ -126,6 +145,7 @@ public class Pedido {
 
     /**
      * Permite obtener la dirección de envío del Pedido.
+     *
      * @return Objeto Direccion que representa la dirección de envío del Pedido.
      */
     public Direccion getDireccionEnvio() {
@@ -134,7 +154,9 @@ public class Pedido {
 
     /**
      * Permite establecer la dirección de envío del Pedido.
-     * @param direccionEnvio  Objeto Direccion que representa la dirección de envío del Pedido.
+     *
+     * @param direccionEnvio Objeto Direccion que representa la dirección de
+     * envío del Pedido.
      */
     public void setDireccionEnvio(Direccion direccionEnvio) {
         this.direccionEnvio = direccionEnvio;
@@ -142,7 +164,9 @@ public class Pedido {
 
     /**
      * Permite obtener el método de pago del Pedido.
-     * @return Objeto MetodoPago que representa el método de pago con el que se realizó el pedido.
+     *
+     * @return Objeto MetodoPago que representa el método de pago con el que se
+     * realizó el pedido.
      */
     public MetodoPago getMetodoPago() {
         return metodoPago;
@@ -150,7 +174,9 @@ public class Pedido {
 
     /**
      * Permite establecer el método de pago del Pedido.
-     * @param tipoPago Objeto MetodoPago que representa el método de pago con el que se realiza el pedido.
+     *
+     * @param tipoPago Objeto MetodoPago que representa el método de pago con el
+     * que se realiza el pedido.
      */
     public void setTipoPago(MetodoPago metodoPago) {
         this.metodoPago = metodoPago;
@@ -158,7 +184,9 @@ public class Pedido {
 
     /**
      * Permite obtener el Carrito a partir del cual se creó el Pedido.
-     * @return Objeto Carrito que representa el Carrito a partir del cual se creó el Pedido.
+     *
+     * @return Objeto Carrito que representa el Carrito a partir del cual se
+     * creó el Pedido.
      */
     public Carrito getCarrito() {
         return carrito;
@@ -166,7 +194,9 @@ public class Pedido {
 
     /**
      * Permite establecer el Carrito a partir del cual se crea el Pedido.
-     * @param carrito Objeto Carrito que representa el Carrito a partir del cual se crea el Pedido.
+     *
+     * @param carrito Objeto Carrito que representa el Carrito a partir del cual
+     * se crea el Pedido.
      */
     public void setCarrito(Carrito carrito) {
         this.carrito = carrito;
@@ -174,6 +204,7 @@ public class Pedido {
 
     /**
      * Permite obtener el Cliente que realizó el Pedido.
+     *
      * @return Objeto Cliente que realizó el Pedido.
      */
     public Cliente getCliente() {
@@ -182,14 +213,11 @@ public class Pedido {
 
     /**
      * Permite establecer el Cliente que realizó el Pedido.
+     *
      * @param cliente Objeto Cliente que realizó el Pedido.
      */
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
-    
-    
-    
-    
-    
+
 }

@@ -61,6 +61,13 @@ public class Resenia {
     }
 
     /**
+     * @return identificador de la resenia.
+     */
+    public Long getId() {
+        return id;
+    }
+
+    /**
      * @return libro reseñado
      */
     public Libro getLibro() {

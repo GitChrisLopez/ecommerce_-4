@@ -1,4 +1,3 @@
-
 package dominio;
 
 /**
@@ -6,7 +5,7 @@ package dominio;
  * @author Adrián
  */
 public class Categoria {
-    
+
     private Long id;
     private String nombre;
 
@@ -28,6 +27,7 @@ public class Categoria {
         return id;
     }
 
+
     /**
      * Metodo que obtiene el nombre de la categoria
      * @return el nombre de la categoria buscada
@@ -43,6 +43,5 @@ public class Categoria {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    
-    
+
 }

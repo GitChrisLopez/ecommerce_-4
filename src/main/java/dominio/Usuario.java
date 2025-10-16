@@ -56,12 +56,6 @@ public abstract class Usuario {
         return id;
     }
 
-    /**
-     * @param id nuevo identificador
-     */
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     /**
      * @return nombre del usuario

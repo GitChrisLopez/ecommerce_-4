@@ -22,6 +22,13 @@ public class LibroCarrito {
         this.cantidad = cantidad;
         this.precioUnitario = precioUnitario;
     }
+    
+    /**
+     * @return identificador del libroCarrito.
+     */
+    public Long getId() {
+        return id;
+    }
 
     /**
      * Metodo que obtiene el ID del LibroCarrito
