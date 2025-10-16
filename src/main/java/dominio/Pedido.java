@@ -76,8 +76,6 @@ public class Pedido {
         this.cliente = cliente;
     }
 
-    
-    
     /**
      * Permite obtener el número de este Pedido.
      * @return Objeto String que representa el número del Pedido.
