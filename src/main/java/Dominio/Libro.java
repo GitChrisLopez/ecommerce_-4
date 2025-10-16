@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class Libro {
 
-    private int id;
+    private Long id;
     private String titulo;
     private String isbn;
     private double precio;
@@ -27,7 +27,7 @@ public class Libro {
     private Date fechaPublicacion;
     private List<Resenia> resenias;
 
-    public Libro(int id, String titulo, String isbn, double precio, String descripcion, int stock, String imagen, Categoria categoria, String editorial, 
+    public Libro(Long id, String titulo, String isbn, double precio, String descripcion, int stock, String imagen, Categoria categoria, String editorial, 
             int noPaginas, Date fechaPublicacion) {
         this.id = id;
         this.titulo = titulo;
@@ -41,14 +41,6 @@ public class Libro {
         this.noPaginas = noPaginas;
         this.fechaPublicacion = fechaPublicacion;
         this.resenias = new ArrayList<>();
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getTitulo() {

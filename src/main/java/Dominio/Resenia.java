@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Dominio;
 
 import java.util.Date;
@@ -11,28 +8,20 @@ import java.util.Date;
  * @author chris
  */
 public class Resenia {
-    private int id;
+    private Long id;
     private Libro libro;
     private int calificacion;
     private String comentario;
     private Date fecha;
     private Usuario usuario;
 
-    public Resenia(int id, Libro libro, int calificacion, String comentario, Date fecha, Usuario usuario) {
+    public Resenia(Long id, Libro libro, int calificacion, String comentario, Date fecha, Usuario usuario) {
         this.id = id;
         this.libro = libro;
         this.calificacion = calificacion;
         this.comentario = comentario;
         this.fecha = fecha;
         this.usuario = usuario;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public Libro getLibro() {

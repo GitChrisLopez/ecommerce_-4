@@ -1,6 +1,7 @@
 
 package Dominio;
 
+import Dominio.enums.Estado;
 import java.time.LocalDateTime;
 
 /**
