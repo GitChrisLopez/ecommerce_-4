@@ -4,10 +4,6 @@
  */
 package Dominio;
 
-import Dominio.enums.Rol;
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  *
  * @author chris
@@ -17,24 +13,12 @@ public class Usuario {
     private String nombre;
     private String correo;
     private String contrasenia;
-    private String telefono;
-    private Rol rol;
-    private List<Direccion> direcciones;
-    private Carrito carrito;
-    private boolean activo;
-    private List<Pedido> pedidos;
 
-    public Usuario(int id, String nombre, String correo, String contrasenia, String telefono, Rol rol, Carrito carrito, boolean activo) {
+    public Usuario(int id, String nombre, String correo, String contrasenia) {
         this.id = id;
         this.nombre = nombre;
         this.correo = correo;
         this.contrasenia = contrasenia;
-        this.telefono = telefono;
-        this.rol = rol;
-        this.carrito = carrito;
-        this.activo = activo;
-        this.direcciones = new ArrayList<>();
-        this.pedidos = new ArrayList<>();
     }
 
     public int getId() {
@@ -69,53 +53,7 @@ public class Usuario {
         this.contrasenia = contrasenia;
     }
 
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
-
-    public Rol getRol() {
-        return rol;
-    }
-
-    public void setRol(Rol rol) {
-        this.rol = rol;
-    }
-
-    public List<Direccion> getDirecciones() {
-        return direcciones;
-    }
-
-    public void setDirecciones(List<Direccion> direcciones) {
-        this.direcciones = direcciones;
-    }
-
-    public Carrito getCarrito() {
-        return carrito;
-    }
-
-    public void setCarrito(Carrito carrito) {
-        this.carrito = carrito;
-    }
-
-    public boolean isActivo() {
-        return activo;
-    }
-
-    public void setActivo(boolean activo) {
-        this.activo = activo;
-    }
-
-    public List<Pedido> getPedidos() {
-        return pedidos;
-    }
-
-    public void setPedidos(List<Pedido> pedidos) {
-        this.pedidos = pedidos;
-    }
+   
     
     
 }
