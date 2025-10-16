@@ -8,17 +8,20 @@ package Dominio;
  *
  * @author chris
  */
-public class Usuario {
+public abstract class Usuario {
+
     private int id;
     private String nombre;
     private String correo;
     private String contrasenia;
+    private boolean activo;
 
     public Usuario(int id, String nombre, String correo, String contrasenia) {
         this.id = id;
         this.nombre = nombre;
         this.correo = correo;
         this.contrasenia = contrasenia;
+        this.activo = true;
     }
 
     public int getId() {
@@ -53,7 +56,12 @@ public class Usuario {
         this.contrasenia = contrasenia;
     }
 
-   
-    
-    
+    public boolean isActivo() {
+        return activo;
+    }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
+    }
+
 }
