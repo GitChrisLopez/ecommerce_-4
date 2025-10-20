@@ -114,6 +114,7 @@ main{
 }
 
 
+
 @media (min-width: 770px) {
     .body-container {
         display: flex;
@@ -176,6 +177,10 @@ main{
     .libros-container {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .options-lookup{
+        padding: 0px;
     }
 
 }
