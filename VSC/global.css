@@ -10,9 +10,12 @@
     --bg-color-login: #ECECEC;
 
     --color-text-dark-grey: #38394B;
+    --color-title-dark-blue: #2A3183;
+    --color-text-blue: #3A42A4;
 
     --bg-color-light-purple: #8C90CA;
     --bg-color-purple: #837cb8;
+    --bg-color-grey-purple: #5B5F8C;
 }
 
 body{

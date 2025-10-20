@@ -1,10 +1,16 @@
 @import url('./global.css');
 
+.nav-links li:nth-child(2) { 
+    order: 5;
+}
+
 nav {
-    display: flex; 
+    display: flex;
+    flex-direction: column;
     justify-content: space-between; 
     align-items: center; 
-    padding: 15px 50px; 
+    width: 100px; 
+    padding: 15px 0;
 }
 
 .nav-links {
@@ -12,10 +18,17 @@ nav {
     padding: 0;
     margin: 0;
     display: flex; 
+    flex-direction: column;
     align-items: center; 
+    gap: 50px;
 }
 
 .nav-btn {
+    display: none;
+}
+
+.iniciar-sesion{
+    display: block;
     text-decoration: none; 
     color: white; 
     font-weight: bold; 
@@ -24,27 +37,16 @@ nav {
     cursor: pointer;
 }
 
-.c-btn{
-    background-color: var(--bg-color-catalogo);
-    padding: 5px;
-    border-radius: 20px;;
-}
-
 .home {
-    background-color: var(--bg-color-home-dark-grey);
-    border-radius: 40%;
     cursor: pointer;
-    width: 40px; 
-    height: 40px; 
+    width: 60px; 
+    height: 60px; 
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right: 15px; 
-    margin-top: 0;
-    margin-bottom: 0;
 }
 
-.home-icon, .user-icon, .carrito-icon {
+.home-icon, .user-icon, .carrito-icon, .catalogo-icon, .pedidos-icon {
     width: 60%; 
     height: 60%; 
     object-fit: contain;
@@ -52,8 +54,8 @@ nav {
 
 .user {
     cursor: pointer;
-    width: 90px; 
-    height: 90px; 
+    width: 70px; 
+    height: 70px; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -61,10 +63,102 @@ nav {
 
 .carrito {
     cursor: pointer;
-    width: 50px; 
-    height: 50px; 
+    width: 60px; 
+    height: 60px; 
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.catalogo {
+    cursor: pointer;
+    width: 60px; 
+    height: 60px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pedidos {
+    cursor: pointer;
+    width: 60px; 
+    height: 60px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (min-width: 770px) {
+    
+    .nav-links li:nth-child(2) { 
+        order: 2;
+    }
+
+    .nav-links li:nth-child(3) { 
+        order: 3;
+    }
+
+    nav {
+        flex-direction: row;
+        width: auto;
+    }
+
+    .nav-links {
+        flex-direction: row;
+        gap: 1px;
+    }
+
+    .nav-btn {
+        display: block;
+        text-decoration: none; 
+        color: white; 
+        font-weight: bold; 
+        font-size: 20px;
+        padding: 8px 15px;
+        cursor: pointer;
+    }
+
+    .c-btn{
+        background-color: var(--bg-color-catalogo);
+        padding: 5px;
+        border-radius: 20px;;
+    }
+
+    .home {
+        background-color: var(--bg-color-home-dark-grey);
+        border-radius: 40%;
+        cursor: pointer;
+        width: 40px; 
+        height: 40px; 
+        margin-right: 15px; 
+        margin-top: 0;
+        margin-bottom: 0;
+        margin-left: 25px;
+    }
+
+    .home-icon, .user-icon, .carrito-icon {
+        width: 60%; 
+        height: 60%; 
+        object-fit: contain;
+    }
+
+    .user {
+        width: 90px; 
+        height: 90px; 
+    }
+
+    .carrito {
+        width: 50px; 
+        height: 50px; 
+    }
+
+    .catalogo{
+        display: none;
+    }
+
+    .pedidos{
+        display: none;
+    }
+
 }
 
