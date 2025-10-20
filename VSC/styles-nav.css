@@ -1,0 +1,64 @@
+@import url('./global.css');
+
+nav {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 15px 50px; 
+}
+
+.nav-links {
+    list-style: none; 
+    padding: 0;
+    margin: 0;
+    display: flex; 
+    align-items: center; 
+}
+
+.nav-btn {
+    text-decoration: none; 
+    color: white; 
+    font-weight: bold; 
+    font-size: 20px;
+    padding: 8px 15px;
+    cursor: pointer;
+}
+
+.home {
+    background-color: var(--bg-color-home-dark-grey);
+    border-radius: 40%;
+    cursor: pointer;
+    width: 40px; 
+    height: 40px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px; 
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.home-icon, .user-icon, .carrito-icon {
+    width: 60%; 
+    height: 60%; 
+    object-fit: contain;
+}
+
+.user {
+    cursor: pointer;
+    width: 90px; 
+    height: 90px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carrito {
+    cursor: pointer;
+    width: 50px; 
+    height: 50px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
