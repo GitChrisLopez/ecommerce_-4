@@ -24,6 +24,12 @@ nav {
     cursor: pointer;
 }
 
+.catalogo-btn{
+    background-color: var(--bg-color-catalogo);
+    padding: 5px;
+    border-radius: 20px;;
+}
+
 .home {
     background-color: var(--bg-color-home-dark-grey);
     border-radius: 40%;
