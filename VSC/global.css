@@ -19,8 +19,11 @@
     --bg-color-grey-purple: #5B5F8C;
 
     --bg-color-dark-dark-blue: #020742;
+
+    --bg-color-dark-red: #D00003;
 }
 
 body{
     background-color: var(--bg-color-dark-blue);
 }
+
