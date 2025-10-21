@@ -1,0 +1,141 @@
+
+:root{
+
+    --cancel-color:#C41818;
+    --save-color:#0E1AA8;
+    --color-botones:#A5F2A6;
+
+}
+
+body{
+    display: flex;
+    font-size: 1.8rem;
+    background-color: white;
+}
+
+input, button, textarea{
+
+    font-size: 1.8rem;
+    border-radius: 10px;
+    width: 100%;
+    border:1px solid rgb(0, 0, 0);
+}
+
+.buttons input, button{
+
+    cursor:pointer;
+}
+
+textarea{
+    height: 200px;
+}
+
+.book-edition-content{
+
+    background-color: white;
+    width: 100%;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    padding: 20px;
+}
+
+form div{
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+}
+
+form button{
+    width: 50%;
+    align-self: end;
+    background-color: var(--color-botones);
+}
+
+.buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    column-gap: 20px;
+}
+
+.buttons input{
+    color:white;
+}
+
+.cancel-input{
+
+    background-color: var(--cancel-color);
+
+}
+
+.save-input{
+
+    background-color: var(--save-color);
+
+}
+
+@media (min-width: 770px) {
+    
+    body{
+        flex-direction: column;
+        font-size: 1.5rem;
+    }
+
+    input, button, textarea{
+
+        font-size: 1.5rem;
+        border-radius: 10px;
+        width: 100%;
+        border:1px solid rgb(0, 0, 0);
+    }
+
+    form div{
+        display: flex;
+        flex-direction: row;
+        column-gap: 1%;
+    }
+
+    form label{
+        width: 20%;
+        text-align: right;
+    }
+
+    form input{
+        width: 60%;
+    }
+
+    form button{
+        width: 20%;
+    }
+
+    .div-publication label, .div-synopsis label{
+
+        width: 19.5%;
+
+    }
+
+    .div-publication input, .div-synopsis textarea{
+
+        width: 58.5%;
+
+    }
+
+    .buttons input{
+
+        width: 11%;
+
+    }
+
+    .buttons{
+
+        padding-top:5%;
+        justify-content: end;
+
+    }
+
+
+}

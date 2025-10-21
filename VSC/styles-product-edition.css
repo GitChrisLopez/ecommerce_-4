@@ -1,2 +1,217 @@
 
 
+:root{
+
+    --color-botones:#A5F2A6;
+}
+
+
+body{
+    display: flex;
+    font-size: 1.8rem;
+    font-weight: 700;
+
+
+}
+
+button{
+    cursor: pointer;
+    background-color: var(--color-botones); 
+    font-size: 1.8rem; 
+    font-weight: 700;
+    margin-top: 5%;
+    border-radius: 6px;
+}
+
+
+.product-edition-content{
+    background-color: white;
+    width: 100%;
+    position: relative;
+}
+
+.form-grid-container{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-auto-rows: 40vh 60vh;
+
+}
+
+.image-product{
+    grid-row: 1 / 2;
+    grid-column: 1 / 2;
+    align-content: center;
+    padding: 2%;
+    display: grid;
+    
+}
+
+.image-product img{
+    grid-column: 1 / 3;
+    grid-row: 1 / 5;
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+}
+
+.container-icon-edition{
+    grid-column: 2 / 3;
+    grid-row: 4 / 5;
+    cursor: pointer;
+    background-color: black;
+    border-radius: 5px;
+    width: 50px;
+}
+
+.container-icon-edition img{
+    width: 50px;
+    filter: invert(1);
+}
+
+
+input, select, button{
+
+    font-size: 1.8rem;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    
+}
+
+
+.form-part-one{
+    display: flex;
+    flex-direction: column;
+    grid-row: 1 / 2;
+    grid-column: 2 / 3;
+    height: 100%;
+    justify-content: space-evenly;
+    padding: 0 6%;
+}
+
+.form-part-two{
+    display: flex;
+    flex-direction: column;
+    grid-row: 2 / 3;
+    grid-column: 1 / 3;
+    height: 100%;
+    justify-content: start;
+    row-gap: 15%;
+    padding: 10% 6%;
+}
+
+.form-part-two div{
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 770px) {
+    
+    body{
+        flex-direction: column;
+        font-size: 1.5rem;
+    }
+
+    label{
+        text-align: right;
+    }
+
+    input, button, select{
+        font-size: 1.5rem;
+    }
+
+    .form-grid-container{
+        display: grid;
+        grid-template-columns: 25% 70%;
+        grid-template-rows: 10vh 19vh 27vh 50vh;
+    }
+
+
+    .image-product{
+        grid-row: 2 / 4;
+        grid-column: 1 / 2;
+        align-content: start;
+        padding: 22px;
+        display: flex;
+        align-items: end;
+        
+    }
+
+    .image-product img{
+        object-fit: cover;
+        object-position: center;
+        width: 100%;
+        min-width: 200px;
+        max-width: 290px;
+    }
+
+    .container-icon-edition{
+        position: static;
+        cursor: pointer;
+        background-color: rgba(0, 0, 0, 0);
+        border-radius: 5px;
+        width: 50px;
+    }
+
+    .container-icon-edition img{
+        position: static;
+        width: 100%;
+        filter: invert(0);
+    }
+
+
+    .form-part-one{
+        grid-row: 2 / 3;
+        justify-content: space-evenly;   
+        padding: 0;
+        height: auto;
+        
+    }
+
+    .form-part-two{
+        grid-row: 3 / 4;
+        grid-column: 2 / 3;
+        justify-content: space-evenly; 
+        height: auto;
+        padding: 0;
+    }
+
+    .form-part-one div{
+        display: flex;
+        flex-direction: row;
+        column-gap: 1%;
+    }
+
+    .form-part-two div{
+        display: flex;
+        flex-direction: row;
+        column-gap: 1%;
+    }
+
+    .form-part-one label{
+        width: 20%;
+    }
+
+    .form-part-one input{
+        width: 60%;
+    }
+
+    button{
+        width: 20%;
+        margin-top: 0;
+    }
+
+    .form-part-one select{
+        width: 58.5%;
+    }
+
+    .form-part-two label{
+        width: 19.5%;
+    }
+
+    .form-part-two input{
+        width: 58.5%;
+    }
+
+}
