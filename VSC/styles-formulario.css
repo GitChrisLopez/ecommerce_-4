@@ -113,6 +113,7 @@ form{
         background-color: white;
         margin: 30px;
         padding: 40px;
+        border-radius: 30px;
     }
 
     .edicion-title{
