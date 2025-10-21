@@ -1,14 +1,17 @@
+
 <!DOCTYPE html>
 
 <html>
+
     <head>
         <title>Libros registrados</title>
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="./styles-nav.css">
-        <link rel="stylesheet" type="text/css" href="./styles-registered-books.css">
+        <link rel="stylesheet" type="text/css" href="./styles-author-edition.css">
     </head>
 
-    <body>
+        
+        <body>
         <main>
             <div class="c1">
                 <nav>
@@ -60,56 +63,40 @@
                 </nav>
             </div>
 
-            <div class="container-registered-books">
+            <div class="container-author-edition">
 
-                <div class="title-search">
+                <div class="title-container">
 
-                    <h1>Libros registrados</h1>
-
-                    <div class="search-bar">
-                        <input type="search" placeholder="Buscar" id="input-search">
-                        <label for="input-search">
-                            <img src="./icons/lupa.png">    
-                        </label>
-                    </div>
+                    <h1>Editar autor</h1>
 
                 </div>
 
-                <form class="container-book-list" id="form-books">
+                <form class="form-author-edition" id="form-author-edition">
 
-                    <input type = "radio" id="morir-arena" name="registered-books">
-                    <label for="morir-arena">
-                        <p>Morir en la arena (Andanzas)</p>
-                        <img src="icons/edition.png">                        
-                    </label>
-
-                    <input type = "radio" id="novela-vida" name="registered-books">
-                    <label for="novela-vida">
-                        <p>La novela de mi vida (Andanzas)</p>
-                        <img src="icons/edition.png">                        
-                    </label>
-
-                    <input type = "radio" id="ultimo-secreto" name="registered-books">
-                    <label for="ultimo-secreto">
-                        <p>El Último Secreto</p>
-                        <img src="icons/edition.png">                        
-                    </label>
-                </form>
-                
-                <div class="buttons">
-
-                        <div class="button-add">
-                            <input type="submit" value="Agregar" class="add-input" form="form-books">
-                        </div>
-
-                        <div class="buttons-cancel-save">
-                            <input type="submit" value="Cancelar" class="cancel-input" form="form-books">
-                            <input type="submit" value="Guardar" class="save-input" form="form-books">
-                        </div>
+                    <div class="name-container">
+                        <label>Nombre: </label>
+                        <input type="text" value="Leonardo" maxlength="50" required>
                     </div>
+                    
+                    <div class="last-name-1-container">
+                        <label>Apellido paterno: </label>
+                        <input type="text" value="Padura" maxlength="50" required>
+                    </div>
+                    
+                    <div class="last-name-2-container">
+                        <label>Apellido materno: </label>
+                        <input type="text" value="Fuentes" maxlength="50">
+                    </div>
+                    
+                </form>
 
+                <div class="buttons-cancel-save">
+                    <input type="button" value="Cancelar" class="cancel-input" form="form-author-edition">
+                    <input type="submit" value="Guardar" class="save-input" form="form-author-edition">
+                </div>
             </div>
                 
         </main>
     </body>
+
 </html>
