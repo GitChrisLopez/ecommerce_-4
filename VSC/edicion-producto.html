@@ -4,119 +4,120 @@
 <html>
 
     <head>
-        <title>Editar libro</title>
+        <title>Editar producto</title>
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="./styles-nav.css">
         <link rel="stylesheet" type="text/css" href="./styles-product-edition.css">
     </head>
 
     <body>
-        <div class="c1">
-            <nav>
-                <a href="./principal-registrado.html">
-                    <div class="home">
-                        <img src="./icons/home.svg" alt="home" class="home-icon"> 
-                    </div>
-                </a>
+        <main>
+            <div class="c1">
+                <nav>
+                    <a href="./principal-registrado.html">
+                        <div class="home">
+                            <img src="./icons/home.svg" alt="home" class="home-icon"> 
+                        </div>
+                    </a>
 
-                <ul class="nav-links">
-                    <li>
-                        <a href="./catalogo.html" class="nav-btn" target="_blank">Catálogo</a>
-                    </li>
-                    <li>
-                    <div class="carrito">
-                            <img src="./icons/carrito.png" alt="carrito" class="carrito-icon"> 
-                        </div>
-                    </li>
-                    <li>
-                        <div class="user">
-                            <img src="./icons/user.png" alt="user" class="user-icon"> 
-                        </div>
-                    </li>
-                    <li>
-                        <a href="./catalogo.html">
-                            <div class="catalogo">
-                                <img src="./icons/catalogo.png" alt="catalogo" class="catalogo-icon"> 
+                    <ul class="nav-links">
+                        <li>
+                            <a href="./catalogo.html" class="nav-btn" target="_blank">Catálogo</a>
+                        </li>
+                        <li>
+                        <div class="carrito">
+                                <img src="./icons/carrito.png" alt="carrito" class="carrito-icon"> 
                             </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./users.html">
-                            <div class="users">
-                                <img src="./icons/users.png" alt="usuarios" class="users-icon"> 
+                        </li>
+                        <li>
+                            <div class="user">
+                                <img src="./icons/user.png" alt="user" class="user-icon"> 
                             </div>
-                        </a>
-                    </li>
-                    <li>
-                        <div class="pedidos">
-                            <img src="./icons/pedidos.png" alt="pedidos" class="pedidos-icon"> 
+                        </li>
+                        <li>
+                            <a href="./catalogo.html">
+                                <div class="catalogo">
+                                    <img src="./icons/catalogo.png" alt="catalogo" class="catalogo-icon"> 
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./users.html">
+                                <div class="users">
+                                    <img src="./icons/users.png" alt="usuarios" class="users-icon"> 
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <div class="pedidos">
+                                <img src="./icons/pedidos.png" alt="pedidos" class="pedidos-icon"> 
+                            </div>
+                        </li>
+                        <li>
+                            <div class="payments">
+                                <img src="./icons/payments.png" alt="Pagos" class="payments-icon"> 
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <article class = "product-edition-content">
+
+                <form class = "form-grid-container">
+
+                    <div class="image-product">
+                        <img src = "imgs/morir-en-la-arena.png" alt="Producto Libro Morir en la arena">
+
+                        <div class="container-icon-edition">
+                            <img src = "icons/edition.png" alt = "Editar">
                         </div>
-                    </li>
-                    <li>
-                        <div class="payments">
-                            <img src="./icons/payments.png" alt="Pagos" class="payments-icon"> 
+                    </div>
+
+                    <div class="form-part-one">
+                        <div>
+                            <label>Libro: </label>
+                            <input type = "text" value="Morir en la arena (Andanzas)" readonly>
+                            <button>Seleccionar</button>
                         </div>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-        
 
-        <article class = "product-edition-content">
+                        <div>
+                            
+                        </div>
 
-            <form class = "form-grid-container">
-
-                <div class="image-product">
-                    <img src = "imgs/morir-en-la-arena.png" alt="Producto Libro Morir en la arena">
-
-                    <div class="container-icon-edition">
-                        <img src = "icons/edition.png" alt = "Editar">
-                    </div>
-                </div>
-
-                <div class="form-part-one">
-                    <div>
-                        <label>Libro: </label>
-                        <input type = "text" value="Morir en la arena (Andanzas)" readonly>
-                        <button>Seleccionar</button>
+                        <div>
+                            <label>Formato: </label>
+                            <select>
+                                <option>Tapa blanda</option>
+                                <option>Tapa dura</option>
+                                <option>E-Book</option>
+                            </select>
+                        </div>
                     </div>
 
-                    <div>
-                        
+                    <div class="form-part-two">
+                        <div>
+                            <label>No. de páginas: </label>
+                            <input type="number" min ="1">
+                        </div>
+
+                        <div>
+                            <label>Precio: </label>
+                            <input type="number" min ="1">
+                        </div>
+
+                        <div>
+                            <label>Stock: </label>
+                            <input type="number" min ="0">
+                        </div>
                     </div>
-
-                    <div>
-                        <label>Formato: </label>
-                        <select>
-                            <option>Tapa blanda</option>
-                            <option>Tapa dura</option>
-                            <option>E-Book</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="form-part-two">
-                    <div>
-                        <label>No. de páginas: </label>
-                        <input type="number" min ="1">
-                    </div>
-
-                    <div>
-                        <label>Precio: </label>
-                        <input type="number" min ="1">
-                    </div>
-
-                    <div>
-                        <label>Stock: </label>
-                        <input type="number" min ="0">
-                    </div>
-                </div>
-                
-            </form>
+                    
+                </form>
 
 
 
-        </article>
+            </article>
+        </main>
     </body>
 
 </html>

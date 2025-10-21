@@ -5,13 +5,17 @@
     --color-botones:#A5F2A6;
 }
 
+main{
+    display: flex;
+    background-color: white;
+    height: 100vh;
+}
 
 body{
-    display: flex;
+
     font-size: 1.8rem;
     font-weight: 700;
-
-
+    margin:0;
 }
 
 button{
@@ -109,8 +113,12 @@ input, select, button{
 @media (min-width: 770px) {
     
     body{
-        flex-direction: column;
+        
         font-size: 1.5rem;
+    }
+
+    main{
+        flex-direction: column;
     }
 
     label{
