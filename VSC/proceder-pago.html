@@ -9,6 +9,7 @@
 
   <body>
     <div class="body-container">
+      <!-- NAVBAR -->
       <div class="c1">
         <nav>
           <a href="./principal-registrado.html">
@@ -61,46 +62,55 @@
         </nav>
       </div>
 
+      <!-- CONTENIDO PRINCIPAL -->
       <div class="c2">
         <main>
-          <main>
-            <div class="pago-container">
-              <h3>Artículos</h3>
+          <div class="pago-container">
+            <h3>Artículos</h3>
 
-              <div class="resumen-compra">
-                <div class="libro-detalles">
-                  <p>Morir en la arena (Andanzas)
-                    <span class="espacio">----------------------------</span> 
-                    <span class="costo">$300.00 MXN</span></p>
-                </div>
-
-                <hr />
-
-                <br/>
-                <div class="linea total">
-                  <p><strong><strong>Total  
-                    <span class="espacio">---------------------------------------------------------</span>  
-                    <span class="costo">$300.00 MXN</span></strong></p>
-                </div>
+            <div class="resumen-compra">
+              <div class="libro-detalles">
+                <p>
+                  Morir en la arena (Andanzas)
+                  <span class="espacio">----------------------------</span>
+                  <span class="costo">$300.00 MXN</span>
+                </p>
               </div>
 
-              <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+              <hr />
 
-              <div class="direccion-container">
-                <label for="direccion"><strong>Enviar a:</strong></label><br/>
-                <br/>
-                <input
-                  class="input-direccion"
-                  type="text"
-                  id="direccion"
-                  name="direccion"
-                  readonly
-                />
-                <br/> <br />
-                <button class="btn-direccion">Seleccionar dirección</button>
+              <div class="linea total">
+                <p>
+                  <strong>
+                    Total
+                    <span class="espacio">
+                      ---------------------------------------------------------
+                    </span>
+                    <span class="costo">$300.00 MXN</span>
+                  </strong>
+                </p>
               </div>
             </div>
-          </main>
+
+            <br /><br />
+            <br /><br />
+            <div class="direccion-container">
+              <label for="direccion"><strong>Enviar a:</strong></label>
+              <br /><br />
+              <input
+                class="input-direccion"
+                type="text"
+                id="direccion"
+                name="direccion"
+                readonly
+              />
+              <br /><br />
+              <div class="botones-direccion">
+                <button class="btn-direccion">Seleccionar dirección</button>
+                <button class="btn-realizar-pedido">Realizar pedido</button>
+              </div>
+            </div>
+          </div>
         </main>
       </div>
     </div>
