@@ -46,7 +46,7 @@ nav {
     align-items: center;
 }
 
-.home-icon, .user-icon, .carrito-icon, .catalogo-icon, .pedidos-icon {
+.home-icon, .user-icon, .carrito-icon, .catalogo-icon, .pedidos-icon, .users-icon, .payments-icon {
     width: 60%; 
     height: 60%; 
     object-fit: contain;
@@ -83,6 +83,24 @@ nav {
     cursor: pointer;
     width: 60px; 
     height: 60px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.users{
+    cursor: pointer;
+    width: 60px; 
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.payments{
+    cursor: pointer;
+    width: 60px; 
+    height: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -159,6 +177,7 @@ nav {
     .pedidos{
         display: none;
     }
+
 
 }
 
