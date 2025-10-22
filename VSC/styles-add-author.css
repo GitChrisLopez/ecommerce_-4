@@ -3,7 +3,7 @@
 :root{
 
     --cancel-color:#C41818;
-    --save-color:#0E1AA8;
+    --add-color:#4263AA;
 
 }
 
@@ -58,12 +58,12 @@ input{
 
 }
 
-.buttons-cancel-save{
+.buttons-cancel-add{
     display: flex;
     justify-content: space-evenly;
 }
 
-.cancel-input, .save-input{
+.cancel-input, .add-input{
     color: white;
     font-weight: 500;
     border-radius: 20px;
@@ -79,9 +79,9 @@ input{
 
 }
 
-.save-input{
+.add-input{
 
-    background-color: var(--save-color);
+    background-color: var(--add-color);
 
 }
 
@@ -125,14 +125,14 @@ input{
         border: 1px solid black;
     }
 
-    .buttons-cancel-save{
+    .buttons-cancel-add{
         justify-content: end;
         column-gap: 20px;
         margin: 0 5%;
 
     }
 
-    .cancel-input, .save-input{
+    .cancel-input, .add-input{
         padding: 5px 30px;
         border-radius: 40px;
     }
