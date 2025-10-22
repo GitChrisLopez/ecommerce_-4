@@ -2,6 +2,7 @@
 :root{
 
     --cancel-color:#C41818;
+    --add-color:#4263AA;
     --save-color:#0E1AA8;
     --color-botones:#A5F2A6;
 
@@ -34,7 +35,7 @@ textarea{
     height: 200px;
 }
 
-.book-edition-content{
+.book-add-edition-content{
     padding: 2%;
     background-color: white;
     width: 100%;
@@ -81,6 +82,12 @@ form button{
 
 }
 
+.add-input{
+
+    background-color: var(--add-color);
+
+}
+
 @media (min-width: 770px) {
     
     main{
@@ -91,7 +98,7 @@ form button{
         font-size: 1.3rem;
     }
 
-    .book-edition-content{
+    .book-add-edition-content{
         margin-top: 3%;
         display: flex;
         width: 100%;
