@@ -4,7 +4,7 @@
 
     --cancel-color:#C41818;
     --add-color:#4263AA;
-
+    --save-color:#0E1AA8;
 }
 
 body{
@@ -24,7 +24,7 @@ input{
     font-size: 1.8rem;
 }
 
-.container-add-author{
+.container-add-edition-author{
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -32,12 +32,12 @@ input{
     row-gap: 60px;
 }   
 
-.container-add-author h1{
+.container-add-edition-author h1{
     justify-self: center;
 }   
 
 
-.form-add-author{
+.form-add-edition-author{
 
     display: flex;
     flex-direction: column;
@@ -52,18 +52,18 @@ input{
 
 }
 
-.form-add-author input{
+.form-add-edition-author input{
 
     width: 100%;
 
 }
 
-.buttons-cancel-add{
+.buttons-cancel-add-edition{
     display: flex;
     justify-content: space-evenly;
 }
 
-.cancel-input, .add-input{
+.cancel-input, .add-edition-input{
     color: white;
     font-weight: 500;
     border-radius: 20px;
@@ -82,6 +82,12 @@ input{
 .add-input{
 
     background-color: var(--add-color);
+
+}
+
+.edition-input{
+
+    background-color: var(--save-color);
 
 }
 
@@ -112,27 +118,27 @@ input{
 
     }
 
-    .form-add-author{
+    .form-add-edition-author{
         background-color: white;
         padding: 3% 5%;
         margin: 0 5%;
         border-radius: 20px;
     }
 
-    .form-add-author input{
+    .form-add-edition-author input{
         padding: 5px;
         border-radius: 10px;
         border: 1px solid black;
     }
 
-    .buttons-cancel-add{
+    .buttons-cancel-add-edition{
         justify-content: end;
         column-gap: 20px;
         margin: 0 5%;
 
     }
 
-    .cancel-input, .add-input{
+    .cancel-input, .add-edition-input{
         padding: 5px 30px;
         border-radius: 40px;
     }
