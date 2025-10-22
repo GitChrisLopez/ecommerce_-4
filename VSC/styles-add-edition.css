@@ -24,7 +24,7 @@ input{
     font-size: 1.8rem;
 }
 
-.container-add-edition-author{
+.container-add-edition{
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -32,12 +32,12 @@ input{
     row-gap: 60px;
 }   
 
-.container-add-edition-author h1{
+.container-add-edition h1{
     justify-self: center;
 }   
 
 
-.form-add-edition-author{
+.form-add-edition{
 
     display: flex;
     flex-direction: column;
@@ -52,7 +52,7 @@ input{
 
 }
 
-.form-add-edition-author input{
+.form-add-edition input{
 
     width: 100%;
 
@@ -118,14 +118,14 @@ input{
 
     }
 
-    .form-add-edition-author{
+    .form-add-edition{
         background-color: white;
         padding: 3% 5%;
         margin: 0 5%;
         border-radius: 20px;
     }
 
-    .form-add-edition-author input{
+    .form-add-edition input{
         padding: 5px;
         border-radius: 10px;
         border: 1px solid black;
