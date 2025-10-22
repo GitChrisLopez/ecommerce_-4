@@ -170,7 +170,9 @@ button:hover > .options-product{
     align-self: center;
 }
 
-
+.titulo{
+    padding-left: 30px;
+}
 
 @media (min-width: 770px) {
     .body-container {
