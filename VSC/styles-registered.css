@@ -2,8 +2,8 @@
 
 :root{
 
-    --color-registered-book-container:#E3E3E3;
-    --color-registered-book-container-hover:#ABABAB;
+    --color-registered-container:#E3E3E3;
+    --color-registered-container-hover:#ABABAB;
     --cancel-color:#C41818;
     --save-color:#0E1AA8;
     --add-color:#4263AA;
@@ -26,7 +26,7 @@ input{
     font-size: 1.1rem;
 }
 
-.container-registered-books{
+.container-registered{
     margin: 5%;
     display: flex;
     flex-direction: column;
@@ -74,59 +74,59 @@ input{
     height: 20px;
 }
 
-.container-book-list{
+.container-list{
     display: flex;
     flex-direction: column;
     row-gap: 10px;
     overflow-y: auto;
 }
 
-.container-book-list input{
+.container-list input{
     appearance: none;
 }
 
 
-.container-book-list label{
+.container-list label{
     cursor: pointer;
     display: flex;
     flex-direction: row;
-    background-color: var(--color-registered-book-container);
+    background-color: var(--color-registered-container);
     border-radius: 10px;
     transition: 0.25s;
     align-items: center;
     padding: 0 3%;
 }
 
-.container-book-list label:hover{
+.container-list label:hover{
 
-    background-color: var(--color-registered-book-container-hover); 
+    background-color: var(--color-registered-container-hover); 
 }
 
-.container-book-list input:checked + label {
+.container-list input:checked + label {
   background-color: black;
   color: white;
   cursor: default;
 }
 
-.container-book-list input:checked + label img {
+.container-list input:checked + label img {
   filter:invert(1);
 }
 
-.container-book-list p{
+.container-list p{
 
     margin-right: auto;
     
 }
 
 
-.container-book-list img{
+.container-list img{
 
     width: 40px;
     height: 40px;
     transition: 0.1s;   
 }
 
-.container-book-list img:hover{
+.container-list img:hover{
     cursor: pointer;
     filter:invert(1);
     
@@ -213,7 +213,7 @@ input{
         height: 34px;
     }
 
-    .container-book-list label{
+    .container-list label{
         padding: 0 1%;
     }
 
@@ -225,14 +225,14 @@ input{
         justify-content: end;
     }
 
-    .container-registered-books{
+    .container-registered{
         margin: 5%;
         display: flex;
         flex-direction: column;
         height: 90vh;
     }
 
-    .container-registered-books{
+    .container-registered{
         height: 70vh;
     }
 

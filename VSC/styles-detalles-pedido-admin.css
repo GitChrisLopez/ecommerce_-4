@@ -1,0 +1,108 @@
+@import url('./global.css');
+
+.body-container {
+    display: flex;
+    flex-direction: row; 
+    min-height: 100vh;
+}
+
+main{
+    background-color: var(--lighter-grey);
+    padding: 0;
+    flex: 1;
+    display: flex; 
+    justify-content: center; 
+}   
+
+.c2 {
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    padding-top: 50px;
+}
+
+.pedido-container{
+    background-color: white;
+    width: 80%; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0; 
+    margin-bottom: 40px;
+    border-radius: 30px;
+    padding-bottom: 20px;
+}
+
+.pedido1{
+    padding: 10px 40px;
+    line-height: 1rem;
+}
+
+
+.pedido1 span{
+    font-weight: bold;
+}
+
+.detalles-pago, .detalles-cliente, .detalles-productos{
+    margin-bottom: 30px;
+}
+
+.pedido-btns{
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-between; 
+    width: 90%; 
+    padding: 20px 0;
+    margin: 0 auto; 
+    align-items: center; 
+}
+
+.btn-2{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.volver-btn, .actualizar-btn, .cancelar-btn{
+    padding: 10px 30px;
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+    text-decoration: none; 
+    cursor: pointer;
+    text-align: center;
+    align-self: center;
+    transition: background-color 0.3s ease;
+    border: none;
+}
+
+.cancelar-btn{
+    background-color: var(--bg-color-dark-red);
+}
+
+.volver-btn, .actualizar-btn{
+    background-color: var(--bg-color-dark-blue);
+}
+
+.volver-btn:hover, .actualizar-btn:hover {
+    background-color: var(--bg-color-dark-dark-blue);
+}
+
+@media (min-width: 770px) {
+
+    .body-container {
+        display: flex;
+        flex-direction: column; 
+    }
+
+    .pedido-container{
+        width: 70%; 
+    }
+
+    .pedido1{
+        width: 90%;
+    }
+
+
+}
