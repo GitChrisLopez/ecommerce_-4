@@ -1,0 +1,249 @@
+
+@import url('./global.css');
+
+
+:root{
+    --bg-color-container-options-product:#266BF0;
+    --bg-color-container-option-product: #0F2B5E;
+    --bg-color-container-option-product-hover: #000000;
+}
+
+body{
+    margin:0;
+    padding:0;
+    font-size: 1.2rem;
+}
+
+.body-container {
+    display: flex;
+    flex-direction: row; 
+    min-height: 100vh;
+}
+
+main{
+    background-color: var(--lighter-grey);
+    padding: 0;
+    flex: 1;
+}
+
+.filtros{
+    display: none;
+}
+    
+.search-box {
+    width: 100%; 
+    display: flex; 
+    justify-content: flex-end; 
+}
+
+.search-box input {
+    flex-grow: 0; 
+    padding: 8px;
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 50%; 
+}
+
+.search-box input::placeholder {
+    color: transparent; 
+}
+
+.libros-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px; 
+    padding: 20px;
+}
+
+.libro {
+    position: relative;
+    background-color: white;
+    padding: 10px 1px; 
+    text-align: center;
+    width: 200px; 
+    height: 350px; 
+    justify-self: center; 
+    border-radius: 20px;
+    transition-duration: 0.2s;
+}
+
+button:hover {
+    background-color:var(--bg-color-hover-selection);
+}
+
+button:hover img{
+    width: 100%;
+}
+
+.options-product{
+    display: none;
+}
+
+button:hover > .options-product{
+    cursor:pointer;
+    display: flex;
+    background-color: var(--bg-color-container-options-product);
+    flex-direction: column;
+    padding: 6px;
+    border-radius: 15px;
+    row-gap: 10px;
+    position: absolute;
+    bottom:0;
+    width: 93%;
+}
+
+.options-product div{
+    background-color: var(--bg-color-container-option-product);
+    border-radius: 10px;
+    font-weight: 800px;
+}
+
+.options-product div:hover{
+    background-color: var(--bg-color-container-option-product-hover);
+    border-radius: 10px;
+}
+
+.options-product div p{
+    color:white;
+}
+
+
+.libro h3 {
+    font-size: 1.2em; 
+    margin: 5px; 
+    font-weight: 600;
+    word-wrap: break-word; 
+}
+
+.libro img {
+    width: 100%;
+    max-width: 150px; 
+    height: auto;
+    display: block; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.libro p {
+    font-size: 1em;
+    color: var(--color-text-dark-grey); 
+}
+
+.libro .precio {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.c2 {
+    flex: 1; 
+    display: flex; 
+}
+
+.options-lookup{
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+}
+
+.filtrar-btn{
+    display: flex;
+    flex-direction: row;
+    width: 100px;
+    height: 30px;
+    background-color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: black;
+}
+
+.search-filtros span{
+    font-size: 20px;
+    margin-left: 5px;
+    align-self: center;
+}
+
+.search-filtros img{
+    width: 20px;
+    height: 20px;
+    align-self: center;
+}
+
+
+
+@media (min-width: 770px) {
+    .body-container {
+        display: flex;
+        flex-direction: column; 
+    }
+
+    .catalogo-container{
+        background-color: var(--lighter-grey);
+        display: flex; 
+        gap: 20px; 
+        align-items: flex-start; 
+    }
+
+    .sidebar {
+        width: 250px; 
+        padding: 30px;
+        background-color: white;
+        border-radius: 10px;
+    }
+
+    .filtros{
+        display: block;
+    }
+
+    .search-box input::placeholder {
+        color: black;
+    }
+
+    .search-box {
+        display: flex;
+        margin-bottom: 20px;
+        justify-content: flex-start; 
+    }
+
+    .search-box input {
+        width: 100%; 
+    }
+
+    .search-filtros{
+        display: none;
+    }
+
+    .filtros {
+        margin-bottom: 25px;
+    }
+
+    .filtros h2 {
+        font-size: 1.2em;
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: #333;
+    }
+
+    .filtros label {
+        display: block; 
+        margin-bottom: 5px;
+        font-size: 0.9em;
+        color: #555;
+    }
+
+    .libros-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .options-lookup{
+        padding: 0px;
+    }
+
+    button:hover > .options-product{
+        bottom: -150px;
+        width: 90%;
+    }
+
+}
