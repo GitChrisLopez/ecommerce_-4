@@ -24,7 +24,7 @@ input{
     font-size: 1.8rem;
 }
 
-.container-author-edition{
+.container-add-author{
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -32,12 +32,12 @@ input{
     row-gap: 60px;
 }   
 
-.container-author-edition h1{
+.container-add-author h1{
     justify-self: center;
 }   
 
 
-.form-author-edition{
+.form-add-author{
 
     display: flex;
     flex-direction: column;
@@ -45,14 +45,14 @@ input{
 
 }
 
-.form-author-edition div{
+.form-add-author div{
 
     display: flex;
     flex-direction: column;
 
 }
 
-.form-author-edition input{
+.form-add-author input{
 
     width: 100%;
 
@@ -112,14 +112,14 @@ input{
 
     }
 
-    .form-author-edition{
+    .form-add-author{
         background-color: white;
         padding: 3% 5%;
         margin: 0 5%;
         border-radius: 20px;
     }
 
-    .form-author-edition input{
+    .form-add-author input{
         padding: 5px;
         border-radius: 10px;
         border: 1px solid black;
