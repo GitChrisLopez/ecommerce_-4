@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>Catálogo - Usuario Registrado</title>
-    <link rel="stylesheet" href="./styles-proceder-pago.css" />
+    <link rel="stylesheet" href="./styles-metodo-pago.css" />
     <link rel="stylesheet" href="./styles-nav.css" />
   </head>
 
@@ -64,54 +64,51 @@
       <div class="c2">
         <main>
           <div class="pago-container">
-            <h3>Artículos</h3>
-
-            <div class="resumen-compra">
-              <div class="libro-detalles">
-                <p>
-                  Morir en la arena (Andanzas)
-                  <span class="espacio">----------------------------</span>
-                  <span class="costo">$300.00 MXN</span>
-                </p>
-              </div>
-
-              <hr />
-
-              <div class="linea total">
-                <p>
-                  <strong>
-                    Total
-                    <span class="espacio">
-                      ---------------------------------------------------------
-                    </span>
-                    <span class="costo">$300.00 MXN</span>
-                  </strong>
-                </p>
-              </div>
-            </div>
-
+            <h3>Método de pago</h3>
+            <br />
+            <span class="texto-pago">Seleccione un método de pago</span>
             <br /><br />
-            <br /><br />
-            <div class="direccion-container">
-              <label for="direccion"><strong>Enviar a:</strong></label>
-              <br /><br />
-              <input
-                class="input-direccion"
-                type="text"
-                id="direccion"
-                name="direccion"
-                readonly
-              />
-              <br /><br />
-              <div class="botones-direccion">
-                <a href="./direcciones-guardadas.html" class="btn-link">
-                  <button class="btn-direccion">Seleccionar dirección</button>
-                </a>
+            <div class="metodos-pago">
+              <div class="pago-detalles"></div>
+              <form>
+                <div class="radio-btn-opciones">
+                  <label class="container">
+                    Transferencia
+                    <input
+                      type="radio"
+                      name="metodo"
+                      value="Transferencia"
+                      checked
+                    />
+                    <span class="checkmark"></span>
+                  </label>
 
-                <a href="./metodo-pago.html" class="btn-link">
-                  <button class="btn-realizar-pedido">Realizar pedido</button>
-                </a>
-              </div>
+                  <label class="container">
+                    Tarjeta de débito/crédito
+                    <input
+                      type="radio"
+                      name="metodo"
+                      value="Tarjeta de debito/credito"
+                    />
+                    <span class="checkmark"></span>
+                  </label>
+
+                  <label class="container">
+                    Contraentrega
+                    <input type="radio" name="metodo" value="Contraentrega" />
+                    <span class="checkmark"></span>
+                  </label>
+                </div>
+                <br /><br />
+                <div class="div-botones">
+                  <a href="./carrito.html" class="btn-link">
+                    <button class="btn-cancelar">Cancelar</button>
+                  </a>
+                  <a href="./pedido-realizado.html" class="btn-link">
+                    <button class="btn-pagar-pedido">Pagar pedido</button>
+                  </a>
+                </div>
+              </form>
             </div>
           </div>
         </main>
