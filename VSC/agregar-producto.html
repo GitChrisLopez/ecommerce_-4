@@ -4,7 +4,7 @@
 <html>
 
     <head>
-        <title>Editar producto</title>
+        <title>Agregar producto</title>
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="./styles-nav.css">
         <link rel="stylesheet" type="text/css" href="./styles-product-add-edition.css">
@@ -67,22 +67,18 @@
                 <form class = "form-grid-container">
 
                     <div class="image-product">
-                        <img src = "imgs/morir-en-la-arena.png" alt="Producto Libro Morir en la arena">
+                        <img src = "imgs/el-principito.jpg" alt="Producto Libro El Principito">
 
                         <div class="container-icon-add-edition">
                             <img src = "icons/edition.png" alt = "Editar">
                         </div>
                     </div>
-
+                
                     <div class="form-part-one">
                         <div>
                             <label for="book">Libro: </label>
-                            <input type = "text" value="Morir en la arena (Andanzas)" id="book" readonly>
+                            <input type = "text" value="El Principito" id="book" readonly>
                             <button>Seleccionar</button>
-                        </div>
-
-                        <div>
-                            
                         </div>
 
                         <div>
@@ -98,28 +94,28 @@
                     <div class="form-part-two">
                         <div>
                             <label for="number-pages">No. de páginas: </label>
-                            <input type="number" min ="1" value="384" id="number-pages">
+                            <input type="number" min ="1" value="96" id="number-pages">
                         </div>
 
                         <div>
                             <label for="price">Precio: </label>
-                            <input type="number" min ="1" value="250.0" id="price" step="0.01">
+                            <input type="number" min ="1" value="70.50" id="price" step="0.01">
                             <span>pesos.</span>
                         </div>
 
                         <div>
                             <label for="stock">Stock: </label>
-                            <input type="number" min ="0" value="3" id="stock">
+                            <input type="number" min ="0" value="2" id="stock">
                         </div>
+
+                    </div>
+
+                    <div class="buttons">
+                        <input type="submit" value="Cancelar" class="cancel-input">
+                        <input type="submit" value="Agregar" class="add-input">
                     </div>
 
                 </form>
-
-                <div class="buttons">
-                    <input type="button" value="Cancelar" class="cancel-input">
-                    <input type="submit" value="Guardar" class="save-input">
-                </div>
-
 
             </article>
         </main>
