@@ -1,0 +1,169 @@
+
+@import url('./global.css');
+
+/** Pantalla Principal - no registrado**/
+
+.body-container {
+    display: flex;
+    flex-direction: row; 
+    min-height: 100vh;
+}
+
+main{
+    background-color: var(--lighter-grey);
+    color: var(--color-title-dark-blue);
+    font-size: 30px;
+    padding-left: 50px;
+}
+
+main p{
+    color: var(--color-text-blue);
+    font-size: 30px;
+}
+
+.main-p1{
+    display: none;
+}
+
+.content-container {
+    max-width: 50%; 
+    padding-top: 20px; 
+}
+
+.content-container h1 {
+    font-size: 70px;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 50px;
+}
+
+.content-container p {
+    font-size: 25px;
+    margin-bottom: 50px;
+    max-width: 100%; 
+    word-spacing: 2px;
+}
+
+.cover-container{
+    display: none;
+}
+
+.btn {
+    color: white;
+    text-decoration: none; 
+    font-size: 20px;
+    font-weight: 700;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 30px; 
+    cursor: pointer;
+}
+
+.catalogo-btn,  .destacados-btn {
+    background-color: var(--bg-color-grey-purple);
+}
+
+.buttons-container {    
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center;
+    background-color: var(--lighter-grey); 
+    padding: 30px 50px;
+    gap: 30px; 
+}
+
+.c2{
+    background-color: var(--lighter-grey);    
+}
+
+
+@media (min-width: 770px) {
+    .body-container {
+        display: flex;
+        flex-direction: column; 
+    }
+
+    main {
+        background-color: var(--bg-color-dark-blue);
+        display: flex;
+        justify-content: space-between; 
+        align-items: flex-start; 
+        padding: 50px 50px 0 50px;
+        flex-grow: 1; 
+        color: white; 
+    }
+
+    .main-p1{
+        display: block;
+    }
+
+    main p{
+        color: white;
+    }
+
+    .content-container {
+        max-width: 40%; 
+        padding-top: 1px; 
+    }
+
+    .content-container h1 {
+        font-size: 50px;
+        margin-bottom: 20px;
+    }
+
+    .content-container p {
+        font-size: 25px;
+        margin-bottom: 5px;
+        max-width: 80%; 
+        word-spacing: 2px;
+    }
+
+    .cover-container {
+        display: block;
+        flex: 1;
+        height: 450px; 
+        position: relative;
+        right: -60px; 
+    }
+
+    .cover {
+        width: 100%; 
+        height: 100%; 
+        object-fit: contain; 
+    }
+
+    /**Botones**/
+    .buttons-container {
+        flex-direction: row;
+        background-color: var(--lighter-grey); 
+        margin-top: 40px; 
+    }
+
+    .c2{
+        background-color: var(--bg-color-dark-blue);
+    }
+
+    .btn {
+        display: block;
+    }
+
+    .btn:hover {
+        transform: translateY(-4px);
+    }
+
+    .mejor-btn {
+        background-color: var(--bg-color-mejor);
+    }
+
+    .destacados-btn {
+        background-color: var(--bg-color-destacados);
+    }
+
+    .catalogo-btn {
+        background-color: var(--bg-color-catalogo);
+    }
+}
+
+
+

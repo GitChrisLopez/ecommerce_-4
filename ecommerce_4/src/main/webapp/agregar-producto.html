@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+
+
+<html>
+
+    <head>
+        <title>Agregar producto</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="./styles/styles-nav.css">
+        <link rel="stylesheet" type="text/css" href="./styles/styles-product-add-edition.css">
+    </head>
+
+    <body>
+        <main>
+            <div class="c1">
+                <nav>
+                    <a href="./principal-registrado.html">
+                        <div class="home">
+                            <img src="./icons/home.svg" alt="home" class="home-icon"> 
+                        </div>
+                    </a>
+
+                    <ul class="nav-links">
+                        <li>
+                            <a href="./catalogo.html" class="nav-btn" target="_blank">Catálogo</a>
+                        </li>
+                        <li>
+                        <div class="carrito">
+                                <img src="./icons/carrito.png" alt="carrito" class="carrito-icon"> 
+                            </div>
+                        </li>
+                        <li>
+                            <div class="user">
+                                <img src="./icons/user.png" alt="user" class="user-icon"> 
+                            </div>
+                        </li>
+                        <li>
+                            <a href="./catalogo.html">
+                                <div class="catalogo">
+                                    <img src="./icons/catalogo.png" alt="catalogo" class="catalogo-icon"> 
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./users.html">
+                                <div class="users">
+                                    <img src="./icons/users.png" alt="usuarios" class="users-icon"> 
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <div class="pedidos">
+                                <img src="./icons/pedidos.png" alt="pedidos" class="pedidos-icon"> 
+                            </div>
+                        </li>
+                        <li>
+                            <div class="payments">
+                                <img src="./icons/payments.png" alt="Pagos" class="payments-icon"> 
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <article class = "product-add-edition-content">
+
+                <form class = "form-grid-container">
+
+                    <div class="image-product">
+                        <img src = "imgs/el-principito.jpg" alt="Producto Libro El Principito">
+
+                        <div class="container-icon-add-edition">
+                            <img src = "icons/edition.png" alt = "Editar">
+                        </div>
+                    </div>
+                
+                    <div class="form-part-one">
+                        <div>
+                            <label for="book">Libro: </label>
+                            <input type = "text" value="El Principito" id="book" readonly>
+                            <button href="./libros-registrados.html">Seleccionar</button>
+                        </div>
+
+                        <div>
+                            <label for="format">Formato: </label>
+                            <select id="format">
+                                <option>Tapa blanda</option>
+                                <option>Tapa dura</option>
+                                <option>E-Book</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-part-two">
+                        <div>
+                            <label for="number-pages">No. de páginas: </label>
+                            <input type="number" min ="1" value="96" id="number-pages">
+                        </div>
+
+                        <div>
+                            <label for="price">Precio: </label>
+                            <input type="number" min ="1" value="70.50" id="price" step="0.01">
+                            <span>pesos.</span>
+                        </div>
+
+                        <div>
+                            <label for="stock">Stock: </label>
+                            <input type="number" min ="0" value="2" id="stock">
+                        </div>
+
+                    </div>
+
+                    <div class="buttons">
+                        <input type="button" value="Cancelar" class="cancel-input">
+                        <input type="submit" value="Agregar" class="add-input">
+                    </div>
+
+                </form>
+
+            </article>
+        </main>
+    </body>
+
+</html>

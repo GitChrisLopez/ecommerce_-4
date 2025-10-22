@@ -1,0 +1,155 @@
+@import url('./global.css');
+
+.body-container {
+    display: flex;
+    flex-direction: row; 
+    min-height: 100vh;
+}
+
+main{
+    background-color: var(--lighter-grey);
+    padding: 0;
+    flex: 1;
+    display: flex; 
+    justify-content: center; 
+}   
+
+.c2 {
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    padding-top: 50px;
+}
+
+.resenias-container{
+    background-color: white;
+    width: 80%; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0; 
+    margin-bottom: 40px;
+    border-radius: 30px;
+    padding-bottom: 20px;
+    margin-left: auto; 
+    margin-right: auto;
+}
+
+.resenia-title{
+    font-size: 30px;
+    margin: 30px 0;
+    text-align: center;
+}
+
+.lista-resenias {
+    display: flex;
+    flex-direction: column; 
+    gap: 15px; 
+    width: 90%;
+    align-items: center;
+}
+
+.resenia1, .resenia2 {
+    background-color: var(--lighter-grey);
+    border-radius: 12px;
+    padding: 10px 20px;
+    gap: 10px;
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+}
+
+.resenia-info span{
+    font-weight: bold;
+}
+
+.resenia-btn{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-self: center;
+    margin: auto;
+}
+
+.eliminar-btn, .editar-btn{
+    text-decoration: none;
+    border: none;
+    padding: 10px 10px;
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+    text-decoration: none; 
+    cursor: pointer;
+    text-align: center;
+    align-self: center;
+}
+
+.editar-btn{
+    background-color: var(--bg-color-dark-blue);
+    transition: background-color 0.3s ease;
+}
+
+.eliminar-btn{
+    background-color: var(--bg-color-dark-red);
+}
+
+.editar-btn:hover {
+    background-color: var(--bg-color-dark-dark-blue);
+}
+
+.search-box {
+    width: 80%; 
+    margin-left: auto; 
+    margin-right: 10%; 
+    text-align: right; 
+    margin-bottom: 30px;
+}
+
+.search-box input::placeholder {
+    color: var(--color-text-dark-grey);
+}
+
+.search-box input {
+    border: none;
+    border-radius: 20px;
+    width: 50%; 
+    padding: 12px;
+    font-size: 15px;
+}
+
+@media (min-width: 770px) {
+
+    .body-container {
+        display: flex;
+        flex-direction: column; 
+    }
+
+    .resenias-container{
+        width: 70%; 
+    }
+
+    .lista-resenias {
+        width: 80%; 
+        align-items: center;
+    }
+
+    .resenia-info {
+        width: 70%;
+    }
+
+    .resenia1, .resenia2{
+        width: 100%;
+    }
+
+    .eliminar-btn, .editar-btn{
+        padding: 10px 40px;
+    }   
+
+    .search-box {
+        margin-right: 15%; 
+    }
+}
+    
+
+    

@@ -1,0 +1,251 @@
+@import url('./global.css');
+
+    .body-container {
+        display: flex;
+        flex-direction: row; 
+        min-height: 100vh;
+    }
+
+    main{
+        background-color: var(--lighter-grey);
+        padding: 0;
+        flex: 1;
+    }
+
+    .c2{
+        background-color: var(--lighter-grey);
+        flex: 1; 
+        display: flex; 
+    }
+
+    .libros-container{
+        display: none;
+    }
+
+    .filtros-container{
+        background-color: var(--lighter-grey);
+        width: 90%;
+        max-width: 500px;
+        justify-self: center;
+        border-radius: 30px;
+    }
+
+    .filtros-book-container{
+        background-color: white;
+        border-radius: 30px;
+        padding: 20px 30px;
+    }
+
+    .aplicar-filtros-btn {
+        color: white;
+        background-color: var(--bg-color-grey-purple);
+        text-decoration: none; 
+        font-size: 20px;
+        padding: 10px 30px;
+        border: none;
+        border-radius: 30px; 
+        cursor: pointer;
+    }
+
+    .filtros-btn{
+        margin-top: 50px;
+        margin-right: 30px;
+        padding-bottom: 30px;
+        justify-self: right;
+    }
+
+    .search-box input::placeholder {
+        color: var(--color-text-dark-grey);
+    }
+
+    .search-box input {
+        flex-grow: 0; 
+        padding: 8px;
+        border: none;
+        background-color: var(--white-grey);
+        border-radius: 20px;
+    }
+
+    .search-box {
+        display: flex;
+        margin-bottom: 20px;
+        justify-content: flex-start; 
+        padding-bottom: 16px;
+        justify-self: center;
+        width: 80%;
+    }
+
+    .search-box input {
+        width: 80%; 
+        margin-top: 20px;
+        padding: 12px;
+        font-size: 15px;
+    }
+
+    .options-lookup{
+        background-color: var(--lighter-grey);
+    }
+
+    .filtrar-btn{
+        display: flex;
+        flex-direction: row;
+        width: 100px;
+        height: 30px;
+        background-color: white;
+        border: none;
+        padding: 20px;
+        border-radius: 10px;
+        text-decoration: none;
+        color: black;
+        margin-top: 20px;
+        gap: 5px;
+        padding-left: 10px;
+    }
+
+    .search-filtros span{
+        font-size: 20px;
+        margin-left: 0px;
+        align-self: center;
+        
+    }
+
+    .search-filtros img{
+        width: 20px;
+        height: 20px;
+        align-self: center;
+    }
+
+@media (min-width: 770px) {
+
+    .aplicar-filtros-btn{
+        display: none;
+    }
+
+    .body-container {
+        display: flex;
+        flex-direction: column; 
+    }
+
+    .catalogo-container{
+        background-color: var(--lighter-grey);
+        display: flex; 
+        gap: 20px; 
+        align-items: flex-start; 
+    }
+
+    .sidebar {
+        width: 250px; 
+        padding: 30px;
+        background-color: white;
+    }
+
+    .filtros{
+        display: block;
+    }
+
+    .filtros-container{
+        justify-self: auto;
+        background-color: white;
+    }
+
+    .filtros-book-container{
+        padding: 0px 0px;
+    }
+
+    .search-box input::placeholder {
+        color: black;
+    }
+
+    .search-box input {
+        flex-grow: 0; 
+        padding: 8px;
+        border: 1px solid black;
+        background-color: white;
+        border-radius: 10px;
+        margin-top: 0px;;
+    }
+
+    .search-box {
+        display: flex;
+        margin-bottom: 20px;
+        justify-content: flex-start; 
+        padding-bottom: 16px;
+        justify-self: star;
+        width: 100%;
+    }
+
+    .search-box input {
+        width: 100%; 
+    }
+
+    .search-filtros{
+        display: none;
+    }
+
+    .filtros {
+        margin-bottom: 25px;
+    }
+
+    .filtros h2 {
+        font-size: 1.2em;
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: #333;
+    }
+
+    .libro h3 {
+        font-size: 1.2em; 
+        margin: 5px; 
+        font-weight: 600;
+        word-wrap: break-word; 
+    }
+
+    .filtros label {
+        display: block; 
+        margin-bottom: 5px;
+        font-size: 0.9em;
+        color: #555;
+    }
+
+    .libros-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 30px; 
+        padding: 20px;
+    }
+
+    .libro {
+        background-color: white;
+        padding: 10px 1px; 
+        text-align: center;
+        width: 200px; 
+        height: 350px; 
+        justify-self: center; 
+        border-radius: 20px;
+    }
+
+    .libro img {
+        width: 100%;
+        max-width: 150px; 
+        height: auto;
+        display: block; 
+        margin-left: auto;
+        margin-right: auto;
+    }   
+
+    .libro p {
+        font-size: 1em;
+        color: var(--color-text-dark-grey); 
+    }
+
+    .libro .precio {
+        font-weight: bold;
+        font-size: 1.2em;
+    }
+
+    .options-lookup{
+        background-color: white;
+    }
+
+
+}

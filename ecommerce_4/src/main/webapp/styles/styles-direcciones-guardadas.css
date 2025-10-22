@@ -1,0 +1,139 @@
+@import url('./global.css');
+
+.body-container {
+    display: flex;
+    flex-direction: row; 
+    min-height: 100vh;
+}
+
+main{
+    background-color: var(--lighter-grey);
+    padding: 0;
+    flex: 1;
+    display: flex; 
+    justify-content: center; 
+} 
+
+.c2 {
+    flex: 1; 
+    display: flex;
+    justify-content: center;
+}
+
+.direcciones-container{
+    background-color: white;
+    width: 80%; 
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border-radius: 30px;
+    padding: 30px 25px;
+}
+
+.direcciones-title {
+    font-size: 30px;
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 50px;
+}
+
+.general-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; 
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.direccion-individual {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-radius: 15px;
+    background-color: var(--white-grey); 
+    transition: background-color 0.3s ease; 
+}
+
+.direccion-individual:hover {
+    background-color: var(--lighter-grey)
+}
+
+.editar-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border-radius: 10px;
+    background-color: var(--white-grey);
+    transition: background-color 0.3s ease;
+}
+
+.editar-icon {
+    width: 20px;
+    height: 20px;
+    display: block;
+}
+
+.direcciones-btns {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 20px; 
+}
+
+.agregar-direccion-btn, .escoger-direccion-btn{
+    text-decoration: none;
+    display: flex;
+    flex-direction: column; 
+    align-self: center;
+    text-align: center;
+    color: white;
+    width: 100%; 
+    border: none;
+    border-radius: 30px; 
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.agregar-direccion-btn{
+    background-color: var(--bg-color-dark-blue); 
+    padding: 8px 20px;
+    
+}
+
+.escoger-direccion-btn{
+    background-color: var(--bg-color-light-purple); 
+    padding: 8px 20px;
+}
+
+@media (min-width: 770px) {
+
+    .body-container {
+        display: flex;
+        flex-direction: column; 
+    }
+
+    .direcciones-container{
+        width: 90%; 
+    }
+
+    .general-container{
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .direcciones-btns{
+        margin-top: 50px;
+        width: 30%;
+        margin-left: auto;
+        margin-right: auto;
+        justify-content: space-between; 
+    }
+    
+
+}
