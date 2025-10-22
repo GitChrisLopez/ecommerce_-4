@@ -13,10 +13,10 @@ IDs:
 252102
 
 Asignación:
-Avance 01 - Componente de Dominio 
+Avance 02
 
 Materia:
 Aplicaciones Web 
 
 Fecha:
-16 de octubre 2025
+21 de octubre 2025
