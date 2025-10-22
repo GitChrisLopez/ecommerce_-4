@@ -15,12 +15,11 @@ main {
 .pago-container {
   background-color: white;
   padding: 10px 1px;
-  text-align: center;
   width: 80%;
-  height: 87%;
+  height: 70%;
   max-width: none;
   max-height: none;
-  justify-self: center;
+  flex-direction: flex-start;
   border-radius: 20px;
   padding: 20px;
   margin: 30px;
@@ -40,36 +39,24 @@ main {
   justify-content: center;
   align-items: center;
   width: 100%;
-  font-size: 22px;
+  font-size: 20px;
   margin: 10px 0;
 }
 
-.titulo-pago1 {
-  line-height: 50px;
+.texto-pago1 {
+  line-height: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  font-size: 30px;
-  font-weight: bold;
+  font-size: 18px;
   margin: 10px 0;
+  font-weight: bold;
 }
 
 .c2 {
   flex: 1;
   display: flex;
-}
-
-.referencias-pago {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-}
-
-.grupo {
-  width: 100%;
-  margin-bottom: 30px;
 }
 
 .titulo-pago {
@@ -80,31 +67,30 @@ main {
   margin-bottom: 10px;
 }
 
-.fila {
+.alerta-pago {
   display: flex;
-  justify-content: space-between;
-  width: 90%;
-  margin: 5px auto;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.alerta-pago img {
+  width: 50px;
+  height: 50px;
+}
+
+.lista-detalles {
+  line-height: 30px;
   font-size: 18px;
+  font-weight: bold;
 }
 
-.texto-referencia1 {
-  text-align: left;
-  font-weight: 600;
-}
-
-.texto-referencia2 {
-  text-align: right;
-  font-weight: 500;
-}
-
-.texto-referencia3 {
-  text-align: left;
-  font-weight: 600;
-}
-
-.titulos-pago {
-  display: none;
+.botones {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 20px;
 }
 
 .btn-aceptar {
@@ -147,6 +133,13 @@ main {
     margin: 70px auto;
   }
 
+  .pago-container h3 {
+    font-size: 35px;
+    text-align: center;
+    width: 100%;
+    font-weight: 600;
+  }
+
   .c2 {
     flex: 1;
     display: flex;
@@ -162,83 +155,37 @@ main {
     margin: 10px 0;
   }
 
-  .referencias-pago {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    align-items: start;
-    justify-items: center;
-    width: 100%;
-    margin-top: 20px;
-    text-align: center;
+  .alerta-pago {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    margin-top: 15px;
+    max-width: 700px;
+    margin-left: 80px;
+    padding-left: 180px;
   }
 
-  .titulo-pago1 {
-    display: none;
+  .alerta-pago img {
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0;
   }
 
-  .titulo-pago {
-    display: none;
-  }
-
-  .referencias-pago {
-    grid-template-areas:
-      "titulo clave referencia"
-      "bancos claves refs";
-  }
-
-  .titulo-p {
+  .lista-detalles {
+    line-height: 50px;
     font-size: 22px;
     font-weight: bold;
+    margin-left: 80px;
+    padding-left: 300px;
+    margin: 30px;
   }
 
-  .espacio {
-    color: white;
-  }
-
-  .grupo:nth-child(2) {
-    grid-area: clave;
-    justify-self: center;
-  }
-
-  .grupo:nth-child(3) {
-    grid-area: referencia;
-    justify-self: center;
-  }
-
-  .grupo:first-of-type {
-    grid-column: 1;
-    justify-self: start;
-    margin-left: 10%;
-  }
-
-  .grupo:nth-of-type(3) {
-    grid-column: 3;
-  }
-
-  .fila {
-    display: flex;
-    justify-content: space-between;
-    width: 90%;
-    margin: 6px auto;
-    font-size: 18px;
-  }
-
-  .texto-referencia1 {
-    text-align: left;
-    font-weight: 600;
-  }
-
-  .texto-referencia2 {
-    text-align: right;
-    font-weight: 500;
-  }
-
-  .texto-referencia3 {
-    display: none;
-  }
-
-  .titulos-pago {
-    display: block;
+  .alerta-pago span,
+  .alerta-pago p {
+    font-size: 22px;
+    line-height: 30px;
+    flex: 1;
   }
 
   .botones {
@@ -252,11 +199,11 @@ main {
     background-color: var(--bg-color-dark-blue);
     border: var(--bg-color-dark-blue);
     cursor: pointer;
-    border-radius: 20px;
+    border-radius: 30px;
     width: 160px;
-    height: 40px;
+    height: 45px;
     color: white;
-    font-weight: bold;
     font-size: 22px;
+    font-weight: bold;
   }
 }
