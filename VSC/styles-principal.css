@@ -48,10 +48,6 @@ main p{
     display: none;
 }
 
-.mejor-btn, .destacados-btn{
-    display: none;
-}
-
 .btn {
     color: white;
     text-decoration: none; 
@@ -63,11 +59,13 @@ main p{
     cursor: pointer;
 }
 
-.catalogo-btn {
+.catalogo-btn,  .destacados-btn {
     background-color: var(--bg-color-grey-purple);
 }
 
 .buttons-container {    
+    display: flex; 
+    flex-direction: column; 
     justify-content: center; 
     align-items: center;
     background-color: var(--lighter-grey); 
@@ -137,7 +135,7 @@ main p{
 
     /**Botones**/
     .buttons-container {
-        display: flex; 
+        flex-direction: row;
         background-color: var(--lighter-grey); 
         margin-top: 40px; 
     }
