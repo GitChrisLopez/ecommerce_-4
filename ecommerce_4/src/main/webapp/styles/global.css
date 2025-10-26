@@ -1,8 +1,14 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
 :root{
     --bg-color-dark-blue: #001950;
     --bg-color-home-dark-grey: #38394B;
 
-    --bg-color-mejor: #55A445;
+    --bg-color-yellow:#c3bb21;
+    --bg-color-red:#c34646;
+    --bg-color-dark-grey:#28292d;
+    --bg-color-green: #55A445;
     --bg-color-destacados: #C96439;
     --bg-color-catalogo: #3D75EE;
 
@@ -23,9 +29,13 @@
     --bg-color-dark-red: #D00003;
 
     --bg-color-hover-selection:#e5e5e5;
+
 }
 
 body{
     background-color: var(--bg-color-dark-blue);
+    font-family: Roboto, 'sans-serif';
 }
+
+
 

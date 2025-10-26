@@ -63,11 +63,13 @@ main{
     width: 200px; 
     height: 350px; 
     justify-self: center; 
-    border-radius: 20px;
+    border-radius: 15px;
     transition-duration: 0.2s;
+    border: 1px solid black;
 }
 
 button:hover {
+    cursor: pointer;
     background-color:var(--bg-color-hover-selection);
 }
 
