@@ -1,117 +1,145 @@
 <!DOCTYPE html>
-
-
 <html>
+  <head>
+    <title>Agregar libro</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="./styles/styles-nav.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./styles/styles-agregar-libro.css"
+    />
+  </head>
 
-    <head>
-        <title>Agregar libro</title>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" type="text/css" href="./styles/styles-nav.css">
-        <link rel="stylesheet" type="text/css" href="./styles/styles-book-add-edition.css">
-    </head>
+  <body>
+    <div class="body-container">
+      <nav>
+        <a href="./principal-registrado.html">
+          <div class="home">
+            <img src="./icons/home.svg" alt="home" class="home-icon" />
+          </div>
+        </a>
 
-        <body>
-            <main>
+        <ul class="nav-links">
+          <li>
+            <a href="./catalogo.html" class="nav-btn" target="_blank"
+              >Catálogo</a
+            >
+          </li>
+          <li>
+            <div class="user">
+              <img src="./icons/user.png" alt="user" class="user-icon" />
+            </div>
+          </li>
+          <li>
+            <a href="./catalogo.html">
+              <div class="catalogo">
+                <img
+                  src="./icons/catalogo.png"
+                  alt="catalogo"
+                  class="catalogo-icon"
+                />
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="./users.html">
+              <div class="users">
+                <img
+                  src="./icons/users.png"
+                  alt="usuarios"
+                  class="users-icon"
+                />
+              </div>
+            </a>
+          </li>
+          <li>
+            <div class="pedidos">
+              <img
+                src="./icons/pedidos.png"
+                alt="pedidos"
+                class="pedidos-icon"
+              />
+            </div>
+          </li>
+          <li>
+            <div class="payments">
+              <img
+                src="./icons/payments.png"
+                alt="Pagos"
+                class="payments-icon"
+              />
+            </div>
+          </li>
+        </ul>
+      </nav>
 
-                <div class="c1">
-                    <nav>
-                        <a href="./principal-registrado.html">
-                            <div class="home">
-                                <img src="./icons/home.svg" alt="home" class="home-icon"> 
-                            </div>
-                        </a>
+      <main>
+        <div class="general-container">
+          <div class="container-add-edition">
+            <div class="title-container">
+              <h1>Agregar libro</h1>
+            </div>
 
-                        <ul class="nav-links">
-                            <li>
-                                <a href="./catalogo.html" class="nav-btn" target="_blank">Catálogo</a>
-                            </li>
-                            <li>
-                            <div class="carrito">
-                                    <img src="./icons/carrito.png" alt="carrito" class="carrito-icon"> 
-                                </div>
-                            </li>
-                            <li>
-                                <div class="user">
-                                    <img src="./icons/user.png" alt="user" class="user-icon"> 
-                                </div>
-                            </li>
-                            <li>
-                                <a href="./catalogo.html">
-                                    <div class="catalogo">
-                                        <img src="./icons/catalogo.png" alt="catalogo" class="catalogo-icon"> 
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="./users.html">
-                                    <div class="users">
-                                        <img src="./icons/users.png" alt="usuarios" class="users-icon"> 
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <div class="pedidos">
-                                    <img src="./icons/pedidos.png" alt="pedidos" class="pedidos-icon"> 
-                                </div>
-                            </li>
-                            <li>
-                                <div class="payments">
-                                    <img src="./icons/payments.png" alt="Pagos" class="payments-icon"> 
-                                </div>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-                    
+            <form class="form-add-edition" id="form-add-edition">
+              <div>
+                <label>Título: </label>
+                <input
+                  type="text"
+                  value="El Último Secreto"
+                  readonly
+                  required
+                />
+                <button type="button">Seleccionar</button>
+              </div>
 
-                <article class = "book-add-edition-content">
+              <div>
+                <label>Autor: </label>
+                <input type="text" value="Dan Brown" readonly required />
+                <button type="button">Seleccionar</button>
+              </div>
 
-                    <form>
+              <div>
+                <label>Categoría: </label>
+                <input type="text" value="Thriller" readonly required />
+                <button type="button">Seleccionar</button>
+              </div>
 
-                        <div>
-                            <label>Título: </label>
-                            <input type = "text" value="El Último Secreto" readonly required>
-                            <button>Seleccionar</button>
-                        </div>
+              <div>
+                <label>Editorial: </label>
+                <input
+                  type="text"
+                  value="Editorial Planeta"
+                  readonly
+                  required
+                />
+                <button type="button">Seleccionar</button>
+              </div>
 
-                        <div>
-                            <label>Autor: </label>
-                            <input type = "text" value="Dan Brown" readonly required>
-                            <button>Seleccionar</button>
-                        </div>
+              <div>
+                <label>Publicación: </label>
+                <input type="date" value="2025-09-09" required />
+              </div>
 
-                        <div>
-                            <label>Categoría: </label>
-                            <input type = "text" value="Thriller" readonly required>
-                            <button>Seleccionar</button>
-                        </div>
+              <div class="div-synopsis">
+                <label>Sinopsis: </label>
+                <textarea maxlength="350" required> En El último secreto, el profesor de simbología Robert Langdon se ve 
+                    envuelto en una carrera contrarreloj en Praga tras el brutal asesinato de su colega, Katherine Solomon...
+                </textarea>
+              </div>
 
-                        <div>
-                            <label>Editorial: </label>
-                            <input type = "text" value="Editorial Planeta" readonly required>
-                            <button>Seleccionar</button>
-                        </div>
-
-                        <div class="div-publication">
-                            <label>Publicación: </label>
-                            <input type = "date" value="2025-09-09" required>
-                        </div>
-
-                        <div class="div-synopsis" required>
-                            <label>Sinopsis: </label>
-                            <textarea maxlength="350" required>En El último secreto, el profesor de simbología Robert Langdon se ve envuelto en una carrera contrarreloj en Praga tras el brutal asesinato de su colega, Katherine Solomon. Ella estaba a punto de publicar un libro con descubrimientos sobre la conciencia humana que desafiarían las creencias establecidas, pero desaparece junto a su manuscrito.
-                            </textarea>
-                        </div>
-
-                        <div class="buttons">
-                            <input type="submit" value="Cancelar" class="cancel-input">
-                            <input type="submit" value="Agregar" class="add-input">
-                        </div>
-                    </form>
-
-
-                </article>
-            </main>
-        </body>
-    </main>
+              <div class="buttons-cancel-add-edition">
+                <input type="button" value="Cancelar" class="cancel-input" />
+                <input
+                  type="submit"
+                  value="Agregar"
+                  class="add-edition-input add-input"
+                />
+              </div>
+            </form>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
 </html>
