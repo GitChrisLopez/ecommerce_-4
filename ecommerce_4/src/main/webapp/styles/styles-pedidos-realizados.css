@@ -1,5 +1,12 @@
 @import url('./global.css');
 
+
+body{
+    --bg-color-yellow:#F9DB99;
+    --bg-color-blue:#7EA9E2;
+    --bg-color-green:#67CCB4;
+}
+
 .body-container {
     display: flex;
     flex-direction: row; 
@@ -54,15 +61,15 @@ main{
 }
 
 .pedido1{
-    background-color: var(--bg-color-light-purple);
+    background-color: var(--bg-color-yellow);
 }
 
 .pedido2{
-    background-color: var(--color-text-blue);
+    background-color: var(--bg-color-blue);
 }
 
 .pedido3{
-    background-color: var(--color-text-dark-grey);
+    background-color: var(--bg-color-green);
 }
 
 .pedido-info ul {

@@ -107,6 +107,82 @@ nav {
     align-items: center;
 }
 
+.user {
+    background: none; 
+    border: none;
+    padding: 0; 
+    cursor: pointer;
+}
+
+.user:hover {
+    background: none; 
+}
+
+.user-icon {
+    width: 30px; 
+    height: 30px;
+    display: block;
+}
+
+.options-user {
+    display: none; 
+    background-color: var(--lighter-grey); 
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    color: black;
+    padding: 10px;
+}
+
+.user-nombre {
+    padding: 10px 15px; 
+    font-weight: bold;
+    color: black;
+    text-align: left;
+}
+
+.user-nombre p {
+    margin: 0;
+    font-size: 16px; 
+}
+
+.separador {
+    border-top: 1px solid black ;
+    margin: 0;
+}
+
+.user-option {
+    display: flex; 
+    align-items: center;
+    padding: 10px 15px;
+    gap: 10px; 
+    text-align: left;
+    background-color: var(--lighter-grey); 
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+.user-option .option-icon {
+    width: 20px; 
+    height: 20px;   
+}
+
+.user-option p {
+    color: black; 
+    font-size: 16px; 
+    margin: 0;
+    flex-grow: 1; 
+}
+
+.options-user div p {
+    color: black;
+    font-size: 14px; 
+}
+
+.user-option:hover {
+    background-color: var(--white-grey);
+}
+
 @media (min-width: 770px) {
     
     .nav-links li:nth-child(2) { 
@@ -177,6 +253,21 @@ nav {
 
     .pedidos{
         display: none;
+    }
+    
+    .user{
+        position: relative; 
+
+    }
+
+    .user:hover > .options-user{
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        right: 10px;
+        min-width: 200px;
+        z-index: 10;
     }
 
 
