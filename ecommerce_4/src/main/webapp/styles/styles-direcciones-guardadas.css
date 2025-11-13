@@ -4,15 +4,12 @@
     display: flex;
     flex-direction: row; 
     min-height: 100vh;
-}
-
-main{
     background-color: var(--lighter-grey);
     padding: 0;
     flex: 1;
-    display: flex; 
     justify-content: center; 
-} 
+}
+
 
 .c2 {
     flex: 1; 

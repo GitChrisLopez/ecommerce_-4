@@ -90,29 +90,21 @@
               </div>
             </div>
 
-            <br /><br />
-            <br /><br />
-            <div class="direccion-container">
+            <br/><br/>
+            <br/><br/>
+            <form action="./metodo-pago.html" class="direccion-container">
               <label for="direccion"><strong>Enviar a:</strong></label>
-              <br /><br />
-              <input
-                class="input-direccion"
-                type="text"
-                id="direccion"
-                name="direccion"
-                readonly
-              />
-              <br /><br />
+              <br/><br/>
+              <input class="input-direccion" type="text" id="direccion" name="direccion" readonly/>
+
               <div class="botones-direccion">
                 <a href="./direcciones-guardadas.html" class="btn-link">
-                  <button class="btn-direccion">Seleccionar dirección</button>
+                  <button type="button" class="btn-direccion">Seleccionar dirección</button>
                 </a>
 
-                <a href="./metodo-pago.html" class="btn-link">
-                  <button class="btn-realizar-pedido">Realizar pedido</button>
-                </a>
+                <input type="submit" class="btn-realizar-pedido" value="Realizar pedido">
               </div>
-            </div>
+            </form>
           </div>
         </main>
       </div>

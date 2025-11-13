@@ -414,6 +414,32 @@ contenido-resenia-usuario input:checked ~ .resumen{
     margin-bottom: 20px;
 }
 
+.label-cantidad{
+    display: none;
+}
+
+.div-add-cart{
+    display: flex;
+    justify-content: center;
+    column-gap:10px;
+}
+
+.product-quantity{
+    width:40px;
+    height: 30px;
+    font-size: 1.2rem;
+}
+
+.btn-add-cart{
+    background-color: var(--bg-color-dark-blue);
+    color:white;
+    border-radius: 10px;
+    border: none;
+    font-size: 1.1rem;
+    padding: 8px 10px;
+    cursor:pointer;
+}
+
 
 @media (min-width: 770px) {
 
@@ -505,6 +531,18 @@ contenido-resenia-usuario input:checked ~ .resumen{
     .input-range{
         width: 40%;
     }
+    
+    .label-cantidad{
+        display: block;
+        align-content: center;
+        font-weight: 600;
+    }
+    
+    .div-add-cart{
+        justify-content: end;
+        column-gap:10px;
+    }
+
 
 
 }

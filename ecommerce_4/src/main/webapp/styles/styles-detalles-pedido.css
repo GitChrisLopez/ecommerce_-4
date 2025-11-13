@@ -101,7 +101,7 @@ main{
     width: 100%; 
     padding: 8px;
     color: white;
-    background-color: var(--bg-color-light-purple);
+    background-color: var(--bg-color-dark-blue);
     border: none;
     border-radius: 30px; 
     cursor: pointer;
@@ -113,6 +113,7 @@ main{
 .ver-pedidos-btn:hover {
      background-color: var(--bg-color-purple); 
 }
+
 
 @media (min-width: 770px) {
 
