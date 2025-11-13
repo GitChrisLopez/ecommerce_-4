@@ -58,7 +58,7 @@ main {
 }
 
 
-.detalles-libro p, .detalles-libro h3, .detalles-libro .calificacion{
+.detalles-libro p, .detalles-libro h3, .detalles-libro .calificacion, .detalles-libro label{
     margin:0;
     text-align: center;
 }
@@ -437,11 +437,11 @@ contenido-resenia-usuario input:checked ~ .resumen{
         justify-content: space-between;
     }
 
-    .detalles-libro div{
+    .calificacion{
         justify-content: end;
     }
 
-    .detalles-libro p{
+    .detalles-libro p, .detalles-libro label, .detalles-libro h3{
         text-align: right;
     }
 
@@ -492,6 +492,18 @@ contenido-resenia-usuario input:checked ~ .resumen{
         height: 40px;
         font-size: 1.2rem;
         border:none;
+    }
+    
+    .resenias-usuarios{
+        margin-top: 20px;
+    }
+    
+    .btn-enviar-resenia{
+        width: 180px;
+    }
+    
+    .input-range{
+        width: 40%;
     }
 
 
