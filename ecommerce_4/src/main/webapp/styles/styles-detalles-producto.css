@@ -3,6 +3,7 @@
 :root{
     --bg-color-stock:#325cb8;
     --bg-clic-sinopsis:#ABABAB;
+    --bg-color-enviar-resenia:#6094CF;
 }
 
 
@@ -79,20 +80,29 @@ main {
     color: var(--bg-color-stock);    
 }
 
+.resenias-usuarios{
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px
+}
+    
 .resenias-usuarios p{
     display: flex;
     align-content: center;
     column-gap: 10px;
 }
 
-.nombre-usuario{
+
+.nombre-calificacion-usuario{
     font-weight: 700;
     color:var(--bg-color-dark-dark-blue);
     display: flex;
+    flex-direction: column;
 }
 
-.nombre-usuario span{
+.nombre-calificacion-usuario span{
     display: flex;
+    flex-direction: column;
 }
 
 .resenias-usuarios strong{
@@ -240,8 +250,63 @@ h2{
     grid-column-end: 4;
     width: 170px;
     height: 40px;
-    font-size: 1rem;
-    align-self: end;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-agregar:hover{
+    cursor: pointer;
+}
+
+.btn-agregar-checkbox {
+    display:none;
+}
+
+.nueva-resenia-container{
+    display:none;
+}
+
+.form-nueva-resenia{
+    display:grid;
+    row-gap: 5px;
+}
+
+.resenia-container:has(.btn-agregar-checkbox:checked) .nueva-resenia-container{
+    display: inline;
+}
+
+.span-cancelar-resenia{
+    display: none;
+}
+
+.resenia-container:has(.btn-agregar-checkbox:checked) .span-cancelar-resenia{
+    display: inline;
+}
+
+.resenia-container:has(.btn-agregar-checkbox:checked) .span-agregar-resenia{
+    display: none;
+}
+
+#titulo-nueva-resenia{
+    font-size: 1.1rem;
+}
+
+#contenido-nueva-resenia{
+    font-size: 1.1rem;
+    height: 200px;
+}
+
+.btn-enviar-resenia{
+    background-color: var(--bg-color-enviar-resenia);
+    color:white;
+    font-size: 1.1rem;
+    cursor:pointer;
+    border:none;
+    width: 50%;
+    justify-self: end;
+    padding: 6px 1px;
+    border-radius: 10px;
 }
 
 .btn-agregar a{
@@ -249,14 +314,15 @@ h2{
    text-decoration: none;
 }
 
-.resenia-usuario{
+.contenido-resenia-usuario{
     display: grid;
     grid-template-columns: 70% 30%;
     grid-auto-rows: auto;
     column-gap: 10px;
+    row-gap: 20px;
 }
 
-.resenia-usuario p {
+.contenido-resenia-usuario p {
     margin:0;
 }
 
@@ -276,16 +342,16 @@ h2{
     display: none;
 }
 
-.resenia-usuario input:checked + label{
+.contenido-resenia-usuario input:checked + label{
 
     background-color: var(--bg-color-dark-grey);
     
 }
 
-.resenia-usuario input:checked + label .span-ocultar{
+.contenido-resenia-usuario input:checked + label .span-ocultar{
     display: inline;
 }
-.resenia-usuario input:checked + label .span-ver{
+.contenido-resenia-usuario input:checked + label .span-ver{
     display: none;
 }
 
@@ -293,23 +359,36 @@ h2{
 
     grid-column: 1 / 2;
     grid-row: 1 / 2;
-    font-weight: 700;
-
 }
 
-.contenido-resenia{
+.contenido-resenia-ampliada{
     grid-column: 1 / 3;
     grid-row: 2 / 3;
     text-align: justify;
     display: none;
 }
 
-.resenia-usuario input:checked ~ .contenido-resenia{
+.resenias-usuarios .calificacion{
+    justify-content: left;
+}
+
+.contenido-resenia-usuario input:checked ~ .contenido-resenia-ampliada{
     display: inline;
 }
 
-.resenia-usuario input:checked ~ .resumen{
+contenido-resenia-usuario input:checked ~ .resumen{
     display: inline;
+}
+
+.resenia-usuario{
+    display:flex;
+    column-gap: 20px;
+}
+
+
+.resenia-usuario img{
+    width: 40px;
+    height: 40px;
 }
 
 
@@ -332,13 +411,9 @@ h2{
 .container-encabezado-resenia{
     display: flex;
     justify-content: space-between;
-    margin-bottom: 5px;
+    margin-bottom: 20px;
 }
 
-.nombre-usuario img{
-    width: 40px;
-    height: 40px;
-}
 
 @media (min-width: 770px) {
 
@@ -376,8 +451,8 @@ h2{
     }
 
     .resenia-container input:checked + .titulo-sinopsis-container{
-    background-color: white;
-}
+        background-color: white;
+    }
 
 
     .titulo-sinopsis-container img{
@@ -400,7 +475,7 @@ h2{
         display: inline;
     }
 
-    .resenia-usuario{
+    .contenido-resenia-usuario{
         grid-template-columns:1fr 3fr;
     }
 
@@ -408,7 +483,7 @@ h2{
         width: 100px;
     }
 
-    .contenido-resenia{
+    .contenido-resenia-ampliada{
         margin-top: 10px;
     }
 
