@@ -63,6 +63,7 @@ button:hover {
     display: none;
 }
 
+
 button:hover > .options-product{
     cursor:pointer;
     display: flex;
@@ -175,9 +176,30 @@ button:hover > .options-product{
     padding: 0;
 }
 
-.libro a{
+.libro > a{
     text-decoration: none;
     color: black;
+}
+
+.button-add-container{
+    display:flex;
+    justify-content: end;
+    margin-right: 30px;
+    margin-bottom: 20px;
+}
+
+.button-add-container button{
+    background-color: var(--bg-color-blue);
+    color:white;
+    border-radius: 20px;
+    padding: 10px 10px;
+    transition: all 0.2s ease-in-out;
+    border:none;
+    font-size: 1rem;
+}
+
+.button-add-container button:hover{
+    background-color: var(--bg-color-catalogo);
 }
 
 @media (min-width: 770px) {
@@ -254,10 +276,14 @@ button:hover > .options-product{
     .libro img{
         width: 170px; 
     }
-
+    
+    .area-total-container{
+        width: 100%;
+    }
+    
     .libros-container {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
 
     .options-lookup{
@@ -277,6 +303,10 @@ button:hover > .options-product{
         padding:8px 7px;
         cursor:pointer;
         font-size: 1.1rem;
+    }
+    
+    .button-add-container{
+        margin:0;
     }
 
 

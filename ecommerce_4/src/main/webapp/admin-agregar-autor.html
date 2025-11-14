@@ -82,7 +82,7 @@
               <h1>Agregar autor</h1>
             </div>
 
-            <form class="form-add-edition" id="form-add-edition">
+            <form action="admin-autores-registrados.html" class="form-add-edition" id="form-add-edition">
               <div class="name-container">
                 <label>Nombre: </label>
                 <input type="text" value="Jorge Luis" maxlength="50" required />
@@ -100,18 +100,11 @@
             </form>
 
             <div class="buttons-cancel-add-edition">
-              <input
-                type="button"
-                value="Cancelar"
-                class="cancel-input"
-                form="form-add-edition"
-              />
-              <input
-                type="submit"
-                value="Agregar"
-                class="add-edition-input add-input"
-                form="form-add-edition"
-              />
+                <a href="admin-autores-registrados.html">
+                  <input type="button" value="Cancelar" class="cancel-input" form="form-add-edition" />
+                </a>
+              
+                <input type="submit" value="Agregar" class="add-edition-input add-input" form="form-add-edition"/>
             </div>
           </div>
         </div>

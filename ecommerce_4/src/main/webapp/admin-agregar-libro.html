@@ -4,11 +4,7 @@
     <title>Agregar libro</title>
     <meta charset="UTF-8" />
     <link rel="stylesheet" type="text/css" href="./styles/styles-nav.css" />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="./styles/styles-agregar-libro.css"
-    />
+    <link rel="stylesheet" type="text/css" href="./styles/styles-agregar-libro.css"/>
   </head>
 
   <body>
@@ -84,57 +80,49 @@
             <form class="form-add-edition" id="form-add-edition">
               <div>
                 <label>Título: </label>
-                <input
-                  type="text"
-                  value="El Último Secreto"
-                  readonly
-                  required
-                />
-                <button type="button">Seleccionar</button>
+                <input class="input-form-add-edition" type="text" value="El Último Secreto" required />
+                
               </div>
 
               <div>
                 <label>Autor: </label>
-                <input type="text" value="Dan Brown" readonly required />
-                <button type="button">Seleccionar</button>
+                <input class="input-form-add-edition" type="text" value="Dan Brown" readonly required />
+                <a href="admin-autores-registrados.html">
+                    <button class="btn-seleccionar" type="button">Seleccionar</button>
+                </a>
               </div>
 
               <div>
                 <label>Categoría: </label>
-                <input type="text" value="Thriller" readonly required />
-                <button type="button">Seleccionar</button>
+                <input class="input-form-add-edition" type="text" value="Thriller" readonly required />
+                <a href="categorias-registradas.html">
+                    <button class="btn-seleccionar" type="button">Seleccionar</button>
+                </a>
               </div>
 
               <div>
                 <label>Editorial: </label>
-                <input
-                  type="text"
-                  value="Editorial Planeta"
-                  readonly
-                  required
-                />
-                <button type="button">Seleccionar</button>
+                <input class="input-form-add-edition" type="text" value="Editorial Planeta" readonly required />
+                <a href="editoriales-registradas.html">
+                    <button class="btn-seleccionar" type="button">Seleccionar</button>
+                </a>
               </div>
 
               <div>
                 <label>Publicación: </label>
-                <input type="date" value="2025-09-09" required />
+                <input class="input-form-add-edition" type="date" value="2025-09-09" required />
               </div>
 
               <div class="div-synopsis">
                 <label>Sinopsis: </label>
-                <textarea maxlength="350" required> En El último secreto, el profesor de simbología Robert Langdon se ve 
+                <textarea class="input-form-add-edition" maxlength="350" required> En El último secreto, el profesor de simbología Robert Langdon se ve 
                     envuelto en una carrera contrarreloj en Praga tras el brutal asesinato de su colega, Katherine Solomon...
                 </textarea>
               </div>
 
               <div class="buttons-cancel-add-edition">
                 <input type="button" value="Cancelar" class="cancel-input" />
-                <input
-                  type="submit"
-                  value="Agregar"
-                  class="add-edition-input add-input"
-                />
+                <input type="submit" value="Agregar" class="add-edition-input add-input" />
               </div>
             </form>
           </div>

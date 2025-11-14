@@ -75,9 +75,9 @@
 
                 </div>
 
-                <form class="container-list" id="form">
+                <form action="admin-agregar-libro.html" class="container-list" id="form">
 
-                    <input type = "radio" id="morir-arena" name="registered">
+                    <input type = "radio" id="morir-arena" name="registered" required>
                     <label for="morir-arena">
                         <p>Morir en la arena (Andanzas)</p>
                         <img src="icons/edition.png">                        
@@ -98,18 +98,22 @@
                 
                 <div class="buttons">
 
-                        <div class="button-add">
-                            <input type="submit" value="Agregar" class="add-input" form="form">
-                        </div>
-
-                        <div class="buttons-cancel-save">
-                            <input type="submit" value="Cancelar" class="cancel-input" form="form">
-                            <input type="submit" value="Guardar" class="save-input" form="form">
-                        </div>
+                    <div class="button-add">
+                        <input type="submit" value="Agregar" class="add-input" form="form">
                     </div>
 
+                    <div class="buttons-cancel-save">
+                        <a href="edicion-producto.html">
+                            <input type="button" value="Cancelar" class="cancel-input" form="form">
+                        </a>
+                        <a href="edicion-producto.html">
+                            <input type="button" value="Guardar" class="save-input" form="form">
+                        </a>
+                    </div>
+                </div>
+
             </div>
-                
+
         </main>
     </body>
 </html>
