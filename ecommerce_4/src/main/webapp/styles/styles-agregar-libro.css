@@ -1,20 +1,24 @@
 @import url("./global.css");
 
+
 .body-container {
     display: flex;
     flex-direction: row;
     min-height: 100vh;
+
 }
 
 nav {
-    width: 100px;
-    background-color: var(--bg-color-dark-blue);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 0;
-    position: fixed;
+  width: 100px;
+  background-color: var(--bg-color-dark-blue);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  position: fixed;
+  padding:0;
+  margin:0;
 }
 
 main {
@@ -24,27 +28,20 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-}
-
-.general-container{
-    width: 100%;
-    display:flex;
-    justify-content: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .container-add-edition {
     background-color: white;
-    width: 22em;
-    max-width: none;
+    width: 80%;
+    max-width: 700px;
     border-radius: 30px;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
-    padding: 40px 30px;
-    margin-top: 20px;
+    padding: 0px 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-sizing: border-box;
 }
 
 .title-container h1 {
@@ -55,16 +52,20 @@ main {
     color: #222;
 }
 
+
+.title-container {
+    width: 100%;
+}
+
 form {
     display: flex;
     flex-direction: column;
     row-gap: 25px;
     width: 100%;
-    box-sizing: border-box;
 }
 
 form div {
-    display: grid;
+    display: flex;
     flex-direction: column;
     row-gap: 8px;
 }
@@ -74,9 +75,8 @@ form label {
     font-size: 1.1rem;
 }
 
-form input[type="text"],
-form input[type="date"],
-textarea {
+form input,
+form select {
     width: 100%;
     padding: 10px;
     border-radius: 10px;
@@ -86,15 +86,10 @@ textarea {
 }
 
 form input:focus,
-textarea:focus {
+form select:focus {
     border-color: var(--add-color);
     outline: none;
     box-shadow: 0 0 5px rgba(66, 99, 170, 0.3);
-}
-
-textarea {
-    height: 150px;
-    resize: none;
 }
 
 form button {
@@ -119,6 +114,7 @@ form button:hover {
     justify-content: flex-end;
     gap: 20px;
     margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 .cancel-input,
@@ -141,11 +137,15 @@ form button:hover {
 }
 
 .cancel-input:hover {
-    background-color: rgb(255, 105, 105);
+    background-color: var(--bg-color-red-light);
 }
 
 .add-edition-input:hover {
     background-color: var(--bg-color-catalogo);
+}
+
+.div-synopsis textarea{
+    height: 10vh;
 }
 
 
@@ -154,27 +154,10 @@ form button:hover {
         font-size: 1.4rem;
     }
 
-    main {
-        margin-left: 0;
-        margin-top: 20px;
-        width: 100%;
-    }
-
     nav {
         position: fixed;
-        width: 1100em;
-        max-width: none;
+        width: 100%;
         height: 80px;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 1rem;
-    }
-
-    nav {
-        position: fixed;
-        width: 100%;
-        height: 8%;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
@@ -186,73 +169,108 @@ form button:hover {
         gap: 40px;
     }
 
+    main {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 40px;
+    }
+
     .c2 {
         flex: 1;
         display: flex;
     }
-    
-    .general-container{
-        display:flex;
-        width: 70%;
-        justify-content: center;
-        box-sizing: border-box;
+
+    .general-container {
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+    }
+
+    .libro-container {
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
     }
 
     .container-add-edition {
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
         background-color: white;
-        width: 70em;
+        width: 100%;
         max-width: none;
         border-radius: 30px;
         box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+        padding: 50px;
+        gap: 60px;
+    }
+
+    .image-container {
+        width: 35%;
         display: flex;
         flex-direction: column;
         align-items: center;
+    }
+
+    .form-add-edition {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        row-gap: 25px;
+    }
+    
+    .form-add-edition input{
+        width: 100%;
         box-sizing: border-box;
     }
 
-    .title-container h1 {
-        margin-top: 0;
-        margin-bottom: 30px;
-        font-size: 2.2rem;
-        text-align: center;
-        color: #222;
-    }
-
-    form div {
-        display:grid;
+    .form-add-edition div {
+        display: grid;
         grid-template-columns: 1fr 3fr 1fr;
-        flex-direction: row;
         align-items: center;
         gap: 10px;
     }
 
-    form label {
+    .form-add-edition label {
         text-align: right;
     }
 
-    .input-form-add-edition {
-        width: 100%;
-        box-sizing: border-box;
+    .seleccionar-libro {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
     }
 
-    form button {
-        width: 20%;
-    }
-
-    .div-synopsis label {
-        align-self: flex-start;
-        padding-top: 8px;
-    }
-    
-    .btn-seleccionar{
+    .btn-seleccionar {
         width: 100%;
     }
 
-    .buttons-cancel-add-edition {
-        justify-content: flex-end;
+    .form-add-edition .buttons-cancel-add-edition {
+        display: flex;
+        flex-direction: row;
+        justify-content: end;
+        margin-top: 20px;
     }
 
     .buttons-cancel-add-edition input {
         width: 25%;
+        padding:5px 2px;
     }
+    
+    .buttons-cancel-add-edition a{
+        width: 25%;
+    }
+    
+    .buttons-cancel-add-edition a input{
+        width: 100%;
+    }
+    
+    
+    .div-synopsis label{
+        align-self:start;
+    }
+
+    
 }
