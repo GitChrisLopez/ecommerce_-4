@@ -35,27 +35,27 @@
                                         <p>Carlos Gutiérrez Torres</p>
                                     </div>
                                     <hr class="separador"> 
-                                    
+
                                     <a class="user-option" href="pedidos-realizados.html">
                                         <img src="./icons/mis-pedidos.png" alt="Pedidos" class="option-icon">
                                         <p>Mis Pedidos</p>
                                     </a>
-                                    
+
                                     <a class="user-option" href="edicion-datos-cuenta.html">
                                         <img src="./icons/edition.png" alt="Editar" class="option-icon">
                                         <p>Editar mis datos</p>
                                     </a>
-                                    
+
                                     <a class="user-option" href="direcciones-guardadas.html">
                                         <img src="./icons/direccion.png" alt="Direcciones" class="option-icon">
                                         <p>Direcciones</p>
                                     </a>
-                                    
+
                                     <a class="user-option" href="//">
                                         <img src="./icons/cerrar-sesion.png" alt="Cerrar sesión" class="option-icon">
                                         <p>Cerrar sesión</p>
                                     </a>
-                                    
+
                                 </div>
                             </button>
                         </li>
@@ -74,89 +74,93 @@
                     </ul>
                 </nav>
             </div> 
-            
-            <div class="c2">
 
-                <div class="catalogo-container">
+            <main>
+                <div class="c2">
 
-                    <form class="sidebar">
-                        
-                        <div class="options-lookup">
-                            <div class="search-filtros">
-                                <a href="./catalogo-filtros-mobile.html" class="filtrar-btn">
-                                    <img src="./icons/filtro.png" alt="Filtro" class="icono-filtro"> 
-                                    <span>Filtrar</span>
-                                </a>
+                    <div class="catalogo-container">
+
+                        <form class="sidebar">
+
+                            <div class="options-lookup">
+                                <div class="search-filtros">
+                                    <a href="./catalogo-filtros-mobile.html" class="filtrar-btn">
+                                        <img src="./icons/filtro.png" alt="Filtro" class="icono-filtro"> 
+                                        <span>Filtrar</span>
+                                    </a>
+                                </div>
+                                <div class="search-box">
+                                    <input type="text" placeholder="Buscar por Libro o Autor">
+                                </div>
+
                             </div>
-                            <div class="search-box">
-                                <input type="text" placeholder="Buscar por Libro o Autor">
+
+                            <input type="submit" value="Aplicar filtros" class="btn-aplicar-filtros">
+
+                            <div class="filtros">
+                                <h2>Categoría</h2>
+                                <label><input type="checkbox" checked> Thriller</label>
+                                <label><input type="checkbox" checked> Terror</label>
+                                <label><input type="checkbox" checked> Drama</label>
+                                <label><input type="checkbox"> Ciencia ficción</label>
+                                <label><input type="checkbox"> Biografía</label>
                             </div>
-                            
-                        </div>
-                        
-                        <input type="submit" value="Aplicar filtros" class="btn-aplicar-filtros">
-                        
-                        <div class="filtros">
-                            <h2>Categoría</h2>
-                            <label><input type="checkbox" checked> Thriller</label>
-                            <label><input type="checkbox" checked> Terror</label>
-                            <label><input type="checkbox" checked> Drama</label>
-                            <label><input type="checkbox"> Ciencia ficción</label>
-                            <label><input type="checkbox"> Biografía</label>
-                        </div>
 
-                        <div class="filtros">
-                            <h2>Formato</h2>
-                            <label><input type="checkbox" checked> Tapa dura</label>
-                            <label><input type="checkbox" checked> Tapa blanda</label>
-                            <label><input type="checkbox"> Bolsillo</label>
-                            <label><input type="checkbox"> E-Book</label>
-                        </div>
+                            <div class="filtros">
+                                <h2>Formato</h2>
+                                <label><input type="checkbox" checked> Tapa dura</label>
+                                <label><input type="checkbox" checked> Tapa blanda</label>
+                                <label><input type="checkbox"> Bolsillo</label>
+                                <label><input type="checkbox"> E-Book</label>
+                            </div>
 
-                        <div class="filtros">
-                            <h2>Precio</h2>
-                            <p>Mínimo: $100</p>
-                            <input type="range" min="100" max="800" value="100">
-                            <p>Máximo: $800</p>
-                            <input type="range" min="100" max="800" value="800">
-                        </div>
+                            <div class="filtros">
+                                <h2>Precio</h2>
+                                <p>Mínimo: $100</p>
+                                <input type="range" min="100" max="800" value="100">
+                                <p>Máximo: $800</p>
+                                <input type="range" min="100" max="800" value="800">
+                            </div>
 
-                    </form>
+                        </form>
 
-                    <div class="area-total-container">
-                        <div class="libros-container">
-                            <a href="./resenia-del-producto.html">
+                        <div class="area-total-container">
+                            <div class="libros-container">
+                                
                                 <button class="libro">
-                                    <img src="./imgs/morir-en-la-arena.png" alt="Morir en la arena">
-                                    <h3>Morir en la arena</h3>
-                                    <p>Leonardo Padura</p>
-                                    <p class="precio">$250.⁰⁰</p>
+                                    <a href="./resenia-del-producto.html">
+                                        <img src="./imgs/morir-en-la-arena.png" alt="Morir en la arena">
+                                        <h3>Morir en la arena</h3>
+                                        <p>Leonardo Padura</p>
+                                        <p class="precio">$250.⁰⁰</p>
+                                    </a>
                                 </button>
-                            </a>
-
-                            <a href="./resenia-del-producto.html">
+                                
                                 <button class="libro">
+                                    <a href="./resenia-del-producto.html">
                                     <img src="./imgs/la-novela-de-mi-vida.png" alt="La novela de mi vida (Andanzas)">
                                     <h3>La novela de mi vida (Andanzas)</h3>
                                     <p>Leonardo Padura</p>
                                     <p class="precio">$300.⁰⁰</p>
+                                    </a>
                                 </button>
-                            </a>
-
-                            <a href="./resenia-del-producto.html">
+                                
                                 <button class="libro">
-                                <img src="./imgs/el-ultimo-secreto.png" alt="El Último Secreto">
-                                <h3>El Último Secreto</h3>
-                                <p>Dan Brown</p>
-                                <p class="precio">$310.⁰⁰</p>
+                                    <a href="./resenia-del-producto.html">
+                                    <img src="./imgs/el-ultimo-secreto.png" alt="El Último Secreto">
+                                    <h3>El Último Secreto</h3>
+                                    <p>Dan Brown</p>
+                                    <p class="precio">$310.⁰⁰</p>
+                                    </a>
                                 </button>
-                            </a>
+                                
 
 
+                            </div>
                         </div>
-                    </div>
-                </div> 
-            </div>
+                    </div> 
+                </div>
+            </main>
         </div>
     </body>    
 </html>

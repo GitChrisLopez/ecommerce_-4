@@ -31,21 +31,7 @@ main{
 }
     
 .search-box {
-    width: 100%; 
-    display: flex; 
-    justify-content: flex-end; 
-}
-
-.search-box input {
-    flex-grow: 0; 
-    padding: 8px;
-    border: 1px solid black;
-    border-radius: 10px;
-    width: 50%; 
-}
-
-.search-box input::placeholder {
-    color: transparent; 
+    display:none;
 }
 
 .libros-container {
@@ -60,8 +46,8 @@ main{
     background-color: white;
     padding: 10px 1px; 
     text-align: center;
-    width: 200px; 
-    height: 350px; 
+    width: 300px; 
+    height: 500px; 
     justify-self: center; 
     border-radius: 15px;
     transition-duration: 0.2s;
@@ -71,10 +57,6 @@ main{
 button:hover {
     cursor: pointer;
     background-color:var(--bg-color-hover-selection);
-}
-
-button:hover img{
-    width: 100%;
 }
 
 .options-product{
@@ -91,22 +73,24 @@ button:hover > .options-product{
     row-gap: 10px;
     position: absolute;
     bottom:0;
-    width: 93%;
+    width: 100%;
+    box-sizing: border-box;
 }
 
-.options-product div{
+.options-product a{
     background-color: var(--bg-color-container-option-product);
     border-radius: 10px;
-    font-weight: 800px;
+    font-weight: 600;
+    color:white;
+    padding: 10px;
+    border:none;
+    cursor:pointer;
+    text-decoration: none;
 }
 
-.options-product div:hover{
+.options-product a:hover{
     background-color: var(--bg-color-container-option-product-hover);
     border-radius: 10px;
-}
-
-.options-product div p{
-    color:white;
 }
 
 
@@ -119,7 +103,7 @@ button:hover > .options-product{
 
 .libro img {
     width: 100%;
-    max-width: 150px; 
+    max-width: 250px; 
     height: auto;
     display: block; 
     margin-left: auto;
@@ -137,9 +121,16 @@ button:hover > .options-product{
 }
 
 .c2 {
-    flex: 1; 
     display: flex; 
+    flex: 1; 
 }
+
+.catalogo-container{
+    width: 100%;
+    margin-top:15px;
+    margin-left: 15px;
+}
+    
 
 .options-lookup{
     display: flex;
@@ -177,13 +168,16 @@ button:hover > .options-product{
 }
 
 .btn-aplicar-filtros{
-    background-color: var(--bg-color-dark-blue);
-    color:white;
-    border:none;
-    border-radius: 10px;
-    padding:8px 7px;
-    cursor:pointer;
-    font-size: 1.1rem;
+    display:none;
+}
+
+.libros-container{
+    padding: 0;
+}
+
+.libro a{
+    text-decoration: none;
+    color: black;
 }
 
 @media (min-width: 770px) {
@@ -212,17 +206,22 @@ button:hover > .options-product{
     }
 
     .search-box input::placeholder {
-        color: black;
+        color: grey;
     }
 
     .search-box {
-        display: flex;
-        margin-bottom: 20px;
+        width: 100%; 
+        display: flex; 
         justify-content: flex-start; 
+        margin-bottom: 20px;
     }
 
     .search-box input {
         width: 100%; 
+        padding: 10px 20px;
+        flex-grow: 0; 
+        border: 1px solid black;
+        border-radius: 10px;
     }
 
     .search-filtros{
@@ -246,6 +245,15 @@ button:hover > .options-product{
         font-size: 0.9em;
         color: #555;
     }
+    
+    .libro {
+        width: 220px; 
+        height: 400px; 
+    }
+    
+    .libro img{
+        width: 170px; 
+    }
 
     .libros-container {
         display: grid;
@@ -257,8 +265,19 @@ button:hover > .options-product{
     }
 
     button:hover > .options-product{
-        bottom: -150px;
-        width: 90%;
+        bottom: -130px;
     }
+    
+    .btn-aplicar-filtros{
+        display:block;
+        background-color: var(--bg-color-dark-blue);
+        color:white;
+        border:none;
+        border-radius: 10px;
+        padding:8px 7px;
+        cursor:pointer;
+        font-size: 1.1rem;
+    }
+
 
 }
