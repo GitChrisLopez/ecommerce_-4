@@ -5,28 +5,40 @@ body {
   margin: 0;
 }
 
-main {
-  background-color: var(--lighter-grey);
-  min-height: 100vh;
+.container-list input[type="radio"] {
+  display: none;
+}
+
+.body-container {
   display: flex;
   flex-direction: row;
+  min-height: 100vh;
+}
+
+.c1 {
+  flex-shrink: 0;
+}
+
+main {
+  background-color: var(--lighter-grey);
+  padding: 20px;
+  flex: 1;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
 }
 
 .container-autores {
   background: white;
   width: 90%;
-  max-width: 150vh;
-  margin: 40px auto;
+  max-width: 170vh;
   border-radius: 30px;
+  margin: 5px;
   padding: 40px;
   display: flex;
   flex-direction: column;
   gap: 25px;
-}
-
-.title-search h1 {
-  font-size: 32px;
-  margin-bottom: 15px;
+  height: 60vh;
 }
 
 .title-search {
@@ -35,17 +47,23 @@ main {
   gap: 10px;
 }
 
+.title-search h1 {
+  text-align: center;
+  font-size: 32px;
+}
+
 .search-bar {
   display: flex;
   position: relative;
   width: 50%;
+  margin: auto;
 }
 
 .search-bar input {
   width: 100%;
   border-radius: 30px;
   padding: 10px 45px 10px 15px;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
 }
 
 .search-bar label img {
@@ -63,7 +81,7 @@ main {
 
 .container-list label {
   background-color: var(--lighter-grey);
-  padding: 15px;
+  padding: 18px;
   border-radius: 20px;
   display: flex;
   justify-content: space-between;
@@ -76,24 +94,21 @@ main {
 }
 
 .container-list label img {
-  width: 28px;
-  cursor: pointer;
+  width: 26px;
 }
 
 .buttons {
-  margin-top: 10px;
   display: flex;
   justify-content: flex-end;
-  gap: 20px;
+  gap: 15px;
 }
 
 .cancel-input,
-.save-input,
-.add-btn {
+.save-input {
   padding: 12px 40px;
   border-radius: 25px;
-  font-size: 18px;
   border: none;
+  font-size: 18px;
   color: white;
   cursor: pointer;
 }
@@ -102,8 +117,7 @@ main {
   background-color: var(--bg-color-dark-red);
 }
 
-.save-input,
-.add-btn {
+.save-input {
   background-color: var(--bg-color-dark-blue);
 }
 
@@ -131,6 +145,9 @@ main {
 .nav-links .resenias,
 .nav-links .pedidos,
 .nav-links .payments,
+.nav-links .catalogo,
+.nav-links .carrito,
+.nav-links .home,
 .nav-links .user {
   display: flex !important;
   justify-content: center !important;
@@ -149,7 +166,7 @@ nav > a .home {
 }
 
 @media (min-width: 770px) {
-  main {
+  .body-container {
     flex-direction: column;
   }
 
@@ -180,10 +197,10 @@ nav > a .home {
     display: none;
   }
 
+  .catalogo,
   .users,
-  .resenias,
-  .pedidos,
-  .payments {
+  .payments,
+  .pedidos {
     width: auto;
     display: flex;
     align-items: center;
