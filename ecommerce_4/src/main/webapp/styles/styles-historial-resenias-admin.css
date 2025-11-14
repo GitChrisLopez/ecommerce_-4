@@ -1,155 +1,245 @@
-@import url('./global.css');
+@import url("./global.css");
 
 .body-container {
-    display: flex;
-    flex-direction: row; 
-    min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
 }
 
-main{
-    background-color: var(--lighter-grey);
-    padding: 0;
-    flex: 1;
-    display: flex; 
-    justify-content: center; 
-}   
+main {
+  background-color: var(--lighter-grey);
+  padding: 0;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
 
 .c2 {
-    flex: 1; 
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-    padding-top: 50px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 50px;
 }
 
-.resenias-container{
-    background-color: white;
-    width: 80%; 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 0; 
-    margin-bottom: 40px;
-    border-radius: 30px;
-    padding-bottom: 20px;
-    margin-left: auto; 
-    margin-right: auto;
+.resenias-container {
+  background-color: white;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 0;
+  margin-bottom: 40px;
+  border-radius: 30px;
+  padding-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.resenia-title{
-    font-size: 30px;
-    margin: 30px 0;
-    text-align: center;
+.historial-resenias-title {
+  font-size: 30px;
+  margin: 30px 0;
+  text-align: center;
 }
 
 .lista-resenias {
-    display: flex;
-    flex-direction: column; 
-    gap: 15px; 
-    width: 90%;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 90%;
+  align-items: center;
 }
 
-.resenia1, .resenia2 {
-    background-color: var(--lighter-grey);
-    border-radius: 12px;
-    padding: 10px 20px;
-    gap: 10px;
-    display: flex;
-    flex-direction: row;
-    width: 70%;
+.resenia1,
+.resenia2 {
+  background-color: var(--lighter-grey);
+  border-radius: 12px;
+  padding: 10px 20px;
+  gap: 10px;
+  display: flex;
+  flex-direction: row;
+  width: 90%;
 }
 
-.resenia-info span{
-    font-weight: bold;
+.resenia-info span {
+  font-weight: bold;
 }
 
-.resenia-btn{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    align-self: center;
-    margin: auto;
+.resenia-btn {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-self: center;
+  margin: auto;
 }
 
-.eliminar-btn, .editar-btn{
-    text-decoration: none;
-    border: none;
-    padding: 10px 10px;
-    border-radius: 10px;
-    color: white;
-    font-size: 16px;
-    text-decoration: none; 
-    cursor: pointer;
-    text-align: center;
-    align-self: center;
+.eliminar-btn,
+.editar-btn {
+  text-decoration: none;
+  border: none;
+  padding: 10px 10px;
+  border-radius: 10px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
 }
 
-.editar-btn{
-    background-color: var(--bg-color-dark-blue);
-    transition: background-color 0.3s ease;
+.editar-btn {
+  background-color: var(--bg-color-dark-blue);
+  transition: background-color 0.3s ease;
 }
 
-.eliminar-btn{
-    background-color: var(--bg-color-dark-red);
+.eliminar-btn {
+  background-color: var(--bg-color-dark-red);
 }
 
 .editar-btn:hover {
-    background-color: var(--bg-color-dark-dark-blue);
+  background-color: var(--bg-color-dark-dark-blue);
 }
 
 .search-box {
-    width: 80%; 
-    margin-left: auto; 
-    margin-right: 10%; 
-    text-align: right; 
-    margin-bottom: 30px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: 10%;
+  text-align: right;
+  margin-bottom: 30px;
 }
 
 .search-box input::placeholder {
-    color: var(--color-text-dark-grey);
+  color: var(--color-text-dark-grey);
 }
 
 .search-box input {
-    border: none;
-    border-radius: 20px;
-    width: 50%; 
-    padding: 12px;
-    font-size: 15px;
+  border: none;
+  border-radius: 20px;
+  width: 50%;
+  padding: 12px;
+  font-size: 15px;
+}
+
+.nav-text {
+  display: none;
+}
+
+.nav-users {
+  order: 4 !important;
+}
+.nav-resenias {
+  order: 2 !important;
+}
+.nav-pedidos {
+  order: 3 !important;
+}
+.nav-pagos {
+  order: 5 !important;
+}
+.nav-perfil {
+  order: 1 !important;
+}
+
+.nav-links .users,
+.nav-links .resenias,
+.nav-links .pedidos,
+.nav-links .payments,
+.nav-links .catalogo,
+.nav-links .carrito,
+.nav-links .user {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 60px !important;
+  height: 60px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+nav > a .home {
+  width: 60px !important;
+  height: 60px !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px !important;
 }
 
 @media (min-width: 770px) {
+  .body-container {
+    flex-direction: column;
+  }
 
-    .body-container {
-        display: flex;
-        flex-direction: column; 
-    }
+  .resenias-container {
+    width: 70%;
+  }
 
-    .resenias-container{
-        width: 70%; 
-    }
+  .lista-resenias {
+    width: 80%;
+  }
 
-    .lista-resenias {
-        width: 80%; 
-        align-items: center;
-    }
+  .resenia-info {
+    width: 70%;
+  }
 
-    .resenia-info {
-        width: 70%;
-    }
+  .resenia1,
+  .resenia2 {
+    width: 100%;
+  }
 
-    .resenia1, .resenia2{
-        width: 100%;
-    }
+  .eliminar-btn,
+  .editar-btn {
+    padding: 10px 40px;
+  }
 
-    .eliminar-btn, .editar-btn{
-        padding: 10px 40px;
-    }   
+  .search-box {
+    margin-right: 15%;
+  }
 
-    .search-box {
-        margin-right: 15%; 
-    }
+  .nav-links {
+    gap: 25px !important;
+  }
+
+  .nav-text {
+    display: inline-block !important;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 8px;
+    white-space: nowrap;
+    letter-spacing: 0.5px;
+  }
+
+  .catalogo-icon,
+  .users-icon,
+  .payments-icon,
+  .pedidos-icon,
+  .carrito-icon {
+    display: none;
+  }
+
+  .catalogo,
+  .users,
+  .payments,
+  .pedidos,
+  .carrito {
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-users {
+    order: 1 !important;
+  }
+  .nav-resenias {
+    order: 2 !important;
+  }
+  .nav-pedidos {
+    order: 3 !important;
+  }
+  .nav-pagos {
+    order: 4 !important;
+  }
+  .nav-perfil {
+    order: 5 !important;
+  }
 }
-    
-
-    

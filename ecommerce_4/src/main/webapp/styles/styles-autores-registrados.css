@@ -1,0 +1,207 @@
+@import url("./global.css");
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+main {
+  background-color: var(--lighter-grey);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+}
+
+.container-autores {
+  background: white;
+  width: 90%;
+  max-width: 150vh;
+  margin: 40px auto;
+  border-radius: 30px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.title-search h1 {
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+.title-search {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.search-bar {
+  display: flex;
+  position: relative;
+  width: 50%;
+}
+
+.search-bar input {
+  width: 100%;
+  border-radius: 30px;
+  padding: 10px 45px 10px 15px;
+  font-size: 1.1rem;
+}
+
+.search-bar label img {
+  position: absolute;
+  right: 15px;
+  top: 25%;
+  width: 22px;
+}
+
+.container-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.container-list label {
+  background-color: var(--lighter-grey);
+  padding: 15px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container-list label p {
+  font-size: 18px;
+  margin: 0;
+}
+
+.container-list label img {
+  width: 28px;
+  cursor: pointer;
+}
+
+.buttons {
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+}
+
+.cancel-input,
+.save-input,
+.add-btn {
+  padding: 12px 40px;
+  border-radius: 25px;
+  font-size: 18px;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.cancel-input {
+  background-color: var(--bg-color-dark-red);
+}
+
+.save-input,
+.add-btn {
+  background-color: var(--bg-color-dark-blue);
+}
+
+.nav-text {
+  display: none;
+}
+
+.nav-users {
+  order: 4 !important;
+}
+.nav-resenias {
+  order: 2 !important;
+}
+.nav-pedidos {
+  order: 3 !important;
+}
+.nav-pagos {
+  order: 5 !important;
+}
+.nav-perfil {
+  order: 1 !important;
+}
+
+.nav-links .users,
+.nav-links .resenias,
+.nav-links .pedidos,
+.nav-links .payments,
+.nav-links .user {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 60px !important;
+  height: 60px !important;
+}
+
+nav > a .home {
+  width: 60px !important;
+  height: 60px !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px !important;
+}
+
+@media (min-width: 770px) {
+  main {
+    flex-direction: column;
+  }
+
+  .container-autores {
+    width: 170vh;
+  }
+
+  .search-bar {
+    width: 40%;
+  }
+
+  .nav-links {
+    gap: 25px !important;
+  }
+
+  .nav-text {
+    display: inline-block !important;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 8px;
+  }
+
+  .catalogo-icon,
+  .users-icon,
+  .payments-icon,
+  .pedidos-icon {
+    display: none;
+  }
+
+  .users,
+  .resenias,
+  .pedidos,
+  .payments {
+    width: auto;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-users {
+    order: 1 !important;
+  }
+  .nav-resenias {
+    order: 2 !important;
+  }
+  .nav-pedidos {
+    order: 3 !important;
+  }
+  .nav-pagos {
+    order: 4 !important;
+  }
+  .nav-perfil {
+    order: 5 !important;
+  }
+}
