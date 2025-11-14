@@ -10,7 +10,6 @@
     justify-content: center; 
 }
 
-
 .c2 {
     flex: 1; 
     display: flex;
@@ -43,6 +42,16 @@
     margin-bottom: 30px;
 }
 
+.general-container input{
+    display:none;
+}
+
+.general-container input:checked + label {
+  background-color: black;
+  color: white;
+  cursor: default;
+}
+
 .direccion-individual {
     display: flex;
     justify-content: space-between;
@@ -51,6 +60,7 @@
     border-radius: 15px;
     background-color: var(--white-grey); 
     transition: background-color 0.3s ease; 
+    cursor:pointer;
 }
 
 .direccion-individual:hover {
