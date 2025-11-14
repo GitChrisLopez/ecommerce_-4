@@ -1,112 +1,134 @@
 <!DOCTYPE html>
 <html>
-
     <head>
         <title>Editar libro</title>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" type="text/css" href="./styles/styles-nav.css">
-        <link rel="stylesheet" type="text/css" href="./styles/styles-agregar-libro.css">
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" type="text/css" href="./styles/styles-nav.css" />
+        <link rel="stylesheet" type="text/css" href="./styles/styles-agregar-libro.css"/>
     </head>
 
     <body>
-
-        <div class="c1">
+        <div class="body-container">
             <nav>
                 <a href="./principal-registrado.html">
                     <div class="home">
-                        <img src="./icons/home.svg" alt="home" class="home-icon"> 
+                        <img src="./icons/home.svg" alt="home" class="home-icon" />
                     </div>
                 </a>
 
                 <ul class="nav-links">
                     <li>
-                        <a href="./catalogo.html" class="nav-btn" target="_blank">Catálogo</a>
-                    </li>
-                    <li>
-                        <div class="carrito">
-                            <img src="./icons/carrito.png" alt="carrito" class="carrito-icon"> 
-                        </div>
+                        <a href="./catalogo.html" class="nav-btn" target="_blank"
+                           >Catálogo</a
+                        >
                     </li>
                     <li>
                         <div class="user">
-                            <img src="./icons/user.png" alt="user" class="user-icon"> 
+                            <img src="./icons/user.png" alt="user" class="user-icon" />
                         </div>
                     </li>
                     <li>
                         <a href="./catalogo.html">
                             <div class="catalogo">
-                                <img src="./icons/catalogo.png" alt="catalogo" class="catalogo-icon"> 
+                                <img
+                                    src="./icons/catalogo.png"
+                                    alt="catalogo"
+                                    class="catalogo-icon"
+                                    />
                             </div>
                         </a>
                     </li>
                     <li>
                         <a href="./users.html">
                             <div class="users">
-                                <img src="./icons/users.png" alt="usuarios" class="users-icon"> 
+                                <img
+                                    src="./icons/users.png"
+                                    alt="usuarios"
+                                    class="users-icon"
+                                    />
                             </div>
                         </a>
                     </li>
                     <li>
                         <div class="pedidos">
-                            <img src="./icons/pedidos.png" alt="pedidos" class="pedidos-icon"> 
+                            <img
+                                src="./icons/pedidos.png"
+                                alt="pedidos"
+                                class="pedidos-icon"
+                                />
                         </div>
                     </li>
                     <li>
                         <div class="payments">
-                            <img src="./icons/payments.png" alt="Pagos" class="payments-icon"> 
+                            <img
+                                src="./icons/payments.png"
+                                alt="Pagos"
+                                class="payments-icon"
+                                />
                         </div>
                     </li>
                 </ul>
             </nav>
+
+            <main>
+                <div class="general-container">
+                    <div class="container-add-edition">
+                        <div class="title-container">
+                            <h1>Editar libro</h1>
+                        </div>
+
+                        <form action="libros-registrados.html" class="form-add-edition" id="form-add-edition">
+                            <div>
+                                <label>Título: </label>
+                                <input class="input-form-add-edition" type="text" value="El Último Secreto" required />
+
+                            </div>
+
+                            <div>
+                                <label>Autor: </label>
+                                <input class="input-form-add-edition" type="text" value="Dan Brown" readonly required />
+                                <a href="admin-autores-registrados.html">
+                                    <button class="btn-seleccionar" type="button">Seleccionar</button>
+                                </a>
+                            </div>
+
+                            <div>
+                                <label>Categoría: </label>
+                                <input class="input-form-add-edition" type="text" value="Thriller" readonly required />
+                                <a href="categorias-registradas.html">
+                                    <button class="btn-seleccionar" type="button">Seleccionar</button>
+                                </a>
+                            </div>
+
+                            <div>
+                                <label>Editorial: </label>
+                                <input class="input-form-add-edition" type="text" value="Editorial Planeta" readonly required />
+                                <a href="editoriales-registradas.html">
+                                    <button class="btn-seleccionar" type="button">Seleccionar</button>
+                                </a>
+                            </div>
+
+                            <div>
+                                <label>Publicación: </label>
+                                <input class="input-form-add-edition" type="date" value="2025-09-09" required />
+                            </div>
+
+                            <div class="div-synopsis">
+                                <label>Sinopsis: </label>
+                                <textarea class="input-form-add-edition" maxlength="350" required> En El último secreto, el profesor de simbología Robert Langdon se ve envuelto en una carrera contrarreloj en Praga tras el brutal asesinato de su colega, Katherine Solomon...
+                                </textarea>
+                            </div>
+
+                            <div class="buttons-cancel-add-edition">
+                                <a href="libros-registrados.html">
+                                    <input type="button" value="Cancelar" class="cancel-input" />
+                                </a>
+                                <input type="submit" value="Guardar" class="add-edition-input add-input" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </main>
         </div>
-
-
-        <article class = "book-add-edition-content">
-
-            <form>
-
-                <div>
-                    <label>Título: </label>
-                    <input type = "text" value="Morir en la arena (Andanzas)" readonly required>
-                    <button>Seleccionar</button>
-                </div>
-
-                <div>
-                    <label>Autor: </label>
-                    <input type = "text" value="Leonardo Padura Fuentes" readonly required>
-                    <button>Seleccionar</button>
-                </div>
-
-                <div>
-                    <label>Categoría: </label>
-                    <input type = "text" value="Drama" readonly required>
-                    <button>Seleccionar</button>
-                </div>
-
-                <div>
-                    <label>Editorial: </label>
-                    <input type = "text" value="TusQuets Editores" readonly required>
-                    <button>Seleccionar</button>
-                </div>
-
-                <div class="div-publication" required>
-                    <label>Publicación: </label>
-                    <input type = "date" value="2025-09-23">
-                </div>
-
-                <div class="div-synopsis">
-                    <label>Sinopsis: </label>
-                    <textarea maxlength="350" required>Narra la historia de Rodolfo, un hombre jubilado cuyo pasado vuelve a acecharlo cuando su hermano Geni, un asesino convicto, es excarcelado debido a una enfermedad incurable. La trama se desarrolla a lo largo de una semana, mientras Rodolfo espera la llegada de su hermano a la casa familiar, un evento que reaviva viejos rencores y secretos del pasado, especialmente el asesinato de su padre.
-                    </textarea>
-                </div>
-
-                <div class="buttons">
-                    <input type="submit" value="Cancelar" class="cancel-input">
-                    <input type="submit" value="Guardar" class="save-input">
-                </div>
-            </form>
-
-
-        </article>
     </body>
 </html>
