@@ -2,10 +2,10 @@
 
 <html>
     <head>
-        <title>Editoriales registradas</title>
+        <title>Editoriales registradass</title>
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="./styles/styles-nav.css">
-        <link rel="stylesheet" type="text/css" href="./styles/styles-registered.css">
+        <link rel="stylesheet" type="text/css" href="./styles/styles-registrado.css">
     </head>
 
     <body>
@@ -64,7 +64,7 @@
 
                 <div class="title-search">
 
-                    <h1>Editoriales registradas</h1>
+                    <h1>Categorías registradas</h1>
 
                     <div class="search-bar">
                         <input type="search" placeholder="Buscar" id="input-search">
@@ -75,41 +75,57 @@
 
                 </div>
 
-                <form class="container-list" id="form">
+                <form action="edicion-libro.html" class="container-list" id="form">
 
-                    <input type = "radio" id="tus-quets" name="registered">
-                    <label for="tus-quets">
+                    
+                    <input type = "radio" id="tusquets" name="editorial" required>
+                    <label for="tusquets">
                         <p>TusQuets Editores</p>
-                        <img src="icons/edition.png">                        
+                        <a href="edicion-editorial.html">
+                            <img src="icons/edition.png"> 
+                        </a>
                     </label>
+                    
 
-                    <input type = "radio" id="planeta" name="registered">
+                    <input type = "radio" id="planeta" name="editorial">
                     <label for="planeta">
                         <p>Editorial Planeta</p>
-                        <img src="icons/edition.png">                        
+                        <a href="edicion-editorial.html">
+                            <img src="icons/edition.png">          
+                        </a>
                     </label>
 
-                    <input type = "radio" id="penguin-random" name="registered">
-                    <label for="penguin-random">
+                    <input type = "radio" id="penguinrandom" name="editorial">        
+                    <label for="penguinrandom">
                         <p>Pengüin Random House</p>
-                        <img src="icons/edition.png">                        
+                        <a href="edicion-editorial.html">
+                            <img src="icons/edition.png">       
+                        </a>
                     </label>
 
-                    <input type = "radio" id="grijalbo" name="registered">
+                    <input type = "radio" id="grijalbo" name="editorial">
                     <label for="grijalbo">
                         <p>Grijalbo</p>
-                        <img src="icons/edition.png">                        
+                        <a href="edicion-editorial.html">
+                            <img src="icons/edition.png">           
+                        </a>
                     </label>
+                    
                 </form>
                 
                 <div class="buttons">
 
                         <div class="button-add">
-                            <input type="submit" value="Agregar" class="add-input" form="form">
+                            <a href="admin-agregar-editorial.html">
+                                <input type="submit" value="Agregar" class="add-input">
+                            </a>
+                            
                         </div>
 
                         <div class="buttons-cancel-save">
-                            <input type="submit" value="Cancelar" class="cancel-input" form="form">
+                            <a href="edicion-libro.html">
+                                <input type="submit" value="Cancelar" class="cancel-input">
+                            </a>
                             <input type="submit" value="Guardar" class="save-input" form="form">
                         </div>
                     </div>
