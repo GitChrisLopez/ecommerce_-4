@@ -77,50 +77,63 @@
 
                 <form action="edicion-libro.html" class="container-list" id="form">
 
+                    
                     <input type = "radio" id="thriller" name="registered" required>
                     <label for="thriller">
                         <p>Thriller</p>
-                        <img src="icons/edition.png">                        
+                        <a href="edicion-categoria.html">
+                            <img src="icons/edition.png"> 
+                        </a>
                     </label>
+                    
 
                     <input type = "radio" id="terror" name="registered">
                     <label for="terror">
                         <p>Terror</p>
-                        <img src="icons/edition.png">                        
+                        <a href="edicion-categoria.html">
+                            <img src="icons/edition.png">          
+                        </a>
                     </label>
 
-                    <input type = "radio" id="drama" name="registered">
+                    <input type = "radio" id="drama" name="registered">        
                     <label for="drama">
                         <p>Drama</p>
-                        <img src="icons/edition.png">                        
+                        <a href="edicion-categoria.html">
+                            <img src="icons/edition.png">       
+                        </a>
                     </label>
 
                     <input type = "radio" id="ciencia-ficcion" name="registered">
                     <label for="ciencia-ficcion">
                         <p>Ciencia ficción</p>
-                        <img src="icons/edition.png">                        
+                        <a href="edicion-categoria.html">
+                            <img src="icons/edition.png">           
+                        </a>
                     </label>
                     
                     <input type = "radio" id="biografia" name="registered">
                     <label for="biografia">
                         <p>Biografía</p>
-                        <img src="icons/edition.png">                        
+                        <a href="edicion-categoria.html">
+                            <img src="icons/edition.png">            
+                        </a>
                     </label>
                 </form>
                 
                 <div class="buttons">
 
                         <div class="button-add">
-                            <input type="submit" value="Agregar" class="add-input" form="form">
+                            <a href="admin-agregar-categoria.html">
+                                <input type="submit" value="Agregar" class="add-input">
+                            </a>
+                            
                         </div>
 
                         <div class="buttons-cancel-save">
                             <a href="edicion-libro.html">
-                                <input type="submit" value="Cancelar" class="cancel-input" form="form">
+                                <input type="submit" value="Cancelar" class="cancel-input">
                             </a>
-                            <a>
-                                <input type="submit" value="Guardar" class="save-input" form="form">
-                            </a>
+                            <input type="submit" value="Guardar" class="save-input" form="form">
                         </div>
                     </div>
 
