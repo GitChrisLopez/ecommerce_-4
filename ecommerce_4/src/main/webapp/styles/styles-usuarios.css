@@ -6,6 +6,7 @@
   --bg-color-activate-deactivate-account: #001950;
 }
 
+
 body {
   font-size: 1.2rem;
   padding: 0;
@@ -206,6 +207,8 @@ nav > a .home {
   margin-bottom: 20px !important;
 }
 
+
+
 @media (min-width: 770px) {
   main {
     flex-direction: column;
@@ -224,7 +227,7 @@ nav > a .home {
     white-space: nowrap;
     word-spacing: normal !important;
     letter-spacing: 0.5px;
-    text-decoration: none !important;
+    text-decoration: none !important; 
   }
 
   .catalogo-icon,
