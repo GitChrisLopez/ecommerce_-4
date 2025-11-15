@@ -44,23 +44,26 @@ main {
 
 .libros-container {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 30px;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
   padding: 20px;
+  justify-items: center;
 }
 
 .libro {
   background-color: white;
   padding: 10px 1px;
   text-align: center;
-  width: 200px;
-  height: 350px;
+  width: 100%;
+  max-width: 160px;
+  height: auto;
+  min-height: 280px;
   justify-self: center;
   border-radius: 20px;
 }
 
 .libro h3 {
-  font-size: 1.2em;
+  font-size: 1em;
   margin: 5px;
   font-weight: 600;
   word-wrap: break-word;
@@ -68,7 +71,7 @@ main {
 
 .libro img {
   width: 100%;
-  max-width: 150px;
+  max-width: 100px;
   height: auto;
   display: block;
   margin-left: auto;
@@ -76,13 +79,13 @@ main {
 }
 
 .libro p {
-  font-size: 1em;
+  font-size: 0.9em;
   color: var(--color-text-dark-grey);
 }
 
 .libro .precio {
   font-weight: bold;
-  font-size: 1.2em;
+  font-size: 1em;
 }
 
 .c2 {
@@ -183,6 +186,7 @@ main {
   .libros-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
   }
 
   .options-lookup {
