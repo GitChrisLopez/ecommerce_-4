@@ -114,8 +114,8 @@ main {
 }
 
 .carrito-container {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 30px;
   padding: 20px;
   align-items: center;
@@ -127,25 +127,33 @@ main {
 }
 
 .carro {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 90%;
+  max-width: 700px;
+}
+
+.carro .info-libro {
   background-color: white;
   border-radius: 20px;
   padding: 20px;
-  width: 90%;
-  max-width: 700px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  position: relative;
 }
 
+
 .info-libro img {
-  width: 100%;
-  max-width: 130px;
+  width: 120px;
+  max-width: 120px;
+  flex-shrink: 0;
   border-radius: 10px;
+  height: auto;
 }
 
 .acciones-desktop {
@@ -157,11 +165,13 @@ main {
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  margin-top: 10px;
+  margin-top: 20px;
   background-color: white;
   border-radius: 10px;
-  padding: 10px;
-  width: 100%;
+  padding: 15px;
+  width: 90%;
+  max-width: 700px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
 }
 
 .subtotal {
@@ -187,12 +197,22 @@ main {
 }
 
 .detalle-libro {
-  align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1;
+  gap: 4px;
+  justify-content: center;
 }
 
-.info-libro {
-  align-items: center;
-  justify-content: center;
+.detalle-libro h3 {
+  margin: 0;
+  font-size: 1em;
+}
+
+.detalle-libro p {
+  margin: 0;
+  font-size: 0.9em;
 }
 
 .btn-cantidad-mas,
@@ -219,6 +239,30 @@ main {
   width: 25px;
   border-radius: 10px;
   height: 30px;
+}
+
+.btn-eliminar {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: var(--bg-color-dark-red);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  padding: 0;
+}
+
+.btn-eliminar:hover {
+  background-color: #a00002;
 }
 
 @media (min-width: 770px) {
@@ -284,31 +328,38 @@ main {
   }
 
   .lista-libros {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: 1fr 350px;
     gap: 40px;
     width: 100%;
     max-width: 1200px;
     margin: 0 auto 0 60px;
     position: relative;
+    align-items: start;
+  }
+
+  .carro {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    grid-column: 1;
   }
 
   .info-libro {
-    flex: 2;
     display: flex;
     align-items: flex-start;
     background-color: white;
     border-radius: 20px;
-    padding: 40px;
+    padding: 25px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    min-height: 450px;
-    gap: 30px;
+    min-height: auto;
+    gap: 20px;
+    width: auto;
+    position: relative;
   }
 
   .info-libro img {
-    width: 300px;
+    width: 200px;
     max-width: none;
     height: auto;
     border-radius: 15px;
@@ -343,22 +394,25 @@ main {
     color: #333;
   }
 
-  .acciones-desktop {
+  .carro .acciones-desktop {
+    display: none;
+  }
+
+  .lista-libros > .acciones-desktop {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: center;
     justify-content: center;
     background-color: white;
     border-radius: 20px;
     padding: 25px 30px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    position: fixed;
-    bottom: 30px;
-    right: 40px;
-    width: 350px;
+    position: sticky;
+    top: 20px;
+    width: 100%;
     height: auto;
-    z-index: 100;
-    align-items: center;
+    grid-column: 2;
+    align-self: start;
   }
 
   .acciones-desktop .btn-pago {
