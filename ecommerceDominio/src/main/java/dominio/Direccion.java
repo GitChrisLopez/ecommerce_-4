@@ -1,5 +1,14 @@
 package dominio;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
 /**
  * Archivo: Direccion.java 
  * 
@@ -12,36 +21,48 @@ package dominio;
  *
  * Fecha: 15/10/2025
  */
+
+@Entity
+@Table(name = "direcciones")
 public class Direccion {
 
     /**
      * Dato Long que representa el id de la Dirección.
      */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column (name = "id_direccion")
     private Long id;
 
     /**
      * Objeto String que representa el código postal de la dirección.
      */
+    @Column (name = "codigo_postal", length = 5, nullable = false)
     private String codigoPostal;
 
     /**
      * Objeto String que representa la colonia de la dirección.
      */
+    @Column (name = "colonia", length = 50, nullable = false)
     private String colonia;
 
     /**
      * Objeto String que representa la calle de la dirección.
      */
+    @Column (name = "calle", length = 50, nullable = false)
     private String calle;
 
     /**
      * Objeto String que representa el número exterior de la dirección.
      */
+    @Column (name = "numero", length = 5, nullable = false)
     private String numero;
 
     /**
      * Objeto Cliente que representa el Cliente al que pertenece esta Dirección.
      */
+    @ManyToOne
+    @JoinColumn(name = "id_cliente", nullable = false)
     private Cliente cliente;
 
     /**
@@ -54,7 +75,14 @@ public class Direccion {
      * @param numero Objeto String que representa el número de la dirección.
      * @param cliente Objeto Cliente que representa el Cliente asociado.
      */
-    public Direccion(Long id, String codigoPostal, String colonia, String calle, String numero, Cliente cliente) {
+    public Direccion(
+            Long id, 
+            String codigoPostal, 
+            String colonia, 
+            String calle, 
+            String numero, 
+            Cliente cliente) {
+        
         this.id = id;
         this.codigoPostal = codigoPostal;
         this.colonia = colonia;

@@ -64,6 +64,8 @@ public class PagoTransferencia extends MetodoPago{
         this.bancoEmisor = bancoEmisor;
         this.cuatroDigitos = cuatroDigitos;
     }
+    
+    
 
     /**
      * Obtiene el nombre del banco emisor de la transferencia.
