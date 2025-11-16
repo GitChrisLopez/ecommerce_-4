@@ -14,12 +14,13 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
  *
- * Pedido.java Clase que representa un pedido realizado por un Cliente al
+ * Archivo: Pedido.java 
+ * 
+ * Clase que representa un pedido realizado por un Cliente al
  * finalizar una compra y realizar su pago.
  *
  * @author Norma Alicia Beltrán Martín - 252102

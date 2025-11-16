@@ -9,7 +9,9 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
- * Representa una Editorial que publica libros.
+ * Archivo: Editorial.java
+ * 
+ * Clas que representa una Editorial que publica libros.
  *
  * @author Norma Alicia Beltrán Martín - 252102
  * @author Oscar Adrián Castán López - 260318

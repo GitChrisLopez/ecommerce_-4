@@ -10,7 +10,9 @@ import javax.persistence.Table;
 
 /**
  *
- * Autor.java Clase que representa un autor que escribe libros.
+ * Archivo: Autor.java
+ * 
+ * Clase que representa un autor que escribe libros.
  *
  * @author Norma Alicia Beltrán Martín - 252102
  * @author Oscar Adrián Castán López - 260318

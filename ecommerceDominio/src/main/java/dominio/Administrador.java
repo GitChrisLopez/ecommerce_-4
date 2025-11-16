@@ -4,8 +4,10 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 /**
- * Administrador.java Clase que representa a un usuario con privilegios de
- * administrador en el sistema. Extiende de Usuario.
+ * Archivo: Administrador.java 
+ * 
+ * Clase que representa a un usuario con privilegios de
+ * administrador en el sistema.
  *
  * @author Norma Alicia Beltrán Martín - 252102
  * @author Oscar Adrián Castán López - 260318

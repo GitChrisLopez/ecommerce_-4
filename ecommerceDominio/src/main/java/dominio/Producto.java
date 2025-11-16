@@ -15,67 +15,117 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
- * Representa un producto dentro del catalogo del sistema de comercio.
+ * Archivo: Producto.java
+ * 
+ * Clase que representa un Producto dentro del catalogo del sistema de comercio.
+ * 
  * @author Norma Alicia Beltrán Martín - 252102
+ * @author Oscar Adrián Castán López - 260318
+ * @author Chris Fitch Lopez - 252379
+ * @author Manuel Romo López - 253080
+ *
+ * Fecha: 15/11/2025
  */
 
 @Entity
 @Table(name = "productos")
 public class Producto {
     
+    /**
+     * Objeto Long que representa el Id del Producto.
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column (name = "id_producto")
     private Integer id;
 
+    /**
+     * Objeto Integer que representa el número de páginas del Producto.
+     */
     @Column (name = "no_paginas")
     private Integer numeroPaginas;
 
+    /**
+     * Objeto String que representa el ISBN (International Standard Book Number) del Producto.
+     */
     @Column (name = "isbn", length = 13, nullable = false)
     private String isbn;
 
+    /**
+     * Objeto String que representa la url de la imagen del Producto.
+     */
     @Column (name = "urlImagen", nullable = false) 
     private String urlImagen;
     
+    /**
+     * Enumerador Formato que determina el formato del Producto.
+     */
     @Column (name = "formato", nullable = false)
     @Enumerated(EnumType.STRING)
     private Formato formato;
     
+    /**
+     * Objeto Integer que representa el stock Producto actual.
+     */
     @Column (name = "stock", nullable = false)
     private Integer stock = 0;
     
+    /**
+     * Objeto BigDecimal que representa el precio del Producto.
+     */
     @Column(precision = 10, scale = 2)
     private BigDecimal precio; 
 
+    /**
+     * Objeto Libro que representa el Libro que representa el Producto.
+     */
     @ManyToOne
     @JoinColumn(name = "id_libro", nullable = false)
     private Libro libro;
 
+    /**
+     * Objeto List<ProductoCarrito> que representa los productosCarrito que
+     * hacen referencia a este Producto.
+     */
     @OneToMany(mappedBy = "producto")
     private List<ProductoCarrito> productosCarrito;
 
+    /**
+     * Objeto List<ProductoPedido> que representa los productosPedido que hacen
+     * referencia a este Producto.
+     */
     @OneToMany(mappedBy = "producto")
     private List<ProductoPedido> productosPedido;
 
     /**
-     * Constructor vacío.
+     * Constructor por defecto.
      */
     public Producto() {
     }
 
     /**
      * Constructor que inicializa todos los atributos.
-     * @param id id del producto
-     * @param numeroPaginas número de páginas del producto
-     * @param isbn isbn del producto
-     * @param urlImagen url de la imagen del producto
-     * @param formato formato del producto
-     * @param precio precio del producto
-     * @param libro libro del producto
-     * @param itemsCarrito 
-     * @param itemsPedido 
+     * @param id Objeto Long que representa el Id del Producto.
+     * @param numeroPaginas Objeto Integer que representa el número de páginas del Producto.
+     * @param isbn Objeto String que representa el ISBN del Producto.
+     * @param urlImagen Objeto String que representa la url de la imagen del Producto.
+     * @param formato Enumerador Formato que determina el formato del Producto.
+     * @param precio Objeto BigDecimal que representa el precio del Producto.
+     * @param libro Objeto Libro que representa el Libro que representa el Producto.
+     * @param productosCarrito 
+     * @param productosPedido 
      */
-    public Producto(Integer id, Integer numeroPaginas, String isbn, String urlImagen, Formato formato, BigDecimal precio, Libro libro, List<ProductoCarrito> itemsCarrito, List<ProductoPedido> itemsPedido) {
+    public Producto(
+            Integer id,
+            Integer numeroPaginas,
+            String isbn,
+            String urlImagen, 
+            Formato formato, 
+            BigDecimal precio, 
+            Libro libro, 
+            List<ProductoCarrito> productosCarrito, 
+            List<ProductoPedido> productosPedido) {
+        
         this.id = id;
         this.numeroPaginas = numeroPaginas;
         this.isbn = isbn;
@@ -83,8 +133,8 @@ public class Producto {
         this.formato = formato;
         this.precio = precio;
         this.libro = libro;
-        this.productosCarrito = itemsCarrito;
-        this.productosPedido = itemsPedido;
+        this.productosCarrito = productosCarrito;
+        this.productosPedido = productosPedido;
     }
 
     /**

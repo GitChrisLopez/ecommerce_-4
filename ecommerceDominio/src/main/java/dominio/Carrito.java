@@ -14,7 +14,9 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
- * Representa el carrito de compra del cliente.
+ * Archivo: Carrito.java
+ * 
+ * Representa el Carrito de compra de un Cliente.
  *
  * @author Norma Alicia Beltrán Martín - 252102
  * @author Oscar Adrián Castán López - 260318
@@ -26,18 +28,31 @@ import javax.persistence.Table;
 @Table(name = "carritos")
 public class Carrito {
 
+    /**
+     * Dato Long que representa el Id del Carrito.
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_carrito")
-    private Integer id;
+    private Long id;
 
+    /**
+     * Objeto BigDecimal que representa el monto total del Carrito.
+     */
     @Column(name = "total", precision = 10, scale = 2)
     private BigDecimal total = BigDecimal.ZERO;
 
+    /**
+     * Objeto Cliente que representa el Cliente al que pertenece el Carrito.
+     */
     @OneToOne
     @JoinColumn(name = "id_cliente", unique = true, nullable = false)
     private Cliente cliente;
 
+    /**
+     * Objseto List<ProductoCarrito> que representa una lista de ProductosCarrito que
+     * se han agregado al Carrito.
+     */
     @OneToMany(mappedBy = "carrito", cascade = CascadeType.ALL)
     private List<ProductoCarrito> productosCarrito;
 
@@ -49,87 +64,85 @@ public class Carrito {
     }
 
     /**
-     * Constructor que inicializa todos los atributos.
-     *
-     * @param id id del carrito
-     * @param cliente cliente del carrito
-     * @param productosCarrito lista de productosCarrito del carrito
+     * Constructor que inicializa todos los atributos al crear el Carrito.
+     * @param id Dato Long que representa el Id del Carrito.
+     * @param cliente Objeto Cliente que representa el Cliente al que pertenece el Carrito.
+     * @param productosCarrito Objeto List<ProductoCarrito> que representa una lista de ProductosCarrito que
+     * añadidos al Carrito.
      */
-    public Carrito(Integer id, Cliente cliente, List<ProductoCarrito> productosCarrito) {
+    public Carrito(
+            Long id, 
+            Cliente cliente,
+            List<ProductoCarrito> productosCarrito) {
+        
         this.id = id;
         this.cliente = cliente;
         this.productosCarrito = productosCarrito;
     }
 
     /**
-     * Obtiene el identificador único del carrito.
-     *
-     * @return El id del carrito.
+     * Permite obtener el Id del carrito.
+     * @return Dato Long que representa el Id del Carrito.
      */
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
     /**
-     * Establece el identificador único del carrito.
-     *
-     * @param id El nuevo id del carrito.
+     * Permite establecer el Id del Carrito.
+     * @param id Dato Long que representa el Id del Carrito.
      */
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
     /**
-     * Obtiene el valor total de los productos contenidos en el carrito.
-     *
-     * @return El total del carrito.
+     * Permite obtener el valor total de los productos contenidos en el carrito.
+     * @return Objeto BigDecimal que representa el monto total del Carrito.
      */
     public BigDecimal getTotal() {
         return total;
     }
 
     /**
-     * Establece el valor total del carrito.
-     *
-     * @param total El nuevo total del carrito.
+     * Permite establecer el valor total de los productos contenidos en el carrito.
+     * @param total Objeto BigDecimal que representa el monto total del Carrito.
      */
     public void setTotal(BigDecimal total) {
         this.total = total;
     }
 
     /**
-     * Obtiene la entidad Cliente asociada a este carrito.
-     *
-     * @return El cliente dueño del carrito.
+     * Permite obtener el Cliente dueño de este Carrito.
+     * @return Objeto Cliente que representa el dueño del Carrito.
      */
     public Cliente getCliente() {
         return cliente;
     }
 
     /**
-     * Establece la entidad Cliente asociada a este carrito.
-     *
-     * @param cliente El nuevo cliente dueño del carrito.
+     * Permite establecer el Cliente dueño de este Carrito.
+     * @param cliente Objeto Cliente que representa el dueño del Carrito.
      */
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
 
     /**
-     * Obtiene la lista de ProductoCarrito que representan los productos en el
-     * carrito.
-     *
-     * @return La lista de productos en el carrito.
+     * Permite obtener la lista de objetos ProductoCarrito que representan los productos 
+     * que se han agregado al Carrito.
+     * @return Objeto List<ProductoCarrito> que representa la lista de productos que se han agregado
+     * al Carrito.
      */
     public List<ProductoCarrito> getProductosCarrito() {
         return productosCarrito;
     }
 
     /**
-     * Establece la lista de ProductoCarrito que representan los productos en el
-     * carrito.
-     *
-     * @param productosCarrito La nueva lista de productos en el carrito.
+     * Permite establecer la lista de objetos ProductoCarrito que representan los productos 
+     * que se han agregado al Carrito.
+     * @param productosCarrito Objeto List<ProductoCarrito> que representa la lista de productos que se han agregado
+     * al Carrito.
      */
     public void setProductosCarrito(List<ProductoCarrito> productosCarrito) {
         this.productosCarrito = productosCarrito;

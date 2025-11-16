@@ -10,9 +10,10 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
- * Cliente.java Clase que representa a un cliente del sistema. Extiende de
- * Usuario y contiene información específica como su teléfono, direcciones de
- * envío, el carrito de compras actual y el historial de pedidos.
+ * Archivo: Cliente.java 
+ * 
+ * Clase que representa a un cliente del sistema. Contiene información específica 
+ * como su teléfono, direcciones de envío, el carrito de compras actual y el historial de pedidos.
  *
  * @author Norma Alicia Beltrán Martín - 252102
  * @author Oscar Adrián Castán López - 260318

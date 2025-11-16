@@ -15,7 +15,9 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 /**
- * Representa un Libro dentro del catálogo.
+ * Archivo: Libro.java
+ * 
+ * Clase que representa un Libro dentro del catálogo.
  *
  * @author Norma Alicia Beltrán Martín - 252102
  * @author Oscar Adrián Castán López - 260318

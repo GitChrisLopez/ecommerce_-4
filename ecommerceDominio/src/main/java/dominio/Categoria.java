@@ -8,7 +8,10 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
- *
+ * Archivo: Categoria.java
+ * 
+ * Clase que representa una categoría que puede tener un Libro.
+ * 
  * @author Norma Alicia Beltrán Martín - 252102
  * @author Oscar Adrián Castán López - 260318
  * @author Chris Fitch Lopez - 252379
@@ -19,23 +22,33 @@ import javax.persistence.Table;
 @Table(name = "categorias")
 public class Categoria {
 
+    /**
+     * Dato Long que representa el Id de la Categoria.
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column (name = "id_categoria")
     private Long id;
     
+    /**
+     * Objeto String que representa el nombre de la Categoria.
+     */
     @Column (name = "nombre", length = 20, nullable = false)
     private String nombre;
 
+    /**
+     * Constructor por defecto.
+     */
     public Categoria(){
         
     }
     
     /**
-     * Constructor de la categoria
+     * Constructor que permite crear una Categoría, recibe los valores de todos
+     * sus atributos.
      *
-     * @param id identificador de la categoria
-     * @param nombre nombre de la categoria a la uqe pertenece un libro
+     * @param id Objeto Long que representa el Id de la Categoria.
+     * @param nombre Objeto String que representa el nombre de la Categoria.
      */
     public Categoria(Long id, String nombre) {
         this.id = id;

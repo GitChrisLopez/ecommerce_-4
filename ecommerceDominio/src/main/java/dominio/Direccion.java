@@ -1,7 +1,9 @@
 package dominio;
 
 /**
- * Direccion.java Clase que representa una dirección asociada con un Cliente.
+ * Archivo: Direccion.java 
+ * 
+ * Clase que representa una dirección asociada con un Cliente o a un Pedido.
  *
  * @author Norma Alicia Beltrán Martín - 252102
  * @author Oscar Adrián Castán López - 260318
