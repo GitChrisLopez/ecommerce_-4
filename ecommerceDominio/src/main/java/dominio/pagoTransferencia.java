@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package dominio;
 
 import dominio.enumeradores.MetodoPago;
@@ -19,26 +16,30 @@ import javax.persistence.Table;
  * @author Adrián
  */
 @Entity
-@Table(name = "pagoTransferencia")
-public class pagoTransferencia extends MetodoPago {
+@Table(name = "pagos_transferencia")
+public class PagoTransferencia extends MetodoPago {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_pagoTransferencia")
-    long id;
+    @Column(name = "id_pago_transferencia")
+    private Long id;
     
+    @Column(name="banco_pago_transferencia", nullable = false)
+    private String bancoEmisor;
     
-    @Column(name="banco_pagoTransferencia")
-    public String bancoEmisor;
-    @Column(name = "cuatroDigitos")
-    public String cuatroDigitos;
+    @Column(name = "cuatro_digitos", nullable = false)
+    private String cuatroDigitos;
 
-    public pagoTransferencia(String bancoEmisor, String cuatroDigitos) {
+    public PagoTransferencia(){
+        
+    }
+    
+    public PagoTransferencia(String bancoEmisor, String cuatroDigitos) {
         this.bancoEmisor = bancoEmisor;
         this.cuatroDigitos = cuatroDigitos;
     }
 
-    public pagoTransferencia(String bancoEmisor, String cuatroDigitos, BigDecimal MontoPagar, Date fecha) {
+    public PagoTransferencia(String bancoEmisor, String cuatroDigitos, BigDecimal MontoPagar, Date fecha) {
         super(MontoPagar, fecha);
         this.bancoEmisor = bancoEmisor;
         this.cuatroDigitos = cuatroDigitos;
