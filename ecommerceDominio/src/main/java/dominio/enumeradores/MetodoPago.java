@@ -41,7 +41,6 @@ public abstract class MetodoPago implements Serializable {
     /**
      * Objeto LocalDate que representa la fecha de realización del pago.
      */
-    @Temporal(TemporalType.DATE)
     @Column(name = "fecha_publicacion", nullable = false)
     private LocalDate fecha;
 

@@ -66,6 +66,13 @@ public class Direccion {
     private Cliente cliente;
 
     /**
+     * Constructor por defecto
+     */
+    public Direccion(){
+        
+    }
+    
+    /**
      * Constructor para inicializar una instancia de Direccion.
      *
      * @param id Dato Long que representa el id de la Dirección.

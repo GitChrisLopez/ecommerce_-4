@@ -1,0 +1,13 @@
+
+
+# equipo04_ecommerce_persistencia_jar_1.0PU
+equipo04_ecommerce_persistencia_jar_1.0PU.javax.persistence.jdbc.url=jdbc:mysql://localhost:3306/ecommerce_bd?zeroDateTimeBehavior=CONVERT_TO_NULL
+equipo04_ecommerce_persistencia_jar_1.0PU.javax.persistence.jdbc.user=root
+equipo04_ecommerce_persistencia_jar_1.0PU.javax.persistence.jdbc.password=ITSON
+equipo04_ecommerce_persistencia_jar_1.0PU.javax.persistence.jdbc.driver=com.mysql.cj.jdbc.Driver
+
+# Configuración para equipo04_ecommerce_persistencia_jar_1.0PU_Tests
+itson_SistemaRestaurante_jar_1.0PU_Tests.javax.persistence.jdbc.url=jdbc:mysql://localhost:3306/sistema_restaurante_bd_tests?zeroDateTimeBehavior=CONVERT_TO_NULL
+itson_SistemaRestaurante_jar_1.0PU_Tests.javax.persistence.jdbc.user=root
+itson_SistemaRestaurante_jar_1.0PU_Tests.javax.persistence.jdbc.password=mroMSQL1147-
+itson_SistemaRestaurante_jar_1.0PU_Tests.javax.persistence.jdbc.driver=com.mysql.cj.jdbc.Driver

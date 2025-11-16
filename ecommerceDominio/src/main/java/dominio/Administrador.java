@@ -22,6 +22,13 @@ import javax.persistence.Table;
 public class Administrador extends Usuario {
 
     /**
+     * Constructor por defecto.
+     */
+    public Administrador(){
+        
+    }
+    
+    /**
      * Constructor para inicializar una instancia de Administrador. Llama al
      * constructor de la superclase (Usuario) para establecer los datos básicos.
      *

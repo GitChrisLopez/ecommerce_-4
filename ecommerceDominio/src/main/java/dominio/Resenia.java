@@ -69,7 +69,6 @@ public class Resenia {
     /**
      * Fecha en que se publico la resenia.
      */
-    @Temporal (TemporalType.TIMESTAMP)
     @Column (name = "fecha_publicacion", nullable = false)
     private LocalDateTime fecha;
 

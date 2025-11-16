@@ -71,13 +71,7 @@ public class Pedido {
     @ManyToOne
     @JoinColumn(name="id_metodoPago")
     private MetodoPago metodoPago;
-    /**
-     * Objeto Carrito que representa el Carrito a partir del cual se realizó el
-     * Pedido.
-     */    
-    @JoinColumn(name="id_carrito")  
-    @OneToMany(mappedBy = "carrito", cascade = CascadeType.ALL)
-    private Carrito carrito;
+
 
     /**
      * Objeto Cliente que representa el Cliente que realizó el Pedido.
@@ -107,13 +101,20 @@ public class Pedido {
      * @param cliente Objeto Cliente que representa el Cliente que realizó el
      * Pedido.
      */
-    public Pedido(Long id, String numeroUnico, LocalDateTime fecha, Direccion direccionEnvio, MetodoPago metodoPago, Carrito carrito, Cliente cliente) {
+    public Pedido(
+            Long id, 
+            String numeroUnico, 
+            LocalDateTime fecha,
+            Direccion direccionEnvio,
+            MetodoPago metodoPago,
+            Carrito carrito, 
+            Cliente cliente) {
+        
         this.id = id;
         this.numeroUnico = numeroUnico;
         this.fecha = fecha;
         this.direccionEnvio = direccionEnvio;
         this.metodoPago = metodoPago;
-        this.carrito = carrito;
         this.cliente = cliente;
         this.metodoPago = metodoPago;
     }
@@ -218,26 +219,6 @@ public class Pedido {
      */
     public void setTipoPago(MetodoPago metodoPago) {
         this.metodoPago = metodoPago;
-    }
-
-    /**
-     * Permite obtener el Carrito a partir del cual se creó el Pedido.
-     *
-     * @return Objeto Carrito que representa el Carrito a partir del cual se
-     * creó el Pedido.
-     */
-    public Carrito getCarrito() {
-        return carrito;
-    }
-
-    /**
-     * Permite establecer el Carrito a partir del cual se crea el Pedido.
-     *
-     * @param carrito Objeto Carrito que representa el Carrito a partir del cual
-     * se crea el Pedido.
-     */
-    public void setCarrito(Carrito carrito) {
-        this.carrito = carrito;
     }
 
     /**

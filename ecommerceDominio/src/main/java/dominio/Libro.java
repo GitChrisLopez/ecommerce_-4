@@ -1,6 +1,7 @@
 package dominio;
 
 import java.time.LocalDate;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -9,7 +10,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -53,11 +57,15 @@ public class Libro {
     private String sinopsis;
 
     /**
-     * Enumerador Categoria que representa la categoría del Libro.
+     * Objeto List<Categoria> que representa las categorías del Libro.
      */
-    @Enumerated (EnumType.STRING)
-    @Column (name = "categoria" , nullable = false)
-    private Categoria categoria;
+    @ManyToMany
+    @JoinTable(
+        name = "libro_categoria",
+        joinColumns = @JoinColumn(name = "id_libro"),
+        inverseJoinColumns = @JoinColumn(name = "id_categoria")
+    )
+    private List<Categoria> categorias;
 
     /**
      * Objeto Autor que representa el Autor de este Libro.
@@ -76,7 +84,6 @@ public class Libro {
     /**
      * Objeto LocalDate que representa la fecha de publicación del Libro.
      */
-    @Temporal (TemporalType.DATE)
     @Column (name = "fecha_publicacion", nullable = false)
     private LocalDate fechaPublicacion;
     
@@ -103,7 +110,7 @@ public class Libro {
             Long id,
             String titulo,
             String sinopsis,
-            Categoria categoria,
+            List<Categoria> categoria,
             Autor autor, 
             Editorial editorial,
             LocalDate fechaPublicacion) {
@@ -111,7 +118,7 @@ public class Libro {
         this.id = id;
         this.titulo = titulo;
         this.sinopsis = sinopsis;
-        this.categoria = categoria;
+        this.categorias = categorias;
         this.autor = autor;
         this.editorial = editorial;
         this.fechaPublicacion = fechaPublicacion;
@@ -167,19 +174,19 @@ public class Libro {
 
 
     /**
-     * Permite obtener la categoría del Libro.
-     * @return Objeto Categoría que representa la categoría del Libro.
+     * Permite obtener las categorías del Libro.
+     * @return Objeto List<Categoria> que representa la categoría del Libro.
      */
-    public Categoria getCategoria() {
-        return categoria;
+    public List<Categoria> getCategoria() {
+        return categorias;
     }
 
     /**
-     * Permite establecer la categoría del Libro.
-     * @param categoria Objeto Categoría que representa la categoría del Libro.
+     * Permite establecer las categorías del Libro.
+     * @param categoria Objeto List<Categoria> que representa la categoría del Libro.
      */
-    public void setCategoria(Categoria categoria) {
-        this.categoria = categoria;
+    public void setCategoria(List<Categoria> categoria) {
+        this.categorias = categorias;
     }
 
     /**

@@ -67,6 +67,13 @@ public class Cliente extends Usuario {
     private boolean activo;
 
     /**
+     * Constructor por defecto.
+     */
+    public Cliente(){
+        
+    }
+    
+    /**
      * Constructor que permite crear un Cliente, recibe los valores de todos sus atributos.
      * @param telefono Objeto String que representa el número de teléfono del Cliente.
      * @param imagenPerfil Objeto String que representa la dirección de la imagen del perfil del Cliente.

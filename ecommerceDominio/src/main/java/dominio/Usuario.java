@@ -53,7 +53,7 @@ public abstract class Usuario {
     /**
      * Dato String que representa el apellido materno del Usuario.
      */
-    @Column (name = "apellido_paterno", length = 50, nullable = true)
+    @Column (name = "apellido_materno", length = 50, nullable = true)
     private String apellidoMaterno;
 
     /**
