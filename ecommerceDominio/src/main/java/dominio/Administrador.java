@@ -1,5 +1,8 @@
 package dominio;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 /**
  * Administrador.java Clase que representa a un usuario con privilegios de
  * administrador en el sistema. Extiende de Usuario.
@@ -11,6 +14,9 @@ package dominio;
  *
  * Fecha: 15/10/2025
  */
+
+@Entity
+@Table(name = "administradores")
 public class Administrador extends Usuario {
 
     /**
@@ -24,8 +30,21 @@ public class Administrador extends Usuario {
      * @param contrasena Objeto String que representa la contraseña del
      * Administrador.
      */
-    public Administrador(Long id, String nombre, String correo, String contrasena) {
-        super(id, nombre, correo, contrasena);
+    public Administrador(
+            Long id,
+            String nombre, 
+            String apellidoPaterno, 
+            String apellidoMaterno,
+            String correo, 
+            String contrasena) {
+        
+        super(
+                id, 
+                nombre, 
+                apellidoPaterno,
+                apellidoMaterno, 
+                correo, 
+                contrasena);
     }
 
 }

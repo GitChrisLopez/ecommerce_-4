@@ -2,6 +2,12 @@ package dominio;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 /**
  * Cliente.java Clase que representa a un cliente del sistema. Extiende de
@@ -15,51 +21,92 @@ import java.util.List;
  *
  * Fecha: 15/10/2025
  */
+
+@Entity
+@Table(name = "clientes")
 public class Cliente extends Usuario {
 
     /**
      * Objeto String que representa el número de teléfono del Cliente.
      */
+    @Column (name = "nombre", length = 10, nullable = false)
     private String telefono;
 
     /**
-     * Objeto List de Direccion que representa el conjunto de direcciones
+     * Objeto Srtring que representa la dirección de la imagen de perfil del Cliente.
+     */
+    @Column (name = "imagenPerfil", length = 100, nullable = true)
+    private String imagenPerfil;
+    
+    /**
+     * Lista de objetos Direccion que representa el conjunto de direcciones
      * asociadas a este Cliente.
      */
+    @OneToMany(mappedBy = "cliente")
     private List<Direccion> direcciones;
 
     /**
      * Objeto Carrito que representa el carrito de compras actual del Cliente.
      */
+    @OneToOne
+    @JoinColumn(name = "id_carrito", unique = true)
     private Carrito carrito;
 
     /**
-     * Objeto List de Pedido que representa el historial de pedidos realizados
+     * Lista de objetos Pedido que representa el historial de pedidos realizados
      * por este Cliente.
      */
+    @OneToMany(mappedBy = "cliente")
     private List<Pedido> pedidos;
+    
+    /**
+     * Dato boolean que indica si el usuario esta activo o no.
+     */
+    @Column (name = "activo", nullable = false)
+    private boolean activo;
 
     /**
-     * Constructor para inicializar una instancia de Cliente. Llama al
-     * constructor de la superclase (Usuario) para establecer los datos básicos.
-     *
-     * @param id Dato int que representa el id del Cliente.
-     * @param nombre Objeto String que representa el nombre del Cliente.
-     * @param correo Objeto String que representa el correo electrónico del
-     * Cliente.
-     * @param contrasena Objeto String que representa la contraseña del Cliente.
-     * @param telefono Objeto String que representa el número de teléfono del
-     * Cliente.
+     * Constructor que permite crear un Cliente, recibe los valores de todos sus atributos.
+     * @param telefono Objeto String que representa el número de teléfono del Cliente.
+     * @param imagenPerfil Objeto String que representa la dirección de la imagen del perfil del Cliente.
+     * @param direcciones Lista de objetos Direccion que representa la lista de direcciones del Cliente.
+     * @param carrito Objeto Carrito que representa el carrito del Cliente.
+     * @param pedidos Lista de obetos Pedido que representa la lista de pedidos del Cliente.
+     * @param activo Dato boolean que determina si el Cliente está activo o no.
      */
-    public Cliente(Long id, String nombre, String correo, String contrasena, String telefono) {
-        super(id, nombre, correo, contrasena);
-        this.direcciones = new ArrayList<>();
-        this.pedidos = new ArrayList<>();
+    public Cliente(
+            String telefono,
+            String imagenPerfil,
+            List<Direccion> direcciones,
+            Carrito carrito,
+            List<Pedido> pedidos,
+            boolean activo) {
+        
+        this.telefono = telefono;
+        this.direcciones = direcciones;
+        this.carrito = carrito;
+        this.pedidos = pedidos;
+        this.activo = activo;
     }
 
     /**
+     * Permite obtener la dirección de la imagen de perfil del Cliente.
+     * @return Objeto String que representa la dirección de la imagen del perfil del Cliente.
+     */
+    public String getImagenPerfil() {
+        return imagenPerfil;
+    }
+
+    /**
+     * Permite establecer la dirección de la imagen de perfil del Cliente.
+     * @param imagenPerfil Objeto String que representa la dirección de la imagen del perfil del Cliente.
+     */
+    public void setImagenPerfil(String imagenPerfil) {
+        this.imagenPerfil = imagenPerfil;
+    }
+    
+    /**
      * Permite obtener el número de teléfono del Cliente.
-     *
      * @return Objeto String que representa el número de teléfono.
      */
     public String getTelefono() {
@@ -68,16 +115,16 @@ public class Cliente extends Usuario {
 
     /**
      * Permite establecer el número de teléfono del Cliente.
-     *
      * @param telefono Objeto String que representa el número de teléfono.
      */
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
+    
+    
 
     /**
      * Permite obtener la lista de direcciones del Cliente.
-     *
      * @return Objeto List<Direccion> que representa las direcciones del
      * Cliente.
      */
@@ -87,7 +134,6 @@ public class Cliente extends Usuario {
 
     /**
      * Permite establecer la lista de direcciones del Cliente.
-     *
      * @param direcciones Objeto List<Direccion> que representa las direcciones
      * del Cliente.
      */
@@ -96,8 +142,7 @@ public class Cliente extends Usuario {
     }
 
     /**
-     * Permite obtener el carrito de compras actual del Cliente.
-     *
+     * Permite obtener el Carrito de compras actual del Cliente.
      * @return Objeto Carrito que representa el carrito de compras.
      */
     public Carrito getCarrito() {
@@ -105,8 +150,7 @@ public class Cliente extends Usuario {
     }
 
     /**
-     * Permite establecer el carrito de compras actual del Cliente.
-     *
+     * Permite establecer el Carrito de compras actual del Cliente.
      * @param carrito Objeto Carrito que representa el carrito de compras.
      */
     public void setCarrito(Carrito carrito) {
@@ -115,7 +159,6 @@ public class Cliente extends Usuario {
 
     /**
      * Permite obtener el historial de pedidos del Cliente.
-     *
      * @return Objeto List<Pedido> que representa el historial de pedidos.
      */
     public List<Pedido> getPedidos() {
@@ -124,12 +167,27 @@ public class Cliente extends Usuario {
 
     /**
      * Permite establecer el historial de pedidos del Cliente.
-     *
      * @param pedidos Objeto List<Pedido> que representa el historial de
      * pedidos.
      */
     public void setPedidos(List<Pedido> pedidos) {
         this.pedidos = pedidos;
+    }
+    
+    /**
+     * Permite determinar si el Cliente está activo o no.
+     * @return Dato boolean que determina si el Cliente está activo o no.
+     */
+    public boolean isActivo() {
+        return activo;
+    }
+
+    /**
+     * Permite establecer si el Cliente está activo o no.
+     * @param activo Dato boolean que determina si el Cliente está activo o no.
+     */
+    public void setActivo(boolean activo) {
+        this.activo = activo;
     }
 
 }

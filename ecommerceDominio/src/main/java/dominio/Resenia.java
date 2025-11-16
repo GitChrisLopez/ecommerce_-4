@@ -3,6 +3,8 @@ package dominio;
 import java.time.LocalDateTime;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -40,6 +42,13 @@ public class Resenia {
     @ManyToOne
     @JoinColumn(name = "id_libro")
     private Libro libro;
+    
+    /**
+     * Formato del Producto al que hace referencia la reseña.
+     */
+    @Enumerated (EnumType.STRING)
+    @Column (name = "formato" , nullable = false)
+    private Formato formato;
 
     /**
      * Calificacion numerica dada por el usuario.
@@ -76,14 +85,16 @@ public class Resenia {
      *
      * @param id identificador unico de la resenia
      * @param libro libro al que pertenece la resenia
+     * @param formato formato del producto al que hace referencia la reseña.
      * @param calificacion valor numerico de la calificacion
      * @param comentario comentario del usuario
      * @param fecha fecha de publicacion
-     * @param usuario usuario que realizo la resenia
+     * @param cliente cliente que realizo la resenia
      */
     public Resenia(
             Long id, 
             Libro libro, 
+            Formato formato,
             int calificacion,
             String comentario,
             LocalDateTime fecha,
@@ -116,6 +127,22 @@ public class Resenia {
      */
     public void setLibro(Libro libro) {
         this.libro = libro;
+    }
+
+    /**
+     * 
+     * @return formato del producto al que hace referencia la reseña.
+     */
+    public Formato getFormato() {
+        return formato;
+    }
+
+    /**
+     * 
+     * @param formato formato del producto al que hace referencia la reseña.
+     */
+    public void setFormato(Formato formato) {
+        this.formato = formato;
     }
 
     /**

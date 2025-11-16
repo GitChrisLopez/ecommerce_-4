@@ -46,12 +46,6 @@ public class Libro {
     private String titulo;
 
     /**
-     * Codigo ISBN del libro.
-     */
-    @Column (name = "isbn", length = 13, nullable = false)
-    private String isbn;
-
-    /**
      * Precio de venta del libro.
      */
     @Column (name = "precio", nullable = false)
@@ -62,18 +56,6 @@ public class Libro {
      */
     @Column (name = "sinopsis", length = 350, nullable = false) 
     private String sinopsis;
-
-    /**
-     * Cantidad de ejemplares disponibles en inventario.
-     */
-    @Column (name = "stock", nullable = false)
-    private int stock;
-
-    /**
-     * Nombre de archivo o URL de la imagen del libro.
-     */
-    @Column (name = "imagen", length = 100, nullable = false) 
-    private String imagen;
 
     /**
      * Categoria a la que pertenece el libro.
@@ -94,73 +76,53 @@ public class Libro {
     private Editorial editorial;
 
     /**
-     * Numero total de paginas.
-     */
-    @Column (name = "no_paginas", nullable = false)
-    private int noPaginas;
-
-    /**
      * Fecha de publicacion del libro.
      */
     @Temporal (TemporalType.DATE)
     @Column (name = "fecha_publicacion", nullable = false)
     private LocalDate fechaPublicacion;
-
-    /**
-     * Lista de resenias que los usuarios han dejado sobre el libro.
-     */
-    @OneToMany(mappedBy = "libro")
-    private List<Resenia> resenias;
-
     
+    /**
+     * Constructor por defecto.
+     */
     public Libro(){
         
     }
-    
+
     /**
-     * Crea un nuevo libro con todos sus datos.
-     *
-     * @param id identificador unico del libro
-     * @param titulo titulo del libro
-     * @param isbn codigo ISBN del libro
-     * @param precio precio de venta
-     * @param descripcion descripcion breve
-     * @param stock cantidad disponible en inventario
-     * @param imagen nombre o ruta de la imagen
-     * @param categoria categoria a la que pertenece el libro
-     * @param editorial editorial responsable
-     * @param noPaginas numero total de paginas
-     * @param fechaPublicacion fecha de publicacion del libro
+     * Constructor que permite crear un Libro, recibe todos los valores de los
+     * parámetros de la clase.
+     * @param id Dato Long que representa el Id del Libro.
+     * @param titulo Dato String que representa el título del Libro.
+     * @param precio Dato double que representa el precio del Libro.
+     * @param sinopsis Objeto String que representa la sinopsis del Libro.
+     * @param categoria Objeto Categoria que representa la categoría del Libro.
+     * @param autor Objeto Autor que representa el Autor del Libro.
+     * @param editorial Objeto Editorial que representa la Editorial del Libro.
+     * @param fechaPublicacion Objeto LocalDate que representa la fecha de publicación del Libro.
      */
     public Libro(
-            Long id, 
-            String titulo, 
-            String isbn, 
+            Long id,
+            String titulo,
             double precio, 
-            String descripcion, 
-            int stock, 
-            String imagen, 
-            Categoria categoria, 
-            Autor autor,
+            String sinopsis,
+            Categoria categoria,
+            Autor autor, 
             Editorial editorial,
-            int noPaginas, 
             LocalDate fechaPublicacion) {
         
         this.id = id;
         this.titulo = titulo;
-        this.isbn = isbn;
         this.precio = precio;
         this.sinopsis = sinopsis;
-        this.stock = stock;
-        this.imagen = imagen;
         this.categoria = categoria;
         this.autor = autor;
         this.editorial = editorial;
-        this.noPaginas = noPaginas;
         this.fechaPublicacion = fechaPublicacion;
-        this.resenias = new ArrayList<>();
     }
-
+    
+    
+    
     /**
      * @return identificador del libro.
      */
@@ -180,20 +142,6 @@ public class Libro {
      */
     public void setTitulo(String titulo) {
         this.titulo = titulo;
-    }
-
-    /**
-     * @return codigo ISBN del libro
-     */
-    public String getIsbn() {
-        return isbn;
-    }
-
-    /**
-     * @param isbn nuevo codigo ISBN
-     */
-    public void setIsbn(String isbn) {
-        this.isbn = isbn;
     }
 
     /**
@@ -224,33 +172,6 @@ public class Libro {
         this.sinopsis = sinopsis;
     }
 
-    /**
-     * @return cantidad disponible en inventario
-     */
-    public int getStock() {
-        return stock;
-    }
-
-    /**
-     * @param stock nuevo valor de stock
-     */
-    public void setStock(int stock) {
-        this.stock = stock;
-    }
-
-    /**
-     * @return nombre o ruta de la imagen
-     */
-    public String getImagen() {
-        return imagen;
-    }
-
-    /**
-     * @param imagen imagen asociada al libro
-     */
-    public void setImagen(String imagen) {
-        this.imagen = imagen;
-    }
 
     /**
      * @return categoria del libro
@@ -293,20 +214,6 @@ public class Libro {
     public void setAutor(Autor autor) {
         this.autor = autor;
     }
-    
-    /**
-     * @return Devuelve el numero de paginas.
-     */
-    public int getNoPaginas() {
-        return noPaginas;
-    }
-
-    /**
-     * @param noPaginas nuevo numero de paginas
-     */
-    public void setNoPaginas(int noPaginas) {
-        this.noPaginas = noPaginas;
-    }
 
     /**
      * @return fecha de publicacion
@@ -322,18 +229,5 @@ public class Libro {
         this.fechaPublicacion = fechaPublicacion;
     }
 
-    /**
-     * @return lista de resenias del libro
-     */
-    public List<Resenia> getResenias() {
-        return resenias;
-    }
-
-    /**
-     * @param resenias lista de resenias a asignar
-     */
-    public void setResenias(List<Resenia> resenias) {
-        this.resenias = resenias;
-    }
 
 }
