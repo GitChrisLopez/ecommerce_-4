@@ -36,8 +36,8 @@ public class Cliente extends Usuario {
     /**
      * Objeto Srtring que representa la dirección de la imagen de perfil del Cliente.
      */
-    @Column (name = "imagenPerfil", length = 100, nullable = true)
-    private String imagenPerfil;
+    @Column (name = "url_imagen_perfil", length = 100, nullable = true)
+    private String urlImagenPerfil;
     
     /**
      * Lista de objetos Direccion que representa el conjunto de direcciones
@@ -94,16 +94,16 @@ public class Cliente extends Usuario {
      * Permite obtener la dirección de la imagen de perfil del Cliente.
      * @return Objeto String que representa la dirección de la imagen del perfil del Cliente.
      */
-    public String getImagenPerfil() {
-        return imagenPerfil;
+    public String getUrlImagenPerfil() {
+        return urlImagenPerfil;
     }
 
     /**
      * Permite establecer la dirección de la imagen de perfil del Cliente.
      * @param imagenPerfil Objeto String que representa la dirección de la imagen del perfil del Cliente.
      */
-    public void setImagenPerfil(String imagenPerfil) {
-        this.imagenPerfil = imagenPerfil;
+    public void setUrlImagenPerfil(String imagenPerfil) {
+        this.urlImagenPerfil = imagenPerfil;
     }
     
     /**
