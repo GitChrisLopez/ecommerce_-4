@@ -3,6 +3,19 @@ package dominio;
 import dominio.enumeradores.MetodoPago;
 import dominio.enumeradores.Estado;
 import java.time.LocalDateTime;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 /**
  *
@@ -16,43 +29,65 @@ import java.time.LocalDateTime;
  *
  * Fecha: 15/10/2025
  */
+@Entity
+@Table(name = "pedidos")
+
 public class Pedido {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     /**
      * Dato Long que representa el id del Pedido.
      */
+    @Column(name = "id_pedido")
     private Long id;
     /**
      * Objeto String que representa el número del Pedido.
      */
+    @Column(name = "numeroUnico_pedido")
     private String numeroUnico;
     /**
      * Objeto LocalDateTime que representa la fecha en que se realizó el pedido.
      */
+    @Column(name = "fecha_pedido")
     private LocalDateTime fecha;
     /**
      * Objeto
      */
+    @Column(name = "estado_pedido")
     private Estado estado;
     /**
      * Objeto Direccion que representa la dirección de envío del pedido.
      */
+    @ManyToOne
+    @JoinColumn(name="id_direccion")
     private Direccion direccionEnvio;
     /**
      * Objeto MetodoPago que representa el método de pago que se utilizó para
      * pagar el Pedido.
      */
+    @Enumerated(EnumType.STRING)
     private MetodoPago metodoPago;
     /**
      * Objeto Carrito que representa el Carrito a partir del cual se realizó el
      * Pedido.
-     */
+     */    
+    @JoinColumn(name="id_carrito")  
+    @OneToMany(mappedBy = "carrito", cascade = CascadeType.ALL)
     private Carrito carrito;
 
     /**
      * Objeto Cliente que representa el Cliente que realizó el Pedido.
      */
+
+    @ManyToOne
+    @JoinColumn(name = "id_cliente", nullable = false)    
     private Cliente cliente;
+
+    public Pedido() {
+
+    }
 
     /**
      * Constructor para inicializar una instancia del Pedido.
@@ -78,6 +113,7 @@ public class Pedido {
         this.metodoPago = metodoPago;
         this.carrito = carrito;
         this.cliente = cliente;
+        this.metodoPago = metodoPago;
     }
 
     /**
