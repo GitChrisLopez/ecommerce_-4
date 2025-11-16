@@ -67,7 +67,8 @@ public class Pedido {
      * Objeto MetodoPago que representa el método de pago que se utilizó para
      * pagar el Pedido.
      */
-    @Enumerated(EnumType.STRING)
+    @ManyToOne
+    @JoinColumn(name="id_metodoPago")
     private MetodoPago metodoPago;
     /**
      * Objeto Carrito que representa el Carrito a partir del cual se realizó el

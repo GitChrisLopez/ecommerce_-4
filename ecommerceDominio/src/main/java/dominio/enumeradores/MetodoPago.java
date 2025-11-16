@@ -1,5 +1,7 @@
 package dominio.enumeradores;
 
+import java.math.BigDecimal;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -21,22 +23,34 @@ import javax.persistence.Table;
  */
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "metodoPago")
-public enum MetodoPago {
+public abstract class MetodoPago {
 
-    /**
-     * Pago con tarjéta de crédito o débito.
-     */
-    @Enumerated(EnumType.STRING)
-    TARJETA_CREDITO_DEBITO,
-    /**
-     * Pago con transferencia bancaria.
-     */
-    @Enumerated(EnumType.STRING)
-    TRANSFERENCIA_BANCARIA,
-    /**
-     * Pago contraengrega.
-     */
-    @Enumerated(EnumType.STRING)
-    CONTRA_ENTREGA
+    BigDecimal MontoPagar;
+    Date fecha;
 
+    public MetodoPago() {
+    }
+
+    public MetodoPago(BigDecimal MontoPagar, Date fecha) {
+        this.MontoPagar = MontoPagar;
+        this.fecha = fecha;
+    }
+
+    public BigDecimal getMontoPagar() {
+        return MontoPagar;
+    }
+
+    public void setMontoPagar(BigDecimal MontoPagar) {
+        this.MontoPagar = MontoPagar;
+    }
+
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
+    
+    
 }
