@@ -3,6 +3,8 @@ package dominio;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 /**
  * Representa un libro dentro del catalogo del sistema de comercio. Contiene
@@ -13,6 +15,10 @@ import java.util.List;
  * @author Chris Fitch Lopez - 252379
  * @author Manuel Romo López - 253080
  */
+
+@Entity
+// ANOTACIÓN JPA: (Opcional) Especifica el nombre de la tabla en la BD
+@Table(name = "LIBROS")
 public class Libro {
 
     /**
