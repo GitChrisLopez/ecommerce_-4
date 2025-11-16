@@ -3,6 +3,7 @@ package dominio;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
@@ -25,12 +26,13 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "clientes")
+@DiscriminatorValue("CLIENTE")
 public class Cliente extends Usuario {
 
     /**
      * Objeto String que representa el número de teléfono del Cliente.
      */
-    @Column (name = "nombre", length = 10, nullable = false)
+    @Column (name = "telefono", length = 10, nullable = false)
     private String telefono;
 
     /**

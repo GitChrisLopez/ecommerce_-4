@@ -1,5 +1,6 @@
 package dominio;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
@@ -19,6 +20,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "administradores")
+@DiscriminatorValue("ADMINISTRADOR")
 public class Administrador extends Usuario {
 
     /**

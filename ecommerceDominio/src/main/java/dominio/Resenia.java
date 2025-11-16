@@ -16,18 +16,17 @@ import javax.persistence.TemporalType;
 
 /**
  * Archivo: Resenia.java
- * 
- * Clase que representa una resenia hecha por un usuario sobre un libro. Contiene
- * calificacion, comentario, fecha y referencias al libro y usuario.
+ *
+ * Clase que representa una resenia hecha por un usuario sobre un libro.
+ * Contiene calificacion, comentario, fecha y referencias al libro y usuario.
  *
  * @author Norma Alicia Beltrán Martín - 252102
  * @author Oscar Adrián Castán López - 260318
  * @author Chris Fitch Lopez - 252379
  * @author Manuel Romo López - 253080
- * 
+ *
  * Fecha: 15/10/2025
  */
-
 @Entity
 @Table(name = "resenias")
 public class Resenia {
@@ -37,7 +36,7 @@ public class Resenia {
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column (name = "id_resenia")
+    @Column(name = "id_resenia")
     private Long id;
 
     /**
@@ -46,30 +45,30 @@ public class Resenia {
     @ManyToOne
     @JoinColumn(name = "id_libro")
     private Libro libro;
-    
+
     /**
      * Formato del Producto al que hace referencia la reseña.
      */
-    @Enumerated (EnumType.STRING)
-    @Column (name = "formato" , nullable = false)
+    @Enumerated(EnumType.STRING)
+    @Column(name = "formato", nullable = false)
     private Formato formato;
 
     /**
      * Calificacion numerica dada por el usuario.
      */
-    @Column (name = "calificacion", nullable = false)
+    @Column(name = "calificacion", nullable = false)
     private int calificacion;
 
     /**
      * Comentario del usuario sobre el libro.
      */
-    @Column (name = "comentario", length = 350, nullable = false)
+    @Column(name = "comentario", length = 350, nullable = false)
     private String comentario;
 
     /**
      * Fecha en que se publico la resenia.
      */
-    @Column (name = "fecha_publicacion", nullable = false)
+    @Column(name = "fecha_publicacion", nullable = false)
     private LocalDateTime fecha;
 
     /**
@@ -82,10 +81,10 @@ public class Resenia {
     /**
      * Constructor por defecto
      */
-    public Resenia(){
-        
+    public Resenia() {
+
     }
-    
+
     /**
      * Crea una nueva resenia con todos sus datos.
      *
@@ -98,16 +97,36 @@ public class Resenia {
      * @param cliente cliente que realizo la resenia
      */
     public Resenia(
-            Long id, 
-            Libro libro, 
+            Long id,
+            Libro libro,
             Formato formato,
             int calificacion,
             String comentario,
             LocalDateTime fecha,
             Cliente cliente) {
-        
+
         this.id = id;
         this.libro = libro;
+        this.formato = formato;
+        this.calificacion = calificacion;
+        this.comentario = comentario;
+        this.fecha = fecha;
+        this.cliente = cliente;
+    }
+
+    /**
+     * Constructor que inicializa todos los atributos menos el id
+     *
+     * @param libro libro al que pertenece la resenia
+     * @param formato formato del producto al que hace referencia la reseña.
+     * @param calificacion valor numerico de la calificacion
+     * @param comentario comentario del usuario
+     * @param fecha fecha de publicacion
+     * @param cliente cliente que realizo la resenia
+     */
+    public Resenia(Libro libro, Formato formato, int calificacion, String comentario, LocalDateTime fecha, Cliente cliente) {
+        this.libro = libro;
+        this.formato = formato;
         this.calificacion = calificacion;
         this.comentario = comentario;
         this.fecha = fecha;
@@ -136,7 +155,7 @@ public class Resenia {
     }
 
     /**
-     * 
+     *
      * @return formato del producto al que hace referencia la reseña.
      */
     public Formato getFormato() {
@@ -144,7 +163,7 @@ public class Resenia {
     }
 
     /**
-     * 
+     *
      * @param formato formato del producto al que hace referencia la reseña.
      */
     public void setFormato(Formato formato) {
@@ -205,6 +224,15 @@ public class Resenia {
      */
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
+    }
+
+    /**
+     * Regresa una cadena de texto con los atributos de la Resenia.
+     * @return cadena de texto.
+     */
+    @Override
+    public String toString() {
+        return "Resenia{" + "id=" + id + ", libro=" + libro + ", formato=" + formato + ", calificacion=" + calificacion + ", comentario=" + comentario + ", fecha=" + fecha + ", cliente=" + cliente + '}';
     }
 
 }
