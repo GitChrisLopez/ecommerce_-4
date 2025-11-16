@@ -8,6 +8,7 @@ import dominio.enumeradores.MetodoPago;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Table;
 
 /**
@@ -21,6 +22,7 @@ import javax.persistence.Table;
  * Fecha: 15/10/2025
  */
 
+@Entity
 @Table(name = "pago_tarjeta")
 public class PagoTarjeta extends MetodoPago {
 
