@@ -77,9 +77,12 @@ public class Resenia {
      * Usuario que realizo la resenia.
      */
     @ManyToOne
-    @JoinColumn(name = "id_cliente")
+    @JoinColumn(name = "id_cliente", nullable = false)
     private Cliente cliente;
 
+    /**
+     * Constructor por defecto
+     */
     public Resenia(){
         
     }
