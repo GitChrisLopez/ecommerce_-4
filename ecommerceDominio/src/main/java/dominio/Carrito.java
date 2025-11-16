@@ -1,75 +1,138 @@
 package dominio;
 
+import java.math.BigDecimal;
 import java.util.List;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 /**
+ * Representa el carrito de compra del cliente.
  *
  * @author Norma Alicia Beltrán Martín - 252102
  * @author Oscar Adrián Castán López - 260318
  * @author Chris Fitch Lopez - 252379
  * @author Manuel Romo López - 253080
  */
+
+@Entity
+@Table(name = "carritos")
 public class Carrito {
 
-    private int id;
-    private double total;
-    private List<LibroCarrito> libros;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_carrito")
+    private Integer id;
+
+    @Column(name = "total", precision = 10, scale = 2)
+    private BigDecimal total = BigDecimal.ZERO;
+
+    @OneToOne
+    @JoinColumn(name = "id_cliente", unique = true, nullable = false)
+    private Cliente cliente;
+
+    @OneToMany(mappedBy = "carrito", cascade = CascadeType.ALL)
+    private List<ProductoCarrito> productosCarrito;
 
     /**
-     * Contructor de la clase Carrito
-     *
-     * @param id el ID del carrito
-     * @param total el Costo total de los productos
-     * @param libros La lista de libros en el carrito
+     * Constructor vacío.
      */
-    public Carrito(int id, double total, List<LibroCarrito> libros) {
-        this.id = id;
-        this.total = total;
-        this.libros = libros;
+    public Carrito() {
+
     }
 
     /**
-     * Obtiene el ID del objeto en el carrito
+     * Constructor que inicializa todos los atributos.
      *
-     * @return el ID del objeto
+     * @param id id del carrito
+     * @param cliente cliente del carrito
+     * @param productosCarrito lista de productosCarrito del carrito
      */
-    public int getId() {
+    public Carrito(Integer id, Cliente cliente, List<ProductoCarrito> productosCarrito) {
+        this.id = id;
+        this.cliente = cliente;
+        this.productosCarrito = productosCarrito;
+    }
+
+    /**
+     * Obtiene el identificador único del carrito.
+     *
+     * @return El id del carrito.
+     */
+    public Integer getId() {
         return id;
     }
 
     /**
-     * Metodo que obtiene el costo total de los objetos en el carrito
+     * Establece el identificador único del carrito.
      *
-     * @return el corto total
+     * @param id El nuevo id del carrito.
      */
-    public double getTotal() {
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    /**
+     * Obtiene el valor total de los productos contenidos en el carrito.
+     *
+     * @return El total del carrito.
+     */
+    public BigDecimal getTotal() {
         return total;
     }
 
     /**
-     * Metodo que declara el costo total del carrito
+     * Establece el valor total del carrito.
      *
-     * @param total el costo total
+     * @param total El nuevo total del carrito.
      */
-    public void setTotal(double total) {
+    public void setTotal(BigDecimal total) {
         this.total = total;
     }
 
     /**
-     * Metodo que obtiene la lista de libros dentro del carrito
+     * Obtiene la entidad Cliente asociada a este carrito.
      *
-     * @return los libros en el carrito
+     * @return El cliente dueño del carrito.
      */
-    public List<LibroCarrito> getLibros() {
-        return libros;
+    public Cliente getCliente() {
+        return cliente;
     }
 
     /**
-     * Metodo que declara los libros dentro del carrito
+     * Establece la entidad Cliente asociada a este carrito.
      *
-     * @param libros la lista de libros
+     * @param cliente El nuevo cliente dueño del carrito.
      */
-    public void setLibros(List<LibroCarrito> libros) {
-        this.libros = libros;
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
+
+    /**
+     * Obtiene la lista de ProductoCarrito que representan los productos en el
+     * carrito.
+     *
+     * @return La lista de productos en el carrito.
+     */
+    public List<ProductoCarrito> getProductosCarrito() {
+        return productosCarrito;
+    }
+
+    /**
+     * Establece la lista de ProductoCarrito que representan los productos en el
+     * carrito.
+     *
+     * @param productosCarrito La nueva lista de productos en el carrito.
+     */
+    public void setProductosCarrito(List<ProductoCarrito> productosCarrito) {
+        this.productosCarrito = productosCarrito;
+    }
+
 }
