@@ -26,7 +26,7 @@ public class ProductoCarrito {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_producto_carrito")
-    private Integer id;
+    private Long id;
 
     /**
      * Objeto Producto que representa el producto de ProductoCarrito.
@@ -68,7 +68,7 @@ public class ProductoCarrito {
      * @param carrito id del carrito
      * @param precioUnitario precio unitario del productoCarrito
      */
-    public ProductoCarrito(Integer id, Producto producto, Carrito carrito, BigDecimal precioUnitario) {
+    public ProductoCarrito(Long id, Producto producto, Carrito carrito, BigDecimal precioUnitario) {
         this.id = id;
         this.producto = producto;
         this.carrito = carrito;
@@ -80,7 +80,7 @@ public class ProductoCarrito {
      *
      * @return El id de ProductoCarrito.
      */
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
@@ -89,7 +89,7 @@ public class ProductoCarrito {
      *
      * @param id El nuevo id de ProductoCarrito.
      */
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

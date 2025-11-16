@@ -37,7 +37,7 @@ public class Producto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column (name = "id_producto")
-    private Integer id;
+    private Long id;
 
     /**
      * Objeto Integer que representa el número de páginas del Producto.
@@ -116,7 +116,7 @@ public class Producto {
      * @param productosPedido 
      */
     public Producto(
-            Integer id,
+            Long id,
             Integer numeroPaginas,
             String isbn,
             String urlImagen, 
@@ -141,7 +141,7 @@ public class Producto {
      * Obtiene el identificador único del producto.
      * @return El id del producto.
      */
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
@@ -149,7 +149,7 @@ public class Producto {
      * Establece el identificador único del producto.
      * @param id El nuevo id del producto.
      */
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

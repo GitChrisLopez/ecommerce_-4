@@ -5,13 +5,13 @@
 package dominio;
 
 import dominio.enumeradores.MetodoPago;
-import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDate;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
 /**
+ * Representa un tipo de método de pago (Pago Contra Entrega).
  *
  * @author Norma Alicia Beltrán Martín - 252102
  * @author Oscar Adrián Castán López - 260318
@@ -20,20 +20,24 @@ import javax.persistence.Table;
  *
  * Fecha: 15/10/2025
  */
+
 @Entity
 @Table(name = "pago_contraentrega")
-public class PagoContraentrega extends MetodoPago implements Serializable {
+public class PagoContraEntrega extends MetodoPago {
 
-    public PagoContraentrega() {
+    /**
+     * Constructor vacío.
+     */
+    public PagoContraEntrega() {
         super();
     }
 
     /**
      * Constructor que inicializa al padre.
-     * @param MontoPagar
-     * @param fecha
+     *
+     * @param fecha fecha de realización del pago.
      */
-    public PagoContraentrega(BigDecimal MontoPagar, Date fecha) {
-        super(MontoPagar, fecha);
+    public PagoContraEntrega(LocalDate fecha) {
+        super(fecha);
     }
 }

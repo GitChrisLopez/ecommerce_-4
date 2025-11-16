@@ -26,7 +26,7 @@ public class ProductoPedido {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_producto_pedido")
-    private Integer id;
+    private Long id;
 
     /**
      * Objeto Producto que representa el producto de ProductoPedido.
@@ -69,7 +69,7 @@ public class ProductoPedido {
      * @param cantidad cantidad del productoPedido
      * @param precioUnitario precio unitario del productoPedido
      */
-    public ProductoPedido(Integer id, Producto producto, Pedido pedido, Integer cantidad, BigDecimal precioUnitario) {
+    public ProductoPedido(Long id, Producto producto, Pedido pedido, Integer cantidad, BigDecimal precioUnitario) {
         this.id = id;
         this.producto = producto;
         this.pedido = pedido;
@@ -82,7 +82,7 @@ public class ProductoPedido {
      *
      * @return El id de la entidad ProductoPedido.
      */
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
@@ -91,7 +91,7 @@ public class ProductoPedido {
      *
      * @param id El nuevo id de la entidad ProductoPedido.
      */
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
