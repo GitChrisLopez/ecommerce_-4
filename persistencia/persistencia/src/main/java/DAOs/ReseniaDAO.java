@@ -98,31 +98,4 @@ public class ReseniaDAO {
         }
     }
 
-//    public Libro obtenerLibro(Long idLibro) throws PersistenciaException {
-//
-//        EntityManager em = ManejadorConexiones.getEntityManager();
-//        try {
-//            return em.find(Libro.class, idLibro);
-//        } catch (Exception e) {
-//            throw new PersistenciaException("Error al obtener Libro por ID", e);
-//        } finally {
-//            if (em != null && em.isOpen()) {
-//                em.close();
-//            }
-//        }
-//    }
-//
-//    public Cliente obtenerCliente(Long idCliente) throws PersistenciaException {
-//
-//        EntityManager em = ManejadorConexiones.getEntityManager();
-//        try {
-//            return em.find(Cliente.class, idCliente);
-//        } catch (Exception e) {
-//            throw new PersistenciaException("Error al obtener Cliente por ID", e);
-//        } finally {
-//            if (em != null && em.isOpen()) {
-//                em.close();
-//            }
-//        }
-//    }
 }
