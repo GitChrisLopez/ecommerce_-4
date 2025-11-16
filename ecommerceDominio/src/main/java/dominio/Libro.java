@@ -18,7 +18,7 @@ import javax.persistence.Table;
 
 @Entity
 // ANOTACIÓN JPA: (Opcional) Especifica el nombre de la tabla en la BD
-@Table(name = "LIBROS")
+@Table(name = "libros")
 public class Libro {
 
     /**
