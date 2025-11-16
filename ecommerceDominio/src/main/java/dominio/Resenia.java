@@ -1,6 +1,16 @@
 package dominio;
 
 import java.time.LocalDateTime;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  * Representa una resenia hecha por un usuario sobre un libro. Contiene
@@ -11,38 +21,56 @@ import java.time.LocalDateTime;
  * @author Chris Fitch Lopez - 252379
  * @author Manuel Romo López - 253080
  */
+
+@Entity
+@Table(name = "resenias")
 public class Resenia {
 
     /**
      * Identificador unico de la resenia.
      */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column (name = "id_resenia")
     private Long id;
 
     /**
      * Libro al que pertenece la resenia.
      */
+    @ManyToOne
+    @JoinColumn(name = "id_libro")
     private Libro libro;
 
     /**
      * Calificacion numerica dada por el usuario.
      */
+    @Column (name = "calificacion", nullable = false)
     private int calificacion;
 
     /**
      * Comentario del usuario sobre el libro.
      */
+    @Column (name = "comentario", length = 350, nullable = false)
     private String comentario;
 
     /**
      * Fecha en que se publico la resenia.
      */
+    @Temporal (TemporalType.TIMESTAMP)
+    @Column (name = "fecha_publicacion", nullable = false)
     private LocalDateTime fecha;
 
     /**
      * Usuario que realizo la resenia.
      */
-    private Usuario usuario;
+    @ManyToOne
+    @JoinColumn(name = "id_cliente")
+    private Cliente cliente;
 
+    public Resenia(){
+        
+    }
+    
     /**
      * Crea una nueva resenia con todos sus datos.
      *
@@ -53,14 +81,20 @@ public class Resenia {
      * @param fecha fecha de publicacion
      * @param usuario usuario que realizo la resenia
      */
-    public Resenia(Long id, Libro libro, int calificacion, String comentario,
-            LocalDateTime fecha, Usuario usuario) {
+    public Resenia(
+            Long id, 
+            Libro libro, 
+            int calificacion,
+            String comentario,
+            LocalDateTime fecha,
+            Cliente cliente) {
+        
         this.id = id;
         this.libro = libro;
         this.calificacion = calificacion;
         this.comentario = comentario;
         this.fecha = fecha;
-        this.usuario = usuario;
+        this.cliente = cliente;
     }
 
     /**
@@ -127,17 +161,17 @@ public class Resenia {
     }
 
     /**
-     * @return usuario que escribio la resenia
+     * @return cliente que escribio la resenia
      */
-    public Usuario getUsuario() {
-        return usuario;
+    public Cliente getCliente() {
+        return cliente;
     }
 
     /**
-     * @param usuario usuario que escribio la resenia
+     * @param cliente cliente que escribio la resenia
      */
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
 }

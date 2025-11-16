@@ -1,7 +1,6 @@
 package dominio;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Column;
@@ -32,9 +31,6 @@ import javax.persistence.TemporalType;
 @Table(name = "libros")
 public class Libro {
 
-    public Libro(){
-        
-    }
     /**
      * Identificador único del libro.
      */
@@ -86,6 +82,10 @@ public class Libro {
     @Column (name = "categoria" , nullable = false)
     private Categoria categoria;
 
+    @ManyToOne
+    @JoinColumn (name = "id_autor", nullable = false) 
+    private Autor autor;
+    
     /**
      * Editorial responsable de la publicacion.
      */
@@ -109,9 +109,14 @@ public class Libro {
     /**
      * Lista de resenias que los usuarios han dejado sobre el libro.
      */
-    @OneToMany(mappedBy = "resenia")
+    @OneToMany(mappedBy = "libro")
     private List<Resenia> resenias;
 
+    
+    public Libro(){
+        
+    }
+    
     /**
      * Crea un nuevo libro con todos sus datos.
      *
@@ -127,8 +132,20 @@ public class Libro {
      * @param noPaginas numero total de paginas
      * @param fechaPublicacion fecha de publicacion del libro
      */
-    public Libro(Long id, String titulo, String isbn, double precio, String descripcion, int stock, String imagen, Categoria categoria, Editorial editorial,
-            int noPaginas, LocalDate fechaPublicacion) {
+    public Libro(
+            Long id, 
+            String titulo, 
+            String isbn, 
+            double precio, 
+            String descripcion, 
+            int stock, 
+            String imagen, 
+            Categoria categoria, 
+            Autor autor,
+            Editorial editorial,
+            int noPaginas, 
+            LocalDate fechaPublicacion) {
+        
         this.id = id;
         this.titulo = titulo;
         this.isbn = isbn;
@@ -137,6 +154,7 @@ public class Libro {
         this.stock = stock;
         this.imagen = imagen;
         this.categoria = categoria;
+        this.autor = autor;
         this.editorial = editorial;
         this.noPaginas = noPaginas;
         this.fechaPublicacion = fechaPublicacion;
@@ -262,6 +280,20 @@ public class Libro {
         this.editorial = editorial;
     }
 
+    /**
+     * @return autor del libro
+     */
+    public Autor getAutor() {
+        return autor;
+    }
+
+    /**
+     * @param autor nuevo autor
+     */
+    public void setAutor(Autor autor) {
+        this.autor = autor;
+    }
+    
     /**
      * @return Devuelve el numero de paginas.
      */

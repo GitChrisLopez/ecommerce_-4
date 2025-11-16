@@ -1,5 +1,12 @@
 package dominio;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  *
  * @author Norma Alicia Beltrán Martín - 252102
@@ -7,11 +14,23 @@ package dominio;
  * @author Chris Fitch Lopez - 252379
  * @author Manuel Romo López - 253080
  */
+
+@Entity
+@Table(name = "categorias")
 public class Categoria {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column (name = "id_categoria")
     private Long id;
+    
+    @Column (name = "nombre", length = 20, nullable = false)
     private String nombre;
 
+    public Categoria(){
+        
+    }
+    
     /**
      * Constructor de la categoria
      *
