@@ -5,7 +5,6 @@
 package dominio;
 
 import dominio.enumeradores.MetodoPago;
-import java.io.Serializable;
 import java.time.LocalDate;
 import javax.persistence.Column;
 import javax.persistence.Entity;
