@@ -4,6 +4,8 @@ import java.math.BigDecimal;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -36,7 +38,8 @@ public class Producto {
     private String urlImagen;
     
     @Column (name = "formato", nullable = false)
-    private String formato;
+    @Enumerated(EnumType.STRING)
+    private Formato formato;
     
     @Column (name = "stock", nullable = false)
     private Integer stock = 0;
@@ -72,7 +75,7 @@ public class Producto {
      * @param itemsCarrito 
      * @param itemsPedido 
      */
-    public Producto(Integer id, Integer numeroPaginas, String isbn, String urlImagen, String formato, BigDecimal precio, Libro libro, List<ProductoCarrito> itemsCarrito, List<ProductoPedido> itemsPedido) {
+    public Producto(Integer id, Integer numeroPaginas, String isbn, String urlImagen, Formato formato, BigDecimal precio, Libro libro, List<ProductoCarrito> itemsCarrito, List<ProductoPedido> itemsPedido) {
         this.id = id;
         this.numeroPaginas = numeroPaginas;
         this.isbn = isbn;
@@ -149,10 +152,10 @@ public class Producto {
     }
 
     /**
-     * Obtiene el formato del producto (e.g., "Tapa Dura", "ePub", "PDF").
+     * Obtiene el formato del producto.
      * @return El formato del producto.
      */
-    public String getFormato() {
+    public Formato getFormato() {
         return formato;
     }
 
@@ -160,7 +163,7 @@ public class Producto {
      * Establece el formato del producto.
      * @param formato El nuevo formato del producto.
      */
-    public void setFormato(String formato) {
+    public void setFormato(Formato formato) {
         this.formato = formato;
     }
 
