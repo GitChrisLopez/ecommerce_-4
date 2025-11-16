@@ -5,28 +5,35 @@
 package dominio;
 
 import dominio.enumeradores.MetodoPago;
-import java.sql.Date;
-import javax.persistence.Column;
+import java.io.Serializable;
+import java.math.BigDecimal;
+import java.util.Date;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
  *
- * @author Adrián
+ * @author Norma Alicia Beltrán Martín - 252102
+ * @author Oscar Adrián Castán López - 260318
+ * @author Chris Fitch Lopez - 252379
+ * @author Manuel Romo López - 253080
+ *
+ * Fecha: 15/10/2025
  */
 @Entity
-@Table(name = "paggoContraentrega")
-public class pagoContraentrega extends MetodoPago {
+@Table(name = "pago_contraentrega")
+public class PagoContraentrega extends MetodoPago implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_pagoContraentrega")
-    long id;
-
-    private pagoContraentrega() {
+    public PagoContraentrega() {
+        super();
     }
 
+    /**
+     * Constructor que inicializa al padre.
+     * @param MontoPagar
+     * @param fecha
+     */
+    public PagoContraentrega(BigDecimal MontoPagar, Date fecha) {
+        super(MontoPagar, fecha);
+    }
 }

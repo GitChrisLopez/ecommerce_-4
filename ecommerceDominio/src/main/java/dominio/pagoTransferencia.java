@@ -1,39 +1,39 @@
-
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package dominio;
 
 import dominio.enumeradores.MetodoPago;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
  *
- * @author Adrián
+ * @author Norma Alicia Beltrán Martín - 252102
+ * @author Oscar Adrián Castán López - 260318
+ * @author Chris Fitch Lopez - 252379
+ * @author Manuel Romo López - 253080
+ *
+ * Fecha: 15/10/2025
  */
 @Entity
-@Table(name = "pagos_transferencia")
-public class PagoTransferencia extends MetodoPago {
+@Table(name = "pago_transferencia")
+public class PagoTransferencia extends MetodoPago implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_pago_transferencia")
-    private Long id;
-    
-    @Column(name="banco_pago_transferencia", nullable = false)
-    private String bancoEmisor;
-    
-    @Column(name = "cuatro_digitos", nullable = false)
-    private String cuatroDigitos;
+    @Column(name = "banco_emisor")
+    public String bancoEmisor;
 
-    public PagoTransferencia(){
-        
+    @Column(name = "cuatro_digitos")
+    public String cuatroDigitos;
+
+    public PagoTransferencia() {
     }
-    
+
     public PagoTransferencia(String bancoEmisor, String cuatroDigitos) {
         this.bancoEmisor = bancoEmisor;
         this.cuatroDigitos = cuatroDigitos;
