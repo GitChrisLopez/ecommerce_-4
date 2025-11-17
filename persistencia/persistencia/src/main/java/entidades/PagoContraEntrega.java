@@ -1,7 +1,6 @@
 
-package dominio;
+package entidades;
 
-import dominio.enumeradores.MetodoPago;
 import java.time.LocalDate;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -17,6 +16,8 @@ import javax.persistence.Table;
  * Fecha: 15/10/2025
  */
 
+@Entity
+@Table(name = "pago_contraentrega")
 public class PagoContraEntrega extends MetodoPago {
 
     /**

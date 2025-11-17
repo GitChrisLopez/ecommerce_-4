@@ -1,4 +1,5 @@
-package dominio;
+
+package entidades;
 
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
@@ -27,36 +28,51 @@ import javax.persistence.Table;
  * 
  */
 
+@Entity
+@Inheritance(strategy = InheritanceType.JOINED)
+@Table(name = "usuarios")
+@DiscriminatorColumn(
+    name = "tipo_usuario", 
+    discriminatorType = DiscriminatorType.STRING
+)
 public abstract class Usuario {
 
     /**
      * Dato Long que representa el Id del usuario.
      */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column (name = "id_usuario")
     private Long id;
 
     /**
      * Dato String que representa el o los nombres del Usuario.
      */
+    @Column (name = "nombre", length = 50, nullable = false)
     private String nombre;
     
     /**
      * Dato String que representa el apellido paterno del Usuario.
      */
+    @Column (name = "apellido_paterno", length = 50, nullable = false)
     private String apellidoPaterno;
     
     /**
      * Dato String que representa el apellido materno del Usuario.
      */
+    @Column (name = "apellido_materno", length = 50, nullable = true)
     private String apellidoMaterno;
 
     /**
      * Dato String que representa el correo electrónico del Usuario.
      */
+    @Column (name = "correo", length = 320, nullable = false)
     private String correo;
 
     /**
      * Dato String que representa el hash de la contraseña del usuario.
      */
+    @Column (name = "contrasenia", length = 20, nullable = false)
     private String contrasenia;
 
     /**

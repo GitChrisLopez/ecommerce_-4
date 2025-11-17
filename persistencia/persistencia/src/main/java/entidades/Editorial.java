@@ -1,5 +1,6 @@
 
-package dominio;
+package entidades;
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -21,16 +22,22 @@ import javax.persistence.Table;
  * Fecha: 15/11/2025
  * 
  */
+@Entity
+@Table(name = "editoriales")
 public class Editorial {
     
     /**
      * Dato Long que representa el Id de la editorial.
      */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column (name = "id_editorial")
     private long id;
     
     /**
      * Objeto String que representa el nombre de la Editorial.
      */
+    @Column (name = "nombre", length = 50, nullable = false)
     private String nombre;
 
     /**

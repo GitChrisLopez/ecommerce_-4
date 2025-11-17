@@ -1,9 +1,7 @@
 package DAOs;
 
 import com.persistencia.ManejadorConexiones;
-import dominio.Cliente;
-import dominio.Libro;
-import dominio.Resenia;
+import entidades.Resenia;
 import excepciones.PersistenciaException;
 import java.util.List;
 import javax.persistence.EntityManager;

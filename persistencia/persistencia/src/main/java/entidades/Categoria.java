@@ -1,4 +1,8 @@
-package dominio;
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package entidades;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -25,11 +29,15 @@ public class Categoria {
     /**
      * Dato Long que representa el Id de la Categoria.
      */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column (name = "id_categoria")
     private Long id;
     
     /**
      * Objeto String que representa el nombre de la Categoria.
      */
+    @Column (name = "nombre", length = 20, nullable = false)
     private String nombre;
 
     /**
@@ -79,3 +87,4 @@ public class Categoria {
     }
 
 }
+

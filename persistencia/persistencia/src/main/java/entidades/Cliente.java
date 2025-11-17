@@ -1,6 +1,9 @@
-package dominio;
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package entidades;
 
-import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
@@ -24,38 +27,48 @@ import javax.persistence.Table;
  * Fecha: 15/10/2025
  */
 
+@Entity
+@Table(name = "clientes")
+@DiscriminatorValue("CLIENTE")
 public class Cliente extends Usuario {
 
     /**
      * Objeto String que representa el número de teléfono del Cliente.
      */
+    @Column (name = "telefono", length = 10, nullable = false)
     private String telefono;
 
     /**
      * Objeto Srtring que representa la dirección de la imagen de perfil del Cliente.
      */
+    @Column (name = "url_imagen_perfil", length = 100, nullable = true)
     private String urlImagenPerfil;
     
     /**
      * Lista de objetos Direccion que representa el conjunto de direcciones
      * asociadas a este Cliente.
      */
+    @OneToMany(mappedBy = "cliente")
     private List<Direccion> direcciones;
 
     /**
      * Objeto Carrito que representa el carrito de compras actual del Cliente.
      */
+    @OneToOne
+    @JoinColumn(name = "id_carrito", unique = true)
     private Carrito carrito;
 
     /**
      * Lista de objetos Pedido que representa el historial de pedidos realizados
      * por este Cliente.
      */
+    @OneToMany(mappedBy = "cliente")
     private List<Pedido> pedidos;
     
     /**
      * Dato boolean que indica si el usuario esta activo o no.
      */
+    @Column (name = "activo", nullable = false)
     private boolean activo;
 
     /**

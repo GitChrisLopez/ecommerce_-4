@@ -1,5 +1,7 @@
-package dominio;
 
+package entidades;
+
+import enumeradores.Formato;
 import java.math.BigDecimal;
 import java.util.List;
 import javax.persistence.Column;
@@ -27,58 +29,74 @@ import javax.persistence.Table;
  * Fecha: 15/11/2025
  */
 
+@Entity
+@Table(name = "productos")
 public class Producto {
     
     /**
      * Objeto Long que representa el Id del Producto.
      */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column (name = "id_producto")
     private Long id;
 
     /**
      * Objeto Integer que representa el número de páginas del Producto.
      */
+    @Column (name = "no_paginas")
     private Integer numeroPaginas;
 
     /**
      * Objeto String que representa el ISBN (International Standard Book Number) del Producto.
      */
+    @Column (name = "isbn", length = 13, nullable = false)
     private String isbn;
 
     /**
      * Objeto String que representa la url de la imagen del Producto.
      */
+    @Column (name = "urlImagen", nullable = false) 
     private String urlImagen;
     
     /**
      * Enumerador Formato que determina el formato del Producto.
      */
+    @Column (name = "formato", nullable = false)
+    @Enumerated(EnumType.STRING)
     private Formato formato;
     
     /**
      * Objeto Integer que representa el stock Producto actual.
      */
+    @Column (name = "stock", nullable = false)
     private Integer stock = 0;
     
     /**
      * Objeto BigDecimal que representa el precio del Producto.
      */
+    @Column(precision = 10, scale = 2)
     private BigDecimal precio; 
 
     /**
      * Objeto Libro que representa el Libro que representa el Producto.
      */
+    @ManyToOne
+    @JoinColumn(name = "id_libro", nullable = false)
     private Libro libro;
 
     /**
      * Objeto List<ProductoCarrito> que representa los productosCarrito que
      * hacen referencia a este Producto.
      */
+    @OneToMany(mappedBy = "producto")
     private List<ProductoCarrito> productosCarrito;
 
     /**
      * Objeto List<ProductoPedido> que representa los productosPedido que hacen
      * referencia a este Producto.
      */
+    @OneToMany(mappedBy = "producto")
     private List<ProductoPedido> productosPedido;
 
     /**

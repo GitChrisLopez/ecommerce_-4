@@ -1,5 +1,5 @@
 
-package dominio;
+package entidades;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -21,26 +21,34 @@ import javax.persistence.Table;
  *
  * Fecha: 15/11/2025
  */
+@Entity
+@Table(name = "autores")
 public class Autor {
     
     /**
      * Dato Long que representa el identificador del Autor.
      */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column (name = "id_autor")
     private Long id;
     
     /**
      * Dato String que representa el o los nombres del Autor.
      */
+    @Column (name = "nombre", length = 50, nullable = false)
     private String nombre;
     
     /**
      * Dato String que representa el apellido paterno del Autor.
      */
+    @Column (name = "apellido_paterno", length = 50, nullable = false)
     private String apellidoPaterno;
     
     /**
      * Dato String que representa el apellido materno del Autor.
      */
+    @Column (name = "apellido_materno", length = 50, nullable = true)
     private String apellidoMaterno;
 
     /**
@@ -134,3 +142,4 @@ public class Autor {
     
     
 }
+

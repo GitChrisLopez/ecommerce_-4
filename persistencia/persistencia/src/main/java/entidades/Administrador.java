@@ -1,4 +1,5 @@
-package dominio;
+
+package entidades;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
@@ -18,6 +19,9 @@ import javax.persistence.Table;
  * Fecha: 15/10/2025
  */
 
+@Entity
+@Table(name = "administradores")
+@DiscriminatorValue("ADMINISTRADOR")
 public class Administrador extends Usuario {
 
     /**

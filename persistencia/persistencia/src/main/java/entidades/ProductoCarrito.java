@@ -1,4 +1,5 @@
-package dominio;
+
+package entidades;
 
 import java.math.BigDecimal;
 import javax.persistence.Column;
@@ -11,81 +12,90 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
- * Representa los productos que contiene un pedido.
+ * Representa los productos que contiene un carrito de compra.
  *
  * @author Norma Alicia Beltrán Martín - 252102
  */
 
-public class ProductoPedido {
+@Entity
+@Table(name = "productos_carrito")
+public class ProductoCarrito {
 
     /**
      * Dato Long que representa el id del ProductoCarrito.
      */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_producto_carrito")
     private Long id;
 
     /**
-     * Objeto Producto que representa el producto de ProductoPedido.
+     * Objeto Producto que representa el producto de ProductoCarrito.
      */
+    @ManyToOne
+    @JoinColumn(name = "id_producto", nullable = false)
     private Producto producto;
 
     /**
-     * Objeto Pedido que representa el pedido en el que esta ProductoPedido.
+     * Objeto Carrito que representa el carrito en el que esta ProductoCarrito.
      */
-    private Pedido pedido;
+    @ManyToOne
+    @JoinColumn(name = "id_carrito", nullable = false)
+    private Carrito carrito;
 
     /**
-     * Cantidad de ProductoPedido.
+     * Cantidad de ProductoCarrito.
      */
-    private Integer cantidad;
+    @Column(name = "cantidad")
+    private Integer cantidad = 1;
 
     /**
-     * Precio unitario de ProductoPedido.
+     * Precio unitario de ProductoCarrito.
      */
+    @Column(name = "precio_unitario", precision = 10, scale = 2)
     private BigDecimal precioUnitario;
 
     /**
      * Constructor vacío.
      */
-    public ProductoPedido() {
+    public ProductoCarrito() {
     }
 
     /**
      * Constructor que inicializa todos los atributos.
      *
-     * @param id id del productoPedido
+     * @param id id del productoCarrito
      * @param producto id del producto
-     * @param pedido id del pedido
-     * @param cantidad cantidad del productoPedido
-     * @param precioUnitario precio unitario del productoPedido
+     * @param carrito id del carrito
+     * @param precioUnitario precio unitario del productoCarrito
      */
-    public ProductoPedido(Long id, Producto producto, Pedido pedido, Integer cantidad, BigDecimal precioUnitario) {
+    public ProductoCarrito(Long id, Producto producto, Carrito carrito, BigDecimal precioUnitario) {
         this.id = id;
         this.producto = producto;
-        this.pedido = pedido;
-        this.cantidad = cantidad;
+        this.carrito = carrito;
         this.precioUnitario = precioUnitario;
     }
 
     /**
-     * Obtiene el identificador único de este producto del pedido.
+     * Obtiene el identificador único de este producto del carrito.
      *
-     * @return El id de la entidad ProductoPedido.
+     * @return El id de ProductoCarrito.
      */
     public Long getId() {
         return id;
     }
 
     /**
-     * Establece el identificador único de este producto del pedido.
+     * Establece el identificador único de este producto del carrito.
      *
-     * @param id El nuevo id de la entidad ProductoPedido.
+     * @param id El nuevo id de ProductoCarrito.
      */
     public void setId(Long id) {
         this.id = id;
     }
 
     /**
-     * Obtiene el Producto asociado a este producto del pedido.
+     * Obtiene el Producto asociada a este producto del carrito.
      *
      * @return El producto referenciado.
      */
@@ -94,7 +104,7 @@ public class ProductoPedido {
     }
 
     /**
-     * Establece el Producto asociado a este producto del pedido.
+     * Establece el Producto asociada a este producto del carrito.
      *
      * @param producto El nuevo producto referenciado.
      */
@@ -103,25 +113,25 @@ public class ProductoPedido {
     }
 
     /**
-     * Obtiene el Pedido a la que pertenece este productoPedido.
+     * Obtiene el Carrito a la que pertenece este productoCarrito.
      *
-     * @return El pedido contenedor.
+     * @return El carrito contenedor.
      */
-    public Pedido getPedido() {
-        return pedido;
+    public Carrito getCarrito() {
+        return carrito;
     }
 
     /**
-     * Establece el Pedido a la que pertenece este productoPedido.
+     * Establece el Carrito a la que pertenece este productoCarrito.
      *
-     * @param pedido El nuevo pedido contenedor.
+     * @param carrito El nuevo carrito contenedor.
      */
-    public void setPedido(Pedido pedido) {
-        this.pedido = pedido;
+    public void setCarrito(Carrito carrito) {
+        this.carrito = carrito;
     }
 
     /**
-     * Obtiene la cantidad de unidades de este producto en el pedido.
+     * Obtiene la cantidad de unidades de este producto en el carrito.
      *
      * @return La cantidad del producto.
      */
@@ -130,7 +140,7 @@ public class ProductoPedido {
     }
 
     /**
-     * Establece la cantidad de unidades de este producto en el pedido.
+     * Establece la cantidad de unidades de este producto en el carrito.
      *
      * @param cantidad La nueva cantidad del producto.
      */
@@ -140,7 +150,7 @@ public class ProductoPedido {
 
     /**
      * Obtiene el precio unitario del producto registrado en el momento de la
-     * creación del pedido.
+     * adición.
      *
      * @return El precio unitario.
      */
@@ -156,4 +166,5 @@ public class ProductoPedido {
     public void setPrecioUnitario(BigDecimal precioUnitario) {
         this.precioUnitario = precioUnitario;
     }
+
 }

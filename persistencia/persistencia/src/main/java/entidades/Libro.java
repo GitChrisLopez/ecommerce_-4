@@ -1,4 +1,5 @@
-package dominio;
+
+package entidades;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -27,41 +28,59 @@ import javax.persistence.Table;
  * 
  */
 
+@Entity
+@Table(name = "libros")
 public class Libro {
 
     /**
      * Dato Long que representa el Id del Libro.
      */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column (name = "id_libro")
     private Long id;
 
     /**
      * Objeto String que representa el título del Libro.
      */
+    @Column (name = "titulo", length = 100, nullable = false)
     private String titulo;
 
     /**
      * Objeto String que representa la sinopsis del Libro.
      */
+    @Column (name = "sinopsis", length = 350, nullable = false) 
     private String sinopsis;
 
     /**
      * Objeto List<Categoria> que representa las categorías del Libro.
      */
+    @ManyToMany
+    @JoinTable(
+        name = "libro_categoria",
+        joinColumns = @JoinColumn(name = "id_libro"),
+        inverseJoinColumns = @JoinColumn(name = "id_categoria")
+    )
     private List<Categoria> categorias;
 
     /**
      * Objeto Autor que representa el Autor de este Libro.
      */
+    @ManyToOne
+    @JoinColumn (name = "id_autor", nullable = false) 
     private Autor autor;
     
     /**
      * Objeto Editorial que representa la editorial que publicó el Libro.
      */
+    @ManyToOne
+    @JoinColumn (name = "id_editorial", nullable = false) 
     private Editorial editorial;
 
     /**
      * Objeto LocalDate que representa la fecha de publicación del Libro.
      */
+    @Column (name = "fecha_publicacion", nullable = false)
     private LocalDate fechaPublicacion;
     
     /**

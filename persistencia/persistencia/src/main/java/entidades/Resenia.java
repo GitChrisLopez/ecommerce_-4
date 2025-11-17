@@ -1,5 +1,7 @@
-package dominio;
 
+package entidades;
+
+import enumeradores.Formato;
 import java.time.LocalDateTime;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -25,41 +27,55 @@ import javax.persistence.Table;
  *
  * Fecha: 15/10/2025
  */
+@Entity
+@Table(name = "resenias")
 public class Resenia {
 
     /**
      * Identificador unico de la resenia.
      */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_resenia")
     private Long id;
 
     /**
      * Libro al que pertenece la resenia.
      */
+    @ManyToOne
+    @JoinColumn(name = "id_libro")
     private Libro libro;
 
     /**
      * Formato del Producto al que hace referencia la reseña.
      */
+    @Enumerated(EnumType.STRING)
+    @Column(name = "formato", nullable = false)
     private Formato formato;
 
     /**
      * Calificacion numerica dada por el usuario.
      */
+    @Column(name = "calificacion", nullable = false)
     private int calificacion;
 
     /**
      * Comentario del usuario sobre el libro.
      */
+    @Column(name = "comentario", length = 350, nullable = false)
     private String comentario;
 
     /**
      * Fecha en que se publico la resenia.
      */
+    @Column(name = "fecha_publicacion", nullable = false)
     private LocalDateTime fecha;
 
     /**
      * Usuario que realizo la resenia.
      */
+    @ManyToOne
+    @JoinColumn(name = "id_cliente", nullable = false)
     private Cliente cliente;
 
     /**

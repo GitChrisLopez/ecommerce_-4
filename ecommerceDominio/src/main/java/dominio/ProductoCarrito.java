@@ -14,44 +14,38 @@ import javax.persistence.Table;
  * Representa los productos que contiene un carrito de compra.
  *
  * @author Norma Alicia Beltrán Martín - 252102
+ * @author Oscar Adrián Castán López - 260318
+ * @author Chris Fitch Lopez - 252379
+ * @author Manuel Romo López - 253080
+ *
+ * Fecha: 15/11/2025
  */
 
-@Entity
-@Table(name = "productos_carrito")
 public class ProductoCarrito {
 
     /**
      * Dato Long que representa el id del ProductoCarrito.
      */
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_producto_carrito")
     private Long id;
 
     /**
      * Objeto Producto que representa el producto de ProductoCarrito.
      */
-    @ManyToOne
-    @JoinColumn(name = "id_producto", nullable = false)
     private Producto producto;
 
     /**
      * Objeto Carrito que representa el carrito en el que esta ProductoCarrito.
      */
-    @ManyToOne
-    @JoinColumn(name = "id_carrito", nullable = false)
     private Carrito carrito;
 
     /**
      * Cantidad de ProductoCarrito.
      */
-    @Column(name = "cantidad")
     private Integer cantidad = 1;
 
     /**
      * Precio unitario de ProductoCarrito.
      */
-    @Column(name = "precio_unitario", precision = 10, scale = 2)
     private BigDecimal precioUnitario;
 
     /**
