@@ -113,4 +113,29 @@ public class ReseniaDAO {
         }
     }
 
+    public List<Resenia> obtenerReseniasFiltradasPorLibro(String libro) throws PersistenciaException {
+
+        EntityManager em = ManejadorConexiones.getEntityManager();
+        
+        List<Resenia> resenias = null;
+        try {
+ 
+            String jpql = "SELECT r FROM Resenia r WHERE r.libro.titulo LIKE :busqueda";
+
+            String patronBusqueda = "%" + libro.toLowerCase() + "%";
+
+            resenias = em.createQuery(jpql, Resenia.class)
+                    .setParameter("busqueda", patronBusqueda)
+                    .getResultList();
+
+            return resenias;
+        } catch (Exception e) {
+            throw new PersistenciaException("Error al obtener resenias filtradas por libro: " + libro, e);
+        } finally {
+            if (em != null && em.isOpen()) {
+                em.close();
+            }
+        }
+    }
+
 }

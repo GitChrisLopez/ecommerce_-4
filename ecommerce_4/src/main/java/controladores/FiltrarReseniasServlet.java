@@ -5,6 +5,7 @@
 package controladores;
 
 import BOs.ReseniaBO;
+import dominio.Resenia;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -12,15 +13,16 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 /**
  *
  * @author norma
  */
-@WebServlet(name = "EliminarReseniaServlet", urlPatterns = {"/EliminarReseniaServlet"})
-public class EliminarReseniaServlet extends HttpServlet {
+@WebServlet(name = "FiltrarReseniasServlet", urlPatterns = {"/FiltrarReseniasServlet"})
+public class FiltrarReseniasServlet extends HttpServlet {
 
-    private final ReseniaBO reseniaBO = new ReseniaBO();
+    private ReseniaBO reseniaBO = new ReseniaBO();
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,10 +41,10 @@ public class EliminarReseniaServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet EliminarReseniaServlet</title>");
+            out.println("<title>Servlet FiltrarReseniasServlet</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet EliminarReseniaServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet FiltrarReseniasServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -60,7 +62,21 @@ public class EliminarReseniaServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.sendRedirect(request.getContextPath() + "/MostrarReseniasServlet");
+        String busqueda = request.getParameter("busqueda");
+        List<Resenia> listaResenias = null;
+
+        try {
+            listaResenias = reseniaBO.obtenerReseniasFiltradasPorLibro(busqueda);
+
+            request.setAttribute("listaResenias", listaResenias);
+
+            request.getRequestDispatcher("/admin-historial-resenias.jsp").forward(request, response);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            request.setAttribute("errorCarga", "Error al buscar reseñas: " + e.getMessage());
+            request.getRequestDispatcher("/admin-historial-resenias.jsp").forward(request, response);
+        }
     }
 
     /**
@@ -74,30 +90,7 @@ public class EliminarReseniaServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        String mensaje;
-        String parametro = request.getParameter("id");
-        Long idResenia = null;
-
-        try {
-            idResenia = Long.valueOf(parametro);
-
-            boolean exito = reseniaBO.eliminarResenia(idResenia);
-
-            if (exito) {
-                mensaje = "La reseña ID " + idResenia + " fue eliminada con éxito.";
-            } else {
-                mensaje = "Error: No se pudo eliminar la reseña ID " + idResenia + ". Podría no existir.";
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            mensaje = "Error interno del sistema al intentar eliminar la reseña.";
-        }
-
-        request.getSession().setAttribute("mensajeEstado", mensaje);
-
-        response.sendRedirect(request.getContextPath() + "/MostrarReseniasServlet");
+        processRequest(request, response);
     }
 
     /**

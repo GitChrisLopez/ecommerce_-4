@@ -115,9 +115,17 @@
             <main>
                 <div class="c2">
                     <div class="search-box">
-                        <div class="buscador">
-                            <input type="text" placeholder="Buscar" />
-                        </div>
+                        <form action="${pageContext.request.contextPath}/FiltrarReseniasServlet" method="GET"> 
+                            <div class="buscador">
+                                <input 
+                                    type="text" 
+                                    name="busqueda" 
+                                    placeholder="Buscar por Título de Libro" 
+                                    value="${param.busqueda != null ? param.busqueda : ''}" 
+                                    />
+                                <button type="submit" style="display:none;">Buscar</button>
+                            </div>
+                        </form>
                     </div>
 
                     <div class="resenias-container">

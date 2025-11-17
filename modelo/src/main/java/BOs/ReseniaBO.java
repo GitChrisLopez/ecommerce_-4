@@ -5,7 +5,6 @@ import dominio.Resenia;
 import excepciones.NegocioException;
 import excepciones.PersistenciaException;
 import java.util.List;
-import javax.persistence.EntityManager;
 
 /**
  *
@@ -60,6 +59,29 @@ public class ReseniaBO {
             throw e;
         } catch (Exception e) {
             throw new NegocioException("Error al obtener la resenia por ID", e);
+        }
+    }
+
+    public List<Resenia> obtenerReseniasFiltradasPorLibro(String busqueda) throws PersistenciaException, NegocioException {
+        
+        if (busqueda == null || busqueda.trim().isEmpty()) {
+            try {
+                return reseniaDAO.obtenerTodasLasResenias();
+            } catch (PersistenciaException e) {
+                throw e;
+            }
+        }
+
+        try {
+            List<Resenia> listaFiltrada = reseniaDAO.obtenerReseniasFiltradasPorLibro(busqueda);
+
+            return listaFiltrada;
+
+        } catch (PersistenciaException e) {
+            throw e;
+
+        } catch (Exception e) {
+            throw new NegocioException("Ocurrió un error inesperado al filtrar las reseñas por libro.", e);
         }
     }
 
