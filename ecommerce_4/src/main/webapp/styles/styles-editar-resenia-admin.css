@@ -20,12 +20,12 @@ main{
     justify-content: center; 
     padding-top: 0; 
 }
+
 .resenia-container{
     background-color: white;
     width: 70%; 
     display: flex;
     flex-direction: column;
-    align-items: center;
     margin-top: 0; 
     margin-bottom: 40px;
     border-radius: 30px;
@@ -33,14 +33,14 @@ main{
     padding-bottom: 20px;
 }
 
-.resenia1{
+.resenia-item{
     padding: 10px 40px;
     line-height: 1rem;
     width: 80%;
 }
 
 
-.resenia1 span{
+.resenia-item span{
     font-weight: bold;
 }
 
@@ -103,7 +103,7 @@ main{
         width: 70%; 
     }
 
-    .resenia1{
+    .resenia-item{
         width: 90%;
     }
 
@@ -112,7 +112,5 @@ main{
         padding: 10px;
         border-radius: 30px;
     }
-
-
 
 }

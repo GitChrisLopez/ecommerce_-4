@@ -1,3 +1,12 @@
+<%--
+    Document : admin-editar-resenia
+    Created on : 16 nov 2025, 14:24:23
+    Author : norma
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<!DOCTYPE html>
 <html>
     <head>
         <title>Editar Reseña</title>
@@ -22,8 +31,8 @@
                         </li>
                         <li>
                         <div class="carrito">
-                                <img src="./icons/carrito.png" alt="carrito" class="carrito-icon"> 
-                            </div>
+                            <img src="./icons/carrito.png" alt="carrito" class="carrito-icon"> 
+                        </div>
                         </li>
                         <li>
                             <div class="user">
@@ -60,28 +69,42 @@
 
             <main>
                 <div class="c2">
-                    <div class="resenia-container">
-                        <div class="resenia-item">
-                            <div class="detalles-resenia">
-                                <p><span>Producto:</span> El nombre del viento</p>
-                                
-                                <p><span>Usuario:</span> Ana Torres Pérez</p>
-                                
-                                <p><span>Calificación:</span> 4</p>
-                                
-                                <p><span>Comentario:</span></p>
-                                
-                                <textarea name="comentario" class="comentario-box" rows="4">El libro llegó en perfecto estado, muy buena historia, aunque el final era predecible.</textarea>
-                                
-                                <p><span>Fecha:</span> 17/10/2025</p>
-                            </div>
-                        </div>
 
-                        <div class="resenia-btns">
-                            <a href="./admin-historial-resenias.html" class="cancelar-btn">Cancelar</a> 
-                            <button class="guardar-btn">Guardar</button>
+                    <c:if test="${not empty resenia}">
+                        
+                        <div class="resenia-container">
+                            
+                            <form action="${pageContext.request.contextPath}/ActualizarReseniaServlet" method="POST">
+                                
+                                <input type="hidden" name="id" value="${resenia.id}">
+
+                                <div class="resenia-item">
+                                    <div class="detalles-resenia">
+                                        
+                                        <p><span>Producto:</span> ${resenia.libro.titulo} (${resenia.formato})</p>
+                                        <p><span>Usuario:</span> ${resenia.cliente.nombre}</p>
+                                        <p><span>Calificación:</span> ${resenia.calificacion}</p>
+                                        <p><span>Fecha:</span> ${resenia.fecha}</p>
+                                        
+                                        <p><span>Comentario:</span></p>
+                                        
+                                        <textarea name="comentario" class="comentario-box" rows="4">${resenia.comentario}</textarea>
+
+                                    </div>
+                                </div>
+
+                                <div class="resenia-btns">
+                                    <a href="${pageContext.request.contextPath}/MostrarReseniasServlet" class="cancelar-btn">Cancelar</a> 
+                                    <button type="submit" class="guardar-btn">Guardar</button>
+                                </div>
+                            </form>
                         </div>
-                    </div>
+                    </c:if>
+                    
+                    <c:if test="${empty resenia and empty sessionScope.mensajeEstado}">
+                         <p>No se pudo cargar la reseña para editar. Por favor, regrese al historial.</p>
+                    </c:if>
+
                 </div>
             </main>
         </div> 

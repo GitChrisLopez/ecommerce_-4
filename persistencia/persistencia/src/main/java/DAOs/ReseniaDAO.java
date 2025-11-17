@@ -81,16 +81,31 @@ public class ReseniaDAO {
     }
 
     public List<Resenia> obtenerTodasLasResenias() throws PersistenciaException {
-        
+
         EntityManager em = ManejadorConexiones.getEntityManager();
         List<Resenia> resenias = null;
         try {
 
             resenias = em.createQuery("SELECT r FROM Resenia r", Resenia.class).getResultList();
-            
+
             return resenias;
         } catch (Exception e) {
             throw new PersistenciaException("Error al obtener todas las resenias", e);
+        } finally {
+            if (em != null && em.isOpen()) {
+                em.close();
+            }
+        }
+    }
+
+    public Resenia obtenerResenia(Long idResenia) throws PersistenciaException {
+
+        EntityManager em = ManejadorConexiones.getEntityManager();
+
+        try {
+            return em.find(Resenia.class, idResenia);
+        } catch (Exception e) {
+            throw new PersistenciaException("Error al obtener resenia con id" + idResenia, e);
         } finally {
             if (em != null && em.isOpen()) {
                 em.close();

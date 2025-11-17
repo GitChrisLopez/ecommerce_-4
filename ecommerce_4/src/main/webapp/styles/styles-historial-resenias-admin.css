@@ -50,8 +50,7 @@ main {
   align-items: center;
 }
 
-.resenia1,
-.resenia2 {
+.resenia {
   background-color: var(--lighter-grey);
   border-radius: 12px;
   padding: 10px 20px;
@@ -180,8 +179,7 @@ nav > a .home {
     width: 70%;
   }
 
-  .resenia1,
-  .resenia2 {
+  .resenia {
     width: 100%;
   }
 
