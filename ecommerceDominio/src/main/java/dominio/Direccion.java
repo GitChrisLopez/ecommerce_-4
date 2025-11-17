@@ -1,5 +1,7 @@
 package dominio;
 
+import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,11 +9,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
- * Archivo: Direccion.java 
- * 
+ *
  * Clase que representa una dirección asociada con un Cliente o a un Pedido.
  *
  * @author Norma Alicia Beltrán Martín - 252102
@@ -21,41 +23,40 @@ import javax.persistence.Table;
  *
  * Fecha: 15/10/2025
  */
-
 @Entity
 @Table(name = "direcciones")
-public class Direccion {
+public class Direccion implements Serializable {
 
     /**
      * Dato Long que representa el id de la Dirección.
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column (name = "id_direccion")
+    @Column(name = "id_direccion")
     private Long id;
 
     /**
      * Objeto String que representa el código postal de la dirección.
      */
-    @Column (name = "codigo_postal", length = 5, nullable = false)
+    @Column(name = "codigo_postal", length = 5, nullable = false)
     private String codigoPostal;
 
     /**
      * Objeto String que representa la colonia de la dirección.
      */
-    @Column (name = "colonia", length = 50, nullable = false)
+    @Column(name = "colonia", length = 50, nullable = false)
     private String colonia;
 
     /**
      * Objeto String que representa la calle de la dirección.
      */
-    @Column (name = "calle", length = 50, nullable = false)
+    @Column(name = "calle", length = 50, nullable = false)
     private String calle;
 
     /**
      * Objeto String que representa el número exterior de la dirección.
      */
-    @Column (name = "numero", length = 5, nullable = false)
+    @Column(name = "numero", length = 5, nullable = false)
     private String numero;
 
     /**
@@ -64,14 +65,20 @@ public class Direccion {
     @ManyToOne
     @JoinColumn(name = "id_cliente", nullable = false)
     private Cliente cliente;
+    
+    /**
+     * Pedidos enviados a esta dirección
+     */
+    @OneToMany(mappedBy = "direccionEnvio")
+    private List<Pedido> pedidos;
 
     /**
      * Constructor por defecto
      */
-    public Direccion(){
-        
+    public Direccion() {
+
     }
-    
+
     /**
      * Constructor para inicializar una instancia de Direccion.
      *
@@ -83,13 +90,13 @@ public class Direccion {
      * @param cliente Objeto Cliente que representa el Cliente asociado.
      */
     public Direccion(
-            Long id, 
-            String codigoPostal, 
-            String colonia, 
-            String calle, 
-            String numero, 
+            Long id,
+            String codigoPostal,
+            String colonia,
+            String calle,
+            String numero,
             Cliente cliente) {
-        
+
         this.id = id;
         this.codigoPostal = codigoPostal;
         this.colonia = colonia;
@@ -98,103 +105,60 @@ public class Direccion {
         this.cliente = cliente;
     }
 
-    /**
-     * Permite obtener el id de esta Dirección.
-     *
-     * @return Dato Long que representa el id de la Dirección.
-     */
+    
     public Long getId() {
         return id;
     }
+    
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-    /**
-     * Permite obtener el código postal de esta Dirección.
-     *
-     * @return Objeto String que representa el código postal.
-     */
     public String getCodigoPostal() {
         return codigoPostal;
     }
 
-    /**
-     * Permite establecer el código postal de esta Dirección.
-     *
-     * @param codigoPostal Objeto String que representa el código postal.
-     */
     public void setCodigoPostal(String codigoPostal) {
         this.codigoPostal = codigoPostal;
     }
 
-    /**
-     * Permite obtener la colonia de esta Dirección.
-     *
-     * @return Objeto String que representa la colonia.
-     */
     public String getColonia() {
         return colonia;
     }
 
-    /**
-     * Permite establecer la colonia de esta Dirección.
-     *
-     * @param colonia Objeto String que representa la colonia.
-     */
     public void setColonia(String colonia) {
         this.colonia = colonia;
     }
 
-    /**
-     * Permite obtener la calle de esta Dirección.
-     *
-     * @return Objeto String que representa la calle.
-     */
     public String getCalle() {
         return calle;
     }
 
-    /**
-     * Permite establecer la calle de esta Dirección.
-     *
-     * @param calle Objeto String que representa la calle.
-     */
     public void setCalle(String calle) {
         this.calle = calle;
     }
 
-    /**
-     * Permite obtener el número de esta Dirección (exterior/interior).
-     *
-     * @return Objeto String que representa el número.
-     */
     public String getNumero() {
         return numero;
     }
 
-    /**
-     * Permite establecer el número de esta Dirección (exterior/interior).
-     *
-     * @param numero Objeto String que representa el número.
-     */
     public void setNumero(String numero) {
         this.numero = numero;
     }
 
-    /**
-     * Permite obtener el Cliente asociado a esta Dirección.
-     *
-     * @return Objeto Cliente que representa el Cliente asociado.
-     */
     public Cliente getCliente() {
         return cliente;
     }
 
-    /**
-     * Permite establecer el Cliente asociado a esta Dirección.
-     *
-     * @param cliente Objeto Cliente que representa el Cliente asociado.
-     */
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
+    
+    public List<Pedido> getPedidos() {
+        return pedidos;
+    }
 
+    public void setPedidos(List<Pedido> pedidos) {
+        this.pedidos = pedidos;
+    }
 }

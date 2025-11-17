@@ -1,5 +1,6 @@
 package dominio;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,10 +16,9 @@ import javax.persistence.Table;
  *
  * @author Norma Alicia Beltrán Martín - 252102
  */
-
 @Entity
 @Table(name = "productos_carrito")
-public class ProductoCarrito {
+public class ProductoCarrito implements Serializable {
 
     /**
      * Dato Long que representa el id del ProductoCarrito.
@@ -74,96 +74,44 @@ public class ProductoCarrito {
         this.carrito = carrito;
         this.precioUnitario = precioUnitario;
     }
-
-    /**
-     * Obtiene el identificador único de este producto del carrito.
-     *
-     * @return El id de ProductoCarrito.
-     */
+    
     public Long getId() {
         return id;
     }
 
-    /**
-     * Establece el identificador único de este producto del carrito.
-     *
-     * @param id El nuevo id de ProductoCarrito.
-     */
     public void setId(Long id) {
         this.id = id;
     }
 
-    /**
-     * Obtiene el Producto asociada a este producto del carrito.
-     *
-     * @return El producto referenciado.
-     */
     public Producto getProducto() {
         return producto;
     }
 
-    /**
-     * Establece el Producto asociada a este producto del carrito.
-     *
-     * @param producto El nuevo producto referenciado.
-     */
     public void setProducto(Producto producto) {
         this.producto = producto;
     }
 
-    /**
-     * Obtiene el Carrito a la que pertenece este productoCarrito.
-     *
-     * @return El carrito contenedor.
-     */
     public Carrito getCarrito() {
         return carrito;
     }
 
-    /**
-     * Establece el Carrito a la que pertenece este productoCarrito.
-     *
-     * @param carrito El nuevo carrito contenedor.
-     */
     public void setCarrito(Carrito carrito) {
         this.carrito = carrito;
     }
 
-    /**
-     * Obtiene la cantidad de unidades de este producto en el carrito.
-     *
-     * @return La cantidad del producto.
-     */
     public Integer getCantidad() {
         return cantidad;
     }
 
-    /**
-     * Establece la cantidad de unidades de este producto en el carrito.
-     *
-     * @param cantidad La nueva cantidad del producto.
-     */
     public void setCantidad(Integer cantidad) {
         this.cantidad = cantidad;
     }
 
-    /**
-     * Obtiene el precio unitario del producto registrado en el momento de la
-     * adición.
-     *
-     * @return El precio unitario.
-     */
     public BigDecimal getPrecioUnitario() {
         return precioUnitario;
     }
 
-    /**
-     * Establece el precio unitario del producto registrado.
-     *
-     * @param precioUnitario El nuevo precio unitario.
-     */
     public void setPrecioUnitario(BigDecimal precioUnitario) {
         this.precioUnitario = precioUnitario;
     }
-
 }

@@ -1,4 +1,9 @@
-package dominio;
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+// Archivo: persistencia/src/main/java/entidades/AutorEntidad.java
+package entidades;
 
 import java.io.Serializable;
 import java.util.List;
@@ -16,7 +21,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "autores")
-public class Autor implements Serializable {
+public class AutorEntidad implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,12 +32,12 @@ public class Autor implements Serializable {
     private String nombre;
 
     @OneToMany(mappedBy = "autor")
-    private List<Producto> productos;
+    private List<LibroEntidad> libros;
 
-    public Autor() {
+    public AutorEntidad() {
     }
 
-    public Autor(Long id, String nombre) {
+    public AutorEntidad(Long id, String nombre) {
         this.id = id;
         this.nombre = nombre;
     }
@@ -53,11 +58,12 @@ public class Autor implements Serializable {
         this.nombre = nombre;
     }
 
-    public List<Producto> getProductos() {
-        return productos;
+    // Getter y Setter actualizado
+    public List<LibroEntidad> getLibros() {
+        return libros;
     }
 
-    public void setProductos(List<Producto> productos) {
-        this.productos = productos;
+    public void setLibros(List<LibroEntidad> libros) {
+        this.libros = libros;
     }
 }

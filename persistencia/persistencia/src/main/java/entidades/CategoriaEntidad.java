@@ -1,4 +1,8 @@
-package dominio;
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package entidades;
 
 import java.io.Serializable;
 import java.util.List;
@@ -11,28 +15,28 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
- *
+ * 
  * @author chris
  */
 @Entity
-@Table(name = "autores")
-public class Autor implements Serializable {
+@Table(name = "categorias")
+public class CategoriaEntidad implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_autor")
+    @Column(name = "id_categoria")
     private Long id;
 
-    @Column(name = "nombre", nullable = false)
+    @Column(name = "nombre", nullable = false, unique = true)
     private String nombre;
 
-    @OneToMany(mappedBy = "autor")
-    private List<Producto> productos;
-
-    public Autor() {
+    @OneToMany(mappedBy = "categoria")
+    private List<LibroEntidad> libros;
+    
+    public CategoriaEntidad() {
     }
 
-    public Autor(Long id, String nombre) {
+    public CategoriaEntidad(Long id, String nombre) {
         this.id = id;
         this.nombre = nombre;
     }
@@ -53,11 +57,11 @@ public class Autor implements Serializable {
         this.nombre = nombre;
     }
 
-    public List<Producto> getProductos() {
-        return productos;
+    public List<LibroEntidad> getLibros() {
+        return libros;
     }
 
-    public void setProductos(List<Producto> productos) {
-        this.productos = productos;
+    public void setLibros(List<LibroEntidad> libros) {
+        this.libros = libros;
     }
 }

@@ -1,48 +1,55 @@
 package dominio;
 
+import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
- * Archivo: Categoria.java
- * 
+ *
  * Clase que representa una categoría que puede tener un Libro.
- * 
+ *
  * @author Norma Alicia Beltrán Martín - 252102
  * @author Oscar Adrián Castán López - 260318
  * @author Chris Fitch Lopez - 252379
  * @author Manuel Romo López - 253080
  */
-
 @Entity
 @Table(name = "categorias")
-public class Categoria {
+public class Categoria implements Serializable {
 
     /**
      * Dato Long que representa el Id de la Categoria.
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column (name = "id_categoria")
+    @Column(name = "id_categoria")
     private Long id;
-    
+
     /**
      * Objeto String que representa el nombre de la Categoria.
      */
-    @Column (name = "nombre", length = 20, nullable = false)
+    @Column(name = "nombre", length = 20, nullable = false, unique = true)
     private String nombre;
+
+    /**
+     * Lista de productos que pertenecen a esta categoria.
+     */
+    @OneToMany(mappedBy = "categoria") // Relación inversa con Producto
+    private List<Producto> productos;
 
     /**
      * Constructor por defecto.
      */
-    public Categoria(){
-        
+    public Categoria() {
+
     }
-    
+
     /**
      * Constructor que permite crear una Categoría, recibe los valores de todos
      * sus atributos.
@@ -64,6 +71,10 @@ public class Categoria {
         return id;
     }
 
+    public void setId(Long id) { // Añadido SetId
+        this.id = id;
+    }
+
     /**
      * Metodo que obtiene el nombre de la categoria
      *
@@ -82,4 +93,11 @@ public class Categoria {
         this.nombre = nombre;
     }
 
+    public List<Producto> getProductos() {
+        return productos;
+    }
+
+    public void setProductos(List<Producto> productos) {
+        this.productos = productos;
+    }
 }

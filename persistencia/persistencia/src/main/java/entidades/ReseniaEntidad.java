@@ -1,4 +1,8 @@
-package dominio;
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package entidades;
 
 import java.io.Serializable;
 import javax.persistence.Column;
@@ -11,11 +15,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
+ * 
  * @author chris
  */
 @Entity
 @Table(name = "resenias")
-public class Resenia implements Serializable {
+public class ReseniaEntidad implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,18 +30,18 @@ public class Resenia implements Serializable {
     @Column(name = "puntuacion", nullable = false)
     private int puntuacion;
 
-    @Column(name = "comentario", length = 500)
+    @Column(name = "comentario", length = 1000)
     private String comentario;
 
     @ManyToOne
-    @JoinColumn(name = "id_cliente", nullable = false)
-    private Cliente cliente;
+    @JoinColumn(name = "id_libro", nullable = false)
+    private LibroEntidad libro;
 
     @ManyToOne
-    @JoinColumn(name = "id_producto", nullable = false)
-    private Producto producto;
+    @JoinColumn(name = "id_cliente", nullable = false)
+    private ClienteEntidad cliente;
 
-    public Resenia() {
+    public ReseniaEntidad() {
     }
 
     public Long getId() {
@@ -63,19 +68,19 @@ public class Resenia implements Serializable {
         this.comentario = comentario;
     }
 
-    public Cliente getCliente() {
+    public LibroEntidad getLibro() {
+        return libro;
+    }
+
+    public void setLibro(LibroEntidad libro) {
+        this.libro = libro;
+    }
+
+    public ClienteEntidad getCliente() {
         return cliente;
     }
 
-    public void setCliente(Cliente cliente) {
+    public void setCliente(ClienteEntidad cliente) {
         this.cliente = cliente;
-    }
-
-    public Producto getProducto() {
-        return producto;
-    }
-
-    public void setProducto(Producto producto) {
-        this.producto = producto;
     }
 }

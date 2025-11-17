@@ -1,24 +1,27 @@
-package dominio;
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package entidades;
 
+import java.io.Serializable;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 /**
- * @author Norma Alicia Beltrán Martín - 252102
- * @author Oscar Adrián Castán López - 260318
- * @author Chris Fitch Lopez - 252379
- * @author Manuel Romo López - 253080
  *
- * Fecha: 15/10/2025
+ * @author chris
  */
 @Entity
-@DiscriminatorValue("ADMIN")
-public class Administrador extends Usuario {
+@Table(name = "administradores")
+@DiscriminatorValue("ADMINISTRADOR")
+public class AdministradorEntidad extends UsuarioEntidad {
 
     /**
      * Constructor por defecto.
      */
-    public Administrador() {
+    public AdministradorEntidad() {
         super();
     }
 
@@ -33,7 +36,7 @@ public class Administrador extends Usuario {
      * @param contrasena Objeto String que representa la contraseña del
      * Administrador.
      */
-    public Administrador(
+    public AdministradorEntidad(
             Long id,
             String nombre,
             String apellidoPaterno,
@@ -41,7 +44,6 @@ public class Administrador extends Usuario {
             String correo,
             String contrasena) {
 
-        // Llama al constructor de la superclase (Usuario)
         super(
                 id,
                 nombre,
@@ -50,5 +52,4 @@ public class Administrador extends Usuario {
                 correo,
                 contrasena);
     }
-
 }

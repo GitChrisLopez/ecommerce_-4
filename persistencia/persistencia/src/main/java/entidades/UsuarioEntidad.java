@@ -1,0 +1,219 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package entidades;
+
+import javax.persistence.Column;
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.Table;
+
+/**
+ *
+ * @author chris
+ */
+@Entity
+@Inheritance(strategy = InheritanceType.JOINED)
+@Table(name = "usuarios")
+@DiscriminatorColumn(
+        name = "tipo_usuario",
+        discriminatorType = DiscriminatorType.STRING
+)
+public class UsuarioEntidad {
+
+    /**
+     * Dato Long que representa el Id del usuario.
+     */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_usuario")
+    private Long id;
+
+    /**
+     * Dato String que representa el o los nombres del Usuario.
+     */
+    @Column(name = "nombre", length = 50, nullable = false)
+    private String nombre;
+
+    /**
+     * Dato String que representa el apellido paterno del Usuario.
+     */
+    @Column(name = "apellido_paterno", length = 50, nullable = false)
+    private String apellidoPaterno;
+
+    /**
+     * Dato String que representa el apellido materno del Usuario.
+     */
+    @Column(name = "apellido_materno", length = 50, nullable = true)
+    private String apellidoMaterno;
+
+    /**
+     * Dato String que representa el correo electrónico del Usuario.
+     */
+    @Column(name = "correo", length = 320, nullable = false)
+    private String correo;
+
+    /**
+     * Dato String que representa el hash de la contraseña del usuario.
+     */
+    @Column(name = "contrasenia", length = 20, nullable = false)
+    private String contrasenia;
+
+    /**
+     * Constructor por defecto.
+     */
+    public UsuarioEntidad() {
+    }
+
+    /**
+     * Constructor que permite crear un Usuario con todos los datos de sus
+     * atributos.
+     *
+     * @param id Dato int que representa el Id del Usuario.
+     * @param nombre Objeto String que representa el o los nombres del Usuario.
+     * @param apellidoPaterno Objeto String que representa el apellido paterno
+     * del Usuario.
+     * @param apellidoMaterno Objeto String que representa el apellido materno
+     * del Usuario.
+     * @param correo Objeto String que representa el correo electrónico del
+     * Usuario.
+     * @param contrasenia Objeto String que representa el hash de la contraseña
+     * del Usuario.
+     * @param activo Dato boolean que determina si el Usuario está activo o no.
+     */
+    public UsuarioEntidad(
+            Long id,
+            String nombre,
+            String apellidoPaterno,
+            String apellidoMaterno,
+            String correo,
+            String contrasenia) {
+
+        this.id = id;
+        this.nombre = nombre;
+        this.apellidoPaterno = apellidoPaterno;
+        this.apellidoMaterno = apellidoMaterno;
+        this.correo = correo;
+        this.contrasenia = contrasenia;
+    }
+
+    /**
+     * Permite obtener el Id del Usuario.
+     *
+     * @return Dato Long que representa el Id del Usuario.
+     */
+    public Long getId() {
+        return id;
+    }
+
+    /**
+     * Permite establecer el Id del Usuario.
+     *
+     * @param id Dato Long que representa el Id del Usuario.
+     */
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    /**
+     * Permite obtener el o los nombres del Usuario.
+     *
+     * @return Objeto String que representa el o los nombres del Usuario.
+     */
+    public String getNombre() {
+        return nombre;
+    }
+
+    /**
+     * Permite establecer el o los nombres del Usuario.
+     *
+     * @param nombre Objeto String que representa el o los nombres del Usuario.
+     */
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    /**
+     * Permite obtener el apellido paterno del Usuario.
+     *
+     * @return Objeto String que representa el apellido paterno de Usuario.
+     */
+    public String getApellidoPaterno() {
+        return apellidoPaterno;
+    }
+
+    /**
+     * Permite establecer el apellido paterno del Usuario.
+     *
+     * @param apellidoPaterno Objeto String que representa el apellido paterno
+     * de Usuario.
+     */
+    public void setApellidoPaterno(String apellidoPaterno) {
+        this.apellidoPaterno = apellidoPaterno;
+    }
+
+    /**
+     * Permite obtener el apellido materno del Usuario.
+     *
+     * @return Objeto String que representa el apellido materno de Usuario.
+     */
+    public String getApellidoMaterno() {
+        return apellidoMaterno;
+    }
+
+    /**
+     * Permite establecer el apellido materno del Usuario.
+     *
+     * @param apellidoPaterno Objeto String que representa el apellido materno
+     * de Usuario.
+     */
+    public void setApellidoMaterno(String apellidoMaterno) {
+        this.apellidoMaterno = apellidoMaterno;
+    }
+
+    /**
+     * Permite obtener el correo electrónico del Usuario.
+     *
+     * @return Objeto String que representa el correo electrónico del Usuario.
+     */
+    public String getCorreo() {
+        return correo;
+    }
+
+    /**
+     * Permite establecer el correo electrónico del Usuario.
+     *
+     * @param correo Objeto String que representa el correo electrónico del
+     * Usuario.
+     */
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    /**
+     * Permite obtener el hash de la contraseña del Usuario.
+     *
+     * @return Objeto String que representa el hash de la contraseña del
+     * Usuario.
+     */
+    public String getContrasenia() {
+        return contrasenia;
+    }
+
+    /**
+     * Permite obtene el hash de la contraseña del Usuario.
+     *
+     * @param contrasenia Objeto String que representa el hash de la contraseña
+     * del Usuario.
+     */
+    public void setContrasenia(String contrasenia) {
+        this.contrasenia = contrasenia;
+    }
+}
