@@ -31,8 +31,8 @@ public class CategoriaEntidad implements Serializable {
     private String nombre;
 
     @OneToMany(mappedBy = "categoria")
-    private List<ProductoEntidad> productos;
-
+    private List<LibroEntidad> libros;
+    
     public CategoriaEntidad() {
     }
 
@@ -57,11 +57,11 @@ public class CategoriaEntidad implements Serializable {
         this.nombre = nombre;
     }
 
-    public List<ProductoEntidad> getProductos() {
-        return productos;
+    public List<LibroEntidad> getLibros() {
+        return libros;
     }
 
-    public void setProductos(List<ProductoEntidad> productos) {
-        this.productos = productos;
+    public void setLibros(List<LibroEntidad> libros) {
+        this.libros = libros;
     }
 }
