@@ -1,5 +1,6 @@
 
-package dominio;
+package entidades;
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

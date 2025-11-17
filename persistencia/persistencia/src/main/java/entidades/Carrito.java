@@ -1,4 +1,4 @@
-package dominio;
+package entidades;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -24,27 +24,36 @@ import javax.persistence.Table;
  * @author Manuel Romo López - 253080
  */
 
+@Entity
+@Table(name = "carritos")
 public class Carrito {
 
     /**
      * Dato Long que representa el Id del Carrito.
      */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_carrito")
     private Long id;
 
     /**
      * Objeto BigDecimal que representa el monto total del Carrito.
      */
+    @Column(name = "total", precision = 10, scale = 2)
     private BigDecimal total = BigDecimal.ZERO;
 
     /**
      * Objeto Cliente que representa el Cliente al que pertenece el Carrito.
      */
-    private ClienteDTO cliente;
+    @OneToOne
+    @JoinColumn(name = "id_cliente", unique = true, nullable = false)
+    private Cliente cliente;
 
     /**
      * Objseto List<ProductoCarrito> que representa una lista de ProductosCarrito que
      * se han agregado al Carrito.
      */
+    @OneToMany(mappedBy = "carrito", cascade = CascadeType.ALL)
     private List<ProductoCarrito> productosCarrito;
 
     /**
@@ -63,7 +72,7 @@ public class Carrito {
      */
     public Carrito(
             Long id, 
-            ClienteDTO cliente,
+            Cliente cliente,
             List<ProductoCarrito> productosCarrito) {
         
         this.id = id;
@@ -107,7 +116,7 @@ public class Carrito {
      * Permite obtener el Cliente dueño de este Carrito.
      * @return Objeto Cliente que representa el dueño del Carrito.
      */
-    public ClienteDTO getCliente() {
+    public Cliente getCliente() {
         return cliente;
     }
 
@@ -115,7 +124,7 @@ public class Carrito {
      * Permite establecer el Cliente dueño de este Carrito.
      * @param cliente Objeto Cliente que representa el dueño del Carrito.
      */
-    public void setCliente(ClienteDTO cliente) {
+    public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
 

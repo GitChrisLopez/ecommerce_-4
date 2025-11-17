@@ -5,7 +5,7 @@
 package DAOs;
 
 import com.persistencia.ManejadorConexiones;
-import dominio.Administrador;
+import entidades.Administrador;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;

@@ -22,53 +22,42 @@ import javax.persistence.Table;
  * Fecha: 15/10/2025
  */
 
-@Entity
-@Table(name = "direcciones")
-public class Direccion {
+public class DireccionDTO {
 
     /**
      * Dato Long que representa el id de la Dirección.
      */
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column (name = "id_direccion")
     private Long id;
 
     /**
      * Objeto String que representa el código postal de la dirección.
      */
-    @Column (name = "codigo_postal", length = 5, nullable = false)
     private String codigoPostal;
 
     /**
      * Objeto String que representa la colonia de la dirección.
      */
-    @Column (name = "colonia", length = 50, nullable = false)
     private String colonia;
 
     /**
      * Objeto String que representa la calle de la dirección.
      */
-    @Column (name = "calle", length = 50, nullable = false)
     private String calle;
 
     /**
      * Objeto String que representa el número exterior de la dirección.
      */
-    @Column (name = "numero", length = 5, nullable = false)
     private String numero;
 
     /**
      * Objeto Cliente que representa el Cliente al que pertenece esta Dirección.
      */
-    @ManyToOne
-    @JoinColumn(name = "id_cliente", nullable = false)
-    private Cliente cliente;
+    private ClienteDTO cliente;
 
     /**
      * Constructor por defecto
      */
-    public Direccion(){
+    public DireccionDTO(){
         
     }
     
@@ -82,13 +71,13 @@ public class Direccion {
      * @param numero Objeto String que representa el número de la dirección.
      * @param cliente Objeto Cliente que representa el Cliente asociado.
      */
-    public Direccion(
+    public DireccionDTO(
             Long id, 
             String codigoPostal, 
             String colonia, 
             String calle, 
             String numero, 
-            Cliente cliente) {
+            ClienteDTO cliente) {
         
         this.id = id;
         this.codigoPostal = codigoPostal;
@@ -105,6 +94,15 @@ public class Direccion {
      */
     public Long getId() {
         return id;
+    }
+    
+    /**
+     * Permite establecer el idl de esta Dirección.
+     *
+     * @param id Dato Long que representa el id de la Dirección.
+     */
+    public void setId(Long id) {
+        this.id = id;
     }
 
     /**
@@ -184,7 +182,7 @@ public class Direccion {
      *
      * @return Objeto Cliente que representa el Cliente asociado.
      */
-    public Cliente getCliente() {
+    public ClienteDTO getCliente() {
         return cliente;
     }
 
@@ -193,7 +191,7 @@ public class Direccion {
      *
      * @param cliente Objeto Cliente que representa el Cliente asociado.
      */
-    public void setCliente(Cliente cliente) {
+    public void setCliente(ClienteDTO cliente) {
         this.cliente = cliente;
     }
 

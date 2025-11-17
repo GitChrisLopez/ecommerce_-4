@@ -1,11 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
 package controladores;
 
 import BOs.ReseniaBO;
-import dominio.Resenia;
+import dominio.ReseniaDTO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -16,7 +12,7 @@ import java.io.PrintWriter;
 import java.util.List;
 
 /**
- *
+ * Servlet para mostrar todas las resenias.
  * @author norma
  */
 @WebServlet(name = "MostrarReseniasServlet", urlPatterns = {"/MostrarReseniasServlet"})
@@ -63,7 +59,7 @@ public class MostrarReseniasServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            List<Resenia> listaResenias = reseniaBO.obtenerResenias();
+            List<ReseniaDTO> listaResenias = reseniaBO.obtenerResenias();
 
             request.setAttribute("listaResenias", listaResenias);
 

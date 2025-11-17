@@ -1,4 +1,5 @@
-package dominio;
+
+package entidades;
 
 import java.math.BigDecimal;
 import javax.persistence.Column;
@@ -16,31 +17,42 @@ import javax.persistence.Table;
  * @author Norma Alicia Beltrán Martín - 252102
  */
 
+@Entity
+@Table(name = "productos_pedido")
 public class ProductoPedido {
 
     /**
      * Dato Long que representa el id del ProductoCarrito.
      */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_producto_pedido")
     private Long id;
 
     /**
      * Objeto Producto que representa el producto de ProductoPedido.
      */
+    @ManyToOne
+    @JoinColumn(name = "id_producto", nullable = false)
     private Producto producto;
 
     /**
      * Objeto Pedido que representa el pedido en el que esta ProductoPedido.
      */
+    @ManyToOne
+    @JoinColumn(name = "id_pedido", nullable = false)
     private Pedido pedido;
 
     /**
      * Cantidad de ProductoPedido.
      */
+    @Column(name = "cantidad")
     private Integer cantidad;
 
     /**
      * Precio unitario de ProductoPedido.
      */
+    @Column(name = "precio_unitario", precision = 10, scale = 2)
     private BigDecimal precioUnitario;
 
     /**

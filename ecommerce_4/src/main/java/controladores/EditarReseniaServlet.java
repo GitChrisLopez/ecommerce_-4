@@ -1,13 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
 package controladores;
 
 import BOs.ReseniaBO;
-import dominio.Resenia;
-import java.io.IOException;
-import java.io.PrintWriter;
+import dominio.ReseniaDTO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -17,7 +11,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 /**
- *
+ * Servlet para ver los detalles una resenia y poder editarlos.
  * @author norma
  */
 @WebServlet(name = "EditarReseniaServlet", urlPatterns = {"/EditarReseniaServlet"})
@@ -74,7 +68,7 @@ public class EditarReseniaServlet extends HttpServlet {
         try {
             Long idResenia = Long.valueOf(parametro);
 
-            Resenia resenia = reseniaBO.obtenerReseniaPorId(idResenia);
+            ReseniaDTO resenia = reseniaBO.obtenerReseniaPorId(idResenia);
 
             if (resenia != null) {
                 request.setAttribute("resenia", resenia);

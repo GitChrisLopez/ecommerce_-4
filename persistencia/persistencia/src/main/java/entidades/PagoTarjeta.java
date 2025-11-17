@@ -1,10 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package dominio;
 
-import dominio.enumeradores.MetodoPago;
+package entidades;
+
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import javax.persistence.Column;
@@ -22,26 +19,32 @@ import javax.persistence.Table;
  * Fecha: 15/10/2025
  */
 
+@Entity
+@Table(name = "pago_tarjeta")
 public class PagoTarjeta extends MetodoPago {
 
     /**
      * Objeto Integer que representa el número (o una parte de él) de la tarjeta.
      */
+    @Column(name = "numero")
     Integer numero;
 
     /**
      * Objeto LocalDate que representa la fecha de vencimiento de la tarjeta (MM/AA).
      */
+    @Column(name = "fecha_vencimiento")
     private LocalDate fechaVencimiento;
 
     /**
      * Objeto String que representa el nombre completo del titular de la tarjeta.
      */
+    @Column(name = "nombre_titular")
     private String nombreTitular;
 
     /**
      * Objeto String que representa el código de seguridad de la tarjeta.
      */
+    @Column(name = "cvv")
     private String cvv;
 
     /**
@@ -150,3 +153,4 @@ public class PagoTarjeta extends MetodoPago {
     }
     
 }
+

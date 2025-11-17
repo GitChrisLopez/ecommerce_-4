@@ -1,10 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package dominio;
 
-import dominio.enumeradores.MetodoPago;
+package entidades;
+
 import java.time.LocalDate;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -20,16 +16,20 @@ import javax.persistence.Table;
  * Fecha: 15/10/2025
  */
 
+@Entity
+@Table(name = "pago_transferencia")
 public class PagoTransferencia extends MetodoPago{
 
     /**
      * Objeto String que representa el nombre del banco desde donde se emite la transferencia.
      */
+    @Column(name = "banco_emisor")
     public String bancoEmisor;
 
     /**
      * Objeto String que representa los últimos cuatro dígitos de la cuenta de origen.
      */
+    @Column(name = "cuatro_digitos")
     public String cuatroDigitos;
 
     /**
@@ -96,3 +96,4 @@ public class PagoTransferencia extends MetodoPago{
     }
 
 }
+

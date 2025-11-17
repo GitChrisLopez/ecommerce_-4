@@ -5,7 +5,7 @@
 package controladores;
 
 import BOs.ReseniaBO;
-import dominio.Resenia;
+import dominio.ReseniaDTO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -16,7 +16,7 @@ import java.io.PrintWriter;
 import java.util.List;
 
 /**
- *
+ * Servlet para filtrar resenias en relación a su libro vinculado.
  * @author norma
  */
 @WebServlet(name = "FiltrarReseniasServlet", urlPatterns = {"/FiltrarReseniasServlet"})
@@ -63,7 +63,7 @@ public class FiltrarReseniasServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String busqueda = request.getParameter("busqueda");
-        List<Resenia> listaResenias = null;
+        List<ReseniaDTO> listaResenias = null;
 
         try {
             listaResenias = reseniaBO.obtenerReseniasFiltradasPorLibro(busqueda);
@@ -73,7 +73,6 @@ public class FiltrarReseniasServlet extends HttpServlet {
             request.getRequestDispatcher("/admin-historial-resenias.jsp").forward(request, response);
 
         } catch (Exception e) {
-            e.printStackTrace();
             request.setAttribute("errorCarga", "Error al buscar reseñas: " + e.getMessage());
             request.getRequestDispatcher("/admin-historial-resenias.jsp").forward(request, response);
         }

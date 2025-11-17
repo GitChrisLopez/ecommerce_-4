@@ -1,5 +1,7 @@
-package dominio;
 
+package entidades;
+
+import enumeradores.Formato;
 import java.math.BigDecimal;
 import java.util.List;
 import javax.persistence.Column;
@@ -27,58 +29,74 @@ import javax.persistence.Table;
  * Fecha: 15/11/2025
  */
 
+@Entity
+@Table(name = "productos")
 public class Producto {
     
     /**
      * Objeto Long que representa el Id del Producto.
      */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column (name = "id_producto")
     private Long id;
 
     /**
      * Objeto Integer que representa el número de páginas del Producto.
      */
+    @Column (name = "no_paginas")
     private Integer numeroPaginas;
 
     /**
      * Objeto String que representa el ISBN (International Standard Book Number) del Producto.
      */
+    @Column (name = "isbn", length = 13, nullable = false)
     private String isbn;
 
     /**
      * Objeto String que representa la url de la imagen del Producto.
      */
+    @Column (name = "urlImagen", nullable = false) 
     private String urlImagen;
     
     /**
      * Enumerador Formato que determina el formato del Producto.
      */
-    private FormatoDTO formato;
+    @Column (name = "formato", nullable = false)
+    @Enumerated(EnumType.STRING)
+    private Formato formato;
     
     /**
      * Objeto Integer que representa el stock Producto actual.
      */
+    @Column (name = "stock", nullable = false)
     private Integer stock = 0;
     
     /**
      * Objeto BigDecimal que representa el precio del Producto.
      */
+    @Column(precision = 10, scale = 2)
     private BigDecimal precio; 
 
     /**
      * Objeto Libro que representa el Libro que representa el Producto.
      */
-    private LibroDTO libro;
+    @ManyToOne
+    @JoinColumn(name = "id_libro", nullable = false)
+    private Libro libro;
 
     /**
      * Objeto List<ProductoCarrito> que representa los productosCarrito que
      * hacen referencia a este Producto.
      */
+    @OneToMany(mappedBy = "producto")
     private List<ProductoCarrito> productosCarrito;
 
     /**
      * Objeto List<ProductoPedido> que representa los productosPedido que hacen
      * referencia a este Producto.
      */
+    @OneToMany(mappedBy = "producto")
     private List<ProductoPedido> productosPedido;
 
     /**
@@ -104,9 +122,9 @@ public class Producto {
             Integer numeroPaginas,
             String isbn,
             String urlImagen, 
-            FormatoDTO formato, 
+            Formato formato, 
             BigDecimal precio, 
-            LibroDTO libro, 
+            Libro libro, 
             List<ProductoCarrito> productosCarrito, 
             List<ProductoPedido> productosPedido) {
         
@@ -189,7 +207,7 @@ public class Producto {
      * Obtiene el formato del producto.
      * @return El formato del producto.
      */
-    public FormatoDTO getFormato() {
+    public Formato getFormato() {
         return formato;
     }
 
@@ -197,7 +215,7 @@ public class Producto {
      * Establece el formato del producto.
      * @param formato El nuevo formato del producto.
      */
-    public void setFormato(FormatoDTO formato) {
+    public void setFormato(Formato formato) {
         this.formato = formato;
     }
 
@@ -237,7 +255,7 @@ public class Producto {
      * Obtiene el objeto Libro asociado a este producto.
      * @return El libro del producto.
      */
-    public LibroDTO getLibro() {
+    public Libro getLibro() {
         return libro;
     }
 
@@ -245,7 +263,7 @@ public class Producto {
      * Establece el objeto Libro asociado a este producto.
      * @param libro El nuevo libro del producto.
      */
-    public void setLibro(LibroDTO libro) {
+    public void setLibro(Libro libro) {
         this.libro = libro;
     }
 

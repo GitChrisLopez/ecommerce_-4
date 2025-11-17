@@ -1,4 +1,8 @@
-package dominio;
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package entidades;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -63,6 +67,14 @@ public class Categoria {
     public Long getId() {
         return id;
     }
+    
+    /**
+     * Método establecer el id de una categoria
+     * @param id el ID a declarar
+     */
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     /**
      * Metodo que obtiene el nombre de la categoria
@@ -83,3 +95,4 @@ public class Categoria {
     }
 
 }
+

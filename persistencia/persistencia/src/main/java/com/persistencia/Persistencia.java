@@ -4,8 +4,7 @@
 
 package com.persistencia;
 
-import dominio.Cliente;
-import dominio.Editorial;
+import entidades.Editorial;
 import javax.persistence.EntityManager;
 
 /**

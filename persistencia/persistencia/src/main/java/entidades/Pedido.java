@@ -1,7 +1,7 @@
-package dominio;
 
-import dominio.enumeradores.MetodoPago;
-import dominio.enumeradores.Estado;
+package entidades;
+
+import enumeradores.Estado;
 import java.time.LocalDateTime;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -37,34 +37,45 @@ public class Pedido {
     /**
      * Dato Long que representa el id del Pedido.
      */
+    @Column(name = "id_pedido")
     private Long id;
     /**
      * Objeto String que representa el número del Pedido.
      */
+    @Column(name = "numeroUnico_pedido")
     private String numeroUnico;
     /**
      * Objeto LocalDateTime que representa la fecha en que se realizó el pedido.
      */
+    @Column(name = "fecha_pedido")
     private LocalDateTime fecha;
     /**
      * Objeto
      */
+    @Column(name = "estado_pedido")
     private Estado estado;
     /**
      * Objeto Direccion que representa la dirección de envío del pedido.
      */
-    private DireccionDTO direccionEnvio;
+    @ManyToOne
+    @JoinColumn(name="id_direccion")
+    private Direccion direccionEnvio;
     /**
      * Objeto MetodoPago que representa el método de pago que se utilizó para
      * pagar el Pedido.
      */
+    @ManyToOne
+    @JoinColumn(name="id_metodoPago")
     private MetodoPago metodoPago;
 
 
     /**
      * Objeto Cliente que representa el Cliente que realizó el Pedido.
-     */  
-    private ClienteDTO cliente;
+     */
+
+    @ManyToOne
+    @JoinColumn(name = "id_cliente", nullable = false)    
+    private Cliente cliente;
 
     public Pedido() {
 
@@ -90,10 +101,10 @@ public class Pedido {
             Long id, 
             String numeroUnico, 
             LocalDateTime fecha,
-            DireccionDTO direccionEnvio,
+            Direccion direccionEnvio,
             MetodoPago metodoPago,
             Carrito carrito, 
-            ClienteDTO cliente) {
+            Cliente cliente) {
         
         this.id = id;
         this.numeroUnico = numeroUnico;
@@ -172,7 +183,7 @@ public class Pedido {
      *
      * @return Objeto Direccion que representa la dirección de envío del Pedido.
      */
-    public DireccionDTO getDireccionEnvio() {
+    public Direccion getDireccionEnvio() {
         return direccionEnvio;
     }
 
@@ -182,7 +193,7 @@ public class Pedido {
      * @param direccionEnvio Objeto Direccion que representa la dirección de
      * envío del Pedido.
      */
-    public void setDireccionEnvio(DireccionDTO direccionEnvio) {
+    public void setDireccionEnvio(Direccion direccionEnvio) {
         this.direccionEnvio = direccionEnvio;
     }
 
@@ -211,7 +222,7 @@ public class Pedido {
      *
      * @return Objeto Cliente que realizó el Pedido.
      */
-    public ClienteDTO getCliente() {
+    public Cliente getCliente() {
         return cliente;
     }
 
@@ -220,7 +231,7 @@ public class Pedido {
      *
      * @param cliente Objeto Cliente que realizó el Pedido.
      */
-    public void setCliente(ClienteDTO cliente) {
+    public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
 

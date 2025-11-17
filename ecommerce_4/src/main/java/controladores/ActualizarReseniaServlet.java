@@ -1,11 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
 package controladores;
 
 import BOs.ReseniaBO;
-import dominio.Resenia;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -15,7 +10,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 /**
- *
+ * Servlet para actualizar una resenia.
  * @author norma
  */
 @WebServlet(name = "ActualizarReseniaServlet", urlPatterns = {"/ActualizarReseniaServlet"})
@@ -75,36 +70,30 @@ public class ActualizarReseniaServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         Long idResenia = null;
         String mensaje;
 
         try {
             String parametro = request.getParameter("id");
             String nuevoComentario = request.getParameter("comentario");
-            
+
             if (parametro == null || nuevoComentario == null || parametro.isEmpty()) {
-                 throw new IllegalArgumentException("Datos incompletos.");
+                throw new IllegalArgumentException("Datos incompletos.");
             }
 
             idResenia = Long.valueOf(parametro);
 
-            Resenia reseniaActualizada = reseniaBO.obtenerReseniaPorId(idResenia);
-            
-            if (reseniaActualizada == null) {
-                 throw new Exception("Reseña no encontrada.");
-            }
-            
-            reseniaActualizada.setComentario(nuevoComentario);
+            reseniaBO.actualizarComentarioResenia(idResenia, nuevoComentario);
 
-            reseniaBO.actualizarResenia(reseniaActualizada); 
-            
+            request.getSession().setAttribute("mensajeEstado", "Comentario actualizado con éxito.");
             response.sendRedirect(request.getContextPath() + "/MostrarReseniasServlet");
 
         } catch (Exception e) {
-            mensaje = "Error interno al guardar el comentario.";
+            e.printStackTrace();
+            mensaje = "Error al actualizar la reseña: " + e.getMessage();
             request.getSession().setAttribute("mensajeEstado", mensaje);
-            
+
             response.sendRedirect(request.getContextPath() + "/MostrarReseniasServlet");
         }
     }

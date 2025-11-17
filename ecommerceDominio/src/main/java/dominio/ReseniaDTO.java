@@ -1,18 +1,6 @@
 package dominio;
 
 import java.time.LocalDateTime;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 /**
  * Archivo: Resenia.java
@@ -27,61 +15,47 @@ import javax.persistence.TemporalType;
  *
  * Fecha: 15/10/2025
  */
-@Entity
-@Table(name = "resenias")
-public class Resenia {
+public class ReseniaDTO {
 
     /**
      * Identificador unico de la resenia.
      */
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_resenia")
     private Long id;
 
     /**
      * Libro al que pertenece la resenia.
      */
-    @ManyToOne
-    @JoinColumn(name = "id_libro")
-    private Libro libro;
+    private LibroDTO libro;
 
     /**
      * Formato del Producto al que hace referencia la reseña.
      */
-    @Enumerated(EnumType.STRING)
-    @Column(name = "formato", nullable = false)
-    private Formato formato;
+    private FormatoDTO formato;
 
     /**
      * Calificacion numerica dada por el usuario.
      */
-    @Column(name = "calificacion", nullable = false)
     private int calificacion;
 
     /**
      * Comentario del usuario sobre el libro.
      */
-    @Column(name = "comentario", length = 350, nullable = false)
     private String comentario;
 
     /**
      * Fecha en que se publico la resenia.
      */
-    @Column(name = "fecha_publicacion", nullable = false)
     private LocalDateTime fecha;
 
     /**
      * Usuario que realizo la resenia.
      */
-    @ManyToOne
-    @JoinColumn(name = "id_cliente", nullable = false)
-    private Cliente cliente;
+    private ClienteDTO cliente;
 
     /**
      * Constructor por defecto
      */
-    public Resenia() {
+    public ReseniaDTO() {
 
     }
 
@@ -96,14 +70,14 @@ public class Resenia {
      * @param fecha fecha de publicacion
      * @param cliente cliente que realizo la resenia
      */
-    public Resenia(
+    public ReseniaDTO(
             Long id,
-            Libro libro,
-            Formato formato,
+            LibroDTO libro,
+            FormatoDTO formato,
             int calificacion,
             String comentario,
             LocalDateTime fecha,
-            Cliente cliente) {
+            ClienteDTO cliente) {
 
         this.id = id;
         this.libro = libro;
@@ -124,7 +98,7 @@ public class Resenia {
      * @param fecha fecha de publicacion
      * @param cliente cliente que realizo la resenia
      */
-    public Resenia(Libro libro, Formato formato, int calificacion, String comentario, LocalDateTime fecha, Cliente cliente) {
+    public ReseniaDTO(LibroDTO libro, FormatoDTO formato, int calificacion, String comentario, LocalDateTime fecha, ClienteDTO cliente) {
         this.libro = libro;
         this.formato = formato;
         this.calificacion = calificacion;
@@ -139,18 +113,25 @@ public class Resenia {
     public Long getId() {
         return id;
     }
+    
+    /**
+     * @param id identificador al que pertenece la resenia
+     */
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     /**
      * @return libro reseñado
      */
-    public Libro getLibro() {
+    public LibroDTO getLibro() {
         return libro;
     }
 
     /**
      * @param libro libro al que pertenece la resenia
      */
-    public void setLibro(Libro libro) {
+    public void setLibro(LibroDTO libro) {
         this.libro = libro;
     }
 
@@ -158,7 +139,7 @@ public class Resenia {
      *
      * @return formato del producto al que hace referencia la reseña.
      */
-    public Formato getFormato() {
+    public FormatoDTO getFormato() {
         return formato;
     }
 
@@ -166,7 +147,7 @@ public class Resenia {
      *
      * @param formato formato del producto al que hace referencia la reseña.
      */
-    public void setFormato(Formato formato) {
+    public void setFormato(FormatoDTO formato) {
         this.formato = formato;
     }
 
@@ -215,14 +196,14 @@ public class Resenia {
     /**
      * @return cliente que escribio la resenia
      */
-    public Cliente getCliente() {
+    public ClienteDTO getCliente() {
         return cliente;
     }
 
     /**
      * @param cliente cliente que escribio la resenia
      */
-    public void setCliente(Cliente cliente) {
+    public void setCliente(ClienteDTO cliente) {
         this.cliente = cliente;
     }
 
