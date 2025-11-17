@@ -5,16 +5,17 @@ import dominio.Resenia;
 import excepciones.NegocioException;
 import excepciones.PersistenciaException;
 import java.util.List;
+import javax.persistence.EntityManager;
 
 /**
  *
  * @author norma
  */
 public class ReseniaBO {
-    
+
     private final ReseniaDAO reseniaDAO = new ReseniaDAO();
-    
-    public boolean eliminarResenia(Long idResenia) throws PersistenciaException, NegocioException{
+
+    public boolean eliminarResenia(Long idResenia) throws PersistenciaException, NegocioException {
         if (idResenia <= 0) {
             throw new NegocioException("El ID debe ser un número válido.");
         }
@@ -25,15 +26,15 @@ public class ReseniaBO {
         }
         return eliminado;
     }
-    
-    public Resenia actualizarResenia(Resenia resenia) throws PersistenciaException, NegocioException{
+
+    public Resenia actualizarResenia(Resenia resenia) throws PersistenciaException, NegocioException {
         try {
             return reseniaDAO.actualizarResenia(resenia);
         } catch (PersistenciaException ex) {
             throw new NegocioException("Error al actualiza la resenia", ex);
         }
     }
-    
+
     public List<Resenia> obtenerResenias() throws PersistenciaException, NegocioException {
         try {
             List<Resenia> resenias = reseniaDAO.obtenerTodasLasResenias();
@@ -47,7 +48,7 @@ public class ReseniaBO {
             throw new NegocioException("Error al obtener la lista de resenias.", e);
         }
     }
-    
+
     public Resenia obtenerReseniaPorId(Long idResenia) throws PersistenciaException, NegocioException {
         try {
             Resenia resenia = reseniaDAO.obtenerResenia(idResenia);
@@ -61,4 +62,5 @@ public class ReseniaBO {
             throw new NegocioException("Error al obtener la resenia por ID", e);
         }
     }
+
 }

@@ -10,8 +10,8 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jakartaee>10.0.0</jakartaee>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
+        <maven.compiler.source>23</maven.compiler.source>
+        <maven.compiler.target>23</maven.compiler.target>
     </properties>
     
     <dependencies>
@@ -40,7 +40,12 @@
             <version>3.0.1</version> 
             <scope>runtime</scope>
         </dependency>
-        </dependencies>
+        <dependency>
+            <groupId>com.mycompany</groupId>
+            <artifactId>ecommerceDominio</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
     
     <build>
         <plugins>

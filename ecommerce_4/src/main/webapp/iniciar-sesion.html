@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 
-     <head>
+    <head>
         <title>Iniciar Sesión</title>
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="./styles/styles-inicio-registro.css">
@@ -20,19 +20,19 @@
                     <img src="./icons/user.png" alt="user" class="user-icon">
                 </div>
 
-                <form class="login-form">
+                <form class="login-form" method="POST" action="AuthAdminServlet">
                     <label for="email">Correo electrónico:</label>
                     <input type="email" id="email" name="email" required>
 
                     <label for="password">Contraseña:</label>
                     <input type="password" id="password" name="password" required>
 
-                    <button type="submit" class="button"><a href="catalogo.html">Iniciar sesión</button>
-                    
+                    <button type="submit" class="button">Iniciar sesión</button>
+
                     <p class="login-info-text">
                         ¿No tienes una cuenta? <a href="registro.html" class="link"><br>Registrarse</a>
                     </p>
-                </form>
+                </form>            
             </div>
         </div>
     </body>
