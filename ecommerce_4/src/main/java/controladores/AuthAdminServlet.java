@@ -69,9 +69,11 @@ public class AuthAdminServlet extends HttpServlet {
         String accion = request.getParameter("accion");
 
         if (accion != null && accion.equals("logout")) {
+            // sesión actual pero sin crear una nueva si no existe
             HttpSession session = request.getSession(false);
 
             if (session != null) {
+                // sesion invalida
                 session.invalidate();
             }
 
@@ -100,16 +102,19 @@ public class AuthAdminServlet extends HttpServlet {
             Administrador admin = adminBO.iniciarSesion(email, password);
 
             if (admin != null) {
+                // creamos la sesión
                 HttpSession session = request.getSession(true);
+                
+                // guardamos el objeto admin
                 session.setAttribute("adminLogueado", admin);
-
                 response.sendRedirect("admin-menu-administrador.html");
             } else {
-                response.sendRedirect("iniciar-sesion.html?error=true");
+                // false
+                response.sendRedirect("iniciar-sesion.jsp?error=true");
             }
         } catch (Exception e) {
             System.err.println("Error en el inicio de sesión: " + e.getMessage());
-            response.sendRedirect("iniciar-sesion.html?error=true");
+            response.sendRedirect("iniciar-sesion.jsp?error=true");
         }
     }
 

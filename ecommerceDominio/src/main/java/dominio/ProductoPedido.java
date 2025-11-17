@@ -1,6 +1,5 @@
 package dominio;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,9 +15,10 @@ import javax.persistence.Table;
  *
  * @author Norma Alicia Beltrán Martín - 252102
  */
+
 @Entity
 @Table(name = "productos_pedido")
-public class ProductoPedido implements Serializable {
+public class ProductoPedido {
 
     /**
      * Dato Long que representa el id del ProductoCarrito.
@@ -77,42 +77,93 @@ public class ProductoPedido implements Serializable {
         this.precioUnitario = precioUnitario;
     }
 
+    /**
+     * Obtiene el identificador único de este producto del pedido.
+     *
+     * @return El id de la entidad ProductoPedido.
+     */
     public Long getId() {
         return id;
     }
 
+    /**
+     * Establece el identificador único de este producto del pedido.
+     *
+     * @param id El nuevo id de la entidad ProductoPedido.
+     */
     public void setId(Long id) {
         this.id = id;
     }
 
+    /**
+     * Obtiene el Producto asociado a este producto del pedido.
+     *
+     * @return El producto referenciado.
+     */
     public Producto getProducto() {
         return producto;
     }
 
+    /**
+     * Establece el Producto asociado a este producto del pedido.
+     *
+     * @param producto El nuevo producto referenciado.
+     */
     public void setProducto(Producto producto) {
         this.producto = producto;
     }
 
+    /**
+     * Obtiene el Pedido a la que pertenece este productoPedido.
+     *
+     * @return El pedido contenedor.
+     */
     public Pedido getPedido() {
         return pedido;
     }
 
+    /**
+     * Establece el Pedido a la que pertenece este productoPedido.
+     *
+     * @param pedido El nuevo pedido contenedor.
+     */
     public void setPedido(Pedido pedido) {
         this.pedido = pedido;
     }
 
+    /**
+     * Obtiene la cantidad de unidades de este producto en el pedido.
+     *
+     * @return La cantidad del producto.
+     */
     public Integer getCantidad() {
         return cantidad;
     }
 
+    /**
+     * Establece la cantidad de unidades de este producto en el pedido.
+     *
+     * @param cantidad La nueva cantidad del producto.
+     */
     public void setCantidad(Integer cantidad) {
         this.cantidad = cantidad;
     }
 
+    /**
+     * Obtiene el precio unitario del producto registrado en el momento de la
+     * creación del pedido.
+     *
+     * @return El precio unitario.
+     */
     public BigDecimal getPrecioUnitario() {
         return precioUnitario;
     }
 
+    /**
+     * Establece el precio unitario del producto registrado.
+     *
+     * @param precioUnitario El nuevo precio unitario.
+     */
     public void setPrecioUnitario(BigDecimal precioUnitario) {
         this.precioUnitario = precioUnitario;
     }

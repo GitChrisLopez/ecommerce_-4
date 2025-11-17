@@ -18,9 +18,9 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 /**
- * Filtro para asegurar que solo admins logueados ingresen y no solo por tener
- * la URL
- *
+ * Filtro para asegurar que solo admins logueados ingresen
+ * y no solo por tener la URL
+ * 
  * @author chris
  */
 @WebFilter(filterName = "AdminAuthFilter", urlPatterns = {"/admin-*"})
@@ -33,19 +33,24 @@ public class AdminAuthFilter implements Filter {
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         HttpServletResponse httpResponse = (HttpServletResponse) response;
 
+        // obtiene la sesion
         HttpSession session = httpRequest.getSession(false);
 
         boolean logueado = false;
         if (session != null && session.getAttribute("adminLogueado") != null) {
+            
+            // verifica la sesion si sea de un admin
             if (session.getAttribute("adminLogueado") instanceof Administrador) {
                 logueado = true;
             }
         }
 
         if (logueado) {
+            // usuario es admin true
             chain.doFilter(request, response);
         } else {
-            httpResponse.sendRedirect("iniciar-sesion.jsp"); // o .html
+            // false, lo manda a iniciar sesion
+            httpResponse.sendRedirect("iniciar-sesion.html");
         }
     }
 

@@ -2,6 +2,7 @@ package DAOs;
 
 import com.persistencia.ManejadorConexiones;
 import dominio.Cliente;
+import dominio.Libro;
 import dominio.Resenia;
 import excepciones.PersistenciaException;
 import java.util.List;

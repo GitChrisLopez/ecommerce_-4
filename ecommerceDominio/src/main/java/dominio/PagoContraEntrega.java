@@ -1,8 +1,10 @@
+
 package dominio;
 
+import dominio.enumeradores.MetodoPago;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import javax.persistence.Entity;
-import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 /**
@@ -15,9 +17,9 @@ import javax.persistence.Table;
  *
  * Fecha: 15/10/2025
  */
+
 @Entity
 @Table(name = "pago_contraentrega")
-@PrimaryKeyJoinColumn(name = "id_metodo_pago")
 public class PagoContraEntrega extends MetodoPago {
 
     /**
@@ -33,6 +35,6 @@ public class PagoContraEntrega extends MetodoPago {
      * @param fecha fecha de realización del pago.
      */
     public PagoContraEntrega(LocalDate fecha) {
-        super(fecha); // Llama al constructor de MetodoPago (la clase)
+        super(fecha);
     }
 }

@@ -2,8 +2,14 @@ package dominio;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 /**
+ * Archivo: Administrador.java 
+ * 
+ * Clase que representa a un usuario con privilegios de
+ * administrador en el sistema.
+ *
  * @author Norma Alicia Beltrán Martín - 252102
  * @author Oscar Adrián Castán López - 260318
  * @author Chris Fitch Lopez - 252379
@@ -11,17 +17,19 @@ import javax.persistence.Entity;
  *
  * Fecha: 15/10/2025
  */
+
 @Entity
-@DiscriminatorValue("ADMIN")
+@Table(name = "administradores")
+@DiscriminatorValue("ADMINISTRADOR")
 public class Administrador extends Usuario {
 
     /**
      * Constructor por defecto.
      */
-    public Administrador() {
-        super();
+    public Administrador(){
+        
     }
-
+    
     /**
      * Constructor para inicializar una instancia de Administrador. Llama al
      * constructor de la superclase (Usuario) para establecer los datos básicos.
@@ -35,19 +43,18 @@ public class Administrador extends Usuario {
      */
     public Administrador(
             Long id,
-            String nombre,
-            String apellidoPaterno,
+            String nombre, 
+            String apellidoPaterno, 
             String apellidoMaterno,
-            String correo,
+            String correo, 
             String contrasena) {
-
-        // Llama al constructor de la superclase (Usuario)
+        
         super(
-                id,
-                nombre,
+                id, 
+                nombre, 
                 apellidoPaterno,
-                apellidoMaterno,
-                correo,
+                apellidoMaterno, 
+                correo, 
                 contrasena);
     }
 

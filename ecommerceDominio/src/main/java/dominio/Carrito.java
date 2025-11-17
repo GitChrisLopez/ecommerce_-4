@@ -14,6 +14,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
+ * Archivo: Carrito.java
+ * 
  * Representa el Carrito de compra de un Cliente.
  *
  * @author Norma Alicia Beltrán Martín - 252102
