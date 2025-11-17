@@ -5,6 +5,7 @@
 package entidades;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,7 +16,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "productos_pedidos")
+@Table(name = "productos_pedido")
 public class ProductoPedidoEntidad implements Serializable {
 
     @Id
@@ -23,27 +24,23 @@ public class ProductoPedidoEntidad implements Serializable {
     @Column(name = "id_producto_pedido")
     private Long id;
 
-    @Column(name = "precio", nullable = false)
-    private double precio;
+    @Column(name = "precio_unitario", precision = 10, scale = 2)
+    private BigDecimal precioUnitario;
 
     @Column(name = "cantidad", nullable = false)
-    private int cantidad;
+    private Integer cantidad;
 
-    // --- RELACIONES ACTUALIZADAS A ENTIDADES ---
     @ManyToOne
     @JoinColumn(name = "id_pedido")
     private PedidoEntidad pedido;
 
-    // Esta es la siguiente dependencia que deberás refactorizar
     @ManyToOne
-    @JoinColumn(name = "id_libro")
-    private LibroEntidad libro;
+    @JoinColumn(name = "id_producto", nullable = false)
+    private ProductoEntidad producto;
 
-    // Constructor por defecto
     public ProductoPedidoEntidad() {
     }
 
-    // Getters y Setters
     public Long getId() {
         return id;
     }
@@ -52,23 +49,22 @@ public class ProductoPedidoEntidad implements Serializable {
         this.id = id;
     }
 
-    public double getPrecio() {
-        return precio;
+    public BigDecimal getPrecioUnitario() {
+        return precioUnitario;
     }
 
-    public void setPrecio(double precio) {
-        this.precio = precio;
+    public void setPrecioUnitario(BigDecimal precioUnitario) {
+        this.precioUnitario = precioUnitario;
     }
 
-    public int getCantidad() {
+    public Integer getCantidad() {
         return cantidad;
     }
 
-    public void setCantidad(int cantidad) {
+    public void setCantidad(Integer cantidad) {
         this.cantidad = cantidad;
     }
 
-    // Getters y Setters actualizados
     public PedidoEntidad getPedido() {
         return pedido;
     }
@@ -77,11 +73,11 @@ public class ProductoPedidoEntidad implements Serializable {
         this.pedido = pedido;
     }
 
-    public LibroEntidad getLibro() {
-        return libro;
+    public ProductoEntidad getProducto() {
+        return producto;
     }
 
-    public void setLibro(LibroEntidad libro) {
-        this.libro = libro;
+    public void setProducto(ProductoEntidad producto) {
+        this.producto = producto;
     }
 }
