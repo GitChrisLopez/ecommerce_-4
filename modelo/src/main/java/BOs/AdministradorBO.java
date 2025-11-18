@@ -1,11 +1,8 @@
-
 package BOs;
 
 import DAOs.AdministradorDAO;
-import entidades.Administrador;
-
 /**
- * 
+ *
  * @author chris
  */
 public class AdministradorBO {
@@ -16,13 +13,20 @@ public class AdministradorBO {
         this.adminDAO = new AdministradorDAO();
     }
 
-    public Administrador iniciarSesion(String correo, String contrasenia) /* throws NegocioException */ {
+    public dominio.Administrador iniciarSesion(String correo, String contrasenia) {
+
         if (correo == null || correo.isBlank() || contrasenia == null || contrasenia.isBlank()) {
             System.out.println("Correo o contraseña vacíos");
             return null;
         }
 
-        Administrador adminLogueado = adminDAO.iniciarSesion(correo, contrasenia);
-        return adminLogueado;
+        entidades.Administrador adminEntity = adminDAO.iniciarSesion(correo, contrasenia);
+
+        if (adminEntity == null) {
+            return null;
+        }
+        // convertir ENTIDAD a DOMINIO
+        return mappers.MapperAdministrador.toDto(adminEntity);
     }
+
 }
