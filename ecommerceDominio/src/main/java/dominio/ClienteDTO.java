@@ -51,7 +51,7 @@ public class ClienteDTO extends UsuarioDTO {
      * Lista de objetos Pedido que representa el historial de pedidos realizados
      * por este Cliente.
      */
-    private List<Pedido> pedidos;
+    private List<PedidoDTO> pedidos;
     
     /**
      * Dato boolean que indica si el usuario esta activo o no.
@@ -79,7 +79,7 @@ public class ClienteDTO extends UsuarioDTO {
             String imagenPerfil,
             List<DireccionDTO> direcciones,
             Carrito carrito,
-            List<Pedido> pedidos,
+            List<PedidoDTO> pedidos,
             boolean activo) {
         
         this.telefono = telefono;
@@ -161,7 +161,7 @@ public class ClienteDTO extends UsuarioDTO {
      * Permite obtener el historial de pedidos del Cliente.
      * @return Objeto List<Pedido> que representa el historial de pedidos.
      */
-    public List<Pedido> getPedidos() {
+    public List<PedidoDTO> getPedidos() {
         return pedidos;
     }
 
@@ -170,7 +170,7 @@ public class ClienteDTO extends UsuarioDTO {
      * @param pedidos Objeto List<Pedido> que representa el historial de
      * pedidos.
      */
-    public void setPedidos(List<Pedido> pedidos) {
+    public void setPedidos(List<PedidoDTO> pedidos) {
         this.pedidos = pedidos;
     }
     

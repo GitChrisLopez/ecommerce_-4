@@ -4,6 +4,8 @@ package entidades;
 import java.io.Serializable;
 import java.time.LocalDate;
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -26,6 +28,7 @@ import javax.persistence.Table;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn(name = "tipo_pago", discriminatorType = DiscriminatorType.STRING)
 @Table(name = "metodo_pago")
 public abstract class MetodoPago implements Serializable {
 
@@ -40,7 +43,7 @@ public abstract class MetodoPago implements Serializable {
     /**
      * Objeto LocalDate que representa la fecha de realización del pago.
      */
-    @Column(name = "fecha_publicacion", nullable = false)
+    @Column(name = "fecha_realizacion", nullable = false)
     private LocalDate fecha;
 
     /**
@@ -53,7 +56,6 @@ public abstract class MetodoPago implements Serializable {
      * Constructor que inicializa todos los atributos.
      *
      * @param id id del método de pago
-     * @param montoPagar monto a pagar
      * @param fecha fecha de realización del pago
      */
     public MetodoPago(Long id, LocalDate fecha) {

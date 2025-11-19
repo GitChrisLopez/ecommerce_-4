@@ -12,7 +12,7 @@ package dominio.enumeradores;
  *
  * Fecha: 15/10/2025
  */
-public enum Estado {
+public enum EstadoDTO {
     /**
      * Pedido pendiente que aún no se ha preparado.
      */
@@ -24,5 +24,9 @@ public enum Estado {
     /**
      * Pedido que fue entregado al Cliente.
      */
-    ENTREGADO
+    ENTREGADO,
+    /**
+     * Pedido que fue cancelado.
+     */
+    CANCELADO
 }

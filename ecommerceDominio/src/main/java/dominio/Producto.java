@@ -79,7 +79,7 @@ public class Producto {
      * Objeto List<ProductoPedido> que representa los productosPedido que hacen
      * referencia a este Producto.
      */
-    private List<ProductoPedido> productosPedido;
+    private List<ProductoPedidoDTO> productosPedido;
 
     /**
      * Constructor por defecto.
@@ -108,7 +108,7 @@ public class Producto {
             BigDecimal precio, 
             LibroDTO libro, 
             List<ProductoCarrito> productosCarrito, 
-            List<ProductoPedido> productosPedido) {
+            List<ProductoPedidoDTO> productosPedido) {
         
         this.id = id;
         this.numeroPaginas = numeroPaginas;
@@ -269,7 +269,7 @@ public class Producto {
      * Obtiene la lista de ProductoPedido que hacen referencia a este producto.
      * @return La lista de items de pedido asociados al producto.
      */
-    public List<ProductoPedido> getProductosPedido() {
+    public List<ProductoPedidoDTO> getProductosPedido() {
         return productosPedido;
     }
 
@@ -277,7 +277,7 @@ public class Producto {
      * Establece la lista de ProductoPedido que hacen referencia a este producto.
      * @param productosPedido La nueva lista de items de pedido.
      */
-    public void setProductosPedido(List<ProductoPedido> productosPedido) {
+    public void setProductosPedido(List<ProductoPedidoDTO> productosPedido) {
         this.productosPedido = productosPedido;
     }
     

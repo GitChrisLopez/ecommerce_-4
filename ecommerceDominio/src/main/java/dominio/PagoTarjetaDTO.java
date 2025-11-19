@@ -4,7 +4,7 @@
  */
 package dominio;
 
-import dominio.enumeradores.MetodoPago;
+import dominio.enumeradores.MetodoPagoDTO;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import javax.persistence.Column;
@@ -22,7 +22,7 @@ import javax.persistence.Table;
  * Fecha: 15/10/2025
  */
 
-public class PagoTarjeta extends MetodoPago {
+public class PagoTarjetaDTO extends MetodoPagoDTO {
 
     /**
      * Objeto Integer que representa el número (o una parte de él) de la tarjeta.
@@ -47,7 +47,7 @@ public class PagoTarjeta extends MetodoPago {
     /**
      * Constructor vacío.
      */
-    public PagoTarjeta() {
+    public PagoTarjetaDTO() {
        super(); 
     }
 
@@ -58,7 +58,7 @@ public class PagoTarjeta extends MetodoPago {
      * @param nombreTitular Nombre del titular de la tarjeta.
      * @param cvv Código de seguridad de la tarjeta.
      */
-    public PagoTarjeta(Integer numero, LocalDate fechaVencimiento, String nombreTitular, String cvv) {
+    public PagoTarjetaDTO(Integer numero, LocalDate fechaVencimiento, String nombreTitular, String cvv) {
         this.numero = numero;
         this.fechaVencimiento = fechaVencimiento;
         this.nombreTitular = nombreTitular;
@@ -74,7 +74,7 @@ public class PagoTarjeta extends MetodoPago {
      * @param MontoPagar Monto total a pagar (heredado, aunque se recomienda mover a Pedido).
      * @param fecha Fecha de realización del pago (heredado).
      */
-    public PagoTarjeta(Integer numero, LocalDate fechaVencimiento, String nombreTitular, String cvv,
+    public PagoTarjetaDTO(Integer numero, LocalDate fechaVencimiento, String nombreTitular, String cvv,
             BigDecimal MontoPagar, LocalDate fecha) {
         super(fecha); // Llama al constructor de MetodoPago con la fecha
         this.numero = numero;
@@ -147,6 +147,15 @@ public class PagoTarjeta extends MetodoPago {
      */
     public void setCvv(String cvv) {
         this.cvv = cvv;
+    }
+    
+    /**
+     * Método sobrescrito para mostrar un nombre descriptivo del método de pago.
+     * @return Cadena que describe el método de pago.
+     */
+    @Override
+    public String toString() {
+        return "Pago Tarjeta";
     }
     
 }

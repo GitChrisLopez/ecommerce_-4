@@ -86,7 +86,7 @@ public class ReseniaBO {
             List<Resenia> resenias = reseniaDAO.obtenerTodasLasResenias();
 
             if (resenias == null || resenias.isEmpty()) {
-                throw new NegocioException("No se encontraron reseñas en la base de datos.");
+                throw new NegocioException("No se encontraron reseñas.");
             }
             return MapperResenia.toDtoList(resenias);
         } catch (PersistenciaException e) {
@@ -114,7 +114,7 @@ public class ReseniaBO {
             Resenia resenia = reseniaDAO.obtenerResenia(idResenia);
 
             if (resenia == null) {
-                throw new NegocioException("No se encontró la reseña con ID: " + idResenia + " en la base de datos.");
+                throw new NegocioException("No se encontró la reseña con ID: " + idResenia);
             }
 
             return MapperResenia.toDto(resenia);

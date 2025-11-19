@@ -4,7 +4,7 @@
  */
 package dominio;
 
-import dominio.enumeradores.MetodoPago;
+import dominio.enumeradores.MetodoPagoDTO;
 import java.time.LocalDate;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -20,7 +20,7 @@ import javax.persistence.Table;
  * Fecha: 15/10/2025
  */
 
-public class PagoTransferencia extends MetodoPago{
+public class PagoTransferenciaDTO extends MetodoPagoDTO{
 
     /**
      * Objeto String que representa el nombre del banco desde donde se emite la transferencia.
@@ -35,7 +35,7 @@ public class PagoTransferencia extends MetodoPago{
     /**
      * Constructor vacío.
      */
-    public PagoTransferencia() {
+    public PagoTransferenciaDTO() {
         super();
     }
 
@@ -44,7 +44,7 @@ public class PagoTransferencia extends MetodoPago{
      * @param bancoEmisor Nombre del banco emisor.
      * @param cuatroDigitos Últimos cuatro dígitos de la cuenta.
      */
-    public PagoTransferencia(String bancoEmisor, String cuatroDigitos) {
+    public PagoTransferenciaDTO(String bancoEmisor, String cuatroDigitos) {
         this.bancoEmisor = bancoEmisor;
         this.cuatroDigitos = cuatroDigitos;
     }
@@ -55,7 +55,7 @@ public class PagoTransferencia extends MetodoPago{
      * @param cuatroDigitos Últimos cuatro dígitos de la cuenta.
      * @param fecha Fecha de realización del pago.
      */
-    public PagoTransferencia(String bancoEmisor, String cuatroDigitos, LocalDate fecha) {
+    public PagoTransferenciaDTO(String bancoEmisor, String cuatroDigitos, LocalDate fecha) {
         super(fecha);
         this.bancoEmisor = bancoEmisor;
         this.cuatroDigitos = cuatroDigitos;
@@ -93,6 +93,15 @@ public class PagoTransferencia extends MetodoPago{
      */
     public void setCuatroDigitos(String cuatroDigitos) {
         this.cuatroDigitos = cuatroDigitos;
+    }
+    
+    /**
+     * Método sobrescrito para mostrar un nombre descriptivo del método de pago.
+     * @return Cadena que describe el método de pago.
+     */
+    @Override
+    public String toString() {
+        return "Pago Transferencia";
     }
 
 }

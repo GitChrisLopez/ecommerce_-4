@@ -3,6 +3,7 @@ package entidades;
 
 import java.time.LocalDate;
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
@@ -17,6 +18,7 @@ import javax.persistence.Table;
  */
 
 @Entity
+@DiscriminatorValue("TRANSFERENCIA")
 @Table(name = "pago_transferencia")
 public class PagoTransferencia extends MetodoPago{
 

@@ -28,7 +28,7 @@ import javax.persistence.TemporalType;
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "metodo_pago")
-public abstract class MetodoPago implements Serializable {
+public abstract class MetodoPagoDTO implements Serializable {
 
     /**
      * Objeto Long que representa el Id del MetodoPago.
@@ -47,7 +47,7 @@ public abstract class MetodoPago implements Serializable {
     /**
      * Constructor vacío.
      */
-    public MetodoPago() {
+    public MetodoPagoDTO() {
     }
 
     /**
@@ -57,7 +57,7 @@ public abstract class MetodoPago implements Serializable {
      * @param montoPagar monto a pagar
      * @param fecha fecha de realización del pago
      */
-    public MetodoPago(Long id, LocalDate fecha) {
+    public MetodoPagoDTO(Long id, LocalDate fecha) {
         this.id = id;
         this.fecha = fecha;
     }
@@ -67,7 +67,7 @@ public abstract class MetodoPago implements Serializable {
      *
      * @param fecha fecha de realización del pago.
      */
-    public MetodoPago(LocalDate fecha) {
+    public MetodoPagoDTO(LocalDate fecha) {
         this.fecha = fecha;
     }
 

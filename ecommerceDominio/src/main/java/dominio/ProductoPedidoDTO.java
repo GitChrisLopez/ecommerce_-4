@@ -16,7 +16,7 @@ import javax.persistence.Table;
  * @author Norma Alicia Beltrán Martín - 252102
  */
 
-public class ProductoPedido {
+public class ProductoPedidoDTO {
 
     /**
      * Dato Long que representa el id del ProductoCarrito.
@@ -31,7 +31,7 @@ public class ProductoPedido {
     /**
      * Objeto Pedido que representa el pedido en el que esta ProductoPedido.
      */
-    private Pedido pedido;
+    private PedidoDTO pedido;
 
     /**
      * Cantidad de ProductoPedido.
@@ -46,7 +46,7 @@ public class ProductoPedido {
     /**
      * Constructor vacío.
      */
-    public ProductoPedido() {
+    public ProductoPedidoDTO() {
     }
 
     /**
@@ -58,7 +58,7 @@ public class ProductoPedido {
      * @param cantidad cantidad del productoPedido
      * @param precioUnitario precio unitario del productoPedido
      */
-    public ProductoPedido(Long id, Producto producto, Pedido pedido, Integer cantidad, BigDecimal precioUnitario) {
+    public ProductoPedidoDTO(Long id, Producto producto, PedidoDTO pedido, Integer cantidad, BigDecimal precioUnitario) {
         this.id = id;
         this.producto = producto;
         this.pedido = pedido;
@@ -107,7 +107,7 @@ public class ProductoPedido {
      *
      * @return El pedido contenedor.
      */
-    public Pedido getPedido() {
+    public PedidoDTO getPedido() {
         return pedido;
     }
 
@@ -116,7 +116,7 @@ public class ProductoPedido {
      *
      * @param pedido El nuevo pedido contenedor.
      */
-    public void setPedido(Pedido pedido) {
+    public void setPedido(PedidoDTO pedido) {
         this.pedido = pedido;
     }
 

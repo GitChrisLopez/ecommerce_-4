@@ -1,7 +1,7 @@
 
 package dominio;
 
-import dominio.enumeradores.MetodoPago;
+import dominio.enumeradores.MetodoPagoDTO;
 import java.time.LocalDate;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -17,12 +17,12 @@ import javax.persistence.Table;
  * Fecha: 15/10/2025
  */
 
-public class PagoContraEntrega extends MetodoPago {
+public class PagoContraEntregaDTO extends MetodoPagoDTO {
 
     /**
      * Constructor vacío.
      */
-    public PagoContraEntrega() {
+    public PagoContraEntregaDTO() {
         super();
     }
 
@@ -31,7 +31,16 @@ public class PagoContraEntrega extends MetodoPago {
      *
      * @param fecha fecha de realización del pago.
      */
-    public PagoContraEntrega(LocalDate fecha) {
+    public PagoContraEntregaDTO(LocalDate fecha) {
         super(fecha);
+    }
+    
+    /**
+     * Método sobrescrito para mostrar un nombre descriptivo del método de pago.
+     * @return Cadena que describe el método de pago.
+     */
+    @Override
+    public String toString() {
+        return "Pago Contra Entrega";
     }
 }

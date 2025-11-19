@@ -47,19 +47,13 @@ main {
   width: 90%;
 }
 
-.pedido1,
-.pedido2,
-.pedido3 {
+.pedido{
   background-color: var(--lighter-grey);
   border-radius: 12px;
   padding: 10px 20px;
   gap: 10px;
   display: flex;
   flex-direction: row;
-}
-
-.pedido3 {
-  display: none;
 }
 
 .pedido-info {
@@ -176,9 +170,7 @@ nav > a .home {
     flex-direction: row;
   }
 
-  .pedido1,
-  .pedido2,
-  .pedido3 {
+  .pedido {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;

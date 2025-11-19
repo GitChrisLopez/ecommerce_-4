@@ -1,6 +1,15 @@
+<%-- 
+    Document : admin-detalles-pedido
+    Created on : 19 nov 2025, 00:46:23
+    Author : norma
+--%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%-- Se eliminó el taglib de fmt --%>
+<!DOCTYPE html>
 <html>
     <head>
-        <title>Detalles de Pedido</title>
+        <title>Detalles de Pedido #${pedido.numeroUnico}</title>
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="./styles/styles-detalles-pedido-admin.css">
         <link rel="stylesheet" type="text/css" href="./styles/styles-nav.css">
@@ -21,7 +30,7 @@
                             <a href="./catalogo.html" class="nav-btn" target="_blank">Catálogo</a>
                         </li>
                         <li>
-                        <div class="carrito">
+                            <div class="carrito">
                                 <img src="./icons/carrito.png" alt="carrito" class="carrito-icon"> 
                             </div>
                         </li>
@@ -60,50 +69,55 @@
 
             <main>
                 <div class="c2">
-                    <div class="pedido-container">
+                    <c:if test="${not empty pedido}">
+                        <div class="pedido-container">
                             <div class="pedido1">
-            
+                
                                 <div class="detalles-pago">
                                     <h3>Detalles del pago:</h3>
-                                    <p><span>Tipo de pago:</span> Transferencia recibida</p>
-                                    <p><span>Número de referencia:</span> 845726391046567</p>
-                                    <p><span>Banco emisor:</span> Bancomer BBVA Mexico</p>
-                                    <p><span>Cuenta receptora:</span> ****1234</p>
-                                    <p><span>Monto recibido:</span> $320.00 MXN</p>
-                                    <p><span>Fecha de operación:</span> 17/10/2025 – 10:42 a.m.</p>
-                                    <p><span>Estado del pago:</span> Confirmado</p>
-                                    <p><span>Número de pedido asociado:</span> #43569846</p>
+                                    <p><span>Tipo de pago:</span> ${pedido.metodoPago}</p>
+                                    <p><span>Estado del pedido:</span> <strong>${pedido.estado}</strong></p>
+                                    <p><span>Fecha de pago:</span> ${pedido.metodoPago.fecha}</p>
+                                    <p><span>Número de pedido:</span> <strong>#${pedido.numeroUnico}</strong></p>
                                 </div>
 
                                 <div class="detalles-cliente">
                                     <h3>Detalles del cliente:</h3>
-                                    <p><span>Nombre:</span> Ana Torres Pérez</p>
-                                    <p><span>Correo electrónico:</span> ana.torresp@gmail.com</p>
-                                    <p><span>Teléfono:</span> +52 55 4321 8765</p>
-                                    <p><span>Dirección de envío:</span> Calle Los Cedros #145, Col. Jardines, C.P. 06700, Ciudad de México, México</p>
+                                    <p><span>Nombre:</span> ${pedido.cliente.nombre}</p>
+                                    <p><span>Correo electrónico:</span> ${pedido.cliente.correo}</p>
+                                    <p><span>Teléfono:</span> ${pedido.cliente.telefono}</p>
+                                    <p><span>Dirección de envío:</span> ${pedido.direccionEnvio.calle} #${pedido.direccionEnvio.numero}, Col. ${pedido.direccionEnvio.colonia}, C.P. ${pedido.direccionEnvio.codigoPostal}</p>
                                 </div>
 
                                 <div class="detalles-productos">
                                     <h3>Productos del pedido:</h3>
-                                    <p>“Cien años de soledad” – Gabriel García Márquez</p>
-                                    <p><span>Precio Unitario:</span> $350.00 MXN</p>
-                                    <br> 
-                                    <p><span>Total:</span> $350.00 MXN</p>
+                                    <c:forEach var="producto" items="${pedido.productosPedido}">
+                                        <p>“${producto.producto.nombre}” – Cantidad: ${producto.cantidad}</p>
+                                        <p><span>Precio Unitario:</span> $${producto.precioUnitario} MXN</p>
+                                        <br>
+                                    </c:forEach>
+                                    
+                                    <p>---</p>
+                                    <p><span>TOTAL:</span> <strong>$${pedido.total} MXN</strong></p>
                                 </div>
 
                             </div>
 
                             <div class="pedido-btns">
                                 <div class="btn-1">
-                                    <a href="./admin-historial-pedidos.html" class="volver-btn">Volver</a>
+                                    <a href="${pageContext.request.contextPath}/MostrarPedidosServlet" class="volver-btn">Volver</a>
                                 </div>
                                 <div class="btn-2">
-                                    <button class="actualizar-btn">Actualizar</button>
-                                    <button class="cancelar-btn">Cancelar</button>
+                                    <button class="actualizar-btn">Actualizar Estado</button>
+                                    <button class="cancelar-btn">Cancelar Pedido</button>
                                 </div>
                             </div>
-
-                    </div>
+                        </div>
+                    </c:if>
+                    
+                    <c:if test="${empty pedido}">
+                        <p class="error-msg">No se encontró el pedido solicitado.</p>
+                    </c:if>
                 </div>
             </main>
         </div> 
