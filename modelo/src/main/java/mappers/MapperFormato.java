@@ -2,6 +2,8 @@ package mappers;
 
 import dominio.FormatoDTO;
 import enumeradores.Formato;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Mapper que convierte un Objeto Entidad Formato a un Objeto FormatoDTO, y
@@ -25,6 +27,17 @@ public class MapperFormato {
     }
 
     /**
+     * Convierte una lista de Enum Formato a una lista de Enum FormatoDTO.
+     * @param entityList La lista de Enum Formato.
+     * @return La lista de DTOs.
+     */
+    public static List<FormatoDTO> toDtoList(List<Formato> entityList) {
+        return entityList.stream()
+                         .map(MapperFormato::toDto)
+                         .collect(Collectors.toList());
+    }
+    
+    /**
      * Convierte el Enum FormatoDTO a Formato de Entidad.
      *
      * @param dtoEnum El Enum FormatoDTO.
@@ -36,4 +49,16 @@ public class MapperFormato {
         }
         return Formato.valueOf(dtoEnum.name());
     }
+    
+    /**
+     * Convierte una lista de Enum FormatoDTO a una lista de Enum Formato.
+     * @param dtoList La lista de Enum FormatoDTO.
+     * @return La lista de Enum Formato.
+     */
+    public static List<Formato> toEntityList(List<FormatoDTO> dtoList) {
+        return dtoList.stream()
+                      .map(MapperFormato::toEntity)
+                      .collect(Collectors.toList());
+    }
+    
 }

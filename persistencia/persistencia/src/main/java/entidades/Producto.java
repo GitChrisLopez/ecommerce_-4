@@ -56,7 +56,7 @@ public class Producto {
     /**
      * Objeto String que representa la url de la imagen del Producto.
      */
-    @Column (name = "urlImagen", nullable = false) 
+    @Column (name = "url_imagen", nullable = false) 
     private String urlImagen;
     
     /**

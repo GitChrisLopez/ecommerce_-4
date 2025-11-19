@@ -29,9 +29,9 @@ public class ProductoCarrito {
     private Long id;
 
     /**
-     * Objeto Producto que representa el producto de ProductoCarrito.
+     * Objeto ProductoDTO que representa el producto de ProductoCarrito.
      */
-    private Producto producto;
+    private ProductoDTO producto;
 
     /**
      * Objeto Carrito que representa el carrito en el que esta ProductoCarrito.
@@ -62,7 +62,7 @@ public class ProductoCarrito {
      * @param carrito id del carrito
      * @param precioUnitario precio unitario del productoCarrito
      */
-    public ProductoCarrito(Long id, Producto producto, Carrito carrito, BigDecimal precioUnitario) {
+    public ProductoCarrito(Long id, ProductoDTO producto, Carrito carrito, BigDecimal precioUnitario) {
         this.id = id;
         this.producto = producto;
         this.carrito = carrito;
@@ -88,20 +88,20 @@ public class ProductoCarrito {
     }
 
     /**
-     * Obtiene el Producto asociada a este producto del carrito.
+     * Obtiene el ProductoDTO asociada a este producto del carrito.
      *
      * @return El producto referenciado.
      */
-    public Producto getProducto() {
+    public ProductoDTO getProducto() {
         return producto;
     }
 
     /**
-     * Establece el Producto asociada a este producto del carrito.
+     * Establece el ProductoDTO asociada a este producto del carrito.
      *
      * @param producto El nuevo producto referenciado.
      */
-    public void setProducto(Producto producto) {
+    public void setProducto(ProductoDTO producto) {
         this.producto = producto;
     }
 
