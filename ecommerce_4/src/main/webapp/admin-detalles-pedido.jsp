@@ -92,7 +92,7 @@
                                 <div class="detalles-productos">
                                     <h3>Productos del pedido:</h3>
                                     <c:forEach var="producto" items="${pedido.productosPedido}">
-                                        <p>“${producto.producto.nombre}” – Cantidad: ${producto.cantidad}</p>
+                                        <p>“${producto.producto.libro.titulo}” – Cantidad: ${producto.cantidad}</p>
                                         <p><span>Precio Unitario:</span> $${producto.precioUnitario} MXN</p>
                                         <br>
                                     </c:forEach>
