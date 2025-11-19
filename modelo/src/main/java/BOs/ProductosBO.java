@@ -197,7 +197,7 @@ public class ProductosBO implements IProductosBO{
         
         try {
             
-            // Se actualiza el ingrediente utilizando el objeto que implementa 
+            // Se actualiza el producto utilizando el objeto que implementa 
             // la interfaz IProductosDAO
             productosDAO.actualizarProducto(MapperProducto.toEntity(productoActualizado));
             

@@ -83,8 +83,8 @@ public class ProductosDAO implements IProductosDAO{
         // Se crea la consulta JPQL para obtener los registro de la entidad
         // Producto que tenga el mismo isbn recibido para el nuevo registro.
         String jpqlQuery = """
-                        SELECT i FROM Producto i
-                        WHERE i.isbn = :isbn
+                        SELECT p FROM Producto p
+                        WHERE p.isbn = :isbn
                         """;
         
         // Se crea el objeto Query con la consulta
@@ -104,7 +104,7 @@ public class ProductosDAO implements IProductosDAO{
         // Se inicia una transacción para registrar el nuevo Producto.
         entityManager.getTransaction().begin();
         
-        // Se persiste el nuevo Ingrediente y finaliza la transacción.
+        // Se persiste el nuevo Producto y finaliza la transacción.
         entityManager.persist(nuevoProducto);
         
         entityManager.getTransaction().commit();
@@ -137,24 +137,24 @@ public class ProductosDAO implements IProductosDAO{
         CriteriaBuilder criteraBuilder = entityManager.getCriteriaBuilder();
         
         // Se crea el objeto CriteriaQuery<Producto>, representa la consulta que 
-        // devolverá el objeto de tipo Ingrediente.
+        // devolverá el objeto de tipo Producto.
         CriteriaQuery<Producto> criteriaQuery = criteraBuilder.createQuery(Producto.class);
 
         // Se obtiene la entidad desde la que se obtendrán los
         // resultados de la consulta.
-        Root<Producto> entidadIngrediente = criteriaQuery.from(Producto.class);
+        Root<Producto> entidadProducto = criteriaQuery.from(Producto.class);
 
         // Se seleccionan todos los atributos de la entidad Producto,
         // luego se obtienen solo los que tiene el valor del id del parámetro
         // como valor de su atributo id.
-        criteriaQuery.select(entidadIngrediente).where(criteraBuilder.equal(entidadIngrediente.get("id"), idProducto));
+        criteriaQuery.select(entidadProducto).where(criteraBuilder.equal(entidadProducto.get("id"), idProducto));
 
         // Se crea el objeto TypedQuery<Producto>, representa la consulta ejecutable.
         TypedQuery<Producto> query = entityManager.createQuery(criteriaQuery);
         
         // Estructura try-catch para manejar la excepción NoResultException.
         try{
-            // Se devuelve el objeto Ingrediente coincidente.
+            // Se devuelve el objeto Producto coincidente.
             return query.getSingleResult();
             
         } catch(NoResultException ex){
@@ -310,11 +310,11 @@ public class ProductosDAO implements IProductosDAO{
             queryValidarId.getSingleResult();
             
         } catch(NoResultException ex){
-            // Se lanza una excepción en caso de que el objeto Ingrediente no exista
+            // Se lanza una excepción en caso de que el objeto Producto no exista
             throw new PersistenciaException("No existe un producto con el Id especificado.");
         }
 
-        // Se determina si existe otro ingrediente con el mismo isbn 
+        // Se determina si existe otro producto con el mismo isbn 
         // Se añade la condición de que se distinto al id del Producto del parámetro para no 
         // considerar al objeto Producto a actualizar.
         String jpqlQuery = """
