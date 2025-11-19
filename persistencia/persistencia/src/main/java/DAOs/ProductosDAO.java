@@ -77,39 +77,50 @@ public class ProductosDAO implements IProductosDAO{
             throw new PersistenciaException("El producto que se intentó registrar no tiene formato.");
         }
         
-        // Se crea el objeto EntityManger
+        // Se crea el objeto EntityManger.
         EntityManager entityManager = ManejadorConexiones.getEntityManager();
         
-        // Se crea la consulta JPQL para obtener los registro de la entidad
-        // Producto que tenga el mismo isbn recibido para el nuevo registro.
-        String jpqlQuery = """
-                        SELECT p FROM Producto p
-                        WHERE p.isbn = :isbn
-                        """;
-        
-        // Se crea el objeto Query con la consulta
-        Query query = entityManager.createQuery(jpqlQuery);
-        
-        // Se establecen el parámetro de isbn para la consulta.
-        query.setParameter("isbn", nuevoProducto.getIsbn());
-        
-        // Se obtiene la cantidad de Productos obtenidos.
-        int cantidadProductosMismoIsbn = query.getResultList().size();
-        
-        // Si la cantidad de productos es mayor a 0, se lanza una excepción.
-        if(cantidadProductosMismoIsbn > 0){
-            throw new PersistenciaException("Ya existe un producto con el mismo isbn.");
+        try {
+            // Se crea la consulta JPQL para obtener los registro de la entidad
+            // Producto que tenga el mismo isbn recibido para el nuevo registro.
+            String jpqlQuery = """
+                                SELECT p FROM Producto p
+                                WHERE p.isbn = :isbn
+                                """;
+
+            // Se crea el objeto Query con la consulta
+            Query query = entityManager.createQuery(jpqlQuery);
+
+            // Se establecen el parámetro de isbn para la consulta.
+            query.setParameter("isbn", nuevoProducto.getIsbn());
+
+            // Se obtiene la cantidad de Productos obtenidos.
+            int cantidadProductosMismoIsbn = query.getResultList().size();
+
+            // Si la cantidad de productos es mayor a 0, se lanza una excepción.
+            if(cantidadProductosMismoIsbn > 0){
+                throw new PersistenciaException("Ya existe un producto con el mismo isbn.");
+            }
+
+            // Se inicia una transacción para registrar el nuevo Producto.
+            entityManager.getTransaction().begin();
+
+            // Se persiste el nuevo Producto y finaliza la transacción.
+            entityManager.persist(nuevoProducto);
+
+            entityManager.getTransaction().commit();
+
+            return nuevoProducto;
+
+        } catch (PersistenceException e) {
+
+            // Se maneja la excepción, asegurando rollback en caso de fallo.
+            if (entityManager.getTransaction().isActive()) {
+                entityManager.getTransaction().rollback();
+            }
+            // Se relanza la excepción.
+            throw new PersistenciaException("Error al registrar el producto.");
         }
-        
-        // Se inicia una transacción para registrar el nuevo Producto.
-        entityManager.getTransaction().begin();
-        
-        // Se persiste el nuevo Producto y finaliza la transacción.
-        entityManager.persist(nuevoProducto);
-        
-        entityManager.getTransaction().commit();
-        
-        return nuevoProducto;
     } 
     
     /**
@@ -263,6 +274,11 @@ public class ProductosDAO implements IProductosDAO{
     @Override
     public void actualizarProducto(Producto productoActualizado) throws PersistenciaException{
         
+        // Se valida que el id no sea nulo.
+        if(productoActualizado.getId() == null){
+            throw new PersistenciaException("El Id recibido para la actualización del producto es nulo.");
+        }
+        
         // Se valida que el isbn no sea nulo.
         if(productoActualizado.getIsbn() == null){
             throw new PersistenciaException("El ISBN recibido para la actualización del producto es nulo.");
@@ -292,83 +308,74 @@ public class ProductosDAO implements IProductosDAO{
         // Se crea el objeto EntityManager
         EntityManager entityManager = ManejadorConexiones.getEntityManager();
         
-        // Se comprueba que el Producto exista
-        String jpqlQueryValidarId = """
-                        SELECT p FROM Producto p
-                        WHERE p.id = :id
-                        """;
-        
-        // Se crea el objeto TypedQuery<Producto>, es la consulta ejecutable, devolverá objetos de tipo Producto.
-        TypedQuery<Producto> queryValidarId = entityManager.createQuery(jpqlQueryValidarId, Producto.class);
-        
-        // Se establece el valor de id del parámetro a la consulta
-        queryValidarId.setParameter("id", productoActualizado.getId());
-        
-        // Estructura try catch para determinar si se lanza la excepción NoResultException
-        try{
-            // Se obtiene el resultado de la consulta
-            queryValidarId.getSingleResult();
-            
-        } catch(NoResultException ex){
-            // Se lanza una excepción en caso de que el objeto Producto no exista
-            throw new PersistenciaException("No existe un producto con el Id especificado.");
-        }
+        // Se inicia el bloque try-catch para manejar las excepciones de persistencia.
+        try {
+            // Se inicia una transacción para realizar la actualización del Producto.
+            entityManager.getTransaction().begin();
 
-        // Se determina si existe otro producto con el mismo isbn 
-        // Se añade la condición de que se distinto al id del Producto del parámetro para no 
-        // considerar al objeto Producto a actualizar.
-        String jpqlQuery = """
-                        SELECT p FROM Producto p
-                        WHERE p.isbn = :isbn
-                        AND p.id != :id
-                        """;
-        
-        // Se crea una consulta Query
-        Query query = entityManager.createQuery(jpqlQuery);
-        
-        // Se establecen los parámetros de isbn y id para la consulta
-        query.setParameter("isbn", productoActualizado.getIsbn());
-        query.setParameter("id", productoActualizado.getId());
-        
-        // Se obtienen la cantidad de Productos resultantes de la consulta
-        int cantidadProductosMismoIsbn = query.getResultList().size();
-        
-        // Se verifica si hay otros Productos con el mismo ISBN
-        if(cantidadProductosMismoIsbn > 0){
-            // Se lanza una excepción en caso de que sí existan
-            throw new PersistenciaException("Ya existe un Producto con el mismo ISBN.");
-        }
-        
-        // Se inicia una transacción para realiar la actualización del Producto
-        entityManager.getTransaction().begin();
+            // Se comprueba que el Producto exista
+            String jpqlQueryValidarId = """
+                                         SELECT p FROM Producto p
+                                         WHERE p.id = :id
+                                         """;
  
-        // Se crea el objeto CriteriaBuilder
-        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+            // Se crea el objeto TypedQuery<Producto>, es la consulta ejecutable.
+            TypedQuery<Producto> queryValidarId = entityManager.createQuery(jpqlQueryValidarId, Producto.class);
 
-        // Se crear la consulta CriteriaUpdate, actualizará objetos de
-        // tipo Producto.
-        CriteriaUpdate<Producto> criteriaUpdate = criteriaBuilder.createCriteriaUpdate(Producto.class);
+            // Se establece el valor de id del parámetro a la consulta
+            queryValidarId.setParameter("id", productoActualizado.getId());
 
-        // Se obtiene la entidad de donde se actulizarán los objetos, en este caso
-        // Producto.
-        Root<Producto> root = criteriaUpdate.from(Producto.class);
+            // Estructura try catch para determinar si se lanza la excepción NoResultException
+            try{
+                // Se obtiene el resultado de la consulta
+                queryValidarId.getSingleResult();
 
-        // Se etablecen los nuevos valores del producto en la consulta criteriaUpdate
-        criteriaUpdate.set("isbn", productoActualizado.getIsbn());
-        criteriaUpdate.set("precio", productoActualizado.getPrecio());
-        criteriaUpdate.set("stock", productoActualizado.getStock());
-        criteriaUpdate.set("url_imagen", productoActualizado.getUrlImagen());
-        criteriaUpdate.set("formato", productoActualizado.getFormato());
-        criteriaUpdate.set("no_paginas", productoActualizado.getNumeroPaginas());
-        
-        // Se define que se actualizará sólo el Producto que tenga el mismo valor de id que el recibido
-        criteriaUpdate.where(criteriaBuilder.equal(root.get("id"), productoActualizado.getId()));
+            } catch(NoResultException ex){
+                // Se lanza una excepción en caso de que el objeto Producto no exista
+                throw new PersistenciaException("No existe un producto con el Id especificado.");
+            }
 
-        // Se crea la consulta ejecutable y es ejecutada.
-        entityManager.createQuery(criteriaUpdate).executeUpdate();
+            // Se determina si existe otro producto con el mismo isbn 
+            // Se añade la condición de que sea distinto al id del Producto del parámetro para no 
+            // considerar al objeto Producto a actualizar.
+            String jpqlQuery = """
+                                SELECT p FROM Producto p
+                                WHERE p.isbn = :isbn
+                                AND p.id != :id
+                                """;
 
-        // La transacción finaliza.
-        entityManager.getTransaction().commit();
+            // Se crea una consulta Query
+            Query query = entityManager.createQuery(jpqlQuery);
+
+            // Se establecen los parámetros de isbn y id para la consulta
+            query.setParameter("isbn", productoActualizado.getIsbn());
+            query.setParameter("id", productoActualizado.getId());
+
+            // Se obtienen la cantidad de Productos resultantes de la consulta
+            int cantidadProductosMismoIsbn = query.getResultList().size();
+
+            // Se verifica si hay otros Productos con el mismo ISBN
+            if(cantidadProductosMismoIsbn > 0){
+                // Se lanza una excepción en caso de que sí existan
+                throw new PersistenciaException("Ya existe un Producto con el mismo ISBN.");
+            }
+
+            // Se actualiza la entidad con el método merge() de EntityManager,
+            // que es el método estándar para actualizar entidades.
+            entityManager.merge(productoActualizado);
+
+            // La transacción finaliza.
+            entityManager.getTransaction().commit();
+
+        } catch (PersistenceException ex) {
+
+            // Se maneja la excepción, asegurando rollback en caso de fallo.
+            if (entityManager.getTransaction().isActive()) {
+                entityManager.getTransaction().rollback();
+            }
+            // Se relanza la excepción.
+            throw new PersistenciaException("Error al actualizar el producto.");
+        }
         
     }
     

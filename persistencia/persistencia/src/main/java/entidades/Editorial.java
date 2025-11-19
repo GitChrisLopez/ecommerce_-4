@@ -32,7 +32,7 @@ public class Editorial {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column (name = "id_editorial")
-    private long id;
+    private Long id;
     
     /**
      * Objeto String que representa el nombre de la Editorial.
@@ -61,7 +61,7 @@ public class Editorial {
      * Permite obetner el Id de la Editorial.
      * @return Dato Long que representa el Id de la Editorial.
      */
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
@@ -69,7 +69,7 @@ public class Editorial {
      * Permite establecer el Id de la Editorial.
      * @param id Dato Long que representa el Id de la Editorial.
      */
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

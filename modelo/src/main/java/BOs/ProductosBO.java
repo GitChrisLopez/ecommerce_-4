@@ -8,6 +8,7 @@ import dominio.FormatoDTO;
 import dominio.ProductoDTO;
 import excepciones.NegocioException;
 import excepciones.PersistenciaException;
+import java.math.BigDecimal;
 import java.util.List;
 import mappers.MapperCategoria;
 import mappers.MapperFormato;
@@ -15,9 +16,9 @@ import mappers.MapperProducto;
 
 /**
  *
- * Archivo: ProductosBO
+ * Archivo: ProductosBO.java
  * 
- * Clase que implementa la iterfaz {@literal IProductosBO} y que realiza operaciones
+ * Clase que implementa la iterfaz {@link IProductosBO} y que realiza operaciones
  * de negocio sobre productos.
  * 
  * @author Romo López Manuel
@@ -70,14 +71,29 @@ public class ProductosBO implements IProductosBO{
             throw new NegocioException("El producto debe tener un número de páginas.");
         }
         
+        // Se valida que el número de páginas no sea 0 o negativo.
+        if(nuevoProducto.getNumeroPaginas() <= 0){
+            throw new NegocioException("El número de páginas debe ser un número positivo.");
+        }
+        
         // Se valida que el precio no sea nulo.
         if(nuevoProducto.getPrecio() == null){
             throw new NegocioException("El producto debe tener un precio.");
         }
         
+        // Se valida que el precio no sea negativo.
+        if(nuevoProducto.getPrecio().compareTo(BigDecimal.ZERO) < 0){
+            throw new NegocioException("El precio no puede ser un número negativo.");
+        }
+        
         // Se valida que el stock no sea nulo.
-        if(nuevoProducto.getPrecio() == null){
-            throw new NegocioException("El producto debe tener stock");
+        if(nuevoProducto.getStock()== null){
+            throw new NegocioException("El producto debe tener stock.");
+        }
+        
+        // Se valida que el stock no sea negativo.
+        if(nuevoProducto.getStock() < 0){
+            throw new NegocioException("El stock no puede ser un número negativo.");
         }
         
         
@@ -103,6 +119,7 @@ public class ProductosBO implements IProductosBO{
     @Override
     public ProductoDTO consultarProducto(Long idProducto) throws NegocioException{
         
+        // Se valida el Id del producto.
         if(idProducto == null){
             throw new NegocioException("El Id del producto a consultar no puede ser nulo.");
         }
@@ -169,6 +186,11 @@ public class ProductosBO implements IProductosBO{
     @Override
     public void actualizarProducto(ProductoDTO productoActualizado) throws NegocioException{  
         
+        // Se valida que el Id no sea nulo.
+        if(productoActualizado.getId() == null){
+            throw new NegocioException("El producto actualizado debe tener un Id.");
+        }
+        
         // Se valida que el Libro no sea nulo.
         if(productoActualizado.getLibro() == null){
             throw new NegocioException("El producto actualizado debe ser de un Libro.");
@@ -184,14 +206,29 @@ public class ProductosBO implements IProductosBO{
             throw new NegocioException("El producto actualizado debe tener un número de páginas.");
         }
         
+        // Se valida que el número de páginas no sea 0 o negativo.
+        if(productoActualizado.getNumeroPaginas() <= 0){
+            throw new NegocioException("El número de páginas debe ser un número positivo.");
+        }
+        
         // Se valida que el precio no sea nulo.
         if(productoActualizado.getPrecio() == null){
             throw new NegocioException("El producto actualizado debe tener un precio.");
         }
         
+        // Se valida que el precio no sea negativo.
+        if(productoActualizado.getPrecio().compareTo(BigDecimal.ZERO) < 0){
+            throw new NegocioException("El precio no puede ser un número negativo.");
+        }
+        
         // Se valida que el stock no sea nulo.
-        if(productoActualizado.getPrecio() == null){
+        if(productoActualizado.getStock()== null){
             throw new NegocioException("El producto actualizado debe tener stock");
+        }
+        
+        // Se valida que el stock no sea negativo.
+        if(productoActualizado.getStock() < 0){
+            throw new NegocioException("El stock no puede ser un número negativo.");
         }
         
         

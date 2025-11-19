@@ -19,7 +19,7 @@ public class EditorialDTO {
     /**
      * Dato Long que representa el Id de la editorial.
      */
-    private long id;
+    private Long id;
     
     /**
      * Objeto String que representa el nombre de la Editorial.
@@ -38,7 +38,7 @@ public class EditorialDTO {
      * @param id Dato Long que representa el Id de la Editorial.
      * @param nombre Objeto String que representa el nombre de la Editorial.
      */
-    public EditorialDTO(long id, String nombre) {
+    public EditorialDTO(Long id, String nombre) {
         this.id = id;
         this.nombre = nombre;
     }
@@ -47,7 +47,7 @@ public class EditorialDTO {
      * Permite obetner el Id de la Editorial.
      * @return Dato Long que representa el Id de la Editorial.
      */
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
@@ -55,7 +55,7 @@ public class EditorialDTO {
      * Permite establecer el Id de la Editorial.
      * @param id Dato Long que representa el Id de la Editorial.
      */
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
