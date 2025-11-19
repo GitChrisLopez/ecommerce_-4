@@ -15,50 +15,54 @@ import javax.persistence.Persistence;
  * 
  */
 public class ManejadorConexiones {
-    private static boolean conexionTest = true;
+
+    private static EntityManagerFactory emFactory;
     
-    public static void setConexionTest(boolean conexionTestActiva){
-        conexionTest = conexionTestActiva;
-    }
-    
-    public static EntityManager getEntityManager(){
-        
-        
-        EntityManagerFactory emFactory;
-      
+    private static boolean conexionTest = true; 
+
+    private static void inicializarFactory() {
         Properties propiedades = new Properties();
-            try (InputStream inputStream = ManejadorConexiones.class.getClassLoader().getResourceAsStream("META-INF/properties.txt")) {
-                propiedades.load(inputStream);
-            } catch (IOException ex) {
-                ex.printStackTrace();
+        
+        try (InputStream inputStream = ManejadorConexiones.class.getClassLoader().getResourceAsStream("META-INF/properties.txt")) {
+            if (inputStream == null) {
+                throw new RuntimeException("No se encontró el archivo META-INF/properties.txt");
             }
+            propiedades.load(inputStream);
+        } catch (IOException ex) {
+            throw new RuntimeException("Error al cargar configuración de base de datos", ex);
+        }
 
-            Properties equipo04_ecommerce_up_prop = new Properties();
-            Properties equipo04_ecommerce_up_tests_prop = new Properties();
+        Properties propiedadesFiltradas = new Properties();
+        String prefijo;
+        String nombreUnidad;
 
-            for (String key : propiedades.stringPropertyNames()) {
-                if (key.startsWith("equipo04_ecommerce_persistencia_jar_1.0PU.")) {
-                   
-                    String keyPropiedad = key.substring("equipo04_ecommerce_persistencia_jar_1.0PU.".length());
-                    equipo04_ecommerce_up_prop.put(keyPropiedad, propiedades.getProperty(key));
-                    
-                } else if (key.startsWith("equipo04_ecommerce_persistencia_jar_1.0PU_Tests.")) {
-                    String propKey = key.substring("equipo04_ecommerce_persistencia_jar_1.0PU_Tests.".length());
-                    equipo04_ecommerce_up_tests_prop.put(propKey, propiedades.getProperty(key));
-                }
+        
+        if (conexionTest) {
+            prefijo = "equipo04_ecommerce_persistencia_jar_1.0PU_Tests.";
+            nombreUnidad = "equipo04_ecommerce_persistencia_jar_1.0PU_Tests";
+        } else {
+            prefijo = "equipo04_ecommerce_persistencia_jar_1.0PU.";
+            nombreUnidad = "equipo04_ecommerce_persistencia_jar_1.0PU";
+        }
+
+        for (String key : propiedades.stringPropertyNames()) {
+            if (key.startsWith(prefijo)) {
+                String keyPropiedad = key.substring(prefijo.length());
+                propiedadesFiltradas.put(keyPropiedad, propiedades.getProperty(key));
             }
-            
-        if(conexionTest){
-            
-            emFactory = Persistence.createEntityManagerFactory("equipo04_ecommerce_persistencia_jar_1.0PU_Tests", 
-                    equipo04_ecommerce_up_tests_prop);
-        } else{
-            emFactory = Persistence.createEntityManagerFactory("equipo04_ecommerce_persistencia_jar_1.0PU", 
-                    equipo04_ecommerce_up_prop);
+        }
+
+
+        emFactory = Persistence.createEntityManagerFactory(nombreUnidad, propiedadesFiltradas);
+    }
+
+    public static EntityManager getEntityManager() {
+
+        if (emFactory == null || !emFactory.isOpen()) {
+            inicializarFactory();
         }
         
-        EntityManager entityManager = emFactory.createEntityManager();
-        
-        return entityManager;
+        return emFactory.createEntityManager();
     }
+    
 }
