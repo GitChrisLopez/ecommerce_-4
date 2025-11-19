@@ -24,9 +24,9 @@ public class ProductoPedidoDTO {
     private Long id;
 
     /**
-     * Objeto Producto que representa el producto de ProductoPedido.
+     * Objeto ProductoDTO que representa el producto de ProductoPedido.
      */
-    private Producto producto;
+    private ProductoDTO producto;
 
     /**
      * Objeto Pedido que representa el pedido en el que esta ProductoPedido.
@@ -58,7 +58,7 @@ public class ProductoPedidoDTO {
      * @param cantidad cantidad del productoPedido
      * @param precioUnitario precio unitario del productoPedido
      */
-    public ProductoPedidoDTO(Long id, Producto producto, PedidoDTO pedido, Integer cantidad, BigDecimal precioUnitario) {
+    public ProductoPedidoDTO(Long id, ProductoDTO producto, PedidoDTO pedido, Integer cantidad, BigDecimal precioUnitario) {
         this.id = id;
         this.producto = producto;
         this.pedido = pedido;
@@ -85,20 +85,20 @@ public class ProductoPedidoDTO {
     }
 
     /**
-     * Obtiene el Producto asociado a este producto del pedido.
+     * Obtiene el ProductoDTO asociado a este producto del pedido.
      *
      * @return El producto referenciado.
      */
-    public Producto getProducto() {
+    public ProductoDTO getProducto() {
         return producto;
     }
 
     /**
-     * Establece el Producto asociado a este producto del pedido.
+     * Establece el ProductoDTO asociado a este producto del pedido.
      *
      * @param producto El nuevo producto referenciado.
      */
-    public void setProducto(Producto producto) {
+    public void setProducto(ProductoDTO producto) {
         this.producto = producto;
     }
 

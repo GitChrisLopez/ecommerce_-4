@@ -1,3 +1,11 @@
+<%-- 
+    Document   : admin-menu-administrador
+    Created on : 18 nov 2025, 17:20:51
+    Author     : romom
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <!DOCTYPE html>
 <html>
 

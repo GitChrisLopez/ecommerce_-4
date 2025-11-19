@@ -15,9 +15,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
- * Archivo: Producto.java
- * 
- * Clase que representa un Producto dentro del catalogo del sistema de comercio.
+ * Archivo: ProductoDTO.java
+ 
+ Clase que representa un ProductoDTO dentro del catalogo del sistema de comercio.
  * 
  * @author Norma Alicia Beltrán Martín - 252102
  * @author Oscar Adrián Castán López - 260318
@@ -27,64 +27,64 @@ import javax.persistence.Table;
  * Fecha: 15/11/2025
  */
 
-public class Producto {
+public class ProductoDTO {
     
     /**
-     * Objeto Long que representa el Id del Producto.
+     * Objeto Long que representa el Id del ProductoDTO.
      */
     private Long id;
 
     /**
-     * Objeto Integer que representa el número de páginas del Producto.
+     * Objeto Integer que representa el número de páginas del ProductoDTO.
      */
     private Integer numeroPaginas;
 
     /**
-     * Objeto String que representa el ISBN (International Standard Book Number) del Producto.
+     * Objeto String que representa el ISBN (International Standard Book Number) del ProductoDTO.
      */
     private String isbn;
 
     /**
-     * Objeto String que representa la url de la imagen del Producto.
+     * Objeto String que representa la url de la imagen del ProductoDTO.
      */
     private String urlImagen;
     
     /**
-     * Enumerador Formato que determina el formato del Producto.
+     * Enumerador Formato que determina el formato del ProductoDTO.
      */
     private FormatoDTO formato;
     
     /**
-     * Objeto Integer que representa el stock Producto actual.
+     * Objeto Integer que representa el stock ProductoDTO actual.
      */
     private Integer stock = 0;
     
     /**
-     * Objeto BigDecimal que representa el precio del Producto.
+     * Objeto BigDecimal que representa el precio del ProductoDTO.
      */
     private BigDecimal precio; 
 
     /**
-     * Objeto Libro que representa el Libro que representa el Producto.
+     * Objeto Libro que representa el Libro que representa el ProductoDTO.
      */
     private LibroDTO libro;
 
     /**
      * Objeto List<ProductoCarrito> que representa los productosCarrito que
-     * hacen referencia a este Producto.
+ hacen referencia a este ProductoDTO.
      */
     private List<ProductoCarrito> productosCarrito;
 
     /**
      * Objeto List<ProductoPedido> que representa los productosPedido que hacen
-     * referencia a este Producto.
+ referencia a este ProductoDTO.
      */
     private List<ProductoPedidoDTO> productosPedido;
 
     /**
      * Constructor por defecto.
      */
-    public Producto() {
+    public ProductoDTO() {
     }
 
     /**
@@ -99,7 +99,7 @@ public class Producto {
      * @param productosCarrito 
      * @param productosPedido 
      */
-    public Producto(
+    public ProductoDTO(
             Long id,
             Integer numeroPaginas,
             String isbn,
