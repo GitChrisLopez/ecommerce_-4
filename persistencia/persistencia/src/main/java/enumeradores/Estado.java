@@ -25,5 +25,9 @@ public enum Estado {
     /**
      * Pedido que fue entregado al Cliente.
      */
-    ENTREGADO
+    ENTREGADO,
+    /**
+     * Pedido que fue cancelado.
+     */
+    CANCELADO
 }

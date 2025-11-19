@@ -7,7 +7,6 @@ import java.math.BigDecimal;
  *
  * @author Norma Alicia Beltrán Martín - 252102
  */
-
 public class ProductoPedidoDTO {
 
     /**
@@ -21,9 +20,9 @@ public class ProductoPedidoDTO {
     private ProductoDTO producto;
 
     /**
-     * Objeto Pedido que representa el pedido en el que esta ProductoPedido.
+     * ID del Pedido al que pertenece el producto.
      */
-    private PedidoDTO pedido;
+    private Long idPedido;
 
     /**
      * Cantidad de ProductoPedido.
@@ -50,10 +49,10 @@ public class ProductoPedidoDTO {
      * @param cantidad cantidad del productoPedido
      * @param precioUnitario precio unitario del productoPedido
      */
-    public ProductoPedidoDTO(Long id, ProductoDTO producto, PedidoDTO pedido, Integer cantidad, BigDecimal precioUnitario) {
+    public ProductoPedidoDTO(Long id, ProductoDTO producto, Long pedido, Integer cantidad, BigDecimal precioUnitario) {
         this.id = id;
         this.producto = producto;
-        this.pedido = pedido;
+        this.idPedido = pedido;
         this.cantidad = cantidad;
         this.precioUnitario = precioUnitario;
     }
@@ -95,21 +94,21 @@ public class ProductoPedidoDTO {
     }
 
     /**
-     * Obtiene el Pedido a la que pertenece este productoPedido.
+     * Obtiene el ID del Pedido al que pertenece este productoPedido.
      *
-     * @return El pedido contenedor.
+     * @return El ID del pedido.
      */
-    public PedidoDTO getPedido() {
-        return pedido;
+    public Long getIdPedido() { 
+        return idPedido;
     }
 
     /**
-     * Establece el Pedido a la que pertenece este productoPedido.
+     * Establece el ID del Pedido al que pertenece este productoPedido.
      *
-     * @param pedido El nuevo pedido contenedor.
+     * @param idPedido El nuevo ID del pedido.
      */
-    public void setPedido(PedidoDTO pedido) {
-        this.pedido = pedido;
+    public void setIdPedido(Long idPedido) { 
+        this.idPedido = idPedido;
     }
 
     /**

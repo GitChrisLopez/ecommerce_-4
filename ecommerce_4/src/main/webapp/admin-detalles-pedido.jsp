@@ -5,7 +5,6 @@
 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
-<%-- Se eliminó el taglib de fmt --%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -97,8 +96,8 @@
                                         <br>
                                     </c:forEach>
                                     
-                                    <p>---</p>
                                     <p><span>TOTAL:</span> <strong>$${pedido.total} MXN</strong></p>
+                                    
                                 </div>
 
                             </div>

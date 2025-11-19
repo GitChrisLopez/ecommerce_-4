@@ -1,6 +1,7 @@
 package mappers;
 
 import dominio.ProductoPedidoDTO;
+import entidades.Pedido;
 import entidades.ProductoPedido;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -30,7 +31,9 @@ public class MapperProductoPedido {
         dto.setPrecioUnitario(entity.getPrecioUnitario());
 
         dto.setProducto(MapperProducto.toDto(entity.getProducto()));
-        dto.setPedido(MapperPedido.toDto(entity.getPedido()));
+        if (entity.getPedido() != null) {
+            dto.setIdPedido(entity.getPedido().getId());
+        }
 
         return dto;
     }
@@ -68,7 +71,11 @@ public class MapperProductoPedido {
         entity.setPrecioUnitario(dto.getPrecioUnitario());
 
         entity.setProducto(MapperProducto.toEntity(dto.getProducto()));
-        entity.setPedido(MapperPedido.toEntity(dto.getPedido()));
+        if (dto.getIdPedido() != null) {
+            Pedido pedido = new Pedido();
+            pedido.setId(dto.getIdPedido());
+            entity.setPedido(pedido);
+        }
 
         return entity;
     }

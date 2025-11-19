@@ -41,22 +41,50 @@ public class PedidoBO {
             throw new NegocioException("El estado no puede estar vacío.");
         }
 
+        Estado nuevoEstado = MapperEstado.toEntity(estado);
+
         try {
-            boolean exito = pedidoDAO.actualizarPedidoo(idPedido, MapperEstado.toEntity(estado));
+            Pedido pedidoActual = pedidoDAO.obtenerPedido(idPedido);
+
+            if (pedidoActual == null) {
+                throw new NegocioException("El pedido con ID " + idPedido + " no existe.");
+            }
+
+            Estado estadoActual = pedidoActual.getEstado();
+
+            if (estadoActual == Estado.CANCELADO
+                    || estadoActual == Estado.ENVIADO
+                    || estadoActual == Estado.ENTREGADO) {
+
+                throw new NegocioException("No se puede modificar el estado de un pedido que ya está en estado no modificable: " + estadoActual.toString());
+            }
+
+            if (nuevoEstado == Estado.CANCELADO) {
+                if (estadoActual != Estado.PENDIENTE) {
+                    throw new NegocioException("Solo se puede cancelar un pedido PENDIENTE");
+                }
+            }
+
+            if (nuevoEstado == Estado.ENVIADO && estadoActual != Estado.PENDIENTE) {
+                throw new NegocioException("Un pedido solo puede ser ENVIADO si antes estaba PENDIENTE.");
+            }
+            boolean exito = pedidoDAO.actualizarPedidoo(idPedido, nuevoEstado);
 
             if (!exito) {
-                throw new NegocioException("El pedio con ID " + idPedido + " no existe o no se pudo actualizar.");
+                throw new NegocioException("El pedido con ID " + idPedido + " no se pudo actualizar.");
             }
 
         } catch (PersistenciaException ex) {
             throw new NegocioException("Error en la capa de persistencia al actualizar el estado.", ex);
+        } catch (NegocioException ex) {
+            throw ex;
         } catch (Exception ex) {
             throw new NegocioException("Error inesperado al actualizar el estado.", ex);
         }
     }
 
     /**
-     * Obtiene todos los pedidos. 
+     * Obtiene todos los pedidos.
      *
      * @return Lista de pedidos.
      * @throws PersistenciaException si ocurre un error en la capa de

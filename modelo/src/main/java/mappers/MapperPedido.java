@@ -32,7 +32,7 @@ public class MapperPedido {
         dto.setEstado(MapperEstado.toDto(entity.getEstado()));
 
         dto.setTotal(entity.getTotal()); 
-//        dto.setProductosPedido(MapperProductoPedido.toDtoList(entity.getProductosPedido())); 
+        dto.setProductosPedido(MapperProductoPedido.toDtoList(entity.getProductosPedido())); 
 
         dto.setDireccionEnvio(MapperDireccion.toDto(entity.getDireccionEnvio()));
         dto.setMetodoPago(MapperMetodoPago.toDto(entity.getMetodoPago()));
@@ -72,7 +72,7 @@ public class MapperPedido {
         entity.setEstado(MapperEstado.toEntity(dto.getEstado()));
 
         entity.setTotal(dto.getTotal()); 
-//        entity.setProductosPedido(MapperProductoPedido.toEntityList(dto.getProductosPedido())); 
+        entity.setProductosPedido(MapperProductoPedido.toEntityList(dto.getProductosPedido())); 
 
         entity.setDireccionEnvio(MapperDireccion.toEntity(dto.getDireccionEnvio()));
         entity.setMetodoPago(MapperMetodoPago.toEntity(dto.getMetodoPago()));
