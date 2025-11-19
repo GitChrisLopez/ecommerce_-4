@@ -179,10 +179,15 @@ public class ProductosDAO implements IProductosDAO{
      * Implementación del método consultarProductosConFiltros(), de la interfaz {@link IProductosDAO},
      * permite obtener la lista de objetos Producto alamcenados en la base de datos. Dados los filtros
      * de los parámetros.
+     * @param categorias
+     * @param formatos
+     * @param precioMinimo
+     * @param precioMaximo
      * @return Objeto {@literal List<Producto>} que contiene la lista de 
-     * ojbetos Producto almacenados, que cumplen con los filtros de los parámetros.
+     * objetos Producto almacenados, que cumplen con los filtros de los parámetros.
      * @throws PersistenciaException Se lanza si ocurre un error en la consulta.
      */
+    @Override
     public List<Producto> consultarProductosConFiltros(
         List<Categoria> categorias, 
         List<Formato> formatos, 
@@ -210,7 +215,7 @@ public class ProductosDAO implements IProductosDAO{
         Join<Producto, Libro> joinLibro = entidadProducto.join("libro", JoinType.INNER); 
         
         //Se realiza un Join con Categoria.
-        Join<Libro, Categoria> joinCategoria = joinLibro.join("categoria", JoinType.INNER); 
+        Join<Libro, Categoria> joinCategoria = joinLibro.join("categorias", JoinType.INNER); 
 
         // Predicado para categorías.
         if (categorias != null && !categorias.isEmpty()) {
@@ -243,8 +248,8 @@ public class ProductosDAO implements IProductosDAO{
             criteriaQuery.where(criteriaBuilder.and(predicados.toArray(new Predicate[0])));
         }
 
-        // Los resultados se ordenarán por nombre de libro.
-        criteriaQuery.orderBy(criteriaBuilder.asc(joinLibro.get("nombre")));
+        // Los resultados se ordenarán por título de libro.
+        criteriaQuery.orderBy(criteriaBuilder.asc(joinLibro.get("titulo")));
 
         // Se crea el objeto TypedQuery<Producto>, es la consulta ejecutable
         TypedQuery<Producto> query = entityManager.createQuery(criteriaQuery);

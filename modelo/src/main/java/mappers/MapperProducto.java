@@ -28,9 +28,10 @@ public class MapperProducto {
         dto.setPrecio(entity.getPrecio());
         dto.setFormato(MapperFormato.toDto(entity.getFormato()));
         dto.setNumeroPaginas(entity.getNumeroPaginas());
-        if (entity.getLibro() != null) {
-            dto.setLibro(MapperLibro.toDto(entity.getLibro()));
-        }
+        dto.setUrlImagen(entity.getUrlImagen());
+        dto.setStock(entity.getStock());
+        dto.setLibro(MapperLibro.toDto(entity.getLibro()));
+
         return dto;
     }
 
@@ -64,10 +65,9 @@ public class MapperProducto {
         entity.setPrecio(dto.getPrecio());
         entity.setFormato(MapperFormato.toEntity(dto.getFormato()));
         entity.setNumeroPaginas(dto.getNumeroPaginas());
-        if (dto.getLibro() != null) {
-            entity.setLibro(MapperLibro.toEntity(dto.getLibro()));
-        }
-
+        entity.setStock(dto.getStock());
+        entity.setUrlImagen(dto.getUrlImagen());
+        entity.setLibro(MapperLibro.toEntity(dto.getLibro()));
         return entity;
     }
 

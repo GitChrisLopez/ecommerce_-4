@@ -61,6 +61,11 @@ public class MapperCategoria {
      * @return La lista de entidades Categoria.
      */
     public static List<Categoria> toEntityList(List<CategoriaDTO> dtoList) {
+        
+        if(dtoList == null){
+            return null;
+        }
+        
         return dtoList.stream()
                       .map(MapperCategoria::toEntity)
                       .collect(Collectors.toList());

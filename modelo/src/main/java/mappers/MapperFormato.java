@@ -56,6 +56,11 @@ public class MapperFormato {
      * @return La lista de Enum Formato.
      */
     public static List<Formato> toEntityList(List<FormatoDTO> dtoList) {
+        
+        if(dtoList == null){
+            return null;
+        }
+        
         return dtoList.stream()
                       .map(MapperFormato::toEntity)
                       .collect(Collectors.toList());

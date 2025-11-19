@@ -39,6 +39,7 @@ main{
     grid-template-columns: 1fr 1fr;
     gap: 15px; 
     padding: 20px;
+    row-gap: 50px;
     justify-items: center;
 }
 
@@ -57,17 +58,7 @@ main{
     border: 1px solid black;
 }
 
-button:hover {
-    cursor: pointer;
-    background-color:var(--bg-color-hover-selection);
-}
-
 .options-product{
-    display: none;
-}
-
-
-button:hover > .options-product{
     cursor:pointer;
     display: flex;
     background-color: var(--bg-color-container-options-product);
@@ -76,7 +67,7 @@ button:hover > .options-product{
     border-radius: 15px;
     row-gap: 10px;
     position: absolute;
-    bottom:0;
+    bottom:-40px;
     width: 100%;
     box-sizing: border-box;
 }
@@ -84,12 +75,13 @@ button:hover > .options-product{
 .options-product a{
     background-color: var(--bg-color-container-option-product);
     border-radius: 10px;
-    font-weight: 600;
     color:white;
-    padding: 10px;
+    padding: 14px;
     border:none;
     cursor:pointer;
     text-decoration: none;
+    font-size: 1.05rem;
+    font-weight: 530;
 }
 
 .options-product a:hover{
@@ -199,6 +191,7 @@ button:hover > .options-product{
     transition: all 0.2s ease-in-out;
     border:none;
     font-size: 1rem;
+    cursor:pointer;
 }
 
 .button-add-container button:hover{
@@ -302,14 +295,19 @@ button:hover > .options-product{
     .libros-container {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        row-gap: 70px;
     }
 
     .options-lookup{
         padding: 0px;
     }
 
-    button:hover > .options-product{
-        bottom: -130px;
+    .options-product{
+        bottom: -40px;
+    }
+    
+    .options-product a{
+        font-size: 1rem;
     }
     
     .btn-aplicar-filtros{

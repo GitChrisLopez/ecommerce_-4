@@ -4,6 +4,7 @@
     Author     : romom
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!DOCTYPE html>
@@ -111,48 +112,38 @@
                         
                         <div class="area-total-container">
                             <div class="libros-container">
-                                <button class="libro">
-                                    <img src="./imgs/morir-en-la-arena.png" alt="Morir en la arena">
-                                    <h3>Morir en la arena</h3>
-                                    <p>Leonardo Padura</p>
-                                    <p class="precio">$250.⁰⁰</p>
+                                
+                                <c:choose>
+                                    
+                                    <c:when test="${empty listaProductos}">
+                                        
+                                        <div>No hay productos registrados.</div>
+                                        
+                                    </c:when>
+                                        
+                                    <c:otherwise>
+                                        
+                                        <c:forEach var="producto" items="${listaProductos}">
+                                            
+                                            <button class="libro">
+                                                <img src="${pageContext.request.contextPath}/${producto.urlImagen}" 
+                                                    alt="${producto.libro.titulo}" />
+                                                <h3><c:out value="${producto.libro.titulo}" /></h3>
+                                                <p><c:out value="${producto.libro.autor.nombre}" /> <c:out value="${producto.libro.autor.apellidoPaterno}" /></p>
 
-                                    <div class="options-product">
-                                        <a href="edicion-producto.html">Editar datos</a>
-                                        <a>Marcar como agotado</a>
-                                        <a>Eliminar</a>
-                                    </div>
+                                                <p class="precio">$<c:out value="${producto.precio}" /></p>
 
-                                </button>
+                                                <div class="options-product">
+                                                    <a href="edicion-producto?id=${producto.id}">Editar datos</a>
+                                                </div>
 
-                                <button class="libro">
-                                    <img src="./imgs/la-novela-de-mi-vida.png" alt="La novela de mi vida (Andanzas)">
-                                    <h3>La novela de mi vida (Andanzas)</h3>
-                                    <p>Leonardo Padura</p>
-                                    <p class="precio">$300.⁰⁰</p>
+                                            </button>
 
-                                    <div class="options-product">
-                                        <a href="edicion-producto.html">Editar datos</a>
-                                        <a>Marcar como agotado</a>
-                                        <a>Eliminar</a>
-                                    </div>
+                                        </c:forEach>
 
-                                </button>
-
-                                <button class="libro">
-                                    <img src="./imgs/el-ultimo-secreto.png" alt="El Último Secreto">
-                                    <h3>El Último Secreto</h3>
-                                    <p>Dan Brown</p>
-                                    <p class="precio">$310.⁰⁰</p>
-
-                                    <div class="options-product">
-                                        <a href="edicion-producto.html">Editar datos</a>
-                                        <a>Marcar como agotado</a>
-                                        <a>Eliminar</a>
-                                    </div>
-
-                                </button>
-
+                                    </c:otherwise>
+                                    
+                                </c:choose>
 
                             </div>
                         </div>

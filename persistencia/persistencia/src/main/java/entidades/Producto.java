@@ -75,7 +75,7 @@ public class Producto {
     /**
      * Objeto BigDecimal que representa el precio del Producto.
      */
-    @Column(precision = 10, scale = 2)
+    @Column(name = "precio", precision = 10, scale = 2)
     private BigDecimal precio; 
 
     /**

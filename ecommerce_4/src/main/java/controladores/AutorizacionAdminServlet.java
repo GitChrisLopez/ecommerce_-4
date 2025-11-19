@@ -73,7 +73,7 @@ public class AutorizacionAdminServlet extends HttpServlet {
                 session.setAttribute("adminLogueado", admin);
 
                 // redirige al menú de admin
-                response.sendRedirect("admin-menu-administrador.jsp");
+                response.sendRedirect("menu-principal-admin");
             } else {
                 // regresa al login con error
                 response.sendRedirect("iniciar-sesion.html?error=true");
