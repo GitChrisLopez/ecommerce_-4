@@ -1,25 +1,25 @@
 <%-- 
-    Document   : admin-menu-administrador
-    Created on : 18 nov 2025, 17:20:51
-    Author     : romom
+    Document   : carrito
+    Created on : 19 nov 2025, 10:26:26 p.m.
+    Author     : chris
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<!DOCTYPE html>ssss
 <html>
 
     <head>
-        <title>Menú principal - Administrador</title>
+        <title>CatÃ¡logo</title>
         <meta charset="UTF-8">
-        <link rel="stylesheet" type="text/css" href="./styles/styles-nav.css">
         <link rel="stylesheet" type="text/css" href="./styles/styles-catalogo-menu-administrador.css">
+        <link rel="stylesheet" type="text/css" href="./styles/styles-nav.css">
     </head>
 
     <body>
         <div class="body-container">
             <div class="c1">
-                <%@ include file ="/WEB-INF/fragmentos/AdminNavBar.jspf" %>
+                <%@ include file ="/WEB-INF/fragmentos/NavBar.jspf" %>
             </div>
 
             <main>
@@ -27,7 +27,8 @@
 
                     <div class="catalogo-container">
 
-                        <div class="sidebar">
+                        <form class="sidebar">
+
                             <div class="options-lookup">
                                 <div class="search-filtros">
                                     <a href="./catalogo-filtros-mobile.html" class="filtrar-btn">
@@ -38,17 +39,18 @@
                                 <div class="search-box">
                                     <input type="text" placeholder="Buscar por Libro o Autor">
                                 </div>
+
                             </div>
 
                             <input type="submit" value="Aplicar filtros" class="btn-aplicar-filtros">
 
                             <div class="filtros">
-                                <h2>Categoría</h2>
+                                <h2>CategorÃ­a</h2>
                                 <label><input type="checkbox" checked> Thriller</label>
                                 <label><input type="checkbox" checked> Terror</label>
                                 <label><input type="checkbox" checked> Drama</label>
-                                <label><input type="checkbox"> Ciencia ficción</label>
-                                <label><input type="checkbox"> Biografía</label>
+                                <label><input type="checkbox"> Ciencia ficciÃ³n</label>
+                                <label><input type="checkbox"> BiografÃ­a</label>
                             </div>
 
                             <div class="filtros">
@@ -61,59 +63,51 @@
 
                             <div class="filtros">
                                 <h2>Precio</h2>
-                                <p>Mínimo: $100</p>
+                                <p>MÃ­nimo: $100</p>
                                 <input type="range" min="100" max="800" value="100">
-                                <p>Máximo: $800</p>
+                                <p>MÃ¡ximo: $800</p>
                                 <input type="range" min="100" max="800" value="800">
                             </div>
 
-                        </div>
-
-                        <div class="button-add-container">
-                            <a href="admin-agregar-producto.html">
-                                <button type="button">Agregar producto</button>
-                            </a>
-                        </div>
+                        </form>
 
                         <div class="area-total-container">
                             <div class="libros-container">
 
-                                <c:choose>
+                                <button class="libro">
+                                    <a href="./resenia-del-producto.html">
+                                        <img src="./imgs/morir-en-la-arena.png" alt="Morir en la arena">
+                                        <h3>Morir en la arena</h3>
+                                        <p>Leonardo Padura</p>
+                                        <p class="precio">$250.â°â°</p>
+                                    </a>
+                                </button>
 
-                                    <c:when test="${empty listaProductos}">
+                                <button class="libro">
+                                    <a href="./resenia-del-producto.html">
+                                        <img src="./imgs/la-novela-de-mi-vida.png" alt="La novela de mi vida (Andanzas)">
+                                        <h3>La novela de mi vida (Andanzas)</h3>
+                                        <p>Leonardo Padura</p>
+                                        <p class="precio">$300.â°â°</p>
+                                    </a>
+                                </button>
 
-                                        <div>No hay productos registrados.</div>
+                                <button class="libro">
+                                    <a href="./resenia-del-producto.html">
+                                        <img src="./imgs/el-ultimo-secreto.png" alt="El Ãltimo Secreto">
+                                        <h3>El Ãltimo Secreto</h3>
+                                        <p>Dan Brown</p>
+                                        <p class="precio">$310.â°â°</p>
+                                    </a>
+                                </button>
 
-                                    </c:when>
 
-                                    <c:otherwise>
-
-                                        <c:forEach var="producto" items="${listaProductos}">
-
-                                            <button class="libro">
-                                                <img src="${pageContext.request.contextPath}/${producto.urlImagen}" 
-                                                     alt="${producto.libro.titulo}" />
-                                                <h3><c:out value="${producto.libro.titulo}" /></h3>
-                                                <p><c:out value="${producto.libro.autor.nombre}" /> <c:out value="${producto.libro.autor.apellidoPaterno}" /></p>
-
-                                                <p class="precio">$<c:out value="${producto.precio}" /></p>
-
-                                                <div class="options-product">
-                                                    <a href="edicion-producto?id=${producto.id}">Editar datos</a>
-                                                </div>
-
-                                            </button>
-
-                                        </c:forEach>
-
-                                    </c:otherwise>
-
-                                </c:choose>
 
                             </div>
                         </div>
                     </div> 
                 </div>
             </main>
+        </div>
     </body>    
 </html>

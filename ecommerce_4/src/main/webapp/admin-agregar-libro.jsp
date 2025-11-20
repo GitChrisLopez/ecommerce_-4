@@ -1,9 +1,10 @@
 <%-- 
-    Document   : admin-agregar-libro
-    Created on : 19 nov 2025, 10:10:09 p.m.
-    Author     : chris
+Document   : comunidad
+Created on : 19 nov 2025, 4:10:47 p.m.
+Author     : chris
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -18,83 +19,7 @@
     <body>
         <div class="body-container">
             <div class="c1">
-                <nav>
-                    <a href="./principal-registrado.html">
-                        <div class="home">
-                            <img src="./icons/home.svg" alt="home" class="home-icon" />
-                        </div>
-                    </a>
-
-                    <ul class="nav-links">
-                        <li class="nav-users">
-                            <a href="./admin-usuarios.html">
-                                <div class="users">
-                                    <img src="./icons/users.png" class="users-icon" />
-                                    <span class="nav-text">Usuarios</span>
-                                </div>
-                            </a>
-                        </li>
-
-                        <li class="nav-resenias">
-                            <a href="./admin-historial-resenias.html">
-                                <div class="resenias">
-                                    <img src="./icons/catalogo.png" class="catalogo-icon" />
-                                    <span class="nav-text">Reseñas</span>
-                                </div>
-                            </a>
-                        </li>
-
-                        <li class="nav-pedidos">
-                            <a href="./admin-historial-pedidos.html">
-                                <div class="pedidos">
-                                    <img src="./icons/pedidos.png" class="pedidos-icon" />
-                                    <span class="nav-text">Pedidos</span>
-                                </div>
-                            </a>
-                        </li>
-
-                        <li class="nav-pagos">
-                            <a href="./admin-historial-pagos.html">
-                                <div class="payments">
-                                    <img src="./icons/payments.png" class="payments-icon" />
-                                    <span class="nav-text">Pagos</span>
-                                </div>
-                            </a>
-                        </li>
-
-                        <li class="nav-perfil">
-                            <button class="user">
-                                <img src="./icons/user.png" alt="user" class="user-icon" />
-                                <div class="options-user">
-                                    <div class="user-nombre">
-                                        <p>Carlos Gutiérrez Torres</p>
-                                    </div>
-                                    <hr class="separador" />
-
-                                    <a class="user-option" href="pedidos-realizados.html">
-                                        <img src="./icons/mis-pedidos.png" class="option-icon" />
-                                        <p>Mis Pedidos</p>
-                                    </a>
-
-                                    <a class="user-option" href="edicion-datos-cuenta.html">
-                                        <img src="./icons/edition.png" class="option-icon" />
-                                        <p>Editar mis datos</p>
-                                    </a>
-
-                                    <a class="user-option" href="direcciones-guardadas.html">
-                                        <img src="./icons/direccion.png" class="option-icon" />
-                                        <p>Direcciones</p>
-                                    </a>
-
-                                    <a class="user-option" href="//">
-                                        <img src="./icons/cerrar-sesion.png" class="option-icon" />
-                                        <p>Cerrar sesión</p>
-                                    </a>
-                                </div>
-                            </button>
-                        </li>
-                    </ul>
-                </nav>
+                <%@ include file ="/WEB-INF/fragmentos/AdminNavBar.jspf" %>
             </div>
 
             <main>

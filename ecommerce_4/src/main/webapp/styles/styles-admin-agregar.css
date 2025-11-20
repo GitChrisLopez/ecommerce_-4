@@ -194,7 +194,7 @@ nav > a .home {
 
     .nav-perfil {
         order: 999 !important;
-        margin-left: 40px !important;
+        margin-left: 6px !important;
         display: flex !important;
         align-items: center !important;
         position: relative !important;

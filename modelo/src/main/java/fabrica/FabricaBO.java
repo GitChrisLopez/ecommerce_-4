@@ -33,7 +33,7 @@ public class FabricaBO {
 
     public static IReseniaBO obtenerReseniasBO() {
 
-        IReseniaDAO reseniaDAO = new ReseniaDAO();
+        IReseniaDAO reseniaDAO = (IReseniaDAO) new ReseniaDAO();
 
         IReseniaBO reseniaBO = new ReseniaBO(reseniaDAO);
 

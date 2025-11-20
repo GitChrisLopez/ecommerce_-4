@@ -1,16 +1,15 @@
 <%-- 
-Document   : comunidad
-Created on : 19 nov 2025, 4:10:47 p.m.
-Author     : chris
+    Document   : carrito
+    Created on : 19 nov 2025, 10:26:26 p.m.
+    Author     : chris
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-
     <head>
-        <title>Agregar Editorial</title>
+        <title>Editar Editorial</title>
         <meta charset="UTF-8" />
         <link rel="stylesheet" type="text/css" href="./styles/styles-nav.css" />
         <link rel="stylesheet" type="text/css" href="./styles/styles-admin-agregar.css" />
@@ -19,8 +18,9 @@ Author     : chris
     <body>
         <div class="body-container">
             <div class="c1">
-                <%@ include file ="/WEB-INF/fragmentos/AdminNavBar.jspf" %>
+                <%@ include file ="/WEB-INF/fragmentos/NavBar.jspf" %>
             </div>
+
 
             <main>
                 <div class="general-container">
@@ -29,22 +29,18 @@ Author     : chris
                             <h1>Agregar editorial</h1>
                         </div>
 
-                        <form class="form-add-edition" id="form-add-edition">
+                        <form action="editoriales-registradas.html" class="form-add-edition" id="form-add-edition">
                             <div class="name-container">
                                 <label>Nombre: </label>
-                                <input
-                                    type="text"
-                                    value="Editorial Porrúa"
-                                    maxlength="50"
-                                    required
-                                    />
+                                <input type="text" value="Editorial PorrÃºa" maxlength="50" required />
                             </div>
                         </form>
+
                         <div class="buttons-cancel-add-edition">
                             <a href="editoriales-registradas.html">
                                 <input type="button" value="Cancelar" class="cancel-input" />
                             </a>
-                            <input type="submit" value="Agregar" class="add-edition-input add-input" form="form-add-edition"/>
+                            <input type="submit" value="Guardar" class="add-edition-input add-input" form="form-add-edition"/>
                         </div>
                     </div>
                 </div>
@@ -52,4 +48,3 @@ Author     : chris
         </div>
     </body>
 </html>
-

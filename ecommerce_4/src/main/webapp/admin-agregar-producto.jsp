@@ -5,11 +5,11 @@ Author     : chris
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%> 
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Editar Producto</title>
+        <title>Agregar Producto</title>
         <meta charset="UTF-8" />
         <link rel="stylesheet" type="text/css" href="./styles/styles-nav.css" />
         <link rel="stylesheet" type="text/css" href="./styles/styles-agregar-producto.css"/>
@@ -25,61 +25,51 @@ Author     : chris
                 <div class="general-container">
                     <div class="container-add-edition">
                         <div class="image-container">
-                            <img src="${productoEditar.urlImagen}" alt="Producto Libro Morir en la Arena" class="product-image" />
+                            <img
+                                src="imgs/el-principito.jpg"
+                                alt="Producto Libro El Principito"
+                                class="product-image"
+                                />
                             <div class="container-icon-add-edition">
                                 <img src="icons/edition.png" alt="Editar imagen" />
                             </div>
                         </div>
 
-                        <form action="admin-actualizar-producto" class="form-add-edition" id="form-add-edition">
-
-                            <input type="hidden" name="id" value="${producto.id}">
-                            <input type="hidden" name="id-libro" value="${productoEditar.libro.id}">
-
+                        <form action="admin-menu-administrador.html" class="form-add-edition" id="form-add-edition">
                             <div class="seleccionar-libro">
                                 <label>Libro:</label>
-                                <input type="text" value="${productoEditar.libro.titulo}" name ="libro" readonly />
-                                <a href="libros-registrados.html">
-                                    <button class="btn-seleccionar" type="button">Seleccionar</button>
-                                </a>
+                                <input type="text" value="El Principito" readonly />
+                                <a href="libros-registrados.html"><button class="btn-seleccionar" type="button">Seleccionar</button></a>
 
                             </div>
 
                             <div>
-
                                 <label>Formato:</label>
-
-                                <select name="formato" class="form-control">
-
-                                    <c:forEach var="entradaFormato" items="${mapaFormatos}">
-
-                                        <option value="${entradaFormato.key}" ${entradaFormato.key == productoEditar.formato ? 'selected' : ''}>
-                                            <c:out value="${entradaFormato.value}" />
-                                        </option>
-
-                                    </c:forEach>
-
+                                <select>
+                                    <option>Tapa blanda</option>
+                                    <option>Tapa dura</option>
+                                    <option>E-Book</option>
                                 </select>
                             </div>
 
                             <div>
                                 <label>No. de páginas:</label>
-                                <input type="number" name="numero-paginas" min="1" value="${productoEditar.numeroPaginas}" />
+                                <input type="number" min="1" value="96" />
                             </div>
 
                             <div>
                                 <label>Precio:</label>
-                                <input type="number" name="precio" min="1" step="0.01" value="${productoEditar.precio}" />
+                                <input type="number" min="1" step="0.01" value="70.50" />
                                 <span>pesos</span>
                             </div>
 
                             <div>
                                 <label>Stock:</label>
-                                <input type="number" name="stock" min="0" value="${productoEditar.stock}" />
+                                <input type="number" min="0" value="2" />
                             </div>
 
                             <div class="buttons-cancel-add-edition">
-                                <a href="menu-principal-admin">
+                                <a href="admin-menu-administrador.html">
                                     <input type="button" value="Cancelar" class="cancel-input" />
                                 </a>
                                 <input type="submit" value="Agregar" class="add-edition-input add-input"/>

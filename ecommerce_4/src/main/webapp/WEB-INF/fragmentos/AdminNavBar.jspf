@@ -1,5 +1,5 @@
 <nav>
-    <a href="./principal-registrado.html">
+    <a href="./admin-menu-administrador.jsp">
         <div class="home">
             <img src="./icons/home.svg" alt="home" class="home-icon" />
         </div>
@@ -7,7 +7,7 @@
 
     <ul class="nav-links">
         <li class="nav-users">
-            <a href="./admin-usuarios.html">
+            <a href="./admin-usuarios.jsp">
                 <div class="users">
                     <img src="./icons/users.png" class="users-icon" />
                     <span class="nav-text">Usuarios</span>
@@ -16,7 +16,7 @@
         </li>
 
         <li class="nav-resenias">
-            <a href="./admin-historial-resenias.html">
+            <a href="./admin-historial-resenias.jsp">
                 <div class="resenias">
                     <img src="./icons/catalogo.png" class="catalogo-icon" />
                     <span class="nav-text">Reseñas</span>
@@ -25,7 +25,7 @@
         </li>
 
         <li class="nav-pedidos">
-            <a href="./admin-historial-pedidos.html">
+            <a href="./admin-historial-pedidos.jsp">
                 <div class="pedidos">
                     <img src="./icons/pedidos.png" class="pedidos-icon" />
                     <span class="nav-text">Pedidos</span>
@@ -34,7 +34,7 @@
         </li>
 
         <li class="nav-pagos">
-            <a href="./admin-historial-pagos.html">
+            <a href="./admin-historial-pagos.jsp">
                 <div class="payments">
                     <img src="./icons/payments.png" class="payments-icon" />
                     <span class="nav-text">Pagos</span>
@@ -43,7 +43,7 @@
         </li>
 
         <li class="nav-libros">
-            <a href="./admin-agregar-libros.jsp"> <div class="libros">
+            <a href="./admin-agregar-libro.jsp"> <div class="libros">
                     <img src="./icons/libros.png" class="varios-icon" /> 
                     <span class="nav-text">Libros</span>
                 </div>
@@ -86,17 +86,17 @@
                     </div>
                     <hr class="separador" />
 
-                    <a class="user-option" href="pedidos-realizados.html">
+                    <a class="user-option" href="pedidos-realizados.jsp">
                         <img src="./icons/mis-pedidos.png" class="option-icon" />
                         <p>Mis Pedidos</p>
                     </a>
 
-                    <a class="user-option" href="edicion-datos-cuenta.html">
+                    <a class="user-option" href="edicion-datos-cuenta.jsp">
                         <img src="./icons/edition.png" class="option-icon" />
                         <p>Editar mis datos</p>
                     </a>
 
-                    <a class="user-option" href="direcciones-guardadas.html">
+                    <a class="user-option" href="direcciones-guardadas.jsp">
                         <img src="./icons/direccion.png" class="option-icon" />
                         <p>Direcciones</p>
                     </a>
