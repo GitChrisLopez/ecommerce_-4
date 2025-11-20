@@ -22,19 +22,20 @@
                 <h1 class="register-title">Crear cuenta</h1>
 
                 <form class="register-form">
-                    
+
                     <div class="form-juntos-top">
                         <div class="form-nombres-principal">
                             <label for="nombres">Nombres</label>
                             <input type="text" id="nombres" name="nombres" placeholder="Nombre" required>
                         </div>
+
                         <div class="form-foto-perfil">
                             <div class="perfil-icono-contenedor">
-                                <img src="./icons/user.png" alt="Icono de Usuario" class="perfil-imagen">
+                                <img src="./icons/user.png" alt="Icono de usuario" class="perfil-imagen">
                             </div>
-                            
+
                             <label for="perfil-img" class="perfil-label-boton">Agregar imagen de perfil</label>
-                            
+
                             <input type="file" id="perfil-img" name="perfil-img" accept="image/*" style="display: none;">
                         </div>
                     </div>
@@ -42,43 +43,43 @@
                     <div class="form-juntos">
                         <div class="form-apellido-paterno">
                             <label for="apellido-paterno">Apellido paterno</label>
-                            <input type="text" id="apellido-paterno" name="apellido-paterno" placeholder="Apellido Paterno" required>
+                            <input type="text" id="apellido-paterno" name="apellido-paterno" placeholder="Apellido paterno" required>
                         </div>
                         <div class="form-apellido-materno">
                             <label for="apellido-materno">Apellido materno</label>
-                            <input type="text" id="apellido-materno" name="apellido-materno" placeholder="Apellido Materno" required>
+                            <input type="text" id="apellido-materno" name="apellido-materno" placeholder="Apellido materno" required>
                         </div>
                     </div>
-                    
+
                     <div class="form-individual">
                         <label for="fecha-nacimiento">Fecha de nacimiento</label>
                         <input type="date" id="fecha-nacimiento" name="fecha-nacimiento" required>
                     </div>
 
                     <div class="form-individual">
-                        <label for="email">Correo electrÃ³nico</label>
-                        <input type="email" id="email" name="email" placeholder="Correo electrÃ³nico" required>
+                        <label for="email">Correo electrónico</label>
+                        <input type="email" id="email" name="email" placeholder="Correo electrónico" required>
                     </div>
 
                     <div class="form-individual">
-                        <label for="telefono">TelÃ©fono</label>
-                        <input type="text" id="telefono" name="telefono" placeholder="TelÃ©fono" required>
+                        <label for="telefono">Teléfono</label>
+                        <input type="text" id="telefono" name="telefono" placeholder="Teléfono" required>
                     </div>
 
                     <div class="form-individual">
-                        <label for="password">ContraseÃ±a</label>
-                        <input type="password" id="password" name="password" placeholder="ContraseÃ±a" required>
+                        <label for="password">Contraseña</label>
+                        <input type="password" id="password" name="password" placeholder="Contraseña" required>
                     </div>
 
                     <button type="submit" class="button">Crear cuenta</button>
-                    
+
                     <p class="register-info-text">
-                        <a href="iniciar-sesion.html" class="link">Â¿Ya tienes una cuenta?</a>
+                        <a href="iniciar-sesion.html" class="link">¿Ya tienes una cuenta?</a>
                     </p>
+
                 </form>
             </div>
         </div>
     </body>
-    
 
 </html>

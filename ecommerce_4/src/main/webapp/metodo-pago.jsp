@@ -10,7 +10,7 @@
 <html lang="es">
     <head>
         <meta charset="UTF-8" />
-        <title>MÃ©todo de Pago</title>
+        <title>Método de Pago</title>
         <link rel="stylesheet" href="./styles/styles-metodo-pago.css" />
         <link rel="stylesheet" href="./styles/styles-nav.css" />
     </head>
@@ -18,20 +18,21 @@
     <body>
         <div class="body-container">
             <div class="c1">
-                <%@ include file ="/WEB-INF/fragmentos/NavBar.jspf" %>
+                <%@ include file="/WEB-INF/fragmentos/NavBar.jspf" %>
             </div>
 
             <div class="c2">
                 <main>
                     <div class="pago-container">
-                        <h3>MÃ©todo de pago</h3>
+                        <h3>Método de pago</h3>
                         <br />
-                        <span class="texto-pago">Seleccione un mÃ©todo de pago</span>
+                        <span class="texto-pago">Seleccione un método de pago</span>
                         <br /><br />
                         <div class="metodos-pago">
                             <div class="pago-detalles"></div>
                             <form action="./pedido-realizado-exitosamente.html">
                                 <div class="radio-btn-opciones">
+
                                     <label class="container">
                                         Transferencia
                                         <input
@@ -44,28 +45,36 @@
                                     </label>
 
                                     <label class="container">
-                                        Tarjeta de dÃ©bito/crÃ©dito
+                                        Tarjeta de débito/crédito
                                         <input
                                             type="radio"
                                             name="metodo"
-                                            value="Tarjeta de debito/credito"
+                                            value="Tarjeta de débito/crédito"
                                             />
                                         <span class="checkmark"></span>
                                     </label>
 
                                     <label class="container">
                                         Contraentrega
-                                        <input type="radio" name="metodo" value="Contraentrega" />
+                                        <input 
+                                            type="radio" 
+                                            name="metodo" 
+                                            value="Contraentrega" 
+                                            />
                                         <span class="checkmark"></span>
                                     </label>
+
                                 </div>
+
                                 <br /><br />
+
                                 <div class="div-botones">
                                     <a href="./carrito.html" class="btn-link">
                                         <button type="button" class="btn-cancelar">Cancelar pedido</button>
                                     </a>
                                     <button type="submit" class="btn-pagar-pedido">Pagar pedido</button>
                                 </div>
+
                             </form>
                         </div>
                     </div>
@@ -74,3 +83,4 @@
         </div>
     </body>
 </html>
+

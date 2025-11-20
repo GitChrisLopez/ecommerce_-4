@@ -18,19 +18,18 @@
     <body>
         <div class="body-container">
             <div class="c1">
-                <%@ include file ="/WEB-INF/fragmentos/NavBar.jspf" %>
+                <%@ include file="/WEB-INF/fragmentos/NavBar.jspf" %>
             </div>
 
             <main>
                 <div class="c2">
-
                     <div class="error-tarjeta-container">
-                        <h1 class="error-tarjeta-title">Ups... algo saliÃ³ mal con tu pago.</h1>
+                        <h1 class="error-tarjeta-title">Ups... algo salió mal con tu pago.</h1>
 
                         <div class="general-container">
 
                             <div class="mensanje-error">
-                                <p>Puede que haya un problema temporal con tu banco o mÃ©todo de pago.</p>
+                                <p>Puede que haya un problema temporal con tu banco o método de pago.</p>
                                 <p>Intenta nuevamente en unos minutos o usa otra tarjeta.</p>
                             </div>
 
@@ -43,13 +42,9 @@
                         <div class="error-btn">
                             <a href="./carrito.html" class="volver-carrito-btn">Volver al carrito</a>
                         </div>
-
                     </div>
-
                 </div>
             </main>
-
         </div> 
     </body>
-
 </html>

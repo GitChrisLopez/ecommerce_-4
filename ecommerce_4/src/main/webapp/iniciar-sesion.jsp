@@ -10,7 +10,7 @@
 <html>
 
     <head>
-        <title>Iniciar SesiÃ³n</title>
+        <title>Iniciar Sesión</title>
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="./styles/styles-inicio-registro.css">
     </head>
@@ -25,20 +25,20 @@
                 </div>
 
                 <div class="user-container">
-                    <img src="./icons/user.png" alt="user" class="user-icon">
+                    <img src="./icons/user.png" alt="Usuario" class="user-icon">
                 </div>
 
                 <form class="login-form" method="POST" action="AutorizacionAdminServlet">
-                    <label for="email">Correo electrÃ³nico:</label>
+                    <label for="email">Correo electrónico:</label>
                     <input type="email" id="email" name="email" required>
 
-                    <label for="password">ContraseÃ±a:</label>
+                    <label for="password">Contraseña:</label>
                     <input type="password" id="password" name="password" required>
 
-                    <button type="submit" class="button">Iniciar sesiÃ³n</button>
+                    <button type="submit" class="button">Iniciar sesión</button>
 
                     <p class="login-info-text">
-                        Â¿No tienes una cuenta? <a href="registro.html" class="link"><br>Registrarse</a>
+                        ¿No tienes una cuenta? <a href="registro.html" class="link"><br>Registrarse</a>
                     </p>
                 </form>            
             </div>

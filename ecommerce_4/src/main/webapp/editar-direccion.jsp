@@ -10,7 +10,7 @@
 <html>
 
     <head>
-        <title>Agregar DirecciÃ³n</title>
+        <title>Agregar Dirección</title>
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="./styles/styles-agregar-editar-direccion.css">
         <link rel="stylesheet" type="text/css" href="./styles/styles-nav.css">
@@ -19,24 +19,21 @@
     <body>
         <div class="body-container">
             <div class="c1">
-                <%@ include file ="/WEB-INF/fragmentos/NavBar.jspf" %>
+                <%@ include file="/WEB-INF/fragmentos/NavBar.jspf" %>
             </div>
 
             <main>
                 <div class="c2">
-
                     <div class="direccion-container">
-                        <h1 class="direccion-title">Editar direcciÃ³n</h1>
-
+                        <h1 class="direccion-title">Editar dirección</h1>
                         <form action="./direcciones-guardadas.html" class="direccion-form">
-
                             <div class="form-inputs">
 
                                 <div class="form-individual">
-                                    <label for="codigo-postal">CÃ³digo Postal:</label>
+                                    <label for="codigo-postal">Código Postal:</label>
                                     <select id="codigo-postal" name="codigo-postal" required>
                                         <option value="45050">45050</option>
-                                        </select>
+                                    </select>
                                 </div>
 
                                 <div class="form-individual">
@@ -50,10 +47,9 @@
                                 </div>
 
                                 <div class="form-individual">
-                                    <label for="numero">NÃºmero</label>
+                                    <label for="numero">Número</label>
                                     <input type="text" id="numero" name="numero" value="248" required>
                                 </div>
-
                             </div>
 
                             <div class="form-btns">
@@ -61,18 +57,12 @@
                                 <div class="direccion-btns">
                                     <button type="submit" class="guardar-btn">Guardar</button>
                                     <a href="./direcciones-guardadas.html" class="cancelar-btn">Cancelar</a>
-                                   
                                 </div>
-
                             </div>
-
                         </form>
-
                     </div>
-
                 </div>
             </main>
-
         </div> 
     </body>
 </html>

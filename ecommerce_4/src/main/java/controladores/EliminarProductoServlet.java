@@ -1,4 +1,3 @@
-
 package controladores;
 
 import definiciones.IProductosBO;
@@ -17,17 +16,17 @@ import jakarta.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "EliminarProductoServlet", urlPatterns = {"/admin-eliminar-producto"})
 public class EliminarProductoServlet extends HttpServlet {
-    
+
     private IProductosBO productosBO;
-    
+
     @Override
     public void init() throws ServletException {
         super.init();
-        
+
         this.productosBO = FabricaBO.obtenerProductosBO();
-        
+
     }
-    
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -80,13 +79,13 @@ public class EliminarProductoServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         try {
             String idProducto = request.getParameter("id");
-            
+
             if (idProducto != null && !idProducto.isEmpty()) {
                 Long id = Long.valueOf(idProducto);
-                
+
                 productosBO.eliminarProducto(id);
             }
 
@@ -96,8 +95,7 @@ public class EliminarProductoServlet extends HttpServlet {
             request.getSession().setAttribute("errorSesion", "No se pudo eliminar el producto.");
             response.sendRedirect("edicion-producto?id=" + request.getParameter("id"));
         }
-        
-        
+
     }
 
     /**

@@ -6,11 +6,11 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>ssss
+<!DOCTYPE html>
 <html>
 
     <head>
-        <title>CatÃ¡logo</title>
+        <title>Catálogo</title>
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="./styles/styles-catalogo-menu-administrador.css">
         <link rel="stylesheet" type="text/css" href="./styles/styles-nav.css">
@@ -19,7 +19,7 @@
     <body>
         <div class="body-container">
             <div class="c1">
-                <%@ include file ="/WEB-INF/fragmentos/NavBar.jspf" %>
+                <%@ include file="/WEB-INF/fragmentos/NavBar.jspf" %>
             </div>
 
             <main>
@@ -32,25 +32,24 @@
                             <div class="options-lookup">
                                 <div class="search-filtros">
                                     <a href="./catalogo-filtros-mobile.html" class="filtrar-btn">
-                                        <img src="./icons/filtro.png" alt="Filtro" class="icono-filtro"> 
+                                        <img src="./icons/filtro.png" alt="Filtro" class="icono-filtro">
                                         <span>Filtrar</span>
                                     </a>
                                 </div>
                                 <div class="search-box">
-                                    <input type="text" placeholder="Buscar por Libro o Autor">
+                                    <input type="text" placeholder="Buscar por libro o autor">
                                 </div>
-
                             </div>
 
                             <input type="submit" value="Aplicar filtros" class="btn-aplicar-filtros">
 
                             <div class="filtros">
-                                <h2>CategorÃ­a</h2>
+                                <h2>Categoría</h2>
                                 <label><input type="checkbox" checked> Thriller</label>
                                 <label><input type="checkbox" checked> Terror</label>
                                 <label><input type="checkbox" checked> Drama</label>
-                                <label><input type="checkbox"> Ciencia ficciÃ³n</label>
-                                <label><input type="checkbox"> BiografÃ­a</label>
+                                <label><input type="checkbox"> Ciencia ficción</label>
+                                <label><input type="checkbox"> Biografía</label>
                             </div>
 
                             <div class="filtros">
@@ -63,9 +62,9 @@
 
                             <div class="filtros">
                                 <h2>Precio</h2>
-                                <p>MÃ­nimo: $100</p>
+                                <p>Mínimo: $100</p>
                                 <input type="range" min="100" max="800" value="100">
-                                <p>MÃ¡ximo: $800</p>
+                                <p>Máximo: $800</p>
                                 <input type="range" min="100" max="800" value="800">
                             </div>
 
@@ -79,7 +78,7 @@
                                         <img src="./imgs/morir-en-la-arena.png" alt="Morir en la arena">
                                         <h3>Morir en la arena</h3>
                                         <p>Leonardo Padura</p>
-                                        <p class="precio">$250.â°â°</p>
+                                        <p class="precio">$250.00</p>
                                     </a>
                                 </button>
 
@@ -88,20 +87,18 @@
                                         <img src="./imgs/la-novela-de-mi-vida.png" alt="La novela de mi vida (Andanzas)">
                                         <h3>La novela de mi vida (Andanzas)</h3>
                                         <p>Leonardo Padura</p>
-                                        <p class="precio">$300.â°â°</p>
+                                        <p class="precio">$300.00</p>
                                     </a>
                                 </button>
 
                                 <button class="libro">
                                     <a href="./resenia-del-producto.html">
-                                        <img src="./imgs/el-ultimo-secreto.png" alt="El Ãltimo Secreto">
-                                        <h3>El Ãltimo Secreto</h3>
+                                        <img src="./imgs/el-ultimo-secreto.png" alt="El Último Secreto">
+                                        <h3>El Último Secreto</h3>
                                         <p>Dan Brown</p>
-                                        <p class="precio">$310.â°â°</p>
+                                        <p class="precio">$310.00</p>
                                     </a>
                                 </button>
-
-
 
                             </div>
                         </div>

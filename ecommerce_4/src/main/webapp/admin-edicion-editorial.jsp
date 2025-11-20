@@ -18,7 +18,7 @@
     <body>
         <div class="body-container">
             <div class="c1">
-                <%@ include file ="/WEB-INF/fragmentos/NavBar.jspf" %>
+                <%@ include file ="/WEB-INF/fragmentos/AdminNavBar.jspf" %>
             </div>
 
 

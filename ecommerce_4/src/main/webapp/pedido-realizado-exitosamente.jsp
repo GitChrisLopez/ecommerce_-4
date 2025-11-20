@@ -18,20 +18,20 @@
     <body>
         <div class="body-container">
             <div class="c1">
-                <%@ include file ="/WEB-INF/fragmentos/NavBar.jspf" %>
+                <%@ include file="/WEB-INF/fragmentos/NavBar.jspf" %>
             </div>
 
             <div class="c2">
                 <main>
                     <div class="pago-container">
-                        <h3>Â¡Pedido realizado!</h3>
+                        <h3>¡Pedido realizado!</h3>
 
                         <span class="texto-pago">
-                            Se ha logrado realizar la compra. Su recibo serÃ¡ enviado a su
-                            correo electrÃ³nico.
+                            Se ha logrado realizar la compra. Su recibo será enviado a su correo electrónico.
                         </span>
+
                         <p class="texto-pago1">
-                            <span class="etiqueta">NÃºmero de Compra:</span>
+                            <span class="etiqueta">Número de compra:</span>
                             <span class="texto-pago2">#923942</span><br />
 
                             <span class="etiqueta">Fecha estimada de entrega:</span>
@@ -40,13 +40,14 @@
                             <span class="etiqueta">Monto total a pagar:</span>
                             <span class="texto-pago2">$300.00 MXN</span><br />
 
-                            <span class="etiqueta">DirecciÃ³n de entrega:</span>
+                            <span class="etiqueta">Dirección de entrega:</span>
                             <span class="texto-pago2">
                                 Calle de los Cipreses #248, Col. Jardines del Sol
                             </span>
                         </p>
 
                         <br />
+
                         <div class="botones">
                             <a href="./detalles-pedido.html" class="btn-link">
                                 <button class="btn-ver-pedido">Ver pedido</button>
@@ -55,6 +56,7 @@
                                 <button class="btn-seguir-comprando">Seguir comprando</button>
                             </a>
                         </div>
+
                     </div>
                 </main>
             </div>

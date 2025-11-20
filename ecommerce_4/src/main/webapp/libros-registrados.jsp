@@ -19,48 +19,46 @@
     <body>
         <main>
             <div class="c1">
-                <%@ include file ="/WEB-INF/fragmentos/NavBar.jspf" %>
+                <%@ include file="/WEB-INF/fragmentos/NavBar.jspf" %>
             </div>
 
             <div class="container-registered">
 
                 <div class="title-search">
-
                     <h1>Libros registrados</h1>
 
                     <div class="search-bar">
                         <input type="search" placeholder="Buscar" id="input-search">
                         <label for="input-search">
-                            <img src="./icons/lupa.png">    
+                            <img src="./icons/lupa.png">
                         </label>
                     </div>
-
                 </div>
 
                 <form action="admin-agregar-producto.html" class="container-list" id="form">
 
-                    <input type = "radio" id="morir-arena" name="registered" required>
+                    <input type="radio" id="morir-arena" name="registered" required>
                     <label for="morir-arena">
                         <p>Morir en la arena (Andanzas)</p>
                         <a href="edicion-libro.html">
-                            <img src="icons/edition.png">  
-                        </a>                      
-                    </label>
-
-                    <input type = "radio" id="novela-vida" name="registered">
-                    <label for="novela-vida">
-                        <p>La novela de mi vida (Andanzas)</p>
-                        <a href="edicion-libro.html">
-                            <img src="icons/edition.png">  
+                            <img src="icons/edition.png">
                         </a>
                     </label>
 
-                    <input type = "radio" id="ultimo-secreto" name="registered">
-                    <label for="ultimo-secreto">
-                        <p>El Ãltimo Secreto</p>
+                    <input type="radio" id="novela-vida" name="registered">
+                    <label for="novela-vida">
+                        <p>La novela de mi vida (Andanzas)</p>
                         <a href="edicion-libro.html">
-                            <img src="icons/edition.png">  
-                        </a>                        
+                            <img src="icons/edition.png">
+                        </a>
+                    </label>
+
+                    <input type="radio" id="ultimo-secreto" name="registered">
+                    <label for="ultimo-secreto">
+                        <p>El Último Secreto</p>
+                        <a href="edicion-libro.html">
+                            <img src="icons/edition.png">
+                        </a>
                     </label>
                 </form>
 

@@ -10,7 +10,7 @@
 <html lang="es">
     <head>
         <meta charset="UTF-8" />
-        <title>ConfirmaciÃ³n Pedido</title>
+        <title>Confirmación Pedido</title>
         <link rel="stylesheet" href="./styles/styles-proceder-pago.css" />
         <link rel="stylesheet" href="./styles/styles-nav.css" />
     </head>
@@ -18,13 +18,13 @@
     <body>
         <div class="body-container">
             <div class="c1">
-                <%@ include file ="/WEB-INF/fragmentos/NavBar.jspf" %>
+                <%@ include file="/WEB-INF/fragmentos/NavBar.jspf" %>
             </div>
 
             <div class="c2">
                 <main>
                     <div class="pago-container">
-                        <h3>ArtÃ­culos</h3>
+                        <h3>Artículos</h3>
 
                         <div class="resumen-compra">
                             <div class="libro-detalles">
@@ -50,11 +50,12 @@
                             </div>
                         </div>
 
-                        <br /><br />
-                        <br /><br />
+                        <br /><br /><br /><br />
+
                         <form action="./metodo-pago.html" class="direccion-container">
                             <label for="direccion"><strong>Enviar a:</strong></label>
                             <br /><br />
+
                             <input
                                 class="input-direccion"
                                 type="text"
@@ -62,11 +63,13 @@
                                 name="direccion"
                                 readonly
                                 />
+
                             <br /><br />
+
                             <div class="botones-direccion">
                                 <a href="./direcciones-guardadas.html" class="btn-link">
                                     <button type="button" class="btn-direccion">
-                                        Seleccionar direcciÃ³n
+                                        Seleccionar dirección
                                     </button>
                                 </a>
 
@@ -83,3 +86,4 @@
         </div>
     </body>
 </html>
+

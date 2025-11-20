@@ -20,29 +20,36 @@
 
         <div class="body-container">
             <div class="c1">
-                <%@ include file ="/WEB-INF/fragmentos/NavBar.jspf" %>
+                <%@ include file="/WEB-INF/fragmentos/NavBar.jspf" %>
             </div>
 
             <div class="c2">
                 <main>
                     <div class="content-container">
                         <h1>Miles de libros, <br>infinitas ideas.</h1>
-                        <p class="main-p1">Explora nuestra colecciÃ³n y deja que las palabras te acompaÃ±en en cada momento. Desde clÃ¡sicos
-                            imperdibles hasta nuevas voces que te sorprenderÃ¡n.</p>
-                        <p>Libros acadÃ©micos, guÃ­as y textos especializados para acompaÃ±arte en cada etapa del conocimiento.</p>
+
+                        <p class="main-p1">
+                            Explora nuestra colección y deja que las palabras te acompañen en cada momento.
+                            Desde clásicos imperdibles hasta nuevas voces que te sorprenderán.
+                        </p>
+
+                        <p>
+                            Libros académicos, guías y textos especializados para acompañarte en cada etapa del conocimiento.
+                        </p>
                     </div>
+
                     <div class="cover-container">
-                        <img src="./imgs/cover.png" alt="IlustraciÃ³n de estanterÃ­a y persona leyendo" class="cover">
+                        <img src="./imgs/cover.png" alt="Ilustración de estantería y persona leyendo" class="cover">
                     </div>
                 </main>
 
                 <div class="buttons-container">
                     <a href="./catalogo.html" class="btn genero-1" target="_blank">Drama</a>
                     <a href="./catalogo.html" class="btn genero-2" target="_blank">Thriller</a>
-                    <a href="./catalogo.html" class="btn genero-3" target="_blank">Ciencia ficciÃ³n</a>
+                    <a href="./catalogo.html" class="btn genero-3" target="_blank">Ciencia ficción</a>
                     <a href="./catalogo.html" class="btn genero-4" target="_blank">Terror</a>
                     <a href="./libros-mas-destacados.html" class="btn destacados-btn" target="_blank">Libros destacados</a>
-                    <a href="./catalogo.html" class="btn catalogo-btn" target="_blank">CatÃ¡logo</a>
+                    <a href="./catalogo.html" class="btn catalogo-btn" target="_blank">Catálogo</a>
                 </div>
             </div>
         </div>

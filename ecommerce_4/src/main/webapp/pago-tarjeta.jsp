@@ -18,26 +18,26 @@
     <body>
         <div class="body-container">
             <div class="c1">
-                <%@ include file ="/WEB-INF/fragmentos/NavBar.jspf" %>
+                <%@ include file="/WEB-INF/fragmentos/NavBar.jspf" %>
             </div>
 
             <main>
                 <div class="c2">
 
                     <div class="pago-tarjeta-container">
-                        <h1 class="pago-tarjeta-title">Datos tarjeta</h1>
+                        <h1 class="pago-tarjeta-title">Datos de la tarjeta</h1>
 
                         <form class="pago-tarjeta-form">
 
                             <div class="form-inputs">
 
                                 <div class="form-individual">
-                                    <label for="titular">Nombre de titular</label>
+                                    <label for="titular">Nombre del titular</label>
                                     <input type="text" id="titular" name="titular" required>
                                 </div>
 
                                 <div class="form-individual">
-                                    <label for="num-tarjeta">NÃºmero de tarjeta</label>
+                                    <label for="num-tarjeta">Número de tarjeta</label>
                                     <input type="number" id="num-tarjeta" name="num-tarjeta" required>
                                 </div>
 

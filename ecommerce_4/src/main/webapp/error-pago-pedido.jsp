@@ -18,18 +18,17 @@
     <body>
         <div class="body-container">
             <div class="c1">
-                <%@ include file ="/WEB-INF/fragmentos/NavBar.jspf" %>
+                <%@ include file="/WEB-INF/fragmentos/NavBar.jspf" %>
             </div>
 
             <div class="c2">
                 <main>
                     <div class="pago-container">
                         <div class="texto-contenido">
-                            <h3>Ups... algo saliÃ³ mal con tu pago.</h3>
+                            <h3>Ups... algo salió mal con tu pago.</h3>
 
                             <span class="texto-pago">
-                                Puede que haya un problema temporal con tu banco o mÃ©todo de
-                                pago.
+                                Puede que haya un problema temporal con tu banco o método de pago.
                             </span>
 
                             <span class="texto-pago">
