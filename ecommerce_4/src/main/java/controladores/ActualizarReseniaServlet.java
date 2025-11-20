@@ -1,6 +1,7 @@
 package controladores;
 
-import BOs.ReseniaBO;
+import definiciones.IReseniaBO;
+import fabrica.FabricaBO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -16,7 +17,15 @@ import java.io.PrintWriter;
 @WebServlet(name = "ActualizarReseniaServlet", urlPatterns = {"/ActualizarReseniaServlet"})
 public class ActualizarReseniaServlet extends HttpServlet {
 
-    private final ReseniaBO reseniaBO = new ReseniaBO();
+    private IReseniaBO reseniaBO;
+    
+    @Override
+    public void init() throws ServletException {
+        super.init();
+        
+        this.reseniaBO = FabricaBO.obtenerReseniasBO();
+        
+    }
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>

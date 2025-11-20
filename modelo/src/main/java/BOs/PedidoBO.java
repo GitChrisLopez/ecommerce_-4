@@ -1,6 +1,7 @@
 package BOs;
 
-import DAOs.PedidoDAO;
+import definiciones.IPedidoBO;
+import definiciones.IPedidoDAO;
 import dominio.PedidoDTO;
 import dominio.enumeradores.EstadoDTO;
 import entidades.Pedido;
@@ -18,9 +19,24 @@ import mappers.MapperEstado;
  *
  * @author norma
  */
-public class PedidoBO {
+public class PedidoBO implements IPedidoBO {
 
-    private final PedidoDAO pedidoDAO = new PedidoDAO();
+    /**
+     * Objeto que implementa la interfaz IPedidoDAO, permite el acceso a datos
+     * para objetos de la clase PedidoDTO.
+     */
+    private final IPedidoDAO pedidoDAO;
+
+    /**
+     * Contructor de la clase que recibe un objeto que implementa la interfaz
+     * IReseniaDAO.
+     *
+     * @param pedidoDAO Objeto que implementa la interfaz IPedidoDAO, permite el
+     * acceso a datos para objetos de la clase Pedido.
+     */
+    public PedidoBO(IPedidoDAO pedidoDAO) {
+        this.pedidoDAO = pedidoDAO;
+    }
 
     /**
      * Actualiza el estado de un pedido.
@@ -32,6 +48,7 @@ public class PedidoBO {
      * @throws NegocioException si el ID o estado no es válido o no se pudo
      * actualizar.
      */
+    @Override
     public void actualizarPedido(Long idPedido, EstadoDTO estado) throws PersistenciaException, NegocioException {
 
         if (idPedido == null || idPedido <= 0) {
@@ -53,7 +70,6 @@ public class PedidoBO {
             Estado estadoActual = pedidoActual.getEstado();
 
             if (estadoActual == Estado.CANCELADO
-                    || estadoActual == Estado.ENVIADO
                     || estadoActual == Estado.ENTREGADO) {
 
                 throw new NegocioException("No se puede modificar el estado de un pedido que ya está en estado no modificable: " + estadoActual.toString());
@@ -68,6 +84,11 @@ public class PedidoBO {
             if (nuevoEstado == Estado.ENVIADO && estadoActual != Estado.PENDIENTE) {
                 throw new NegocioException("Un pedido solo puede ser ENVIADO si antes estaba PENDIENTE.");
             }
+
+            if (nuevoEstado == Estado.ENTREGADO && estadoActual != Estado.ENVIADO) {
+                throw new NegocioException("Un pedido solo puede ser ENTREGADO si antes estaba ENVIADO.");
+            }
+            
             boolean exito = pedidoDAO.actualizarPedidoo(idPedido, nuevoEstado);
 
             if (!exito) {
@@ -91,6 +112,7 @@ public class PedidoBO {
      * persistencia.
      * @throws NegocioException si no se pudo obtener la lista de pedidos.
      */
+    @Override
     public List<PedidoDTO> obtenerPedidos() throws PersistenciaException, NegocioException {
         try {
             List<Pedido> pedidos = pedidoDAO.obtenerTodosLosPedidos();
@@ -115,6 +137,7 @@ public class PedidoBO {
      * persistencia.
      * @throws NegocioException si no se pudo obtener el pedido.
      */
+    @Override
     public PedidoDTO obtenerPedidoPorId(Long idPedido) throws PersistenciaException, NegocioException {
         if (idPedido == null || idPedido <= 0) {
             throw new NegocioException("El ID del pedido debe ser un número válido.");
@@ -144,6 +167,7 @@ public class PedidoBO {
      * persistencia.
      * @throws NegocioException si no se pudo obtener la lista de resenias.
      */
+    @Override
     public List<PedidoDTO> obtenerPedidosFiltradosPorNumero(String busqueda) throws PersistenciaException, NegocioException {
 
         try {

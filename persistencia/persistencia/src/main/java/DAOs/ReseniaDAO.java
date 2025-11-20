@@ -1,6 +1,7 @@
 package DAOs;
 
 import com.persistencia.ManejadorConexiones;
+import definiciones.IReseniaDAO;
 import entidades.Resenia;
 import excepciones.PersistenciaException;
 import java.util.List;
@@ -13,7 +14,7 @@ import javax.persistence.EntityManager;
  * Utiliza JPA para interactuar con la base de datos.
  * @author norma
  */
-public class ReseniaDAO {
+public class ReseniaDAO implements IReseniaDAO {
 
     /**
      * Guarda una nueva resenia en la base de datos.
@@ -22,6 +23,7 @@ public class ReseniaDAO {
      * @return El mismo objeto resenia si se guardó correctamente.
      * @throws PersistenciaException Si ocurre un error durante la operación.
      */
+    @Override
     public Resenia persistirResenia(Resenia resenia) throws PersistenciaException {
 
         EntityManager em = ManejadorConexiones.getEntityManager();
@@ -51,6 +53,7 @@ public class ReseniaDAO {
      * @return true si se eliminó correctamente, false si no se encontró.
      * @throws PersistenciaException Si ocurre un error durante la operación.
      */
+    @Override
     public boolean eliminarResenia(Long idResenia) throws PersistenciaException {
 
         EntityManager em = ManejadorConexiones.getEntityManager();
@@ -82,6 +85,7 @@ public class ReseniaDAO {
      * @return true si se actualizó correctamente, false si no se actualizó.
      * @throws PersistenciaException Si ocurre un error durante la operación.
      */
+    @Override
     public boolean actualizarComentario(Long idResenia, String nuevoComentario) throws PersistenciaException {
         EntityManager em = ManejadorConexiones.getEntityManager();
         try {
@@ -114,6 +118,7 @@ public class ReseniaDAO {
      * @return Lista de resenias.
      * @throws PersistenciaException Si ocurre un error durante la operación.
      */
+    @Override
     public List<Resenia> obtenerTodasLasResenias() throws PersistenciaException {
 
         EntityManager em = ManejadorConexiones.getEntityManager();
@@ -138,6 +143,7 @@ public class ReseniaDAO {
      * @return El objeto resenia que se encontró con el id.
      * @throws PersistenciaException Si ocurre un error durante la operación. 
      */
+    @Override
     public Resenia obtenerResenia(Long idResenia) throws PersistenciaException {
 
         EntityManager em = ManejadorConexiones.getEntityManager();
@@ -161,6 +167,7 @@ public class ReseniaDAO {
      * @return Lista de resenias que cumple con el filtro.
      * @throws PersistenciaException Si ocurre un error durante la consulta.
      */
+    @Override
     public List<Resenia> obtenerReseniasFiltradasPorLibro(String libro) throws PersistenciaException {
 
         EntityManager em = ManejadorConexiones.getEntityManager();

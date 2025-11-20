@@ -1,7 +1,8 @@
 package controladores;
 
-import BOs.ReseniaBO;
+import definiciones.IReseniaBO;
 import dominio.ReseniaDTO;
+import fabrica.FabricaBO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -13,12 +14,21 @@ import java.util.List;
 
 /**
  * Servlet para mostrar todas las resenias.
+ *
  * @author norma
  */
 @WebServlet(name = "MostrarReseniasServlet", urlPatterns = {"/MostrarReseniasServlet"})
 public class MostrarReseniasServlet extends HttpServlet {
 
-    private ReseniaBO reseniaBO = new ReseniaBO();
+    private IReseniaBO reseniaBO;
+
+    @Override
+    public void init() throws ServletException {
+        super.init();
+
+        this.reseniaBO = FabricaBO.obtenerReseniasBO();
+
+    }
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
