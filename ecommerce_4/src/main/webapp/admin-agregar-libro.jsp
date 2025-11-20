@@ -1,11 +1,18 @@
+<%-- 
+    Document   : admin-agregar-libro
+    Created on : 19 nov 2025, 10:10:09 p.m.
+    Author     : chris
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 
     <head>
-        <title>Agregar Editorial</title>
+        <title>Agregar Libro</title>
         <meta charset="UTF-8" />
         <link rel="stylesheet" type="text/css" href="./styles/styles-nav.css" />
-        <link rel="stylesheet" type="text/css" href="./styles/styles-admin-agregar.css" />
+        <link rel="stylesheet" type="text/css" href="./styles/styles-agregar-libro.css"/>
     </head>
 
     <body>
@@ -14,7 +21,7 @@
                 <nav>
                     <a href="./principal-registrado.html">
                         <div class="home">
-                            <img src="./icons/home.svg" class="home-icon" />
+                            <img src="./icons/home.svg" alt="home" class="home-icon" />
                         </div>
                     </a>
 
@@ -57,7 +64,7 @@
 
                         <li class="nav-perfil">
                             <button class="user">
-                                <img src="./icons/user.png" class="user-icon" />
+                                <img src="./icons/user.png" alt="user" class="user-icon" />
                                 <div class="options-user">
                                     <div class="user-nombre">
                                         <p>Carlos Gutiérrez Torres</p>
@@ -94,26 +101,99 @@
                 <div class="general-container">
                     <div class="container-add-edition">
                         <div class="title-container">
-                            <h1>Agregar editorial</h1>
+                            <h1>Agregar libro</h1>
                         </div>
 
                         <form class="form-add-edition" id="form-add-edition">
-                            <div class="name-container">
-                                <label>Nombre: </label>
+                            <div>
+                                <label>Título: </label>
                                 <input
+                                    class="input-form-add-edition"
                                     type="text"
-                                    value="Editorial Porrúa"
-                                    maxlength="50"
+                                    value="El Último Secreto"
                                     required
                                     />
                             </div>
-                        </form>
-                        <div class="buttons-cancel-add-edition">
-                            <a href="editoriales-registradas.html">
+
+                            <div>
+                                <label>Autor: </label>
+                                <input
+                                    class="input-form-add-edition"
+                                    type="text"
+                                    value="Dan Brown"
+                                    readonly
+                                    required
+                                    />
+                                <a href="admin-autores-registrados.html">
+                                    <button class="btn-seleccionar" type="button">
+                                        Seleccionar
+                                    </button>
+                                </a>
+                            </div>
+
+                            <div>
+                                <label>Categoría: </label>
+                                <input
+                                    class="input-form-add-edition"
+                                    type="text"
+                                    value="Thriller"
+                                    readonly
+                                    required
+                                    />
+                                <a href="admin-categorias-registradas.html">
+                                    <button class="btn-seleccionar" type="button">
+                                        Seleccionar
+                                    </button>
+                                </a>
+                            </div>
+
+                            <div>
+                                <label>Editorial: </label>
+                                <input
+                                    class="input-form-add-edition"
+                                    type="text"
+                                    value="Editorial Planeta"
+                                    readonly
+                                    required
+                                    />
+                                <a href="editoriales-registradas.html">
+                                    <button class="btn-seleccionar" type="button">
+                                        Seleccionar
+                                    </button>
+                                </a>
+                            </div>
+
+                            <div>
+                                <label>Publicación: </label>
+                                <input
+                                    class="input-form-add-edition"
+                                    type="date"
+                                    value="2025-09-09"
+                                    required
+                                    />
+                            </div>
+
+                            <div class="div-synopsis">
+                                <label>Sinopsis: </label>
+                                <textarea
+                                    class="input-form-add-edition"
+                                    maxlength="350"
+                                    required
+                                    >
+                                    En El último secreto, el profesor de simbología Robert Langdon se ve envuelto en una carrera contrarreloj en Praga tras el brutal asesinato de su colega, Katherine Solomon...
+                                </textarea
+                                >
+                            </div>
+
+                            <div class="buttons-cancel-add-edition">
                                 <input type="button" value="Cancelar" class="cancel-input" />
-                            </a>
-                            <input type="submit" value="Agregar" class="add-edition-input add-input" form="form-add-edition"/>
-                        </div>
+                                <input
+                                    type="submit"
+                                    value="Agregar"
+                                    class="add-edition-input add-input"
+                                    />
+                            </div>
+                        </form>
                     </div>
                 </div>
             </main>
