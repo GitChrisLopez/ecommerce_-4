@@ -1,5 +1,9 @@
 @import url('./global.css');
 
+:root {
+    --dropdown-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
 .body-container {
     display: flex;
     flex-direction: row; 
@@ -64,7 +68,7 @@ main{
     gap: 10px;
 }
 
-.volver-btn, .actualizar-btn, .cancelar-btn{
+.volver-btn, .actualizar-estado-btn, .cancelar-btn{
     padding: 10px 30px;
     border-radius: 10px;
     color: white;
@@ -81,12 +85,65 @@ main{
     background-color: var(--bg-color-dark-red);
 }
 
-.volver-btn, .actualizar-btn{
+.volver-btn, .actualizar-estado-btn{
     background-color: var(--bg-color-dark-blue);
 }
 
-.volver-btn:hover, .actualizar-btn:hover {
+.volver-btn:hover, .actualizar-estado-btn:hover {
     background-color: var(--bg-color-dark-dark-blue);
+}
+
+.estado-acciones {
+    position: relative;
+    display: inline-block; 
+}
+
+.actualizar-estado-btn { 
+    transition: background-color 0.3s ease;
+}
+
+.estado-dropdown {    
+    display: none;
+    position: absolute; 
+    left: 105%;
+    top: 0;
+    z-index: 10; 
+    background-color: var(--bg-color-dark-blue);
+    border-radius: 10px;
+    box-shadow: var(--dropdown-shadow);
+    padding: 5px 0;
+    min-width: 150px;
+    flex-direction: column; 
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-10px); 
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+}
+
+.estado-acciones:hover .estado-dropdown {
+    display: flex; 
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0); 
+}
+
+.opcion-estado {
+    background-color: transparent;
+    border: none;
+    color: var(--white-grey);
+    padding: 10px 20px;
+    text-align: left;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%; 
+    margin: 0; 
+    box-sizing: border-box;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+    transition: background-color 0.2s ease;
+}
+
+.opcion-estado:hover {
+    background-color: rgba(255, 255, 255, 0.15); 
 }
 
 @media (min-width: 770px) {

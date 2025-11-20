@@ -1,4 +1,4 @@
-<%-- 
+<%--
     Document : admin-detalles-pedido
     Created on : 19 nov 2025, 00:46:23
     Author : norma
@@ -71,7 +71,7 @@
                     <c:if test="${not empty pedido}">
                         <div class="pedido-container">
                             <div class="pedido1">
-                
+                            
                                 <div class="detalles-pago">
                                     <h3>Detalles del pago:</h3>
                                     <p><span>Tipo de pago:</span> ${pedido.metodoPago}</p>
@@ -106,9 +106,28 @@
                                 <div class="btn-1">
                                     <a href="${pageContext.request.contextPath}/MostrarPedidosServlet" class="volver-btn">Volver</a>
                                 </div>
+                                
                                 <div class="btn-2">
-                                    <button class="actualizar-btn">Actualizar Estado</button>
-                                    <button class="cancelar-btn">Cancelar Pedido</button>
+                                    
+                                    <div class="estado-acciones">
+                                        <button class="actualizar-estado-btn" type="button">Actualizar estado</button>
+                                        
+                                        <div class="estado-dropdown">
+                                            <form method="POST" action="${pageContext.request.contextPath}/ActualizarPedidoServlet">
+                                                <input type="hidden" name="id" value="${pedido.id}">
+                                                <input type="hidden" name="accion" value="actualizar">
+                                                <button class="opcion-estado" type="submit" name="nuevoEstado" value="PENDIENTE">Pendiente</button>
+                                                <button class="opcion-estado" type="submit" name="nuevoEstado" value="ENVIADO">Enviado</button>
+                                                <button class="opcion-estado" type="submit" name="nuevoEstado" value="ENTREGADO">Entregado</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    
+                                    <form method="POST" action="${pageContext.request.contextPath}/ActualizarPedidoServlet">
+                                        <input type="hidden" name="id" value="${pedido.id}">
+                                        <input type="hidden" name="accion" value="cancelar">
+                                        <button class="cancelar-btn" type="submit">Cancelar Pedido</button>
+                                    </form>
                                 </div>
                             </div>
                         </div>

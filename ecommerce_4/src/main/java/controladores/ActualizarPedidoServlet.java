@@ -73,10 +73,11 @@ public class ActualizarPedidoServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         Long idPedido = null;
         EstadoDTO nuevoEstado = null;
         String mensaje = null;
+        String redireccionURL = request.getContextPath() + "/MostrarPedidosServlet";
 
         try {
             String parametro = request.getParameter("id");
@@ -87,30 +88,40 @@ public class ActualizarPedidoServlet extends HttpServlet {
             }
 
             idPedido = Long.valueOf(parametro);
-                    
+
+            redireccionURL = request.getContextPath() + "/DetallesPedidoServlet?id=" + idPedido;
+
             if ("cancelar".equalsIgnoreCase(accion)) {
                 nuevoEstado = EstadoDTO.CANCELADO;
+                redireccionURL = request.getContextPath() + "/MostrarPedidosServlet";
 
             } else if ("actualizar".equalsIgnoreCase(accion)) {
-                //actualizar otros
+                String nuevoEstadoStr = request.getParameter("nuevoEstado");
+
+                if (nuevoEstadoStr == null || nuevoEstadoStr.isEmpty()) {
+                    throw new IllegalArgumentException("El nuevo estado no fue especificado.");
+                }
+
+                nuevoEstado = EstadoDTO.valueOf(nuevoEstadoStr.toUpperCase());
 
             } else {
                 throw new NegocioException("Acción de actualización de estado no válida.");
             }
 
             pedidoBO.actualizarPedido(idPedido, nuevoEstado);
-            request.getSession().setAttribute("mensajeEstado", "Estado actualizado con éxito.");
+            request.getSession().setAttribute("mensajeEstado", "Estado actualizado con éxito a " + nuevoEstado.toString() + ".");
 
         } catch (Exception e) {
             e.printStackTrace();
-            mensaje = "Error al actualizar la reseña: " + e.getMessage();
-            request.getSession().setAttribute("mensajeEstado", mensaje);
-
-            response.sendRedirect(request.getContextPath() + "/MostrarReseniasServlet");
+            mensaje = "Error al actualizar el estado: " + e.getMessage();
+            request.getSession().setAttribute("mensajeError", mensaje);
+            if (idPedido != null) {
+                redireccionURL = request.getContextPath() + "/DetallesPedidoServlet?id=" + idPedido;
+            } else {
+                redireccionURL = request.getContextPath() + "/MostrarPedidosServlet";
+            }
         }
-
-        response.sendRedirect(request.getContextPath() + "/MostrarPedidosServlet");
-
+        response.sendRedirect(redireccionURL);
     }
 
     /**
