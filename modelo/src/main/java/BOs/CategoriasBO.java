@@ -26,6 +26,11 @@ public class CategoriasBO implements ICategoriasBO{
     private ICategoriasDAO categoriasDAO;
     
     private int CARACTERES_MAXIMO_NOMBRE = 20;
+    
+    public CategoriasBO(ICategoriasDAO categoriasDAO){
+        
+        this.categoriasDAO = categoriasDAO;
+    }
 
     /**
      * Implementación del método registrarCategoria() de la interfaz {@link ICategoriasBO}, 

@@ -32,6 +32,10 @@ public class ProductosBO implements IProductosBO{
      */
     private IProductosDAO productosDAO;
     
+    private int CANTIDAD_MAXIMA_PAGINAS = 10000;
+    private double PRECIO_MAXIMO = 9999.99;
+    private int STOCK_MAXIMO = 50000;
+    
     /**
      * Contructor de la clase que recibe un objeto que implementa la interfaz
      * IProductosDAO.
@@ -76,9 +80,19 @@ public class ProductosBO implements IProductosBO{
             throw new NegocioException("El número de páginas debe ser un número positivo.");
         }
         
+        // Se valida que el número de páginas no exceda el número máximo.
+        if(nuevoProducto.getNumeroPaginas() > CANTIDAD_MAXIMA_PAGINAS){
+            throw new NegocioException("El número de páginas no debe exceder las" + CANTIDAD_MAXIMA_PAGINAS + ".");
+        }
+        
         // Se valida que el precio no sea nulo.
         if(nuevoProducto.getPrecio() == null){
             throw new NegocioException("El producto debe tener un precio.");
+        }
+        
+        // Se valida que el precio no exceda el máximo permitido.
+        if(nuevoProducto.getPrecio().compareTo(new BigDecimal(PRECIO_MAXIMO)) == 1){
+            throw new NegocioException("El precio del producto no debe exceder los " + PRECIO_MAXIMO + " pesos.");
         }
         
         // Se valida que el precio no sea negativo.
@@ -96,6 +110,10 @@ public class ProductosBO implements IProductosBO{
             throw new NegocioException("El stock no puede ser un número negativo.");
         }
         
+        // Se valida que el stock no exceda el máximo permitido.
+        if(nuevoProducto.getStock() > STOCK_MAXIMO){
+            throw new NegocioException("El stock del producto no debe exceder las " + STOCK_MAXIMO);
+        }
         
         try{
             
@@ -211,14 +229,33 @@ public class ProductosBO implements IProductosBO{
             throw new NegocioException("El número de páginas debe ser un número positivo.");
         }
         
+        
+        // Se valida que el número de páginas no exceda el número máximo.
+        if(productoActualizado.getNumeroPaginas() > CANTIDAD_MAXIMA_PAGINAS){
+            throw new NegocioException("El número de páginas no debe exceder las" + CANTIDAD_MAXIMA_PAGINAS + ".");
+        }
+        
+        // Se valida que el precio no exceda el máximo permitido.
+        if(productoActualizado.getPrecio().compareTo(new BigDecimal(PRECIO_MAXIMO)) == 1){
+            throw new NegocioException("El precio del producto no debe exceder los " + PRECIO_MAXIMO + " pesos.");
+        }
+
+
+        
         // Se valida que el precio no sea nulo.
         if(productoActualizado.getPrecio() == null){
             throw new NegocioException("El producto actualizado debe tener un precio.");
         }
         
+        
         // Se valida que el precio no sea negativo.
         if(productoActualizado.getPrecio().compareTo(BigDecimal.ZERO) < 0){
             throw new NegocioException("El precio no puede ser un número negativo.");
+        }
+        
+        // Se valida que el precio no exceda el máximo permitido.
+        if(productoActualizado.getPrecio().compareTo(new BigDecimal(PRECIO_MAXIMO)) == 1){
+            throw new NegocioException("El precio del producto no debe exceder los " + PRECIO_MAXIMO + " pesos.");
         }
         
         // Se valida que el stock no sea nulo.
@@ -229,8 +266,12 @@ public class ProductosBO implements IProductosBO{
         // Se valida que el stock no sea negativo.
         if(productoActualizado.getStock() < 0){
             throw new NegocioException("El stock no puede ser un número negativo.");
-        }
+        }  
         
+        // Se valida que el stock no exceda el máximo permitido.
+        if(productoActualizado.getStock() > STOCK_MAXIMO){
+            throw new NegocioException("El stock del producto no debe exceder las " + STOCK_MAXIMO);
+        }
         
         try {
             
@@ -242,6 +283,34 @@ public class ProductosBO implements IProductosBO{
             
             throw new NegocioException(ex.getMessage());
         }
+    }
+
+    /**
+     * Implementación del método actualizarProducto(), de la interfaz {@IProductosBO}, 
+     * permite eliminar un producto registrado.
+     * 
+     * @param idProducto Objeto Long que representa el Id del produco que se quiere eliminar.
+     * @throws NegocioException Se lanza si ocurren un error al eliminar el producto.
+     */
+    @Override
+    public void eliminarProducto(Long idProducto) throws NegocioException {
+        
+        // Se valida que el id no sea nulo.
+        if(idProducto == null){
+            throw new NegocioException("El Id del producto a eliminar no puede ser nulo.");
+        }
+        
+        try {
+            
+            // Se elimina el producto utilizando el objeto que implementa 
+            // la interfaz IProductosDAO
+            productosDAO.eliminarProducto(idProducto);
+            
+        } catch (PersistenciaException ex) {
+            
+            throw new NegocioException(ex.getMessage());
+        }
+        
     }
     
 }

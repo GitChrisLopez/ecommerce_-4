@@ -1,8 +1,3 @@
-<%-- 
-Document   : comunidad
-Created on : 19 nov 2025, 4:10:47 p.m.
-Author     : chris
---%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -22,63 +17,83 @@ Author     : chris
             </div>
 
             <main>
+                
                 <div class="general-container">
-                    <div class="container-add-edition">
-                        <div class="image-container">
-                            <img
-                                src="imgs/el-principito.jpg"
-                                alt="Producto Libro El Principito"
-                                class="product-image"
-                                />
-                            <div class="container-icon-add-edition">
-                                <img src="icons/edition.png" alt="Editar imagen" />
-                            </div>
+                    <c:if test="${not empty mensajeError}">
+                        <div class="error-alert">
+                            <c:out value="${mensajeError}" />
                         </div>
+                    </c:if>
+                    <div class="container-add-edition">
+                        
+                        <div class="image-container">
 
-                        <form action="admin-menu-administrador.html" class="form-add-edition" id="form-add-edition">
+                            <img src="${pageContext.request.contextPath}/${productoAgregar.urlImagen}" 
+                                alt="Imagen del producto" 
+                                class="product-image">
+
+                            <input form="form-add" type="file" name="foto-nueva" id="input-foto" accept="image/*">
+
+                            <label class="container-icon-add-edition" for="input-foto">
+                                <img src="icons/edition.png" alt="Editar foto" title="Cambiar imagen">
+                            </label>
+                        </div>
+                                  
+                        <form id="form-add" action="admin-agregar-producto" method="POST" enctype="multipart/form-data" class="form-add-edition">
+
+                            <input type="hidden" name="id" value="${productoAgregar.id}">
+                            <input type="hidden" name="url-imagen" value="${productoAgregar.urlImagen}">
+
                             <div class="seleccionar-libro">
                                 <label>Libro:</label>
-                                <input type="text" value="El Principito" readonly />
-                                <a href="libros-registrados.html"><button class="btn-seleccionar" type="button">Seleccionar</button></a>
-
+                                <input type="text" name="titulo-libro" value="${productoAgregar.libro.titulo}" readonly" />
                             </div>
 
                             <div>
+                                <label>ISBN</label>
+                                <input type="text" name="isbn" maxlength="13" pattern="[0-9]{13}" value="${productoAgregar.isbn}" required title="Debe ingresar un número de 13 dígitos"/>
+                            </div>
+                                
+                            <div>
                                 <label>Formato:</label>
-                                <select>
-                                    <option>Tapa blanda</option>
-                                    <option>Tapa dura</option>
-                                    <option>E-Book</option>
+                                <select name="formato" class="form-control">
+                                    <c:forEach var="entradaFormato" items="${mapaFormatos}">
+                                        <option value="${entradaFormato.key}" ${entradaFormato.key == productoAgregar.formato ? 'selected' : ''}>
+                                            <c:out value="${entradaFormato.value}" />
+                                        </option>
+                                    </c:forEach>
                                 </select>
                             </div>
 
                             <div>
                                 <label>No. de páginas:</label>
-                                <input type="number" min="1" value="96" />
+                                <input type="number" name="numero-paginas" min="1" max="10000" value="${productoAgregar.numeroPaginas}" required />
                             </div>
 
                             <div>
                                 <label>Precio:</label>
-                                <input type="number" min="1" step="0.01" value="70.50" />
+                                <input type="number" name="precio" min="0" max="50000" step="0.01" value="${productoAgregar.precio}" required />
                                 <span>pesos</span>
                             </div>
 
                             <div>
                                 <label>Stock:</label>
-                                <input type="number" min="0" value="2" />
+                                <input type="number" name="stock" min="0" max="99999.99" value="${productoAgregar.stock}" required />
                             </div>
 
                             <div class="buttons-cancel-add-edition">
-                                <a href="admin-menu-administrador.html">
+
+                                <a href="menu-principal-admin">
                                     <input type="button" value="Cancelar" class="cancel-input" />
                                 </a>
-                                <input type="submit" value="Agregar" class="add-edition-input add-input"/>
+
+                                 <input type="submit" value="Agregar Producto" class="add-edition-input add-input"/>
                             </div>
-                            <br/>
+
                         </form>
                     </div>
                 </div>
-            </main>
+            </main>        
         </div>
     </body>
 </html>

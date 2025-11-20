@@ -34,6 +34,11 @@ public class MapperCategoria {
      * @return La lista de DTOs.
      */
     public static List<CategoriaDTO> toDtoList(List<Categoria> entityList) {
+        
+        if(entityList == null){
+            return null;
+        }
+        
         return entityList.stream()
                          .map(MapperCategoria::toDto)
                          .collect(Collectors.toList());

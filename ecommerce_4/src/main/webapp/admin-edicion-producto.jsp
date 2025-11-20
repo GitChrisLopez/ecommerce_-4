@@ -1,8 +1,4 @@
-<%-- 
-Document   : comunidad
-Created on : 19 nov 2025, 4:10:47 p.m.
-Author     : chris
---%>
+
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%> 
@@ -22,73 +18,86 @@ Author     : chris
             </div>
 
             <main>
+                
                 <div class="general-container">
-                    <div class="container-add-edition">
-                        <div class="image-container">
-                            <img src="${productoEditar.urlImagen}" alt="Producto Libro Morir en la Arena" class="product-image" />
-                            <div class="container-icon-add-edition">
-                                <img src="icons/edition.png" alt="Editar imagen" />
-                            </div>
+                    <c:if test="${not empty mensajeError}">
+                        <div class="error-alert">
+                            <c:out value="${mensajeError}" />
                         </div>
+                    </c:if>
+                    <div class="container-add-edition">
+                        
+                        <div class="image-container">
 
-                        <form action="admin-actualizar-producto" class="form-add-edition" id="form-add-edition">
+                            <img src="${pageContext.request.contextPath}/${productoEditar.urlImagen}" 
+                                alt="Imagen del producto" 
+                                class="product-image">
 
-                            <input type="hidden" name="id" value="${producto.id}">
-                            <input type="hidden" name="id-libro" value="${productoEditar.libro.id}">
+                            <input form="form-add" type="file" name="foto-nueva" id="input-foto" accept="image/*">
+
+                            <label class="container-icon-add-edition" for="input-foto">
+                                <img src="icons/edition.png" alt="Editar foto" title="Cambiar imagen">
+                            </label>
+                        </div>
+                                  
+                        <form id="form-add" action="admin-actualizar-producto" method="POST" enctype="multipart/form-data" class="form-add-edition">
+
+                            <input type="hidden" name="id" value="${productoEditar.id}">
+                            <input type="hidden" name="url-imagen" value="${productoEditar.urlImagen}">
 
                             <div class="seleccionar-libro">
                                 <label>Libro:</label>
-                                <input type="text" value="${productoEditar.libro.titulo}" name ="libro" readonly />
-                                <a href="libros-registrados.html">
-                                    <button class="btn-seleccionar" type="button">Seleccionar</button>
-                                </a>
-
+                                <input type="text" name="titulo-libro" value="${productoEditar.libro.titulo}" readonly" />
                             </div>
 
                             <div>
-
+                                <label>ISBN</label>
+                                <input type="text" name="isbn" maxlength="13" pattern="[0-9]{13}" value="${productoEditar.isbn}" required title="Debe ingresar un número de 13 dígitos"/>
+                            </div>
+                                
+                            <div>
                                 <label>Formato:</label>
-
                                 <select name="formato" class="form-control">
-
                                     <c:forEach var="entradaFormato" items="${mapaFormatos}">
-
                                         <option value="${entradaFormato.key}" ${entradaFormato.key == productoEditar.formato ? 'selected' : ''}>
                                             <c:out value="${entradaFormato.value}" />
                                         </option>
-
                                     </c:forEach>
-
                                 </select>
                             </div>
 
                             <div>
                                 <label>No. de páginas:</label>
-                                <input type="number" name="numero-paginas" min="1" value="${productoEditar.numeroPaginas}" />
+                                <input type="number" name="numero-paginas" min="1" max="10000" value="${productoEditar.numeroPaginas}" required />
                             </div>
 
                             <div>
                                 <label>Precio:</label>
-                                <input type="number" name="precio" min="1" step="0.01" value="${productoEditar.precio}" />
+                                <input type="number" name="precio" min="0" max="50000" step="0.01" value="${productoEditar.precio}" required />
                                 <span>pesos</span>
                             </div>
 
                             <div>
                                 <label>Stock:</label>
-                                <input type="number" name="stock" min="0" value="${productoEditar.stock}" />
+                                <input type="number" name="stock" min="0" max="99999.99" value="${productoEditar.stock}" required />
                             </div>
 
                             <div class="buttons-cancel-add-edition">
-                                <a href="menu-principal-admin">
+                                <input type="submit" value="Eliminar Producto" class="delete-button-input" 
+                                       formaction="admin-eliminar-producto" formenctype="application/x-www-form-urlencoded" formnovalidate>
+                                
+                                <a class="cancel-a" href="menu-principal-admin">
                                     <input type="button" value="Cancelar" class="cancel-input" />
                                 </a>
-                                <input type="submit" value="Agregar" class="add-edition-input add-input"/>
+
+                                <input type="submit" value="Guardar Cambios" class="add-edition-input add-input"/>
                             </div>
-                            <br/>
+
                         </form>
                     </div>
                 </div>
             </main>
+
         </div>
     </body>
 </html>

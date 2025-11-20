@@ -72,4 +72,12 @@ public interface IProductosBO {
      * ocurre un error al actualizar el producto.
      */
     public abstract void actualizarProducto(ProductoDTO productoActualizado) throws NegocioException;
+    
+    /**
+     * Permite eliminar un producto registrado.
+     * 
+     * @param idProducto Objeto Long que representa el Id del produco que se quiere eliminar.
+     * @throws NegocioException Se lanza si ocurren un error al eliminar el producto.
+     */
+    public abstract void eliminarProducto(Long idProducto) throws NegocioException;
 }

@@ -19,6 +19,10 @@ public class LibrosBO implements ILibrosBO {
     private int CARACTERES_MAXIMO_SINOPSIS = 350;
     private LocalDate FECHA_ACTUAL = LocalDate.now();
 
+    public LibrosBO(ILibrosDAO librosDAO){
+        this.librosDAO = librosDAO;
+    }
+    
     /**
      * Implementación del método registrarLibro() de la interfaz {@link ILibrosBO}, 
      * permite registrar una nuevo libro.
@@ -106,6 +110,31 @@ public class LibrosBO implements ILibrosBO {
         
         try{
             return MapperLibro.toDto(librosDAO.consultarLibro(idLibro));
+        } catch(PersistenciaException ex){
+            throw new NegocioException(ex.getMessage());
+        }
+    }
+    
+    /**
+     * Implementación del método consultarLibro() de la interfaz {@link ILibrosBO}, 
+     * permite obtener los datos de un libro a partir de su título.
+     * 
+     * @param idLibro Dato Long que representa el título del libro a consultar.
+     * @return Objeto LibroDTO que contiene los datos del libro consultado.
+     * @throws NegocioException Se lanza si se obtiene una excepción al consultar el libro, o si 
+     * el título del parámetro es nulo.
+     */
+    @Override
+    public LibroDTO consultarLibro(String titulo) throws NegocioException {
+        
+        // Se valida el título del libro.
+        if(titulo == null){
+            throw new NegocioException("El título del libro a consultar no puede ser nulo.");
+        }
+        
+        try{
+            return MapperLibro.toDto(librosDAO.consultarLibro(titulo));
+            
         } catch(PersistenciaException ex){
             throw new NegocioException(ex.getMessage());
         }

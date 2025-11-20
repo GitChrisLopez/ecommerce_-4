@@ -28,6 +28,10 @@ public class AutoresBO implements IAutoresBO{
     private int CANTIDAD_MAXIMA_CARACTERES_APELLIDO_PATERNO = 50;
     private int CANTIDAD_MAXIMA_CARACTERES_APELLIDO_MATERNO = 50;
     
+    public AutoresBO(IAutoresDAO autoresDAO){
+        this.autoresDAO = autoresDAO;
+    }
+    
     /**
      * Implementación del método registrarAutor() de la interfaz {@link IAutoresBO}, 
      * permite registrar una nueva categoría.

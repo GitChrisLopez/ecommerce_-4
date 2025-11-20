@@ -1,11 +1,27 @@
 package fabrica;
 
+import BOs.AutoresBO;
+import BOs.CategoriasBO;
+import BOs.EditorialesBO;
+import BOs.LibrosBO;
 import BOs.PedidoBO;
 import BOs.ProductosBO;
 import BOs.ReseniaBO;
+import DAOs.AutoresDAO;
+import DAOs.CategoriasDAO;
+import DAOs.EditorialesDAO;
+import DAOs.LibrosDAO;
 import DAOs.PedidoDAO;
 import DAOs.ProductosDAO;
 import DAOs.ReseniaDAO;
+import definiciones.IAutoresBO;
+import definiciones.IAutoresDAO;
+import definiciones.ICategoriasBO;
+import definiciones.ICategoriasDAO;
+import definiciones.IEditorialesBO;
+import definiciones.IEditorialesDAO;
+import definiciones.ILibrosBO;
+import definiciones.ILibrosDAO;
 import definiciones.IPedidoBO;
 import definiciones.IPedidoDAO;
 import definiciones.IProductosBO;
@@ -31,9 +47,19 @@ public class FabricaBO {
 
     }
 
+    public static ILibrosBO obtenerLibrosBO(){
+        
+        ILibrosDAO librosDAO = new LibrosDAO();
+        
+        ILibrosBO librosBO = new LibrosBO(librosDAO);
+        
+        return librosBO;
+        
+    }
+    
     public static IReseniaBO obtenerReseniasBO() {
 
-        IReseniaDAO reseniaDAO = (IReseniaDAO) new ReseniaDAO();
+        IReseniaDAO reseniaDAO = new ReseniaDAO();
 
         IReseniaBO reseniaBO = new ReseniaBO(reseniaDAO);
 
@@ -49,4 +75,33 @@ public class FabricaBO {
         
         return pedidoBO;
     }
+    
+    
+    public static ICategoriasBO obtenerCategoriasBO(){
+        
+        ICategoriasDAO categoriaDAO = new CategoriasDAO();
+        
+        ICategoriasBO categoriasBO = new CategoriasBO(categoriaDAO);
+        
+        return categoriasBO;
+    }
+    
+    public static IAutoresBO obtenerAutoresBO(){
+        
+        IAutoresDAO autoresDAO = new AutoresDAO();
+        
+        IAutoresBO autoresBO = new AutoresBO(autoresDAO);
+        
+        return autoresBO;
+    }
+    
+    public static IEditorialesBO obtenerEditorialesBO(){
+        
+        IEditorialesDAO editorialesDAO = new EditorialesDAO();
+        
+        IEditorialesBO editorialesBO = new EditorialesBO(editorialesDAO);
+        
+        return editorialesBO;
+    }
+    
 }

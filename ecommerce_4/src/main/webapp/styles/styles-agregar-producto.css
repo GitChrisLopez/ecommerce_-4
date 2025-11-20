@@ -137,8 +137,16 @@ form button:hover {
     margin-top: 30px;
 }
 
+.delete-button-container{
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+    margin-top: 30px;
+}
+
 .cancel-input,
-.add-edition-input {
+.add-edition-input,
+.delete-button-input {
     font-weight: 500;
     border-radius: 40px;
     border: none;
@@ -146,6 +154,10 @@ form button:hover {
     padding: 10px 30px;
     color: white;
     transition: 0.3s;
+}
+
+.delete-button-input{
+    background-color: black;
 }
 
 .cancel-input {
@@ -162,6 +174,38 @@ form button:hover {
 
 .add-edition-input:hover {
     background-color: var(--bg-color-catalogo);
+}
+
+.delete-button-input:hover{
+    background-color: var(--lighter-grey);
+}
+
+.label-input-imagen::file-selector-button{
+    
+    background-color: black;
+    color:white;
+    border:none;
+    border-radius: 10px;
+    padding:4px;
+    cursor:pointer;
+    
+}
+
+#input-foto{
+    display:none;
+}
+
+.error-alert{
+    background-color: var(--bg-color-error); 
+    color: var(--color-error-text); 
+    padding: 15px; 
+    border-radius: 20px; 
+    margin-bottom: 15px; 
+    border: 1px solid #f5c6cb;
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin:15px;
+    text-align: center;
 }
 
 @media (min-width: 770px) {
@@ -227,23 +271,32 @@ form button:hover {
         display: flex;
         flex-direction: column;
         align-items: center;
+        height: 100%;
     }
 
     .form-add-edition {
-        width: 100%;
+        width: 70%;
         display: flex;
         flex-direction: column;
         row-gap: 25px;
+        box-sizing: border-box;
     }
     
     .form-add-edition input{
-        width: 100%;
         box-sizing: border-box;
     }
-
-    .form-add-edition div {
+    
+    .form-add-edition div{
         display: grid;
         grid-template-columns: 1fr 3fr 1fr;
+        align-items: center;
+        gap: 10px;
+
+    }
+
+    .form-add-edition div:last-child {
+        display: grid;
+        grid-template-columns:3fr 1fr 1fr;
         align-items: center;
         gap: 10px;
     }
@@ -268,18 +321,24 @@ form button:hover {
         justify-content: end;
         margin-top: 20px;
     }
-
-    .buttons-cancel-add-edition input {
-        width: 25%;
-        padding:5px 2px;
-    }
     
     .buttons-cancel-add-edition a{
-        width: 25%;
+        width: 100%;
+        box-sizing: border-box;
+        grid-column: 2 / 3;
     }
     
-    .buttons-cancel-add-edition a input{
+    .add-edition-input{
+        grid-column: 3 / 4;
         width: 100%;
+    }
+    
+    .cancel-input{
+        width: 100%;
+    }
+    
+    .delete-button-input{
+        width: 200px;
     }
     
 }

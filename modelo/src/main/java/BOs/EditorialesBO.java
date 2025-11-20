@@ -27,6 +27,12 @@ public class EditorialesBO implements IEditorialesBO{
     
     private int CARACTERES_MAXIMO_NOMBRE = 100;
 
+    public EditorialesBO(IEditorialesDAO editorialesDAO){
+        
+        this.editorialesDAO = editorialesDAO;
+        
+    }
+    
     /**
      * Implementación del método registrarEditorial() de la interfaz {@link IEditorialesBO}, 
      * permite registrar una nueva editorial.

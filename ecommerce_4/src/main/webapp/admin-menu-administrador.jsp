@@ -1,8 +1,4 @@
-<%-- 
-    Document   : admin-menu-administrador
-    Created on : 18 nov 2025, 17:20:51
-    Author     : romom
---%>
+
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -27,7 +23,7 @@
 
                     <div class="catalogo-container">
 
-                        <div class="sidebar">
+                        <form class="sidebar" action="menu-principal-admin" method="GET">
                             <div class="options-lookup">
                                 <div class="search-filtros">
                                     <a href="./catalogo-filtros-mobile.html" class="filtrar-btn">
@@ -36,7 +32,7 @@
                                     </a>
                                 </div>
                                 <div class="search-box">
-                                    <input type="text" placeholder="Buscar por Libro o Autor">
+                                    <input type="text" name="busqueda" placeholder="Buscar por Libro o Autor" value="${param.busqueda}">
                                 </div>
                             </div>
 
@@ -44,62 +40,96 @@
 
                             <div class="filtros">
                                 <h2>Categoría</h2>
-                                <label><input type="checkbox" checked> Thriller</label>
-                                <label><input type="checkbox" checked> Terror</label>
-                                <label><input type="checkbox" checked> Drama</label>
-                                <label><input type="checkbox"> Ciencia ficción</label>
-                                <label><input type="checkbox"> Biografía</label>
+                                <c:forEach var="categoria" items="${listaCategorias}">
+
+                                    <c:set var="categoriaEstaMarcada" value="false" />
+                                    <c:forEach var="idCategoriaSeleccionada" items="${paramValues.categorias}">
+                                        <c:if test="${idCategoriaSeleccionada eq categoria.id.toString()}">
+                                            <c:set var="categoriaEstaMarcada" value="true" />
+                                        </c:if>
+                                    </c:forEach>
+
+                                    <label>
+                                        <input type="checkbox" 
+                                               name="categorias" 
+                                               value="${categoria.id}" 
+                                               ${categoriaEstaMarcada ? 'checked' : ''}> 
+                                        <c:out value="${categoria.nombre}" />
+                                    </label>
+                                </c:forEach>
                             </div>
 
                             <div class="filtros">
                                 <h2>Formato</h2>
-                                <label><input type="checkbox" checked> Tapa dura</label>
-                                <label><input type="checkbox" checked> Tapa blanda</label>
-                                <label><input type="checkbox"> Bolsillo</label>
-                                <label><input type="checkbox"> E-Book</label>
+                                <c:forEach var="entradaFormato" items="${mapaFormatos}">
+
+                                    <c:set var="formatoEstaMarcado" value="false" />
+                                    <c:forEach var="claveFormatoSeleccionado" items="${paramValues.formatos}">
+                                        <c:if test="${claveFormatoSeleccionado eq entradaFormato.key}">
+                                            <c:set var="formatoEstaMarcado" value="true" />
+                                        </c:if>
+                                    </c:forEach>
+
+                                    <label>
+                                        <input type="checkbox" 
+                                               name="formatos" 
+                                               value="${entradaFormato.key}" 
+                                               ${formatoEstaMarcado ? 'checked' : ''}> 
+                                        <c:out value="${entradaFormato.value}" />
+                                    </label>
+                                </c:forEach>
                             </div>
 
                             <div class="filtros">
                                 <h2>Precio</h2>
                                 <p>Mínimo: $100</p>
-                                <input type="range" min="100" max="800" value="100">
+                                <input type="range" 
+                                       name="precioMin" 
+                                       min="0" 
+                                       max="5000" 
+                                       value="${param.precioMin != null ? param.precioMin : '0'}">
+
                                 <p>Máximo: $800</p>
-                                <input type="range" min="100" max="800" value="800">
+                                <input type="range" 
+                                       name="precioMax" 
+                                       min="0" 
+                                       max="5000" 
+                                       value="${param.precioMax != null ? param.precioMax : '5000'}">
                             </div>
 
-                        </div>
+                        </form>
 
                         <div class="button-add-container">
-                            <a href="admin-agregar-producto.html">
+                            <a href="admin-nuevo-producto">
                                 <button type="button">Agregar producto</button>
                             </a>
                         </div>
-
+                        
                         <div class="area-total-container">
                             <div class="libros-container">
-
+                                
                                 <c:choose>
-
+                                    
                                     <c:when test="${empty listaProductos}">
-
+                                        
                                         <div>No hay productos registrados.</div>
-
+                                        
                                     </c:when>
-
+                                        
                                     <c:otherwise>
-
+                                        
                                         <c:forEach var="producto" items="${listaProductos}">
-
+                                            
                                             <button class="libro">
                                                 <img src="${pageContext.request.contextPath}/${producto.urlImagen}" 
-                                                     alt="${producto.libro.titulo}" />
+                                                    alt="${producto.libro.titulo}" />
                                                 <h3><c:out value="${producto.libro.titulo}" /></h3>
                                                 <p><c:out value="${producto.libro.autor.nombre}" /> <c:out value="${producto.libro.autor.apellidoPaterno}" /></p>
 
                                                 <p class="precio">$<c:out value="${producto.precio}" /></p>
 
                                                 <div class="options-product">
-                                                    <a href="edicion-producto?id=${producto.id}">Editar datos</a>
+                                                    <a href="admin-edicion-producto?id=${producto.id}">Editar datos</a>
                                                 </div>
 
                                             </button>
@@ -107,7 +137,7 @@
                                         </c:forEach>
 
                                     </c:otherwise>
-
+                                    
                                 </c:choose>
 
                             </div>
@@ -115,5 +145,6 @@
                     </div> 
                 </div>
             </main>
+        </div>
     </body>    
 </html>

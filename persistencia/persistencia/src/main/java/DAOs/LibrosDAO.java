@@ -179,6 +179,59 @@ public class LibrosDAO implements ILibrosDAO {
         }
 
     }
+    
+    /**
+     * Implementación del método consultarLibro() de la interfaz
+     * {@literal ILibrosDAO}, permite obtener un objeto Libro almacenado en la
+     * base de datos, cuyo valor de atributo titulo sea el recibido como parámetro.
+     *
+     * @param titulo Objeto String que representa el título del Libro buscado.
+     * @return Objeto Libro que tiene el título del parámetro.
+     * @throws PersistenciaException Se lanza si no existe un objeto Libro
+     * almacenado con el valor de título del parámetro o si el valor del parámetro
+     * titulo es nulo.
+     */
+    @Override
+    public Libro consultarLibro(String titulo) throws PersistenciaException {
+
+        // Se valida el título recibido
+        if (titulo == null) {
+            throw new PersistenciaException("El título utilizado para la consulta de libro tiene valor nulo.");
+        }
+
+        // Se crea el objeto EntityManager
+        EntityManager entityManager = ManejadorConexiones.getEntityManager();
+
+        // Se crea el objeto CriteriaBuilder
+        CriteriaBuilder criteraBuilder = entityManager.getCriteriaBuilder();
+
+        // Se crea el objeto CriteriaQuery<Libro>, representa la consulta que 
+        // devolverá el objeto de tipo Libro.
+        CriteriaQuery<Libro> criteriaQuery = criteraBuilder.createQuery(Libro.class);
+
+        // Se obtiene la entidad desde la que se obtendrán los
+        // resultados de la consulta.
+        Root<Libro> entidadLibro = criteriaQuery.from(Libro.class);
+
+        // Se seleccionan todos los atributos de la entidad Libro,
+        // luego se obtienen solo los que tiene el valor del título del parámetro
+        // como valor de su atributo titulo.
+        criteriaQuery.select(entidadLibro).where(criteraBuilder.equal(entidadLibro.get("titulo"), titulo));
+
+        // Se crea el objeto TypedQuery<Libro>, representa la consulta ejecutable.
+        TypedQuery<Libro> query = entityManager.createQuery(criteriaQuery);
+
+        // Estructura try-catch para manejar la excepción NoResultException.
+        try {
+            // Se devuelve el objeto Libro coincidente.
+            return query.getSingleResult();
+
+        } catch (NoResultException ex) {
+            // En caso que no haya Libro coincidentes, se lanza una excepción.
+            throw new PersistenciaException("No existe un libro con el título especificado.");
+        }
+
+    }
 
     /**
      * Implementación del método consultarLibros() de la interfaz

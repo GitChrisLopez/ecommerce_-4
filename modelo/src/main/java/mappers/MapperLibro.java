@@ -74,6 +74,11 @@ public class MapperLibro {
      * @return La lista de entidades Libro.
      */
     public static List<Libro> toEntityList(List<LibroDTO> dtoList) {
+        
+        if(dtoList == null){
+            return null;
+        }
+        
         return dtoList.stream()
                       .map(MapperLibro::toEntity)
                       .collect(Collectors.toList());

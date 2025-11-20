@@ -44,6 +44,18 @@ public interface ILibrosDAO {
     public abstract Libro consultarLibro(Long idLibro) throws PersistenciaException;
     
     /**
+     * Permite obtener un objeto Libro almacenado en la base de datos, cuyo valor
+     * de atributo titulo sea el recibido como parámetro.
+     * 
+     * @param titulo Objeto Long que representa el título del Libro buscado.
+     * @return Objeto Libro que tiene el título del parámetro.
+     * @throws PersistenciaException Se lanza si no existe un objeto Libro
+     * almacenado con el valor de título del parámetro o si el valor del parámetro titulo
+     * es nulo.
+     */
+    public abstract Libro consultarLibro(String titulo) throws PersistenciaException;
+    
+    /**
      * Permite obtener una lista de objetos Libro que tienen el nombre recibido, o parte de él.
      * 
      * @param nombre Objeto String que representa un título completo o parcial de un Libro.

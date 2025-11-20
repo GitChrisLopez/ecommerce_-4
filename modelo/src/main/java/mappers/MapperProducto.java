@@ -42,6 +42,11 @@ public class MapperProducto {
      * @return La lista de DTOs.
      */
     public static List<ProductoDTO> toDtoList(List<Producto> entityList) {
+        
+        if(entityList == null){
+            return null;
+        }
+        
         return entityList.stream()
                 .map(MapperProducto::toDto)
                 .collect(Collectors.toList());
@@ -78,6 +83,11 @@ public class MapperProducto {
      * @return La lista de entidades Producto.
      */
     public static List<Producto> toEntityList(List<ProductoDTO> dtoList) {
+        
+        if(dtoList == null){
+            return null;
+        }
+        
         return dtoList.stream()
                 .map(MapperProducto::toEntity)
                 .collect(Collectors.toList());

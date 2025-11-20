@@ -65,4 +65,12 @@ public interface IProductosDAO {
      * @throws PersistenciaException Se lanza si algún valor actualizado es nulo.
      */
     public abstract void actualizarProducto(Producto productoActualizado) throws PersistenciaException;
+    
+    /**
+     * Permite eliminar un Producto de la base de datos, que tiene el Id del parámetro.
+     * 
+     * @param idProducto Objeto Long que representa el Id del Producto a eliminar.
+     * @throws PersistenciaException Se lanza si ocurre un error al eliminar el Producto.
+     */
+    public abstract void eliminarProducto(Long idProducto) throws PersistenciaException;
 }

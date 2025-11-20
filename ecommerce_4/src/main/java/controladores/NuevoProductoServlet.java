@@ -4,7 +4,6 @@ package controladores;
 import definiciones.IProductosBO;
 import dominio.FormatoDTO;
 import dominio.ProductoDTO;
-import enumeradores.Formato;
 import excepciones.NegocioException;
 import fabrica.FabricaBO;
 import java.io.IOException;
@@ -14,29 +13,18 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
  * @author Romo López Manuel
  * ID: 00000253080
- * 
  */
-@WebServlet(name = "EdicionProducto", urlPatterns = {"/edicion-producto"})
-public class EdicionProducto extends HttpServlet {
-    
-    private IProductosBO productosBO;
-    
-    @Override
-    public void init() throws ServletException {
-        super.init();
-        
-        this.productosBO = FabricaBO.obtenerProductosBO();
-        
-    }
+
+@WebServlet(name = "NuevoProductoServlet", urlPatterns = {"/admin-nuevo-producto"})
+public class NuevoProductoServlet extends HttpServlet {
     
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -55,10 +43,10 @@ public class EdicionProducto extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet EdicionProducto</title>");
+            out.println("<title>Servlet NuevoProductoServlet</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet EdicionProducto at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet NuevoProductoServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -77,37 +65,49 @@ public class EdicionProducto extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        ProductoDTO productoAgregar = null;
 
-        Long idProducto = Long.parseLong(request.getParameter("id"));
-        
-        ProductoDTO producto;
-        try {
-            
-            producto = productosBO.consultarProducto(idProducto);
-            
-            request.setAttribute("productoEditar", producto);
-            
-            Map<String, String> mapaFormatos = new LinkedHashMap<>();
+        // Se revisa la sesión para buscar si hay un producto pendiente y/o un error.
+        HttpSession session = request.getSession();
+        ProductoDTO productoPendiente = (ProductoDTO) session.getAttribute("productoPendienteAgregar");
+        String errorSesion = (String) session.getAttribute("errorSesion");
 
-            for (Formato formato : Formato.values()) {
+        // Se determina si hay un producto pendiente de actualizar en la sesión.
+        if (productoPendiente != null) {
 
-                String clave = formato.name(); 
+            // Si hay un producto pendiente, éste será el que se editará.
+            productoAgregar = productoPendiente;
 
-                String valor = formato.name().toLowerCase().replace("_", " ");
-                valor = valor.substring(0, 1).toUpperCase() + valor.substring(1);
+            // Se elimina el producto pendiente en la sesión.
+            session.removeAttribute("productoPendienteAgregar");
 
-                mapaFormatos.put(clave, valor);
+            if (errorSesion != null) {
+                // Se coloca el mensaje de error en la solicitud para la página destino.
+                request.setAttribute("mensajeError", errorSesion);
+
+                // Se elimina para evitar que salga al refrescar la página.
+                session.removeAttribute("errorSesion");
             }
+        } else{
+            request.removeAttribute("mensajeError");
 
-            request.setAttribute("mapaFormatos", mapaFormatos);
-            
-            
-        } catch (NegocioException ex) {
-            
-            request.setAttribute("errorCarga", "No se pudieron cargar los datos del producto.");
         }
+
+        request.setAttribute("productoAgregar", productoAgregar);
+
+        // Carga de lista de formatos.
+        Map<String, String> mapaFormatos = new LinkedHashMap<>();
+        for (FormatoDTO formato : FormatoDTO.values()) {
+            String clave = formato.name(); 
+            String valor = formato.name().toLowerCase().replace("_", " ");
+            valor = valor.substring(0, 1).toUpperCase() + valor.substring(1);
+            mapaFormatos.put(clave, valor);
+        }
+
+        request.setAttribute("mapaFormatos", mapaFormatos);
         
-        request.getRequestDispatcher("admin-edicion-producto.jsp").forward(request, response);
+        
+        request.getRequestDispatcher("admin-agregar-producto.jsp").forward(request, response);
     }
 
     /**
@@ -121,7 +121,9 @@ public class EdicionProducto extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        
+                
+        
     }
 
     /**

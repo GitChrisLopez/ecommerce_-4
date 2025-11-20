@@ -384,4 +384,60 @@ public class ProductosDAO implements IProductosDAO{
         
     }
     
+    
+    /**
+     * Implementación del método eliminarProducto(), de la interfaz {@link IProductosDAO},
+     * permite eliminar un Producto de la base de datos, que tiene el Id del parámetro.
+     * 
+     * @param idProducto Objeto Long que representa el Id del Producto a eliminar.
+     * @throws PersistenciaException Se lanza si ocurre un error al eliminar el Producto.
+     */
+
+    @Override
+    public void eliminarProducto(Long idProducto) throws PersistenciaException {
+        
+        // Se valida que el id no sea nulo.
+        if(idProducto == null){
+            throw new PersistenciaException("El Id recibido para la eliminación del producto es nulo.");
+        }
+        
+        // Se crea el objeto EntityManager.
+        EntityManager entityManager = ManejadorConexiones.getEntityManager();
+        
+        // Se inicia el bloque try-catch para manejar las excepciones de persistencia.
+        try {
+            // Se inicia una transacción para realizar la eliminación del Producto.
+            entityManager.getTransaction().begin();
+
+            // Se busca la entidad Producto a eliminar utilizando el método find().
+            Producto productoAEliminar = entityManager.find(Producto.class, idProducto);
+
+            // Se valida si el producto existe en la base de datos.
+            if (productoAEliminar == null) {
+                // Si no se encuentra, se hace rollback y se lanza la excepción.
+                entityManager.getTransaction().rollback();
+                throw new PersistenciaException("No existe un producto con el Id especificado para eliminar.");
+            }
+
+            // Se elimina la entidad utilizando el método remove() de EntityManager.
+            entityManager.remove(productoAEliminar);
+
+            // La transacción finaliza y se aplican los cambios en la base de datos.
+            entityManager.getTransaction().commit();
+
+        } catch (PersistenceException ex) {
+
+            // Se maneja la excepción, asegurando rollback en caso de fallo.
+            if (entityManager.getTransaction().isActive()) {
+                entityManager.getTransaction().rollback();
+            }
+           
+            // Se relanza la excepción.
+            throw new PersistenciaException("Error al eliminar el producto.");
+        }
+        
+        
+        
+    }
+    
 }

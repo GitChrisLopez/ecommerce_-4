@@ -1,7 +1,10 @@
 
 package controladores;
 
+import definiciones.ICategoriasBO;
 import definiciones.IProductosBO;
+import dominio.CategoriaDTO;
+import dominio.FormatoDTO;
 import dominio.ProductoDTO;
 import excepciones.NegocioException;
 import fabrica.FabricaBO;
@@ -12,8 +15,11 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -25,12 +31,14 @@ import java.util.List;
 public class MenuPrincipalAdmin extends HttpServlet {
 
     private IProductosBO productosBO;
+    private ICategoriasBO categoriasBO;
     
     @Override
     public void init() throws ServletException {
         super.init();
         
         this.productosBO = FabricaBO.obtenerProductosBO();
+        this.categoriasBO = FabricaBO.obtenerCategoriasBO();
         
     }
     
@@ -73,18 +81,79 @@ public class MenuPrincipalAdmin extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        List<ProductoDTO> listaProductos = new LinkedList<>(); 
-    
+        List<CategoriaDTO> categorias = new ArrayList<>();
         try {
-            listaProductos = productosBO.consultarProductosConFiltros(null, null, 0d, null);
-
-        } catch (NegocioException ex) {
-
-            request.setAttribute("errorCarga", "No se pudo cargar la lista de productos.");
-
+            categorias = categoriasBO.consultarCategorias(); 
+        } catch (Exception e) {
+            request.setAttribute("mensajeError", "No se pudieron cargar las categorías.");
         }
+        request.setAttribute("listaCategorias", categorias);
 
-        request.setAttribute("listaProductos", listaProductos);
+        Map<String, String> mapaFormatos = new LinkedHashMap<>();
+        for (FormatoDTO formato : FormatoDTO.values()) {
+            String clave = formato.name();
+            String valor = formato.name().toLowerCase().replace("_", " ");
+            valor = valor.substring(0, 1).toUpperCase() + valor.substring(1);
+            mapaFormatos.put(clave, valor);
+        }
+        request.setAttribute("mapaFormatos", mapaFormatos);
+        
+        String[] categoriasSeleccionadas = request.getParameterValues("categorias"); 
+        String[] formatosSeleccionados = request.getParameterValues("formatos");
+        String precioMinStr = request.getParameter("precioMinimo");
+        String precioMaxStr = request.getParameter("precioMaximo");
+        
+        List<CategoriaDTO> filtrosCategoria = null; 
+        List<FormatoDTO> filtrosFormato = null;     
+        Double precioMinimo = 0d; 
+        Double precioMaximo = null;
+
+        try {
+            if (precioMinStr != null && !precioMinStr.trim().isEmpty()) {
+                precioMinimo = Double.valueOf(precioMinStr);
+            }
+            
+            if (precioMaxStr != null && !precioMaxStr.trim().isEmpty()) {
+                precioMaximo = Double.valueOf(precioMaxStr);
+            }
+
+            if (categoriasSeleccionadas != null && categoriasSeleccionadas.length > 0) {
+                filtrosCategoria = new ArrayList<>();
+                for (String idCategoria : categoriasSeleccionadas) {
+                    CategoriaDTO categoria = new CategoriaDTO();
+                    categoria.setId(Long.valueOf(idCategoria));
+                    filtrosCategoria.add(categoria);
+                }
+            }
+            
+            if (formatosSeleccionados != null && formatosSeleccionados.length > 0) {
+                filtrosFormato = new ArrayList<>();
+                for (String formato : formatosSeleccionados) {
+                    filtrosFormato.add(FormatoDTO.valueOf(formato));
+                }
+            }
+
+            List<ProductoDTO> listaProductos = productosBO.consultarProductosConFiltros(
+                    filtrosCategoria, 
+                    filtrosFormato, 
+                    precioMinimo, 
+                    precioMaximo
+            );
+            
+            request.setAttribute("listaProductos", listaProductos);
+
+        } catch (NumberFormatException e) {
+            
+            request.setAttribute("mensajeError", "Error en los filtros numéricos.");
+            
+            request.setAttribute("listaProductos", new ArrayList<>());
+            
+        } catch (NegocioException ex) {
+            request.setAttribute("mensajeError", "No se pudo cargar la lista de productos.");
+            
+        } catch (Exception ex) {
+            request.setAttribute("mensajeError", "Ocurrió un error inesperado: " + ex.getMessage());
+        }
 
         request.getRequestDispatcher("admin-menu-administrador.jsp").forward(request, response);
     }

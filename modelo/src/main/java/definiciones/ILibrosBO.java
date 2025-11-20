@@ -41,15 +41,24 @@ public interface ILibrosBO {
     public abstract LibroDTO consultarLibro(Long idLibro) throws NegocioException;
     
     /**
+     * Permite obtener los datos de un libro a partir de su título.
+     * 
+     * @param titulo Objet String que representa el título del libro a consultar.
+     * @return Objeto LibroDTO que contiene los datos del libro consultado.
+     * @throws NegocioException Se lanza si se obtiene una excepción al consultar la editoria, o si 
+     * el título del parámetro es nulo.
+     */
+    public abstract LibroDTO consultarLibro(String titulo) throws NegocioException;
+    
+    /**
      * Permite obtener una lista de libros que tienen el nombre recibido, o parte de él.
      * 
-     * @param nombre Objeto String que representa un título completo o parcial de un libro.
+     * @param titulo Objeto String que representa un título completo o parcial de un libro.
      * @return Objeto {@literal List<LibroDTO>} que representa la lista de libros coincidentes.
      * @throws NegocioException Se lanza si ocurre un error al consultar los libros, o el valor del título
      * del parámetro es nulo.
      */
     public abstract List<LibroDTO> consultarLibros(String titulo) throws NegocioException;
-    
     
     /**
      * Permite obtener la lista de libros registrados.

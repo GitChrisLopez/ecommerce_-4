@@ -1,8 +1,8 @@
 
 package controladores;
 
-import dominio.FormatoDTO;
-import dominio.ProductoDTO;
+import definiciones.IProductosBO;
+import fabrica.FabricaBO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -10,22 +10,24 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.Part;
-import java.io.File;
-import java.io.InputStream;
-import java.math.BigDecimal;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
 
 /**
  *
- * @author Romo López Manuel
- * ID: 00000253080
+ * @author romom
  */
-@WebServlet(name = "ActualizarProducto", urlPatterns = {"/admin-actualizar-producto"})
-public class ActualizarProducto extends HttpServlet {
-
+@WebServlet(name = "EliminarProductoServlet", urlPatterns = {"/admin-eliminar-producto"})
+public class EliminarProductoServlet extends HttpServlet {
+    
+    private IProductosBO productosBO;
+    
+    @Override
+    public void init() throws ServletException {
+        super.init();
+        
+        this.productosBO = FabricaBO.obtenerProductosBO();
+        
+    }
+    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -43,10 +45,10 @@ public class ActualizarProducto extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ActualizarProducto</title>");
+            out.println("<title>Servlet EliminarProductoServlet</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ActualizarProducto at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet EliminarProductoServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -79,49 +81,23 @@ public class ActualizarProducto extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-//        Long id = Long.parseLong(request.getParameter("id"));
-//        Long idLibro = Long.parseLong(request.getParameter("id-libro"));
-//
-//        Integer paginas = Integer.parseInt(request.getParameter("numero-paginas"));
-//        BigDecimal precio = BigDecimal.valueOf(request.getParameter("precio"));
-//        Integer stock = Integer.parseInt(request.getParameter("stock"));
-//
-//        String formatoString = request.getParameter("formato");
-//        FormatoDTO formatoEnum = FormatoDTO.valueOf(formatoString); 
-//
-//        ProductoDTO productoDTO = new ProductoDTO();
-//        productoDTO.setId(id);
-//        productoDTO.setIdLibro(idLibro);
-//        productoDTO.setNumeroPaginas(paginas);
-//        productoDTO.setPrecio(precio);
-//        productoDTO.setStock(stock);
-//        productoDTO.setFormato(formatoEnum);
-//
-//        productoBO.actualizar(productoDTO);
-//
-//
-//        response.sendRedirect("SvAdminProductos");
-//        
-//        
-//        String path = request.getServletContext().getRealPath("");
-//        String pathGuardar = path + "profilePictures";
-//        
-//        File directorio = new File(pathGuardar);
-//        
-//        if(!directorio.exists()){
-//            directorio.mkdir();     
-//        }
-//        
-//        Part filePart = request.getPart("profilePic");
-//        String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
-//
-//        InputStream fileContent = filePart.getInputStream();
-//        File targetFile = new File(pathGuardar + File.separator + fileName);
-//        
-//        Files.copy(fileContent, targetFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
-//        
-//        IOUtils.closeQuietly(fileContent);
+        try {
+            String idProducto = request.getParameter("id");
+            
+            if (idProducto != null && !idProducto.isEmpty()) {
+                Long id = Long.valueOf(idProducto);
+                
+                productosBO.eliminarProducto(id);
+            }
 
+            response.sendRedirect("menu-principal-admin");
+
+        } catch (Exception e) {
+            request.getSession().setAttribute("errorSesion", "No se pudo eliminar el producto.");
+            response.sendRedirect("edicion-producto?id=" + request.getParameter("id"));
+        }
+        
+        
     }
 
     /**
