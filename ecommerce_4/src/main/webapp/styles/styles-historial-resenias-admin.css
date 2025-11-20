@@ -64,6 +64,16 @@ main {
   font-weight: bold;
 }
 
+.resenia-comentario {
+    white-space: normal; 
+    overflow-wrap: break-word;
+}
+
+.resenia-comentario span {
+    display: block; 
+    margin-bottom: 5px; 
+}
+
 .resenia-btn {
   display: flex;
   flex-direction: column;

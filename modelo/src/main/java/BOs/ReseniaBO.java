@@ -1,6 +1,7 @@
 package BOs;
 
-import DAOs.ReseniaDAO;
+import definiciones.IReseniaBO;
+import definiciones.IReseniaDAO;
 import dominio.ReseniaDTO;
 import entidades.Resenia;
 import excepciones.NegocioException;
@@ -15,9 +16,23 @@ import mappers.MapperResenia;
  *
  * @author norma
  */
-public class ReseniaBO {
+public class ReseniaBO implements IReseniaBO{
 
-    private final ReseniaDAO reseniaDAO = new ReseniaDAO();
+    /**
+     * Objeto que implementa la interfaz IReseniaDAO, permite el acceso a datos para objetos de la clase ReseniaDTO.
+     */
+    private final IReseniaDAO reseniaDAO;
+    
+    /**
+     * Contructor de la clase que recibe un objeto que implementa la interfaz
+     * IReseniaDAO.
+     * 
+     * @param reseniaDAO Objeto que implementa la interfaz IReseniaDAO,
+     * permite el acceso a datos para objetos de la clase Resenia.
+     */
+    public ReseniaBO(IReseniaDAO reseniaDAO) {
+        this.reseniaDAO = reseniaDAO;
+    }
 
     /**
      * Elimina una resenia.
@@ -28,6 +43,7 @@ public class ReseniaBO {
      * persistencia.
      * @throws NegocioException si el ID no es válido o no se pudo eliminar.
      */
+    @Override
     public boolean eliminarResenia(Long idResenia) throws PersistenciaException, NegocioException {
         if (idResenia <= 0) {
             throw new NegocioException("El ID debe ser un número válido.");
@@ -50,6 +66,7 @@ public class ReseniaBO {
      * @throws NegocioException si el ID o comentario no es válido o no se pudo
      * actualizar.
      */
+    @Override
     public void actualizarComentarioResenia(Long idResenia, String nuevoComentario) throws PersistenciaException, NegocioException {
 
         if (idResenia == null || idResenia <= 0) {
@@ -81,6 +98,7 @@ public class ReseniaBO {
      * persistencia.
      * @throws NegocioException si no se pudo obtener la lista de resenias.
      */
+    @Override
     public List<ReseniaDTO> obtenerResenias() throws PersistenciaException, NegocioException {
         try {
             List<Resenia> resenias = reseniaDAO.obtenerTodasLasResenias();
@@ -105,6 +123,7 @@ public class ReseniaBO {
      * persistencia.
      * @throws NegocioException si no se pudo obtener la resenia.
      */
+    @Override
     public ReseniaDTO obtenerReseniaPorId(Long idResenia) throws PersistenciaException, NegocioException {
         if (idResenia == null || idResenia <= 0) {
             throw new NegocioException("El ID de la reseña debe ser un número válido.");
@@ -134,6 +153,7 @@ public class ReseniaBO {
      * persistencia.
      * @throws NegocioException si no se pudo obtener la lista de resenias.
      */
+    @Override
     public List<ReseniaDTO> obtenerReseniasFiltradasPorLibro(String busqueda) throws PersistenciaException, NegocioException {
 
         try {

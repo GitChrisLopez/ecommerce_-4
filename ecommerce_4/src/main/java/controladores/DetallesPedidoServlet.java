@@ -1,7 +1,8 @@
 package controladores;
 
-import BOs.PedidoBO;
+import definiciones.IPedidoBO;
 import dominio.PedidoDTO;
+import fabrica.FabricaBO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -18,7 +19,14 @@ import java.io.PrintWriter;
 @WebServlet(name = "DetallesPedidoServlet", urlPatterns = {"/DetallesPedidoServlet"})
 public class DetallesPedidoServlet extends HttpServlet {
 
-    private PedidoBO pedidoBO = new PedidoBO();
+    private IPedidoBO pedidoBO;
+    
+    @Override
+    public void init() throws ServletException {
+        super.init();
+        
+        this.pedidoBO = FabricaBO.obtenerPedidosBO();   
+    }
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>

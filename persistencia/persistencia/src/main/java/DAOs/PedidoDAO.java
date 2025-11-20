@@ -1,6 +1,7 @@
 package DAOs;
 
 import com.persistencia.ManejadorConexiones;
+import definiciones.IPedidoDAO;
 import entidades.Pedido;
 import enumeradores.Estado;
 import excepciones.PersistenciaException;
@@ -14,7 +15,7 @@ import javax.persistence.EntityManager;
  *
  * @author norma
  */
-public class PedidoDAO {
+public class PedidoDAO implements IPedidoDAO{
 
     /**
      * Guarda un nuevo pedido en la base de datos.
@@ -23,6 +24,7 @@ public class PedidoDAO {
      * @return El mismo objeto pedido si se guardó correctamente.
      * @throws PersistenciaException Si ocurre un error durante la operación.
      */
+    @Override
     public Pedido persistirPedido(Pedido pedido) throws PersistenciaException {
 
         //falta la lógica de asignarle un número único
@@ -54,6 +56,7 @@ public class PedidoDAO {
      * @return true si se actualizó correctamente, false si no se actualizó.
      * @throws PersistenciaException Si ocurre un error durante la operación.
      */
+    @Override
     public boolean actualizarPedidoo(Long idPedido, Estado estado) throws PersistenciaException {
         EntityManager em = ManejadorConexiones.getEntityManager();
         try {
@@ -87,6 +90,7 @@ public class PedidoDAO {
      * @return Lista de pedidos.
      * @throws PersistenciaException Si ocurre un error durante la operación.
      */
+    @Override
     public List<Pedido> obtenerTodosLosPedidos() throws PersistenciaException {
 
         EntityManager em = ManejadorConexiones.getEntityManager();
@@ -112,6 +116,7 @@ public class PedidoDAO {
      * @return El objeto pedido que se encontró con el id.
      * @throws PersistenciaException Si ocurre un error durante la operación.
      */
+    @Override
     public Pedido obtenerPedido(Long idPedido) throws PersistenciaException {
 
         EntityManager em = ManejadorConexiones.getEntityManager();
@@ -135,6 +140,7 @@ public class PedidoDAO {
      * @return Lista de pedidos que cumple con el filtro.
      * @throws PersistenciaException Si ocurre un error durante la consulta.
      */
+    @Override
     public List<Pedido> obtenerPedidosFiltradosPorNumero(String numeroPedido) throws PersistenciaException {
 
         EntityManager em = ManejadorConexiones.getEntityManager();

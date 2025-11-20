@@ -11,11 +11,7 @@
     <head>
         <title>Historial de Reseñas</title>
         <meta charset="UTF-8" />
-        <link
-            rel="stylesheet"
-            type="text/css"
-            href="./styles/styles-historial-resenias-admin.css"
-            />
+        <link rel="stylesheet" type="text/css" href="./styles/styles-historial-resenias-admin.css"/>
         <link rel="stylesheet" type="text/css" href="./styles/styles-nav.css" />
 
         <script>
@@ -140,7 +136,7 @@
                                         <p><span>Producto:</span> ${resenia.libro.titulo} (${resenia.formato})</p>
                                         <p><span>Usuario:</span> ${resenia.cliente.nombre}</p>
                                         <p><span>Calificación:</span> ${resenia.calificacion}</p>
-                                        <p>
+                                        <p class="resenia-comentario">
                                             <span>Comentario:</span> "${resenia.comentario}"
                                         </p>
                                         <p><span>Fecha:</span> ${resenia.fecha}</p>
