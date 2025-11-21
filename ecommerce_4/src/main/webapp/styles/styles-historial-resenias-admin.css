@@ -27,6 +27,7 @@ main{
     align-items: center;
     padding-top: 50px;
     margin-top: 80px;
+    margin-left: 100px;
 }
 
 .resenias-container {
@@ -39,7 +40,6 @@ main{
     margin-bottom: 40px;
     border-radius: 30px;
     padding-bottom: 20px;
-    margin-left: auto;
     margin-right: auto;
 }
 
@@ -147,6 +147,15 @@ nav {
 
 .nav-text {
     display: none;
+}
+
+.nav-links .libros img,
+.nav-links .categorias img,
+.nav-links .editoriales img,
+.nav-links .autores img{
+    width: 80% !important;
+    height: 80% !important;
+    object-fit: contain !important;
 }
 
 .nav-users {

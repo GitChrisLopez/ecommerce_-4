@@ -152,6 +152,16 @@ nav > a .home {
     align-items: center;
     margin-bottom: 20px !important;
 }
+
+.nav-links .libros img,
+.nav-links .categorias img,
+.nav-links .editoriales img,
+.nav-links .autores img{
+    width: 80% !important;
+    height: 80% !important;
+    object-fit: contain !important;
+}
+
 @media (min-width: 770px) {
 
     main {

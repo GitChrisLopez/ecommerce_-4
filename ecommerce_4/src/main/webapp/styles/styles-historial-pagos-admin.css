@@ -25,7 +25,8 @@ main{
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 80px;
+    margin-top: 10px;
+    margin-left: 80px;
 }
 
 .pagos-container {
@@ -126,6 +127,15 @@ nav {
     position: fixed;
 }
 
+.nav-links .libros img,
+.nav-links .categorias img,
+.nav-links .editoriales img,
+.nav-links .autores img{
+    width: 80% !important;
+    height: 80% !important;
+    object-fit: contain !important;
+}
+
 .nav-text {
     display: none;
 }
@@ -182,6 +192,10 @@ nav > a .home {
     body{
         flex-direction: column;
         font-size: 1.2rem;
+    }
+
+    .c2 {
+        margin-top: 90px;
     }
 
     .body-container {

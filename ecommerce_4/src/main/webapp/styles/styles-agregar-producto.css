@@ -265,6 +265,19 @@ nav {
     left: 0;
 }
 
+.nav-text {
+    display: none;
+}
+
+.nav-links .libros img,
+.nav-links .categorias img,
+.nav-links .editoriales img,
+.nav-links .autores img{
+    width: 80% !important;
+    height: 80% !important;
+    object-fit: contain !important;
+}
+
 @media (min-width: 770px) {
     body {
         font-size: 1.4rem;

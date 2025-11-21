@@ -27,11 +27,12 @@ main{
     align-items: center;
     padding-top: 50px;
     margin-top: 80px;
+    margin-left: 60px;
 }
 
 .pedidos-container {
     background-color: white;
-    width: 80%;
+    width: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -51,7 +52,7 @@ main{
     display: flex;
     flex-direction: column;
     gap: 15px;
-    width: 90%;
+    width: 99%;
 }
 
 .pedido{
@@ -164,6 +165,15 @@ nav {
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
+}
+
+.nav-links .libros img,
+.nav-links .categorias img,
+.nav-links .editoriales img,
+.nav-links .autores img{
+    width: 80% !important;
+    height: 80% !important;
+    object-fit: contain !important;
 }
 
 nav > a .home {

@@ -28,6 +28,7 @@ input{
 
 .container-registered{
     margin: 5%;
+    margin-left: 130px;
     display: flex;
     flex-direction: column;
     height: 90vh;
@@ -223,6 +224,15 @@ nav {
 
 .nav-text {
     display: none;
+}
+
+.nav-links .libros img,
+.nav-links .categorias img,
+.nav-links .editoriales img,
+.nav-links .autores img{
+    width: 80% !important;
+    height: 80% !important;
+    object-fit: contain !important;
 }
 
 .nav-users {
