@@ -1,4 +1,3 @@
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -38,7 +37,7 @@
                                 <img src="icons/edition.png" alt="Editar foto" title="Cambiar imagen">
                             </label>
                         </div>
-                                  
+                                    
                         <form id="form-add" action="admin-agregar-producto" method="POST" enctype="multipart/form-data" class="form-add-edition">
 
                             <input type="hidden" name="id" value="${productoAgregar.id}">
@@ -46,8 +45,15 @@
 
                             <div class="seleccionar-libro">
                                 <label>Libro:</label>
-                                <input type="text" name="titulo-libro" value="${productoAgregar.libro.titulo}" readonly" />
-                            </div>
+                                <select name="id-libro" class="form-control" required>
+                                    <option value=""> Seleccionar Libro </option>
+                                    <c:forEach var="libro" items="${listaLibros}">
+                                        <option value="${libro.id}" ${productoAgregar.libro.id == libro.id ? 'selected' : ''}>
+                                            <c:out value="${libro.titulo}" />
+                                        </option>
+                                    </c:forEach>
+                                </select>
+                                </div>
 
                             <div>
                                 <label>ISBN</label>
@@ -87,7 +93,7 @@
                                     <input type="button" value="Cancelar" class="cancel-input" />
                                 </a>
 
-                                 <input type="submit" value="Agregar Producto" class="add-edition-input add-input"/>
+                                   <input type="submit" value="Agregar Producto" class="add-edition-input add-input"/>
                             </div>
 
                         </form>

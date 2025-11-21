@@ -1,4 +1,3 @@
-
 package controladores;
 
 import definiciones.ILibrosBO;
@@ -26,30 +25,29 @@ import java.nio.file.StandardCopyOption;
 
 /**
  *
- * @author Romo López Manuel
- * ID: 00000253080
+ * @author Romo López Manuel ID: 00000253080
  */
 @WebServlet(name = "ActualizarProducto", urlPatterns = {"/admin-actualizar-producto"})
 
 @MultipartConfig(
-        fileSizeThreshold = 1024 * 1024 * 2, 
-        maxFileSize=1024 * 1024 * 10, 
-        maxRequestSize= 1024 * 1024 * 50
+        fileSizeThreshold = 1024 * 1024 * 2,
+        maxFileSize = 1024 * 1024 * 10,
+        maxRequestSize = 1024 * 1024 * 50
 )
 
 public class ActualizarProductoServlet extends HttpServlet {
 
     private IProductosBO productosBO;
     private ILibrosBO librosBO;
-    
+
     @Override
     public void init() throws ServletException {
         super.init();
-        
+
         this.productosBO = FabricaBO.obtenerProductosBO();
         this.librosBO = FabricaBO.obtenerLibrosBO();
     }
-    
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -102,27 +100,27 @@ public class ActualizarProductoServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        String idProducto = request.getParameter("id"); 
+
+        String idProducto = request.getParameter("id");
 
         try {
 
             // Se obtienen los datos ingresados.
             Long id = Long.valueOf(idProducto);
-            String tituloLibro = request.getParameter("titulo-libro"); 
             String isbnStr = request.getParameter("isbn");
-            
+            String idLibroStr = request.getParameter("id-libro");
+
             Long isbn = null;
-            if(isbnStr != null && !isbnStr.isEmpty()){
+            if (isbnStr != null && !isbnStr.isEmpty()) {
                 isbn = Long.valueOf(isbnStr);
             }
-            
+
             Integer numeroPaginas = Integer.valueOf(request.getParameter("numero-paginas"));
             BigDecimal precio = new BigDecimal(request.getParameter("precio"));
             Integer stock = Integer.valueOf(request.getParameter("stock"));
 
             String formatoString = request.getParameter("formato");
-            FormatoDTO formatoEnum = FormatoDTO.valueOf(formatoString); 
+            FormatoDTO formatoEnum = FormatoDTO.valueOf(formatoString);
 
             // Se guarda la imagen en el servidor.
             Part filePart = request.getPart("foto-nueva");
@@ -134,22 +132,25 @@ public class ActualizarProductoServlet extends HttpServlet {
                 String pathGuardar = path + File.separator + "imgs";
 
                 File directorio = new File(pathGuardar);
-                if (!directorio.exists()) directorio.mkdirs();
+                if (!directorio.exists()) {
+                    directorio.mkdirs();
+                }
 
                 File targetFile = new File(pathGuardar + File.separator + fileName);
                 try (InputStream fileContent = filePart.getInputStream()) {
                     Files.copy(fileContent, targetFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
                 }
-                urlImagenFinal = "imgs/" + fileName; 
+                urlImagenFinal = "imgs/" + fileName;
             }
 
+            if (idLibroStr == null || idLibroStr.isEmpty()) {
+                throw new IllegalArgumentException("El ID del libro es requerido.");
+            }
+            Long idLibro = Long.valueOf(idLibroStr);
 
-            // Se obtiene el título ingresado.
-            String tituloLibroIngresado = tituloLibro.trim(); 
-            
-            // Se obtiene el libro con el título ingresado.
-            LibroDTO libroEncontrado = librosBO.consultarLibro(tituloLibroIngresado);
-            
+            // Se obtiene el libro con el ID ingresado. 
+            LibroDTO libroEncontrado = librosBO.consultarLibro(idLibro);
+
             // Se crea dto con los datos nuevos del producto.
             ProductoDTO productoDTO = new ProductoDTO();
             productoDTO.setId(id);
@@ -172,45 +173,51 @@ public class ActualizarProductoServlet extends HttpServlet {
             response.sendRedirect("menu-principal-admin");
 
         } catch (Exception e) {
-          
+
             // Se guardan los datos ingresados por el usuario.
             ProductoDTO productoPendienteActualizar = new ProductoDTO();
             try {
 
                 productoPendienteActualizar.setId(Long.valueOf(idProducto));
                 // Se intentan recuperar valores numéricos.
-                try { 
-                    productoPendienteActualizar.setPrecio(new BigDecimal(request.getParameter("precio"))); 
-                } catch(Exception ex){
-                    
+                try {
+                    productoPendienteActualizar.setPrecio(new BigDecimal(request.getParameter("precio")));
+                } catch (Exception ex) {
+
                 }
-                
-                try { 
-                    productoPendienteActualizar.setStock(Integer.valueOf(request.getParameter("stock"))); 
-                } catch(Exception ex){
-                    
+
+                try {
+                    productoPendienteActualizar.setStock(Integer.valueOf(request.getParameter("stock")));
+                } catch (Exception ex) {
+
                 }
-                
-                try { 
-                    productoPendienteActualizar.setNumeroPaginas(Integer.valueOf(request.getParameter("numero-paginas"))); 
-                } catch(Exception ex){
-                    
+
+                try {
+                    productoPendienteActualizar.setNumeroPaginas(Integer.valueOf(request.getParameter("numero-paginas")));
+                } catch (Exception ex) {
+
                 }
-                
+
                 // Se obtiene el ISBN del producto.
                 productoPendienteActualizar.setIsbn(request.getParameter("isbn"));
 
                 // Se obtiene la imagen del producto.
                 productoPendienteActualizar.setUrlImagen(request.getParameter("url-imagen"));
-                
+
                 // Se obtiene el formato seleccionado.
                 String formato = request.getParameter("formato");
-                
+
                 productoPendienteActualizar.setFormato(FormatoDTO.valueOf(formato));
 
-                LibroDTO libro = new LibroDTO();
-                libro.setTitulo(request.getParameter("titulo-libro"));
-                productoPendienteActualizar.setLibro(libro);
+                try {
+                    String idLibroPendienteStr = request.getParameter("id-libro");
+                    if (idLibroPendienteStr != null && !idLibroPendienteStr.isEmpty()) {
+                        Long idLibroPendiente = Long.valueOf(idLibroPendienteStr);
+                        LibroDTO libroPendiente = librosBO.consultarLibro(idLibroPendiente);
+                        productoPendienteActualizar.setLibro(libroPendiente);
+                    }
+                } catch (Exception exInterna) {
+                }
 
             } catch (Exception ex) {
                 // Si falla la recuperación de algún dato, no se considera.
@@ -225,7 +232,6 @@ public class ActualizarProductoServlet extends HttpServlet {
         }
 
     }
-
 
     /**
      * Returns a short description of the servlet.
