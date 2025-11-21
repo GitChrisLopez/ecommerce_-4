@@ -81,7 +81,8 @@ public class MenuPrincipalAdmin extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        List<CategoriaDTO> categorias = new ArrayList<>();
+        // Se obtienen las categorías registradas en el sistema y se agregan a la solicitud.
+        List<CategoriaDTO> categorias = new LinkedList<>();
         try {
             categorias = categoriasBO.consultarCategorias(); 
         } catch (Exception e) {
@@ -89,6 +90,7 @@ public class MenuPrincipalAdmin extends HttpServlet {
         }
         request.setAttribute("listaCategorias", categorias);
 
+        // Se agregan los formatos.
         Map<String, String> mapaFormatos = new LinkedHashMap<>();
         for (FormatoDTO formato : FormatoDTO.values()) {
             String clave = formato.name();
@@ -98,9 +100,16 @@ public class MenuPrincipalAdmin extends HttpServlet {
         }
         request.setAttribute("mapaFormatos", mapaFormatos);
         
+        // Se obtienen las categorías seleccionadas.
         String[] categoriasSeleccionadas = request.getParameterValues("categorias"); 
+        
+        // Se obtienen los formatos seleccionados.
         String[] formatosSeleccionados = request.getParameterValues("formatos");
+        
+        // Se obtiene el precio mínimo seleccionado.
         String precioMinStr = request.getParameter("precioMinimo");
+        
+        // Se obtiene el precio máximo seleccionado.
         String precioMaxStr = request.getParameter("precioMaximo");
         
         List<CategoriaDTO> filtrosCategoria = null; 
@@ -108,6 +117,7 @@ public class MenuPrincipalAdmin extends HttpServlet {
         Double precioMinimo = 0d; 
         Double precioMaximo = null;
 
+        // Se asignan los valores (filtros) seleccionados si estos tienen un valor.
         try {
             if (precioMinStr != null && !precioMinStr.trim().isEmpty()) {
                 precioMinimo = Double.valueOf(precioMinStr);
@@ -146,13 +156,13 @@ public class MenuPrincipalAdmin extends HttpServlet {
             
             request.setAttribute("mensajeError", "Error en los filtros numéricos.");
             
-            request.setAttribute("listaProductos", new ArrayList<>());
+            request.setAttribute("listaProductos", new LinkedList<>());
             
         } catch (NegocioException ex) {
             request.setAttribute("mensajeError", "No se pudo cargar la lista de productos.");
             
         } catch (Exception ex) {
-            request.setAttribute("mensajeError", "Ocurrió un error inesperado: " + ex.getMessage());
+            request.setAttribute("mensajeError", "Ocurrió un error inesperado: ");
         }
 
         request.getRequestDispatcher("admin-menu-administrador.jsp").forward(request, response);

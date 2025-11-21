@@ -1,5 +1,5 @@
 <nav>
-    <a href="./admin-menu-administrador.jsp">
+    <a href="./menu-principal-admin">
         <div class="home">
             <img src="./icons/home.svg" alt="home" class="home-icon" />
         </div>
@@ -16,7 +16,7 @@
         </li>
 
         <li class="nav-resenias">
-            <a href="./admin-historial-resenias.jsp">
+            <a href="./admin-mostrar-resenias">
                 <div class="resenias">
                     <img src="./icons/catalogo.png" class="catalogo-icon" />
                     <span class="nav-text">Reseñas</span>
@@ -25,7 +25,7 @@
         </li>
 
         <li class="nav-pedidos">
-            <a href="./admin-historial-pedidos.jsp">
+            <a href="./admin-mostrar-pedidos">
                 <div class="pedidos">
                     <img src="./icons/pedidos.png" class="pedidos-icon" />
                     <span class="nav-text">Pedidos</span>

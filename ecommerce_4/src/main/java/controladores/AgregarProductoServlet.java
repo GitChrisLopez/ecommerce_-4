@@ -1,4 +1,3 @@
-
 package controladores;
 
 import definiciones.ILibrosBO;
@@ -26,15 +25,12 @@ import java.nio.file.StandardCopyOption;
 
 /**
  *
- * @author Romo López Manuel 
- * ID: 00000253080
+ * @author Romo López Manuel ID: 00000253080
  */
-
-
 @MultipartConfig(
-        fileSizeThreshold = 1024 * 1024 * 2, 
-        maxFileSize=1024 * 1024 * 10, 
-        maxRequestSize= 1024 * 1024 * 50
+        fileSizeThreshold = 1024 * 1024 * 2,
+        maxFileSize = 1024 * 1024 * 10,
+        maxRequestSize = 1024 * 1024 * 50
 )
 
 @WebServlet(name = "AgregarProductoServlet", urlPatterns = {"/admin-agregar-producto"})
@@ -42,15 +38,15 @@ public class AgregarProductoServlet extends HttpServlet {
 
     private IProductosBO productosBO;
     private ILibrosBO librosBO;
-    
+
     @Override
     public void init() throws ServletException {
         super.init();
-        
+
         this.productosBO = FabricaBO.obtenerProductosBO();
         this.librosBO = FabricaBO.obtenerLibrosBO();
     }
-    
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -103,24 +99,24 @@ public class AgregarProductoServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-                
+
         try {
 
             // Se obtienen los datos ingresados.
-            String tituloLibro = request.getParameter("titulo-libro"); 
+            String idLibroStr = request.getParameter("id-libro");
             String isbnStr = request.getParameter("isbn");
-            
+
             Long isbn = null;
-            if(isbnStr != null && !isbnStr.isEmpty()){
+            if (isbnStr != null && !isbnStr.isEmpty()) {
                 isbn = Long.valueOf(isbnStr);
             }
-            
+
             Integer numeroPaginas = Integer.valueOf(request.getParameter("numero-paginas"));
             BigDecimal precio = new BigDecimal(request.getParameter("precio"));
             Integer stock = Integer.valueOf(request.getParameter("stock"));
 
             String formatoString = request.getParameter("formato");
-            FormatoDTO formatoEnum = FormatoDTO.valueOf(formatoString); 
+            FormatoDTO formatoEnum = FormatoDTO.valueOf(formatoString);
 
             // Se guarda la imagen en el servidor.
             Part filePart = request.getPart("foto-nueva");
@@ -132,22 +128,25 @@ public class AgregarProductoServlet extends HttpServlet {
                 String pathGuardar = path + File.separator + "imgs";
 
                 File directorio = new File(pathGuardar);
-                if (!directorio.exists()) directorio.mkdirs();
+                if (!directorio.exists()) {
+                    directorio.mkdirs();
+                }
 
                 File targetFile = new File(pathGuardar + File.separator + fileName);
                 try (InputStream fileContent = filePart.getInputStream()) {
                     Files.copy(fileContent, targetFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
                 }
-                urlImagenFinal = "imgs/" + fileName; 
+                urlImagenFinal = "imgs/" + fileName;
             }
 
+            if (idLibroStr == null || idLibroStr.isEmpty()) {
+                throw new IllegalArgumentException("Debe seleccionar un libro.");
+            }
+            Long idLibro = Long.valueOf(idLibroStr);
 
-            // Se obtiene el título ingresado.
-            String tituloLibroIngresado = tituloLibro.trim(); 
-            
-            // Se obtiene el libro con el título ingresado.
-            LibroDTO libroEncontrado = librosBO.consultarLibro(tituloLibroIngresado);
-            
+            // Se obtiene el libro con el ID ingresado. 
+            LibroDTO libroEncontrado = librosBO.consultarLibro(idLibro);
+
             // Se crea dto con los datos nuevos del producto.
             ProductoDTO productoDTO = new ProductoDTO();
             productoDTO.setIsbn(String.valueOf(isbn));
@@ -168,48 +167,52 @@ public class AgregarProductoServlet extends HttpServlet {
             response.sendRedirect("menu-principal-admin");
 
         } catch (Exception e) {
-          
+
             e.printStackTrace();
             // Se guardan los datos ingresados por el usuario.
             ProductoDTO productoPendienteAgregar = new ProductoDTO();
             try {
 
                 // Se intentan recuperar valores numéricos.
-                try { 
-                    productoPendienteAgregar.setPrecio(new BigDecimal(request.getParameter("precio"))); 
-                } catch(Exception ex){
-                    
+                try {
+                    productoPendienteAgregar.setPrecio(new BigDecimal(request.getParameter("precio")));
+                } catch (Exception ex) {
+
                 }
-                
-                try { 
-                    productoPendienteAgregar.setStock(Integer.valueOf(request.getParameter("stock"))); 
-                } catch(Exception ex){
-                    
+
+                try {
+                    productoPendienteAgregar.setStock(Integer.valueOf(request.getParameter("stock")));
+                } catch (Exception ex) {
+
                 }
-                
-                try { 
-                    productoPendienteAgregar.setNumeroPaginas(Integer.valueOf(request.getParameter("numero-paginas"))); 
-                } catch(Exception ex){
-                    
+
+                try {
+                    productoPendienteAgregar.setNumeroPaginas(Integer.valueOf(request.getParameter("numero-paginas")));
+                } catch (Exception ex) {
+
                 }
-                
+
                 // Se obtiene el ISBN del producto.
                 productoPendienteAgregar.setIsbn(request.getParameter("isbn"));
 
                 // Se obtiene la imagen del producto.
                 productoPendienteAgregar.setUrlImagen(request.getParameter("url-imagen"));
-                
+
                 // Se obtiene el formato seleccionado.
                 String formato = request.getParameter("formato");
-                
+
                 productoPendienteAgregar.setFormato(FormatoDTO.valueOf(formato));
 
-                LibroDTO libro = new LibroDTO();
-                libro.setTitulo(request.getParameter("titulo-libro"));
-                productoPendienteAgregar.setLibro(libro);
+                String idLibroStr = request.getParameter("id-libro");
+                if (idLibroStr != null && !idLibroStr.isEmpty()) {
+                    Long idLibroPendiente = Long.valueOf(idLibroStr);
+                    LibroDTO libro = librosBO.consultarLibro(idLibroPendiente);
+                    productoPendienteAgregar.setLibro(libro);
+                } else {
+                    productoPendienteAgregar.setLibro(new LibroDTO()); 
+                }
 
             } catch (Exception ex) {
-                // Si falla la recuperación de algún dato, no se considera.
             }
 
             // Se guarda el producto pendiente en la sesión y el mensaje de error.

@@ -84,17 +84,17 @@
                                 <h2>Precio</h2>
                                 <p>Mínimo: $100</p>
                                 <input type="range" 
-                                       name="precioMin" 
+                                       name="precioMinimo" 
                                        min="0" 
                                        max="5000" 
-                                       value="${param.precioMin != null ? param.precioMin : '0'}">
+                                       value="${param.precioMinimo != null ? param.precioMinimo : '0'}">
 
                                 <p>Máximo: $800</p>
                                 <input type="range" 
-                                       name="precioMax" 
+                                       name="precioMaximo" 
                                        min="0" 
                                        max="5000" 
-                                       value="${param.precioMax != null ? param.precioMax : '5000'}">
+                                       value="${param.precioMaximo != null ? param.precioMaximo : '5000'}">
                             </div>
 
                         </form>

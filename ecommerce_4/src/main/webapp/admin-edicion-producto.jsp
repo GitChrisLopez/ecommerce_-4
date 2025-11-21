@@ -18,7 +18,7 @@
             </div>
 
             <main>
-                
+
                 <div class="general-container">
                     <c:if test="${not empty mensajeError}">
                         <div class="error-alert">
@@ -26,12 +26,12 @@
                         </div>
                     </c:if>
                     <div class="container-add-edition">
-                        
+
                         <div class="image-container">
 
                             <img src="${pageContext.request.contextPath}/${productoEditar.urlImagen}" 
-                                alt="Imagen del producto" 
-                                class="product-image">
+                                 alt="Imagen del producto" 
+                                 class="product-image">
 
                             <input form="form-add" type="file" name="foto-nueva" id="input-foto" accept="image/*">
 
@@ -39,22 +39,29 @@
                                 <img src="icons/edition.png" alt="Editar foto" title="Cambiar imagen">
                             </label>
                         </div>
-                                  
+
                         <form id="form-add" action="admin-actualizar-producto" method="POST" enctype="multipart/form-data" class="form-add-edition">
 
                             <input type="hidden" name="id" value="${productoEditar.id}">
                             <input type="hidden" name="url-imagen" value="${productoEditar.urlImagen}">
 
-                            <div class="seleccionar-libro">
+                            <div> 
                                 <label>Libro:</label>
-                                <input type="text" name="titulo-libro" value="${productoEditar.libro.titulo}" readonly" />
+                                <select name="id-libro" required>
+                                    <c:forEach var="libro" items="${listaLibros}">
+                                        <option value="${libro.id}" 
+                                                ${libro.id == productoEditar.libro.id ? 'selected' : ''}>
+                                            <c:out value="${libro.titulo}" />
+                                        </option>
+                                    </c:forEach>
+                                </select>
                             </div>
 
                             <div>
                                 <label>ISBN</label>
                                 <input type="text" name="isbn" maxlength="13" pattern="[0-9]{13}" value="${productoEditar.isbn}" required title="Debe ingresar un número de 13 dígitos"/>
                             </div>
-                                
+
                             <div>
                                 <label>Formato:</label>
                                 <select name="formato" class="form-control">
@@ -85,7 +92,7 @@
                             <div class="buttons-cancel-add-edition">
                                 <input type="submit" value="Eliminar Producto" class="delete-button-input" 
                                        formaction="admin-eliminar-producto" formenctype="application/x-www-form-urlencoded" formnovalidate>
-                                
+
                                 <a class="cancel-a" href="menu-principal-admin">
                                     <input type="button" value="Cancelar" class="cancel-input" />
                                 </a>
