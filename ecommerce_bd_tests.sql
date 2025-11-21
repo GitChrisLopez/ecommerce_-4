@@ -18,3 +18,15 @@ SELECT * FROM usuarios;
 -- luego admin
 INSERT INTO administradores (id_usuario)
 SELECT id_usuario FROM usuarios WHERE correo = "admin@correo.com";
+
+
+-- editorial
+
+
+INSERT INTO editoriales (nombre)
+values("Editorial Patito");
+
+
+-- autor
+insert into autor(nombre, apellido_materno,apellido_paterno)
+values ("Jean" ,"de" "Saint-Exupéry");
