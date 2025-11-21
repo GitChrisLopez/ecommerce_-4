@@ -164,7 +164,7 @@ public class AgregarProductoServlet extends HttpServlet {
             request.getSession().removeAttribute("productoPendienteAgregar");
             request.getSession().removeAttribute("errorSesion");
 
-            response.sendRedirect("menu-principal-admin");
+            response.sendRedirect("admin-menu-principal");
 
         } catch (Exception e) {
 

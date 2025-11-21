@@ -28,7 +28,7 @@ public class MapperLibro {
         
         dto.setAutor(MapperAutor.toDto(entity.getAutor()));
         dto.setEditorial(MapperEditorial.toDto(entity.getEditorial()));
-        dto.setCategoria(MapperCategoria.toDtoList(entity.getCategoria()));
+        dto.setCategorias(MapperCategoria.toDtoList(entity.getCategoria()));
         
         dto.setFechaPublicacion(entity.getFechaPublicacion());
         return dto;
@@ -62,7 +62,7 @@ public class MapperLibro {
 
         entity.setAutor(MapperAutor.toEntity(dto.getAutor()));
         entity.setEditorial(MapperEditorial.toEntity(dto.getEditorial()));
-        entity.setCategoria(MapperCategoria.toEntityList(dto.getCategoria()));
+        entity.setCategoria(MapperCategoria.toEntityList(dto.getCategorias()));
         
         entity.setFechaPublicacion(dto.getFechaPublicacion());
         return entity;

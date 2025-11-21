@@ -16,7 +16,7 @@
             </div>
 
             <main>
-                
+
                 <div class="general-container">
                     <c:if test="${not empty mensajeError}">
                         <div class="error-alert">
@@ -24,12 +24,12 @@
                         </div>
                     </c:if>
                     <div class="container-add-edition">
-                        
+
                         <div class="image-container">
 
                             <img src="${pageContext.request.contextPath}/${productoAgregar.urlImagen}" 
-                                alt="Imagen del producto" 
-                                class="product-image">
+                                 alt="Imagen del producto" 
+                                 class="product-image">
 
                             <input form="form-add" type="file" name="foto-nueva" id="input-foto" accept="image/*">
 
@@ -37,7 +37,7 @@
                                 <img src="icons/edition.png" alt="Editar foto" title="Cambiar imagen">
                             </label>
                         </div>
-                                    
+
                         <form id="form-add" action="admin-agregar-producto" method="POST" enctype="multipart/form-data" class="form-add-edition">
 
                             <input type="hidden" name="id" value="${productoAgregar.id}">
@@ -53,13 +53,13 @@
                                         </option>
                                     </c:forEach>
                                 </select>
-                                </div>
+                            </div>
 
                             <div>
                                 <label>ISBN</label>
                                 <input type="text" name="isbn" maxlength="13" pattern="[0-9]{13}" value="${productoAgregar.isbn}" required title="Debe ingresar un número de 13 dígitos"/>
                             </div>
-                                
+
                             <div>
                                 <label>Formato:</label>
                                 <select name="formato" class="form-control">
@@ -89,11 +89,11 @@
 
                             <div class="buttons-cancel-add-edition">
 
-                                <a href="menu-principal-admin">
+                                <a href="admin-menu-principal">
                                     <input type="button" value="Cancelar" class="cancel-input" />
                                 </a>
 
-                                   <input type="submit" value="Agregar Producto" class="add-edition-input add-input"/>
+                                <input type="submit" value="Agregar Producto" class="add-edition-input add-input"/>
                             </div>
 
                         </form>

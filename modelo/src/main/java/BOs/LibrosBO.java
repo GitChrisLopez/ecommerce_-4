@@ -52,7 +52,7 @@ public class LibrosBO implements ILibrosBO {
         }
         
         // Se valida que la categoría no es nula.
-        if(nuevoLibro.getCategoria() == null){
+        if(nuevoLibro.getCategorias() == null){
             throw new NegocioException("El libro debe tener una categoria.");
         }
         
@@ -216,7 +216,7 @@ public class LibrosBO implements ILibrosBO {
         }
         
         // Se valida que la categoría no es nula.
-        if(libroActualizado.getCategoria() == null){
+        if(libroActualizado.getCategorias() == null){
             throw new NegocioException("El libro actualizado debe tener una categoria.");
         }
         

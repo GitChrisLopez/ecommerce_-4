@@ -29,8 +29,8 @@ Author : chris
                             <h1>Agregar libro</h1>
                         </div>
 
-                        <form class="form-add-edition" id="form-add-edition" action="admin-nuevo-libro" method="POST">
-                            
+                        <form class="form-add-edition" id="form-add-edition" action="admin-agregar-libro" method="POST">
+
                             <div>
                                 <label>Título: </label>
                                 <input
@@ -40,52 +40,40 @@ Author : chris
                                     />
                             </div>
 
-                            <div>
-                                <label>Autor: </label>
-                                <input
-                                    class="input-form-add-edition"
-                                    type="text"
-                                    name="nombreAutor" value="${libroAgregar.nombreAutor}" readonly
-                                    required
-                                    />
-                                <a href="admin-autores-registrados.jsp">
-                                    <button class="btn-seleccionar" type="button">
-                                        Seleccionar
-                                    </button>
-                                </a>
-                                <input type="hidden" name="idAutor" value="${libroAgregar.idAutor}"/> 
+                            <div class="seleccionar-autor">
+                                <label>Autor</label>
+                                <select name="id-autor" class="form-control" required>
+                                    <option value=""> Seleccionar Autor </option>
+                                    <c:forEach var="autor" items="${listaAutores}">
+                                        <option value="${autor.id}" ${libroAgregar.autor.id == autor.id ? 'selected' : ''}>
+                                            <c:out value="${autor.nombre}" />
+                                        </option>
+                                    </c:forEach>
+                                </select>
                             </div>
 
-                            <div>
-                                <label>Categoría: </label>
-                                <input
-                                    class="input-form-add-edition"
-                                    type="text"
-                                    name="nombreCategoria" value="${libroAgregar.nombreCategoria}" readonly
-                                    required
-                                    />
-                                <a href="admin-categorias-registradas.jsp">
-                                    <button class="btn-seleccionar" type="button">
-                                        Seleccionar
-                                    </button>
-                                </a>
-                                <input type="hidden" name="idCategoria" value="${libroAgregar.idCategoria}"/>
+                            <div class="seleccionar-categoria">
+                                <label>Categoria</label>
+                                <select name="id-categoria" class="form-control" required>
+                                    <option value=""> Seleccionar Categoria </option>
+                                    <c:forEach var="categoria" items="${listaCategorias}">
+                                        <option value="${categoria.id}" ${libroAgregar.categoria.id == categoria.id ? 'selected' : ''}>
+                                            <c:out value="${categoria.nombre}" />
+                                        </option>
+                                    </c:forEach>
+                                </select>
                             </div>
 
-                            <div>
-                                <label>Editorial: </label>
-                                <input
-                                    class="input-form-add-edition"
-                                    type="text"
-                                    name="nombreEditorial" value="${libroAgregar.nombreEditorial}" readonly
-                                    required
-                                    />
-                                <a href="editoriales-registradas.jsp">
-                                    <button class="btn-seleccionar" type="button">
-                                        Seleccionar
-                                    </button>
-                                </a>
-                                <input type="hidden" name="idEditorial" value="${libroAgregar.idEditorial}"/>
+                            <div class="seleccionar-editorial">
+                                <label>Editorial</label>
+                                <select name="id-editorial" class="form-control" required>
+                                    <option value=""> Seleccionar Editorial </option>
+                                    <c:forEach var="editorial" items="${listaEditoriales}">
+                                        <option value="${editorial.id}" ${libroAgregar.editorial.id == editorial.id ? 'selected' : ''}>
+                                            <c:out value="${editorial.nombre}" />
+                                        </option>
+                                    </c:forEach>
+                                </select>
                             </div>
 
                             <div>
@@ -93,7 +81,7 @@ Author : chris
                                 <input
                                     class="input-form-add-edition"
                                     type="date"
-                                    name="fechaPublicacion" value="${libroAgregar.fechaPublicacion}" required
+                                    name="fecha-publicacion" value="${libroAgregar.fechaPublicacion}" required
                                     />
                             </div>
 
@@ -108,7 +96,9 @@ Author : chris
                             </div>
 
                             <div class="buttons-cancel-add-edition">
-                                <input type="button" value="Cancelar" class="cancel-input" />
+                                <a href="admin-libros-registrados">
+                                    <input type="button" value="Cancelar" class="cancel-input" />
+                                </a>
                                 <input
                                     type="submit"
                                     value="Agregar"

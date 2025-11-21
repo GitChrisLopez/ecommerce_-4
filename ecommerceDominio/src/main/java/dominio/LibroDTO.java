@@ -66,7 +66,6 @@ public class LibroDTO {
      * parámetros de la clase.
      * @param id Dato Long que representa el Id del Libro.
      * @param titulo Dato String que representa el título del Libro.
-     * @param precio Dato double que representa el precio del Libro.
      * @param sinopsis Objeto String que representa la sinopsis del Libro.
      * @param categoria Objeto Categoria que representa la categoría del Libro.
      * @param autor Objeto Autor que representa el Autor del Libro.
@@ -85,7 +84,7 @@ public class LibroDTO {
         this.id = id;
         this.titulo = titulo;
         this.sinopsis = sinopsis;
-        this.categorias = categorias;
+        this.categorias = categoria;
         this.autor = autor;
         this.editorial = editorial;
         this.fechaPublicacion = fechaPublicacion;
@@ -144,7 +143,7 @@ public class LibroDTO {
      * Permite obtener las categorías del Libro.
      * @return Objeto List<Categoria> que representa la categoría del Libro.
      */
-    public List<CategoriaDTO> getCategoria() {
+    public List<CategoriaDTO> getCategorias() {
         return categorias;
     }
 
@@ -152,8 +151,8 @@ public class LibroDTO {
      * Permite establecer las categorías del Libro.
      * @param categoria Objeto List<Categoria> que representa la categoría del Libro.
      */
-    public void setCategoria(List<CategoriaDTO> categoria) {
-        this.categorias = categorias;
+    public void setCategorias(List<CategoriaDTO> categoria) {
+        this.categorias = categoria;
     }
 
     /**

@@ -74,7 +74,7 @@
                             <input type="submit" value="Cancelar" class="cancel-input">
                         </a>
 
-                        <a href="admin-agregar-libro.jsp">
+                        <a href="admin-nuevo-libro">
                             <input type="submit" value="Agregar" class="add-input">
                         </a>
                     </div>

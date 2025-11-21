@@ -1,11 +1,9 @@
-package controladores;
+ package controladores;
 
 import definiciones.ILibrosBO;
-import definiciones.IProductosBO;
 import dominio.FormatoDTO;
 import dominio.LibroDTO;
 import dominio.ProductoDTO;
-import excepciones.NegocioException;
 import fabrica.FabricaBO;
 import java.io.IOException;
 import java.io.PrintWriter;
