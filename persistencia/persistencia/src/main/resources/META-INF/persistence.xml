@@ -21,7 +21,7 @@
         <class>entidades.Resenia</class>
         <class>entidades.Usuario</class>
         <properties>
-            <property name="javax.persistence.schema-generation.database.action" value="none"/>
+            <property name="javax.persistence.schema-generation.database.action" value="create"/>
             <property name="eclipselink.canonicalmodel.subpackage" value="prod"/>
         </properties>
     </persistence-unit>
@@ -46,7 +46,7 @@
         <class>entidades.Resenia</class>
         <class>entidades.Usuario</class>
         <properties>
-            <property name="javax.persistence.schema-generation.database.action" value="none"/>
+            <property name="javax.persistence.schema-generation.database.action" value="create"/>
             <property name="eclipselink.canonicalmodel.subpackage" value="test"/>
         </properties>
     </persistence-unit>
