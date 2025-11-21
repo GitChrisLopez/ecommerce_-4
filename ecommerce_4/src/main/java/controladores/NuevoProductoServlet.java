@@ -1,8 +1,9 @@
-
 package controladores;
 
+import definiciones.ILibrosBO;
 import definiciones.IProductosBO;
 import dominio.FormatoDTO;
+import dominio.LibroDTO;
 import dominio.ProductoDTO;
 import excepciones.NegocioException;
 import fabrica.FabricaBO;
@@ -14,18 +15,26 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
  *
- * @author Romo López Manuel
- * ID: 00000253080
+ * @author Romo López Manuel ID: 00000253080
  */
-
 @WebServlet(name = "NuevoProductoServlet", urlPatterns = {"/admin-nuevo-producto"})
 public class NuevoProductoServlet extends HttpServlet {
-    
+
+    private ILibrosBO librosBO;
+
+    @Override
+    public void init() throws ServletException {
+        super.init();
+        this.librosBO = FabricaBO.obtenerLibrosBO();
+    }
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -64,8 +73,10 @@ public class NuevoProductoServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         ProductoDTO productoAgregar = null;
+        List<LibroDTO> listaLibros = new ArrayList<>();
+        String mensajeError = null;
 
         // Se revisa la sesión para buscar si hay un producto pendiente y/o un error.
         HttpSession session = request.getSession();
@@ -88,25 +99,34 @@ public class NuevoProductoServlet extends HttpServlet {
                 // Se elimina para evitar que salga al refrescar la página.
                 session.removeAttribute("errorSesion");
             }
-        } else{
+        } else {
             request.removeAttribute("mensajeError");
-
         }
 
         request.setAttribute("productoAgregar", productoAgregar);
 
+        try {
+            listaLibros = librosBO.consultarLibros();
+        } catch (Exception e) {
+            if (mensajeError == null) {
+                mensajeError = "Error al cargar la lista de libros: " + e.getMessage();
+            }
+        }
+
+        request.setAttribute("mensajeError", mensajeError);
+        request.setAttribute("listaLibros", listaLibros);
+
         // Carga de lista de formatos.
         Map<String, String> mapaFormatos = new LinkedHashMap<>();
         for (FormatoDTO formato : FormatoDTO.values()) {
-            String clave = formato.name(); 
+            String clave = formato.name();
             String valor = formato.name().toLowerCase().replace("_", " ");
             valor = valor.substring(0, 1).toUpperCase() + valor.substring(1);
             mapaFormatos.put(clave, valor);
         }
 
         request.setAttribute("mapaFormatos", mapaFormatos);
-        
-        
+
         request.getRequestDispatcher("admin-agregar-producto.jsp").forward(request, response);
     }
 
@@ -121,9 +141,7 @@ public class NuevoProductoServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-                
-        
+
     }
 
     /**
