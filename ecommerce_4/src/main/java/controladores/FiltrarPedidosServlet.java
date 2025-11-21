@@ -16,7 +16,7 @@ import java.util.List;
  * Servlet para filtrar pedidos.
  * @author norma
  */
-@WebServlet(name = "FiltrarPedidosServlet", urlPatterns = {"/FiltrarPedidosServlet"})
+@WebServlet(name = "FiltrarPedidosServlet", urlPatterns = {"/admin-filtrar-pedidos"})
 public class FiltrarPedidosServlet extends HttpServlet {
 
     private IPedidoBO pedidoBO;

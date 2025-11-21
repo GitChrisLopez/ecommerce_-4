@@ -17,7 +17,7 @@ import java.io.PrintWriter;
  *
  * @author norma
  */
-@WebServlet(name = "ActualizarPedidoServlet", urlPatterns = {"/ActualizarPedidoServlet"})
+@WebServlet(name = "ActualizarPedidoServlet", urlPatterns = {"/admin-actualizar-pedido"})
 public class ActualizarPedidoServlet extends HttpServlet {
 
     private IPedidoBO pedidoBO;
@@ -67,7 +67,7 @@ public class ActualizarPedidoServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.sendRedirect(request.getContextPath() + "/MostrarPedidosServlet");
+        response.sendRedirect(request.getContextPath() + "/admin-mostrar-pedidos");
     }
 
     /**
@@ -85,7 +85,7 @@ public class ActualizarPedidoServlet extends HttpServlet {
         Long idPedido = null;
         EstadoDTO nuevoEstado = null;
         String mensaje = null;
-        String redireccionURL = request.getContextPath() + "/MostrarPedidosServlet";
+        String redireccionURL = request.getContextPath() + "/admin-mostrar-pedidos";
 
         try {
             String parametro = request.getParameter("id");
@@ -97,11 +97,11 @@ public class ActualizarPedidoServlet extends HttpServlet {
 
             idPedido = Long.valueOf(parametro);
 
-            redireccionURL = request.getContextPath() + "/DetallesPedidoServlet?id=" + idPedido;
+            redireccionURL = request.getContextPath() + "/admin-detalles-pedido?id=" + idPedido;
 
             if ("cancelar".equalsIgnoreCase(accion)) {
                 nuevoEstado = EstadoDTO.CANCELADO;
-                redireccionURL = request.getContextPath() + "/MostrarPedidosServlet";
+                redireccionURL = request.getContextPath() + "/admin-mostrar-pedidos";
 
             } else if ("actualizar".equalsIgnoreCase(accion)) {
                 String nuevoEstadoStr = request.getParameter("nuevoEstado");
@@ -124,9 +124,9 @@ public class ActualizarPedidoServlet extends HttpServlet {
             mensaje = "Error al actualizar el estado: " + e.getMessage();
             request.getSession().setAttribute("mensajeError", mensaje);
             if (idPedido != null) {
-                redireccionURL = request.getContextPath() + "/DetallesPedidoServlet?id=" + idPedido;
+                redireccionURL = request.getContextPath() + "/admin-detalles-pedido?id=" + idPedido;
             } else {
-                redireccionURL = request.getContextPath() + "/MostrarPedidosServlet";
+                redireccionURL = request.getContextPath() + "/admin-mostrar-pedidos";
             }
         }
         response.sendRedirect(redireccionURL);

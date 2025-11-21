@@ -28,7 +28,7 @@ Author     : chris
 
                         <div class="resenia-container">
 
-                            <form action="${pageContext.request.contextPath}/ActualizarReseniaServlet" method="POST">
+                            <form action="${pageContext.request.contextPath}/admin-actualizar-resenia" method="POST">
 
                                 <input type="hidden" name="id" value="${resenia.id}">
 
@@ -48,7 +48,7 @@ Author     : chris
                                 </div>
 
                                 <div class="resenia-btns">
-                                    <a href="${pageContext.request.contextPath}/MostrarReseniasServlet" class="cancelar-btn">Cancelar</a> 
+                                    <a href="${pageContext.request.contextPath}/admin-mostrar-resenias" class="cancelar-btn">Cancelar</a> 
                                     <button type="submit" class="guardar-btn">Guardar</button>
                                 </div>
                             </form>

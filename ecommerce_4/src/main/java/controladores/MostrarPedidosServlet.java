@@ -16,7 +16,7 @@ import java.util.List;
  * Servlet para mostrar todos los pedidos.
  * @author norma
  */
-@WebServlet(name = "MostrarPedidosServlet", urlPatterns = {"/MostrarPedidosServlet"})
+@WebServlet(name = "MostrarPedidosServlet", urlPatterns = {"/admin-mostrar-pedidos"})
 public class MostrarPedidosServlet extends HttpServlet {
 
     private IPedidoBO pedidoBO;

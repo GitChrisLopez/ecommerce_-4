@@ -58,7 +58,7 @@
 
                             <div class="pedido-btns">
                                 <div class="btn-1">
-                                    <a href="${pageContext.request.contextPath}/MostrarPedidosServlet" class="volver-btn">Volver</a>
+                                    <a href="${pageContext.request.contextPath}/admin-mostrar-pedidos" class="volver-btn">Volver</a>
                                 </div>
                                 
                                 <div class="btn-2">
@@ -67,7 +67,7 @@
                                         <button class="actualizar-estado-btn" type="button">Actualizar estado</button>
                                         
                                         <div class="estado-dropdown">
-                                            <form method="POST" action="${pageContext.request.contextPath}/ActualizarPedidoServlet">
+                                            <form method="POST" action="${pageContext.request.contextPath}/admin-actualizar-pedido">
                                                 <input type="hidden" name="id" value="${pedido.id}">
                                                 <input type="hidden" name="accion" value="actualizar">
                                                 <button class="opcion-estado" type="submit" name="nuevoEstado" value="PENDIENTE">Pendiente</button>
@@ -77,7 +77,7 @@
                                         </div>
                                     </div>
                                     
-                                    <form method="POST" action="${pageContext.request.contextPath}/ActualizarPedidoServlet">
+                                    <form method="POST" action="${pageContext.request.contextPath}/admin-actualizar-pedido">
                                         <input type="hidden" name="id" value="${pedido.id}">
                                         <input type="hidden" name="accion" value="cancelar">
                                         <button class="cancelar-btn" type="submit">Cancelar Pedido</button>

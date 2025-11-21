@@ -16,7 +16,7 @@ import java.util.List;
  * Servlet para filtrar resenias en relación a su libro vinculado.
  * @author norma
  */
-@WebServlet(name = "FiltrarReseniasServlet", urlPatterns = {"/FiltrarReseniasServlet"})
+@WebServlet(name = "FiltrarReseniasServlet", urlPatterns = {"/admin-filtrar-resenias"})
 public class FiltrarReseniasServlet extends HttpServlet {
 
     private IReseniaBO reseniaBO;

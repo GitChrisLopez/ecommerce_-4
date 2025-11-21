@@ -14,7 +14,7 @@ import java.io.PrintWriter;
  * Servlet para actualizar una resenia.
  * @author norma
  */
-@WebServlet(name = "ActualizarReseniaServlet", urlPatterns = {"/ActualizarReseniaServlet"})
+@WebServlet(name = "ActualizarReseniaServlet", urlPatterns = {"/admin-actualizar-resenia"})
 public class ActualizarReseniaServlet extends HttpServlet {
 
     private IReseniaBO reseniaBO;
@@ -65,7 +65,7 @@ public class ActualizarReseniaServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.sendRedirect(request.getContextPath() + "/MostrarReseniasServlet");
+        response.sendRedirect(request.getContextPath() + "/admin-mostrar-resenias");
     }
 
     /**
@@ -96,14 +96,14 @@ public class ActualizarReseniaServlet extends HttpServlet {
             reseniaBO.actualizarComentarioResenia(idResenia, nuevoComentario);
 
             request.getSession().setAttribute("mensajeEstado", "Comentario actualizado con éxito.");
-            response.sendRedirect(request.getContextPath() + "/MostrarReseniasServlet");
+            response.sendRedirect(request.getContextPath() + "/admin-mostrar-resenias");
 
         } catch (Exception e) {
             e.printStackTrace();
             mensaje = "Error al actualizar la reseña: " + e.getMessage();
             request.getSession().setAttribute("mensajeEstado", mensaje);
 
-            response.sendRedirect(request.getContextPath() + "/MostrarReseniasServlet");
+            response.sendRedirect(request.getContextPath() + "/admin-mostrar-resenias");
         }
     }
 

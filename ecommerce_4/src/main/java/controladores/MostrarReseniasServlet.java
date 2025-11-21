@@ -17,7 +17,7 @@ import java.util.List;
  *
  * @author norma
  */
-@WebServlet(name = "MostrarReseniasServlet", urlPatterns = {"/MostrarReseniasServlet"})
+@WebServlet(name = "MostrarReseniasServlet", urlPatterns = {"/admin-mostrar-resenias"})
 public class MostrarReseniasServlet extends HttpServlet {
 
     private IReseniaBO reseniaBO;

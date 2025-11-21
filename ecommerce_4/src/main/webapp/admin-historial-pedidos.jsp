@@ -25,7 +25,7 @@
             <main>
                 <div class="c2">
                     <div class="search-box">
-                        <form action="${pageContext.request.contextPath}/FiltrarPedidosServlet" method="GET"> 
+                        <form action="${pageContext.request.contextPath}/admin-filtrar-pedidos" method="GET"> 
                             <div class="buscador">
                                 <input 
                                     type="text" 
@@ -61,7 +61,7 @@
 
                                             </div>
                                             <div class="pedido-btn">
-                                                <a href="${pageContext.request.contextPath}/DetallesPedidoServlet?id=${pedido.id}" class="detalles-btn">Ver detalles</a>
+                                                <a href="${pageContext.request.contextPath}/admin-detalles-pedido?id=${pedido.id}" class="detalles-btn">Ver detalles</a>
                                             </div>
                                         </div>
                                     </c:forEach>

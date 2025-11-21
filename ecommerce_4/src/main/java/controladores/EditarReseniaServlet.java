@@ -15,7 +15,7 @@ import java.io.PrintWriter;
  * Servlet para ver los detalles una resenia y poder editarlos.
  * @author norma
  */
-@WebServlet(name = "EditarReseniaServlet", urlPatterns = {"/EditarReseniaServlet"})
+@WebServlet(name = "EditarReseniaServlet", urlPatterns = {"/admin-editar-resenia"})
 public class EditarReseniaServlet extends HttpServlet {
 
     private IReseniaBO reseniaBO;
@@ -70,7 +70,7 @@ public class EditarReseniaServlet extends HttpServlet {
         String parametro = request.getParameter("id");
         if (parametro == null || parametro.isEmpty()) {
             request.setAttribute("errorCarga", "Error: No se proporcionó el ID de la reseña a editar.");
-            request.getRequestDispatcher("/MostrarReseniasServlet").forward(request, response);
+            request.getRequestDispatcher("/admin-mostrar-resenias").forward(request, response);
             return;
         }
 
@@ -84,13 +84,13 @@ public class EditarReseniaServlet extends HttpServlet {
                 request.getRequestDispatcher("/admin-editar-resenia.jsp").forward(request, response);
             } else {
                 request.setAttribute("errorCarga", "Error: La reseña con ID " + idResenia + " no fue encontrada.");
-                request.getRequestDispatcher("/MostrarReseniasServlet").forward(request, response);
+                request.getRequestDispatcher("/admin-mostrar-resenias").forward(request, response);
             }
 
         } catch (Exception e) {
             e.printStackTrace();
             request.setAttribute("errorCarga", "Error interno al intentar cargar la reseña para edición.");
-            request.getRequestDispatcher("/MostrarReseniasServlet").forward(request, response);
+            request.getRequestDispatcher("/admin-mostrar-resenias").forward(request, response);
         }
 
     }

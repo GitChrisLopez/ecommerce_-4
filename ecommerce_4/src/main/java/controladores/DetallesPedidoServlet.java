@@ -16,7 +16,7 @@ import java.io.PrintWriter;
  *
  * @author norma
  */
-@WebServlet(name = "DetallesPedidoServlet", urlPatterns = {"/DetallesPedidoServlet"})
+@WebServlet(name = "DetallesPedidoServlet", urlPatterns = {"/admin-detalles-pedido"})
 public class DetallesPedidoServlet extends HttpServlet {
 
     private IPedidoBO pedidoBO;
@@ -70,7 +70,7 @@ public class DetallesPedidoServlet extends HttpServlet {
         String parametro = request.getParameter("id");
         if (parametro == null || parametro.isEmpty()) {
             request.setAttribute("errorCarga", "Error: No se proporcionó el ID del pedido a editar.");
-            request.getRequestDispatcher("/MostrarPedidosServlet").forward(request, response);
+            request.getRequestDispatcher("/admin-mostrar-pedidos").forward(request, response);
             return;
         }
 
@@ -84,13 +84,13 @@ public class DetallesPedidoServlet extends HttpServlet {
                 request.getRequestDispatcher("/admin-detalles-pedido.jsp").forward(request, response);
             } else {
                 request.setAttribute("errorCarga", "Error: El pedido con ID " + idPedido + " no fue encontrado.");
-                request.getRequestDispatcher("/MostrarPedidosServlet").forward(request, response);
+                request.getRequestDispatcher("/admin-mostrar-pedidos").forward(request, response);
             }
 
         } catch (Exception e) {
             e.printStackTrace();
             request.setAttribute("errorCarga", "Error interno al intentar cargar el pedido para edición.");
-            request.getRequestDispatcher("/MostrarPedidosServlet").forward(request, response);
+            request.getRequestDispatcher("/admin-mostrar-pedidos").forward(request, response);
         }
     }
 

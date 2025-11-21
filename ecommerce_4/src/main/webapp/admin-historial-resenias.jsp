@@ -35,7 +35,7 @@
             <main>
                 <div class="c2">
                     <div class="search-box">
-                        <form action="${pageContext.request.contextPath}/FiltrarReseniasServlet" method="GET"> 
+                        <form action="${pageContext.request.contextPath}/admin-filtrar-resenias" method="GET"> 
                             <div class="buscador">
                                 <input 
                                     type="text" 
@@ -67,10 +67,10 @@
                                     </div>
 
                                     <div class="resenia-btn">
-                                        <a href="${pageContext.request.contextPath}/EditarReseniaServlet?id=${resenia.id}" class="editar-btn">Editar</a>
+                                        <a href="${pageContext.request.contextPath}/admin-editar-resenia?id=${resenia.id}" class="editar-btn">Editar</a>
 
                                         <form id="form-eliminar-${resenia.id}" 
-                                              action="${pageContext.request.contextPath}/EliminarReseniaServlet" 
+                                              action="${pageContext.request.contextPath}/admin-eliminar-resenia" 
                                               method="POST" 
                                               style="margin: 0;">
 

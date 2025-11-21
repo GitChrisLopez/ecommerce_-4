@@ -14,7 +14,7 @@ import java.io.PrintWriter;
  * Servlet para eliminar una resenia.
  * @author norma
  */
-@WebServlet(name = "EliminarReseniaServlet", urlPatterns = {"/EliminarReseniaServlet"})
+@WebServlet(name = "EliminarReseniaServlet", urlPatterns = {"/admin-eliminar-resenia"})
 public class EliminarReseniaServlet extends HttpServlet {
 
     private IReseniaBO reseniaBO;
@@ -65,7 +65,7 @@ public class EliminarReseniaServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.sendRedirect(request.getContextPath() + "/MostrarReseniasServlet");
+        response.sendRedirect(request.getContextPath() + "/admin-mostrar-resenias");
     }
 
     /**
@@ -102,7 +102,7 @@ public class EliminarReseniaServlet extends HttpServlet {
 
         request.getSession().setAttribute("mensajeEstado", mensaje);
 
-        response.sendRedirect(request.getContextPath() + "/MostrarReseniasServlet");
+        response.sendRedirect(request.getContextPath() + "/admin-mostrar-resenias");
     }
 
     /**
