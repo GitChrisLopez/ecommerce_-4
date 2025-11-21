@@ -107,6 +107,24 @@ public class ActualizarProductoServlet extends HttpServlet {
 
             // Se obtienen los datos ingresados.
             Long id = Long.valueOf(idProducto);
+
+            String accion = request.getParameter("accion");
+            
+            if ("agotar".equals(accion)) {
+
+                ProductoDTO productoActual = productosBO.consultarProducto(id);
+                
+                if (productoActual != null) {
+                    // Se actualiza el stock.
+                    productoActual.setStock(0);
+                    productosBO.actualizarProducto(productoActual);
+                }
+
+                response.sendRedirect("admin-menu-principal");
+                return;
+            }
+
+            
             String isbnStr = request.getParameter("isbn");
             String idLibroStr = request.getParameter("id-libro");
 
@@ -170,7 +188,7 @@ public class ActualizarProductoServlet extends HttpServlet {
             request.getSession().removeAttribute("errorSesion");
             request.getSession().removeAttribute("mensajeError");
 
-            response.sendRedirect("menu-principal-admin");
+            response.sendRedirect("admin-menu-principal");
 
         } catch (Exception e) {
 
@@ -216,7 +234,7 @@ public class ActualizarProductoServlet extends HttpServlet {
                         LibroDTO libroPendiente = librosBO.consultarLibro(idLibroPendiente);
                         productoPendienteActualizar.setLibro(libroPendiente);
                     }
-                } catch (Exception exInterna) {
+                } catch (Exception ex) {
                 }
 
             } catch (Exception ex) {

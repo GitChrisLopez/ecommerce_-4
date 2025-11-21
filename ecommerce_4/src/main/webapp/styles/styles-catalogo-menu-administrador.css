@@ -206,7 +206,8 @@ nav > a .home {
     box-sizing: border-box;
 }
 
-.options-product a{
+
+.options-product a, .form-marcar-agotado input{
     background-color: var(--bg-color-container-option-product);
     border-radius: 10px;
     color:white;
@@ -215,12 +216,16 @@ nav > a .home {
     cursor:pointer;
     text-decoration: none;
     font-size: 1.05rem;
-    font-weight: 530;
+    font-weight: 500;
 }
 
-.options-product a:hover{
+.options-product a:hover,.form-marcar-agotado input:hover{
     background-color: var(--bg-color-container-option-product-hover);
     border-radius: 10px;
+}
+
+.form-marcar-agotado input{
+    font-size: 0.8rem;
 }
 
 .libro h3 {
@@ -351,6 +356,11 @@ nav > a .home {
         margin: 0;
         background-color: var(--bg-color-dark-blue);
         z-index: 1000;
+    }
+    
+    .form-marcar-agotado input{
+        font-size: 0.9rem;
+        font-weight: 600;
     }
 
     nav > a:first-child,
@@ -556,7 +566,7 @@ nav > a .home {
     .libros-container {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        row-gap: 70px;
+        row-gap: 100px;
     }
 
     .options-lookup{
@@ -564,7 +574,7 @@ nav > a .home {
     }
 
     .options-product{
-        bottom: -40px;
+        bottom: -80px;
     }
 
     .options-product a{
