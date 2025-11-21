@@ -16,10 +16,13 @@
 
     <body>
         <div class="body-container">
+
+            <!-- NAV — AHORA COLOCADO CORRECTAMENTE -->
             <div class="c1">
-                <%@ include file ="/WEB-INF/fragmentos/AdminNavBar.jspf" %>
+                <%@ include file="/WEB-INF/fragmentos/AdminNavBar.jspf" %>
             </div>
 
+            <!-- CONTENIDO -->
             <main>
                 <div class="c2">
                     <c:if test="${not empty pedido}">
@@ -39,7 +42,11 @@
                                     <p><span>Nombre:</span> ${pedido.cliente.nombre}</p>
                                     <p><span>Correo electrónico:</span> ${pedido.cliente.correo}</p>
                                     <p><span>Teléfono:</span> ${pedido.cliente.telefono}</p>
-                                    <p><span>Dirección de envío:</span> ${pedido.direccionEnvio.calle} #${pedido.direccionEnvio.numero}, Col. ${pedido.direccionEnvio.colonia}, C.P. ${pedido.direccionEnvio.codigoPostal}</p>
+                                    <p><span>Dirección de envío:</span> 
+                                        ${pedido.direccionEnvio.calle} #${pedido.direccionEnvio.numero}, 
+                                        Col. ${pedido.direccionEnvio.colonia}, 
+                                        C.P. ${pedido.direccionEnvio.codigoPostal}
+                                    </p>
                                 </div>
 
                                 <div class="detalles-productos">
@@ -51,14 +58,15 @@
                                     </c:forEach>
 
                                     <p><span>TOTAL:</span> <strong>$${pedido.total} MXN</strong></p>
-
                                 </div>
 
                             </div>
 
                             <div class="pedido-btns">
                                 <div class="btn-1">
-                                    <a href="${pageContext.request.contextPath}/admin-mostrar-pedidos" class="volver-btn">Volver</a>
+                                    <a href="${pageContext.request.contextPath}/admin-mostrar-pedidos" class="volver-btn">
+                                        Volver
+                                    </a>
                                 </div>
 
                                 <div class="btn-2">
@@ -92,6 +100,7 @@
                     </c:if>
                 </div>
             </main>
+
         </div> 
     </body>
 </html>

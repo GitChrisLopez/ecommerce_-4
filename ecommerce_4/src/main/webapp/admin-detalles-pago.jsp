@@ -11,8 +11,8 @@ Author     : chris
     <head>
         <title>Detalles de Pago</title>
         <meta charset="UTF-8">
-        <link rel="stylesheet" type="text/css" href="./styles/styles-detalles-pago-admin.css">
         <link rel="stylesheet" type="text/css" href="./styles/styles-nav.css">
+        <link rel="stylesheet" type="text/css" href="./styles/styles-detalles-pago-admin.css">
     </head>
 
     <body>
