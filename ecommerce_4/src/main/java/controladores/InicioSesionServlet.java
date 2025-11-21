@@ -1,7 +1,10 @@
 package controladores;
 
 import BOs.AdministradorBO;
+import BOs.UsuarioBO;
 import dominio.Administrador;
+import dominio.ClienteDTO;
+import dominio.UsuarioDTO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -16,13 +19,15 @@ import jakarta.servlet.http.HttpSession;
  *
  * @author chris
  */
-@WebServlet(name = "AutorizacionAdminServlet", urlPatterns = {"/AutorizacionAdminServlet"})
-public class AutorizacionAdminServlet extends HttpServlet {
+@WebServlet(name = "InicioSesionServlet", urlPatterns = {"/login"})
+public class InicioSesionServlet extends HttpServlet {
 
-    private AdministradorBO adminBO;
+    private UsuarioBO usuarioBO;
 
-    public AutorizacionAdminServlet() {
-        this.adminBO = new AdministradorBO();
+    @Override
+    public void init() throws ServletException {
+        super.init();
+        this.usuarioBO = new UsuarioBO();
     }
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -53,7 +58,8 @@ public class AutorizacionAdminServlet extends HttpServlet {
             }
             response.sendRedirect("index.jsp");
         } else {
-            response.sendRedirect("index.jsp");
+            // si se intenta entrar por GET al inicio de sesion sin cerrar sesion, los mandamos al formulario
+            response.sendRedirect("iniciar-sesion.jsp");
         }
     }
 
@@ -63,29 +69,31 @@ public class AutorizacionAdminServlet extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
-        try {
-            // intenta iniciar sesión con el BO
-            Administrador admin = adminBO.iniciarSesion(email, password);
+        UsuarioDTO usuarioLogueado = usuarioBO.iniciarSesion(email, password);
 
-            if (admin != null) {
-                // crea la sesión
-                HttpSession session = request.getSession(true);
-                session.setAttribute("adminLogueado", admin);
+        if (usuarioLogueado != null) {
+            HttpSession session = request.getSession(true);
 
-                // redirige al menú de admin
+            // guardamos la sesion temporal
+            session.setAttribute("usuarioLogueado", usuarioLogueado);
+
+            // se redirecciona según el tipo de usuario (user/admin)
+            if (usuarioLogueado instanceof Administrador) {
                 response.sendRedirect("admin-menu-principal");
+            } else if (usuarioLogueado instanceof ClienteDTO) {
+                response.sendRedirect("principal-registrado.jsp");
             } else {
-                // regresa al login con error
-                response.sendRedirect("iniciar-sesion.jsp?error=true");
+                response.sendRedirect("index.jsp");
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+
+        } else {
+            // fallo de la autenticación
             response.sendRedirect("iniciar-sesion.jsp?error=true");
         }
     }
 
     @Override
     public String getServletInfo() {
-        return "Servlet de Autenticación de Administrador";
+        return "Servlet de Login General (Admin y Cliente)";
     }
 }

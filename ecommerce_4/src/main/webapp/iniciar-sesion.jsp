@@ -28,7 +28,7 @@
                     <img src="./icons/user.png" alt="Usuario" class="user-icon">
                 </div>
 
-                <form class="login-form" method="POST" action="AutorizacionAdminServlet">
+                <form class="login-form" method="POST" action="login">
                     <label for="email">Correo electrónico:</label>
                     <input type="email" id="email" name="email" required>
 
