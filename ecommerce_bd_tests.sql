@@ -1,3 +1,4 @@
+DROP DATABASE IF EXISTS ecommerce_bd_tests;
 -- Primero crear la BD
 CREATE DATABASE ecommerce_bd_tests;
 -- Correr el main de Persistencia
@@ -10,7 +11,9 @@ INSERT INTO usuarios (nombre, apellido_paterno, correo, contrasenia, tipo_usuari
 VALUES ("Admin", "Root", "admin@correo.com", "admin123", "ADMINISTRADOR");
 
 INSERT INTO usuarios (nombre, apellido_paterno, correo, contrasenia, tipo_usuario)
-VALUES ("Victor", "Sanchez", "victor777@gmail.com", "12345", "USUARIO");
+VALUES ("user", "usuario", "user@gmail.com", "12345", "USUARIO");
+
+SELECT * FROM usuarios;
 
 -- luego admin
 INSERT INTO administradores (id_usuario)
