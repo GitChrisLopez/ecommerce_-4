@@ -66,6 +66,7 @@ public class InicioSesionServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
@@ -74,20 +75,19 @@ public class InicioSesionServlet extends HttpServlet {
         if (usuarioLogueado != null) {
             HttpSession session = request.getSession(true);
 
-            // guardamos la sesion temporal
-            session.setAttribute("usuarioLogueado", usuarioLogueado);
-
-            // se redirecciona según el tipo de usuario (user/admin)
             if (usuarioLogueado instanceof Administrador) {
-                response.sendRedirect("admin-menu-principal");
+                session.setAttribute("adminLogueado", usuarioLogueado);
+                response.sendRedirect("admin-menu-administrador.jsp");
+
             } else if (usuarioLogueado instanceof ClienteDTO) {
+                session.setAttribute("usuarioLogueado", usuarioLogueado);
                 response.sendRedirect("principal-registrado.jsp");
+
             } else {
                 response.sendRedirect("index.jsp");
             }
 
         } else {
-            // fallo de la autenticación
             response.sendRedirect("iniciar-sesion.jsp?error=true");
         }
     }
