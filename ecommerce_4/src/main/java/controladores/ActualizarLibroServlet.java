@@ -111,20 +111,20 @@ public class ActualizarLibroServlet extends HttpServlet {
             
             // Se obtiene el Id del libro.
             Long idLibro = null;
-            if(idLibroStr != null || !idLibroStr.isEmpty()){
-                idLibro = Long.parseLong(idLibroStr);
+            if(idLibroStr != null && !idLibroStr.isEmpty()){
+                idLibro = Long.valueOf(idLibroStr);
             }
             
             // Se obtiene el Id del autor.
             Long idAutor = null;
-            if(idAutorStr != null || idAutorStr.isEmpty()){
-                idAutor = Long.parseLong(idAutorStr);
+            if(idAutorStr != null && !idAutorStr.isEmpty()){
+                idAutor = Long.valueOf(idAutorStr);
             }
             
             // Se obtiene el Id de la editorial.
             Long idEditorial = null;
-            if(idEditorialStr != null || idEditorialStr.isEmpty()){
-                idEditorial = Long.parseLong(idEditorialStr);
+            if(idEditorialStr != null && !idEditorialStr.isEmpty()){
+                idEditorial = Long.valueOf(idEditorialStr);
             }
             
             // Se obtiene la fecha de publicación.

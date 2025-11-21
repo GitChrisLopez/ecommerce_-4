@@ -167,7 +167,7 @@ public class LibrosDAO implements ILibrosDAO {
         // Se seleccionan todos los atributos de la entidad Libro,
         // luego se obtienen solo los que tiene el valor del id del parámetro
         // como valor de su atributo id.
-        criteriaQuery.select(entidadLibro).where(criteraBuilder.equal(entidadLibro.get("id"), idLibro));
+        criteriaQuery.select(entidadLibro).where(criteraBuilder.equal(entidadLibro.get("id"), idLibro)).distinct(true);
 
         // Se crea el objeto TypedQuery<Libro>, representa la consulta ejecutable.
         TypedQuery<Libro> query = entityManager.createQuery(criteriaQuery);

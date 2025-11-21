@@ -24,10 +24,10 @@
                             <h1>Editar libro</h1>
                         </div>
 
-                        <form action="admin-libros-registrados" class="form-add-edition" id="form-add-edition">
+                        <form action="admin-actualizar-libro" class="form-add-edition" id="form-add-edition" method="POST">
 
-                            
-                            <div>
+                            <input type="hidden" value="${libroEditar.id}" name="id">
+                        <div>
                                 <label>Título: </label>
                                 <input class="input-form-add-edition" type="text" name="titulo" value="${libroEditar.titulo}" required />
                             </div>
@@ -92,7 +92,7 @@
 
                             <div>
                                 <label>Publicación: </label>
-                                <input class="input-form-add-edition" type="date" value="${libroEditar.fechaPublicacion}" required />
+                                <input class="input-form-add-edition" type="date" value="${libroEditar.fechaPublicacion}" name="fecha-publicacion" required />
                             </div>
 
                             <div class="div-synopsis">
@@ -102,7 +102,7 @@
                             </div>
 
                             <div class="buttons-cancel-add-edition">
-                                <a href="libros-registrados.jsp">
+                                <a href="admin-libros-registrados">
                                     <input type="button" value="Cancelar" class="cancel-input" />
                                 </a>
                                 <input type="submit" value="Guardar" class="add-edition-input add-input" />
