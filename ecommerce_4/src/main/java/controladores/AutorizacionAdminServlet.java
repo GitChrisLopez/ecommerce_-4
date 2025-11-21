@@ -51,9 +51,9 @@ public class AutorizacionAdminServlet extends HttpServlet {
             if (session != null) {
                 session.invalidate(); // Destruye la sesión
             }
-            response.sendRedirect("index.html");
+            response.sendRedirect("index.jsp");
         } else {
-            response.sendRedirect("index.html");
+            response.sendRedirect("index.jsp");
         }
     }
 
@@ -76,11 +76,11 @@ public class AutorizacionAdminServlet extends HttpServlet {
                 response.sendRedirect("menu-principal-admin");
             } else {
                 // regresa al login con error
-                response.sendRedirect("iniciar-sesion.html?error=true");
+                response.sendRedirect("iniciar-sesion.jsp?error=true");
             }
         } catch (Exception e) {
             e.printStackTrace();
-            response.sendRedirect("iniciar-sesion.html?error=true");
+            response.sendRedirect("iniciar-sesion.jsp?error=true");
         }
     }
 
