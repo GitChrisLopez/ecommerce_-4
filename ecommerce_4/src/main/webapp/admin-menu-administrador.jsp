@@ -120,7 +120,7 @@
                                         
                                         <c:forEach var="producto" items="${listaProductos}">
                                             
-                                            <button class="libro">
+                                            <div class="libro">
                                                 <img src="${pageContext.request.contextPath}/${producto.urlImagen}" 
                                                     alt="${producto.libro.titulo}" />
                                                 <h3><c:out value="${producto.libro.titulo}" /></h3>
@@ -132,7 +132,31 @@
                                                     <a href="admin-edicion-producto?id=${producto.id}">Editar datos</a>
                                                 </div>
 
-                                            </button>
+                                                <div class="options-product">
+                                                    <a href="admin-edicion-producto?id=${producto.id}">Editar datos</a>
+                                                    
+                                                    <c:choose>
+                                                        
+                                                        <c:when test="${producto.stock > 0}">
+                                                            
+                                                            <form class="form-marcar-agotado" action="admin-actualizar-producto?id=${producto.id}" method="POST">
+                                                                
+                                                                <input type="hidden" name="id" value="${producto.id}">
+                                        
+                                                                <input type="hidden" name="accion" value="agotar">
+                                                                
+                                                                <input type="submit" value="Marcar como agotado">
+                                                                
+                                                            </form>
+                                                            
+                                                        </c:when>
+                                                        
+                                                    </c:choose>
+                                                    
+                                                </div>
+                                                    
+                                                    
+                                            </div>
 
                                         </c:forEach>
 
