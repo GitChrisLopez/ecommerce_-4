@@ -44,9 +44,10 @@ public class AdminFiltro implements Filter {
             HttpSession session = httpRequest.getSession(false);
             boolean logueado = false;
 
-            if (session != null && session.getAttribute("adminLogueado") != null) {
-                // Validamos que el login SI sea de un admin
-                if (session.getAttribute("adminLogueado") instanceof Administrador) {
+            Object usuarioSesion = session != null ? session.getAttribute("usuarioLogueado") : null;
+
+            if (usuarioSesion != null) {
+                if (usuarioSesion instanceof Administrador) {
                     logueado = true;
                 }
             }
