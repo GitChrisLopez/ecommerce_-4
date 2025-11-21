@@ -35,12 +35,12 @@
                     </div>
                 </div>
 
-                <form action="admin-agregar-producto.html" class="container-list" id="form">
+                <form action="admin-agregar-producto.jsp" class="container-list" id="form">
 
                     <input type="radio" id="morir-arena" name="registered" required>
                     <label for="morir-arena">
                         <p>Morir en la arena (Andanzas)</p>
-                        <a href="edicion-libro.html">
+                        <a href="edicion-libro.jsp">
                             <img src="icons/edition.png">
                         </a>
                     </label>
@@ -48,7 +48,7 @@
                     <input type="radio" id="novela-vida" name="registered">
                     <label for="novela-vida">
                         <p>La novela de mi vida (Andanzas)</p>
-                        <a href="edicion-libro.html">
+                        <a href="edicion-libro.jsp">
                             <img src="icons/edition.png">
                         </a>
                     </label>
@@ -56,7 +56,7 @@
                     <input type="radio" id="ultimo-secreto" name="registered">
                     <label for="ultimo-secreto">
                         <p>El Último Secreto</p>
-                        <a href="edicion-libro.html">
+                        <a href="edicion-libro.jsp">
                             <img src="icons/edition.png">
                         </a>
                     </label>
@@ -65,13 +65,13 @@
                 <div class="buttons">
 
                     <div class="button-add">
-                        <a href="admin-agregar-libro.html">
+                        <a href="admin-agregar-libro.jsp">
                             <input type="submit" value="Agregar" class="add-input">
                         </a>
                     </div>
 
                     <div class="buttons-cancel-save">
-                        <a href="admin-agregar-producto.html">
+                        <a href="admin-agregar-producto.jsp">
                             <input type="submit" value="Cancelar" class="cancel-input">
                         </a>
                         <input type="submit" value="Guardar" class="save-input" form="form">

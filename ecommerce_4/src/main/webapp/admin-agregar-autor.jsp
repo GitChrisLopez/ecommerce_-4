@@ -29,7 +29,7 @@ Author     : chris
                             <h1>Agregar autor</h1>
                         </div>
 
-                        <form action="admin-autores-registrados.html" class="form-add-edition" id="form-add-edition">
+                        <form action="admin-autores-registrados.jsp" class="form-add-edition" id="form-add-edition">
                             <div class="name-container">
                                 <label>Nombre: </label>
                                 <input type="text" value="Jorge Luis" maxlength="50" required />
@@ -47,7 +47,7 @@ Author     : chris
                         </form>
 
                         <div class="buttons-cancel-add-edition">
-                            <a href="admin-autores-registrados.html">
+                            <a href="admin-autores-registrados.jsp">
                                 <input type="button" value="Cancelar" class="cancel-input" form="form-add-edition" />
                             </a>
 

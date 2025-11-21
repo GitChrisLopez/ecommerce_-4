@@ -49,7 +49,7 @@ Author     : chris
                                     readonly
                                     required
                                     />
-                                <a href="admin-autores-registrados.html">
+                                <a href="admin-autores-registrados.jsp">
                                     <button class="btn-seleccionar" type="button">
                                         Seleccionar
                                     </button>
@@ -65,7 +65,7 @@ Author     : chris
                                     readonly
                                     required
                                     />
-                                <a href="admin-categorias-registradas.html">
+                                <a href="admin-categorias-registradas.jsp">
                                     <button class="btn-seleccionar" type="button">
                                         Seleccionar
                                     </button>
@@ -81,7 +81,7 @@ Author     : chris
                                     readonly
                                     required
                                     />
-                                <a href="editoriales-registradas.html">
+                                <a href="editoriales-registradas.jsp">
                                     <button class="btn-seleccionar" type="button">
                                         Seleccionar
                                     </button>

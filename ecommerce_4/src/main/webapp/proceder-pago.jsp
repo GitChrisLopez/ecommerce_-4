@@ -52,7 +52,7 @@
 
                         <br /><br /><br /><br />
 
-                        <form action="./metodo-pago.html" class="direccion-container">
+                        <form action="./metodo-pago.jsp" class="direccion-container">
                             <label for="direccion"><strong>Enviar a:</strong></label>
                             <br /><br />
 
@@ -67,7 +67,7 @@
                             <br /><br />
 
                             <div class="botones-direccion">
-                                <a href="./direcciones-guardadas.html" class="btn-link">
+                                <a href="./direcciones-guardadas.jsp" class="btn-link">
                                     <button type="button" class="btn-direccion">
                                         Seleccionar dirección
                                     </button>

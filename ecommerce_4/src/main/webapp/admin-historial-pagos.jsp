@@ -41,7 +41,7 @@ Author     : chris
                                     <p><span>Numero de pedido asociado:</span> #43569846</p>
                                 </div>
                                 <div class="pago-btn">
-                                    <a href="./admin-detalles-pago.html" class="detalles-btn"
+                                    <a href="./admin-detalles-pago.jsp" class="detalles-btn"
                                        >Detalles</a
                                     >
                                 </div>
@@ -55,7 +55,7 @@ Author     : chris
                                     <p><span>Numero de pedido asociado:</span> #23519306</p>
                                 </div>
                                 <div class="pago-btn">
-                                    <a href="./admin-detalles-pago.html" class="detalles-btn"
+                                    <a href="./admin-detalles-pago.jsp" class="detalles-btn"
                                        >Detalles</a
                                     >
                                 </div>

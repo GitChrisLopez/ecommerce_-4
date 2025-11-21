@@ -49,10 +49,10 @@
                         <br />
 
                         <div class="botones">
-                            <a href="./detalles-pedido.html" class="btn-link">
+                            <a href="./detalles-pedido.jsp" class="btn-link">
                                 <button class="btn-ver-pedido">Ver pedido</button>
                             </a>
-                            <a href="./catalogo.html" class="btn-link">
+                            <a href="./catalogo.jsp" class="btn-link">
                                 <button class="btn-seguir-comprando">Seguir comprando</button>
                             </a>
                         </div>

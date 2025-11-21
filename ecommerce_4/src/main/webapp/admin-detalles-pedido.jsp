@@ -25,7 +25,7 @@
                     <c:if test="${not empty pedido}">
                         <div class="pedido-container">
                             <div class="pedido1">
-                            
+
                                 <div class="detalles-pago">
                                     <h3>Detalles del pago:</h3>
                                     <p><span>Tipo de pago:</span> ${pedido.metodoPago}</p>
@@ -45,13 +45,13 @@
                                 <div class="detalles-productos">
                                     <h3>Productos del pedido:</h3>
                                     <c:forEach var="producto" items="${pedido.productosPedido}">
-                                        <p>“${producto.producto.libro.titulo}” – Cantidad: ${producto.cantidad}</p>
+                                        <p>"${producto.producto.libro.titulo}" – Cantidad: ${producto.cantidad}</p>
                                         <p><span>Precio Unitario:</span> $${producto.precioUnitario} MXN</p>
                                         <br>
                                     </c:forEach>
-                                    
+
                                     <p><span>TOTAL:</span> <strong>$${pedido.total} MXN</strong></p>
-                                    
+
                                 </div>
 
                             </div>
@@ -60,12 +60,12 @@
                                 <div class="btn-1">
                                     <a href="${pageContext.request.contextPath}/admin-mostrar-pedidos" class="volver-btn">Volver</a>
                                 </div>
-                                
+
                                 <div class="btn-2">
-                                    
+
                                     <div class="estado-acciones">
                                         <button class="actualizar-estado-btn" type="button">Actualizar estado</button>
-                                        
+
                                         <div class="estado-dropdown">
                                             <form method="POST" action="${pageContext.request.contextPath}/admin-actualizar-pedido">
                                                 <input type="hidden" name="id" value="${pedido.id}">
@@ -76,7 +76,7 @@
                                             </form>
                                         </div>
                                     </div>
-                                    
+
                                     <form method="POST" action="${pageContext.request.contextPath}/admin-actualizar-pedido">
                                         <input type="hidden" name="id" value="${pedido.id}">
                                         <input type="hidden" name="accion" value="cancelar">
@@ -86,7 +86,7 @@
                             </div>
                         </div>
                     </c:if>
-                    
+
                     <c:if test="${empty pedido}">
                         <p class="error-msg">No se encontró el pedido solicitado.</p>
                     </c:if>

@@ -16,53 +16,7 @@
     <body>
         <main>
             <div class="c1">
-                <nav>
-                    <a href="./principal-registrado.html">
-                        <div class="home">
-                            <img src="./icons/home.svg" alt="home" class="home-icon"> 
-                        </div>
-                    </a>
-
-                    <ul class="nav-links">
-                        <li>
-                            <a href="./catalogo.html" class="nav-btn" target="_blank">Catálogo</a>
-                        </li>
-                        <li>
-                        <div class="carrito">
-                                <img src="./icons/carrito.png" alt="carrito" class="carrito-icon"> 
-                            </div>
-                        </li>
-                        <li>
-                            <div class="user">
-                                <img src="./icons/user.png" alt="user" class="user-icon"> 
-                            </div>
-                        </li>
-                        <li>
-                            <a href="./catalogo.html">
-                                <div class="catalogo">
-                                    <img src="./icons/catalogo.png" alt="catalogo" class="catalogo-icon"> 
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="./users.html">
-                                <div class="users">
-                                    <img src="./icons/users.png" alt="usuarios" class="users-icon"> 
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <div class="pedidos">
-                                <img src="./icons/pedidos.png" alt="pedidos" class="pedidos-icon"> 
-                            </div>
-                        </li>
-                        <li>
-                            <div class="payments">
-                                <img src="./icons/payments.png" alt="Pagos" class="payments-icon"> 
-                            </div>
-                        </li>
-                    </ul>
-                </nav>
+                <%@ include file ="/WEB-INF/fragmentos/AdminNavBar.jspf" %>
             </div>
 
             <div class="container-registered">
@@ -112,15 +66,15 @@
                     </c:forEach>
 
                 </form>
-                
+
                 <div class="buttons">
 
                     <div class="buttons-cancel-save">
                         <a href="menu-principal-admin">
                             <input type="submit" value="Cancelar" class="cancel-input">
                         </a>
-                        
-                        <a href="admin-agregar-libro.html">
+
+                        <a href="admin-agregar-libro.jsp">
                             <input type="submit" value="Agregar" class="add-input">
                         </a>
                     </div>

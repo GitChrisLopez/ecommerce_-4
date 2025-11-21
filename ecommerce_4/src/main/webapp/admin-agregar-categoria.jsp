@@ -31,7 +31,7 @@ Author     : chris
                         </div>
 
                         <form
-                            action="admin-categorias-registradas.html"
+                            action="admin-categorias-registradas.jsp"
                             class="form-add-edition"
                             id="form-add-edition"
                             >
@@ -42,7 +42,7 @@ Author     : chris
                         </form>
 
                         <div class="buttons-cancel-add-edition">
-                            <a href="admin-categorias-registradas.html">
+                            <a href="admin-categorias-registradas.jsp">
                                 <input type="button" value="Cancelar" class="cancel-input" />
                             </a>
 

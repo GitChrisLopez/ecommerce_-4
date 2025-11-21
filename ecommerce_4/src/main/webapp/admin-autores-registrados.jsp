@@ -37,7 +37,7 @@ Author     : chris
 
                 </div>
 
-                <form action="edicion-libro.html" class="container-list" id="form">
+                <form action="edicion-libro.jsp" class="container-list" id="form">
 
 
                     <input type = "radio" id="leonardo-padura" name="autor" required>
@@ -52,7 +52,7 @@ Author     : chris
                     <input type = "radio" id="dan-brown" name="autor">
                     <label for="dan-brown">
                         <p>Dan Brown</p>
-                        <a href="edicion-autor.html">
+                        <a href="edicion-autor.jsp">
                             <img src="icons/edition.png">          
                         </a>
                     </label>
@@ -60,15 +60,15 @@ Author     : chris
                     <input type = "radio" id="george-orwell" name="autor">        
                     <label for="penguinrandom">
                         <p>George Orwell</p>
-                        <a href="edicion-autor.html">
+                        <a href="edicion-autor.jsp">
                             <img src="icons/edition.png">       
                         </a>
                     </label>
 
                     <input type = "radio" id="antoine-exupery" name="autor">
                     <label for="antoine-exupery">
-                        <p>Antoine de Saint-ExupÃ©ry</p>
-                        <a href="edicion-autor.html">
+                        <p>Antoine de Saint-Exupary</p>
+                        <a href="edicion-autor.jsp">
                             <img src="icons/edition.png">           
                         </a>
                     </label>
@@ -78,14 +78,14 @@ Author     : chris
                 <div class="buttons">
 
                     <div class="button-add">
-                        <a href="admin-agregar-autor.html">
+                        <a href="admin-agregar-autor.jsp">
                             <input type="submit" value="Agregar" class="add-input">
                         </a>
 
                     </div>
 
                     <div class="buttons-cancel-save">
-                        <a href="edicion-libro.html">
+                        <a href="edicion-libro.jsp">
                             <input type="submit" value="Cancelar" class="cancel-input">
                         </a>
                         <input type="submit" value="Guardar" class="save-input" form="form">

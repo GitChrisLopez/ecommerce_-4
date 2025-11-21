@@ -30,7 +30,7 @@
                         <br /><br />
                         <div class="metodos-pago">
                             <div class="pago-detalles"></div>
-                            <form action="./pedido-realizado-exitosamente.html">
+                            <form action="./pedido-realizado-exitosamente.jsp">
                                 <div class="radio-btn-opciones">
 
                                     <label class="container">
@@ -69,7 +69,7 @@
                                 <br /><br />
 
                                 <div class="div-botones">
-                                    <a href="./carrito.html" class="btn-link">
+                                    <a href="./carrito.jsp" class="btn-link">
                                         <button type="button" class="btn-cancelar">Cancelar pedido</button>
                                     </a>
                                     <button type="submit" class="btn-pagar-pedido">Pagar pedido</button>

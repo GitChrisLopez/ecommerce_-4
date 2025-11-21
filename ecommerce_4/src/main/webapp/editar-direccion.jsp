@@ -26,7 +26,7 @@
                 <div class="c2">
                     <div class="direccion-container">
                         <h1 class="direccion-title">Editar dirección</h1>
-                        <form action="./direcciones-guardadas.html" class="direccion-form">
+                        <form action="./direcciones-guardadas.jsp" class="direccion-form">
                             <div class="form-inputs">
 
                                 <div class="form-individual">
@@ -56,7 +56,7 @@
 
                                 <div class="direccion-btns">
                                     <button type="submit" class="guardar-btn">Guardar</button>
-                                    <a href="./direcciones-guardadas.html" class="cancelar-btn">Cancelar</a>
+                                    <a href="./direcciones-guardadas.jsp" class="cancelar-btn">Cancelar</a>
                                 </div>
                             </div>
                         </form>

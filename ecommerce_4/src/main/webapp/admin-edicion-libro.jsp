@@ -38,7 +38,7 @@
                             <div>
                                 <label>Autor: </label>
                                 <input class="input-form-add-edition" type="text" value="Dan Brown" readonly required />
-                                <a href="admin-autores-registrados.html">
+                                <a href="admin-autores-registrados.jsp">
                                     <button class="btn-seleccionar" type="button">Seleccionar</button>
                                 </a>
                             </div>
@@ -46,7 +46,7 @@
                             <div>
                                 <label>Categoría: </label>
                                 <input class="input-form-add-edition" type="text" value="Thriller" readonly required />
-                                <a href="admin-categorias-registradas.html">
+                                <a href="admin-categorias-registradas.jsp">
                                     <button class="btn-seleccionar" type="button">Seleccionar</button>
                                 </a>
                             </div>
@@ -54,7 +54,7 @@
                             <div>
                                 <label>Editorial: </label>
                                 <input class="input-form-add-edition" type="text" value="Editorial Planeta" readonly required />
-                                <a href="editoriales-registradas.html">
+                                <a href="editoriales-registradas.jsp">
                                     <button class="btn-seleccionar" type="button">Seleccionar</button>
                                 </a>
                             </div>
@@ -71,7 +71,7 @@
                             </div>
 
                             <div class="buttons-cancel-add-edition">
-                                <a href="libros-registrados.html">
+                                <a href="libros-registrados.jsp">
                                     <input type="button" value="Cancelar" class="cancel-input" />
                                 </a>
                                 <input type="submit" value="Guardar" class="add-edition-input add-input" />

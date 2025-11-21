@@ -1,6 +1,6 @@
 <%-- 
     Document   : carrito
-    Created on : 19 nov 2025, 10:26:26 p.m.
+    Created on : 19 nov 2025, 10:26:26 p.m.
     Author     : chris
 --%>
 
@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Editar CategorÃ­a</title>
+        <title>Editar Categoría</title>
         <meta charset="UTF-8" />
         <link rel="stylesheet" type="text/css" href="./styles/styles-nav.css" />
         <link rel="stylesheet" type="text/css" href="./styles/styles-admin-agregar.css" />
@@ -25,18 +25,18 @@
                 <div class="general-container">
                     <div class="container-add-edition">
                         <div class="title-container">
-                            <h1>Editar categorÃ­a</h1>
+                            <h1>Editar categoría</h1>
                         </div>
 
-                        <form action="admin-categorias-registradas.html" class="form-add-edition" id="form-add-edition">
+                        <form action="admin-categorias-registradas.jsp" class="form-add-edition" id="form-add-edition">
                             <div class="name-container">
-                                <label>Nombre: </label>
+                                <label>Nombre:</label>
                                 <input type="text" value="Drama" maxlength="50" required />
                             </div>
                         </form>
 
                         <div class="buttons-cancel-add-edition">
-                            <a href="admin-categorias-registradas.html">
+                            <a href="admin-categorias-registradas.jsp">
                                 <input type="button" value="Cancelar" class="cancel-input"/>
                             </a>
                             <input type="submit" value="Guardar" class="add-edition-input add-input" form="form-add-edition" />

@@ -19,7 +19,7 @@
         <div class="background">
             <div class="container">
                 <div class="arrow-container">
-                    <a href="principal-no-registrado.html">
+                    <a href="principal-no-registrado.jsp">
                         <img src="./icons/arrow.png" alt="Volver" class="arrow-icon">
                     </a>
                 </div>
@@ -38,7 +38,7 @@
                     <button type="submit" class="button">Iniciar sesión</button>
 
                     <p class="login-info-text">
-                        ¿No tienes una cuenta? <a href="registro.html" class="link"><br>Registrarse</a>
+                        ¿No tienes una cuenta? <a href="registro.jsp" class="link"><br>Registrarse</a>
                     </p>
                 </form>            
             </div>

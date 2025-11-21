@@ -41,7 +41,7 @@
                         </div>
 
                         <div class="botones">
-                            <a href="./carrito.html" class="btn-link">
+                            <a href="./carrito.jsp" class="btn-link">
                                 <button class="btn-volver">Volver al carrito</button>
                             </a>
                         </div>

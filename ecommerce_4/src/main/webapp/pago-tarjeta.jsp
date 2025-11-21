@@ -57,7 +57,7 @@
 
                                 <div class="pago-tarjeta-btns">
                                     <button type="submit" class="confirmar-pago-btn">Confirmar pago</button>
-                                    <a href="./metodo-pago.html" class="cancelar-btn">Cancelar</a>
+                                    <a href="./metodo-pago.jsp" class="cancelar-btn">Cancelar</a>
                                 </div>
 
                             </div>

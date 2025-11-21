@@ -40,12 +40,12 @@
                 </main>
 
                 <div class="buttons-container">
-                    <a href="./catalogo.html" class="btn genero-1" target="_blank">Drama</a>
-                    <a href="./catalogo.html" class="btn genero-2" target="_blank">Thriller</a>
-                    <a href="./catalogo.html" class="btn genero-3" target="_blank">Ciencia ficción</a>
-                    <a href="./catalogo.html" class="btn genero-4" target="_blank">Terror</a>
-                    <a href="./libros-mas-destacados.html" class="btn destacados-btn" target="_blank">Libros destacados</a>
-                    <a href="./catalogo.html" class="btn catalogo-btn" target="_blank">Catálogo</a>
+                    <a href="./catalogo.jsp" class="btn genero-1" target="_blank">Drama</a>
+                    <a href="./catalogo.jsp" class="btn genero-2" target="_blank">Thriller</a>
+                    <a href="./catalogo.jsp" class="btn genero-3" target="_blank">Ciencia ficción</a>
+                    <a href="./catalogo.jsp" class="btn genero-4" target="_blank">Terror</a>
+                    <a href="./libros-mas-destacados.jsp" class="btn destacados-btn" target="_blank">Libros destacados</a>
+                    <a href="./catalogo.jsp" class="btn catalogo-btn" target="_blank">Catálogo</a>
                 </div>
             </div>
         </div>

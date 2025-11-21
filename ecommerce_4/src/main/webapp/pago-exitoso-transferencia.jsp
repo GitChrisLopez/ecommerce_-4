@@ -107,7 +107,7 @@
                         <br /><br />
 
                         <div class="botones">
-                            <a href="./pedido-realizado-exitosamente.html" class="btn-link">
+                            <a href="./pedido-realizado-exitosamente.jsp" class="btn-link">
                                 <button class="btn-aceptar">Aceptar</button>
                             </a>
                         </div>

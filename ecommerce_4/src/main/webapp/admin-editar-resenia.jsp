@@ -11,8 +11,8 @@ Author     : chris
     <head>
         <title>Editar Reseña</title>
         <meta charset="UTF-8">
-        <link rel="stylesheet" type="text/css" href="./styles/styles-editar-resenia-admin.css">
         <link rel="stylesheet" type="text/css" href="./styles/styles-nav.css">
+        <link rel="stylesheet" type="text/css" href="./styles/styles-editar-resenia-admin.css">
     </head>
 
     <body>

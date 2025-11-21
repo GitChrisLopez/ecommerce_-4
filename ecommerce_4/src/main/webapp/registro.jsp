@@ -74,7 +74,7 @@
                     <button type="submit" class="button">Crear cuenta</button>
 
                     <p class="register-info-text">
-                        <a href="iniciar-sesion.html" class="link">¿Ya tienes una cuenta?</a>
+                        <a href="iniciar-sesion.jsp" class="link">¿Ya tienes una cuenta?</a>
                     </p>
 
                 </form>

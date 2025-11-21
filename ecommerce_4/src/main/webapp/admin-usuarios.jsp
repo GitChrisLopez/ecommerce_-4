@@ -39,7 +39,7 @@
                         <div class="user-data-headers">
                             <p></p>
                             <p>Nombre</p>
-                            <p>TelÃ©fono</p>
+                            <p>Teléfono</p>
                             <p>Correo</p>
                             <p></p>
                         </div>
@@ -51,7 +51,7 @@
 
                             <div class="user-data">
                                 <p>Lucia Lagarda</p>
-                                <p><span>TelÃ©fono:</span> 6442132659</p>
+                                <p><span>Teléfono:</span> 6442132659</p>
                                 <p><span>Correo:</span> luciaLagar050102@hotmail.com</p>
                             </div>
 
@@ -68,8 +68,8 @@
                             </div>
 
                             <div class="user-data">
-                                <p>VÃ­ctor Almendra</p>
-                                <p><span>TelÃ©fono:</span> 6441236594</p>
+                                <p>Víctor Almendra</p>
+                                <p><span>Teléfono:</span> 6441236594</p>
                                 <p><span>Correo:</span> xxviktorxxAL@gmail.com</p>
                             </div>
 
@@ -87,7 +87,7 @@
 
                             <div class="user-data">
                                 <p>Catarina Demacia</p>
-                                <p><span>TelÃ©fono:</span> 5512089743</p>
+                                <p><span>Teléfono:</span> 5512089743</p>
                                 <p><span>Correo:</span> CatiDemacia367@yahoo.com.mx</p>
                             </div>
 

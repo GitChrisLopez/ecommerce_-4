@@ -41,7 +41,7 @@ Author     : chris
                             </div>
                         </form>
                         <div class="buttons-cancel-add-edition">
-                            <a href="editoriales-registradas.html">
+                            <a href="editoriales-registradas.jsp">
                                 <input type="button" value="Cancelar" class="cancel-input" />
                             </a>
                             <input type="submit" value="Agregar" class="add-edition-input add-input" form="form-add-edition"/>

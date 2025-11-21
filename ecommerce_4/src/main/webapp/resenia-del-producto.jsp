@@ -45,7 +45,7 @@
                             <p class="p-precio">$250.00</p>
                             <p class="p-stock">3 disponibles</p>
 
-                            <form action="carrito.html" class="div-add-cart">
+                            <form action="carrito.jsp" class="div-add-cart">
                                 <label for="product-quantity" class="label-cantidad">Cantidad:</label>
                                 <input type="number" id="product-quantity" class="product-quantity" min="0" max="3" required>
                                 <input type="submit" value="Agregar al carrito" class="btn-add-cart">

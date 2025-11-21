@@ -36,7 +36,7 @@
                     <input type="radio" id="tusquets" name="editorial" required>
                     <label for="tusquets">
                         <p>TusQuets Editores</p>
-                        <a href="edicion-editorial.html">
+                        <a href="edicion-editorial.jsp">
                             <img src="icons/edition.png"> 
                         </a>
                     </label>
@@ -44,7 +44,7 @@
                     <input type="radio" id="planeta" name="editorial">
                     <label for="planeta">
                         <p>Editorial Planeta</p>
-                        <a href="edicion-editorial.html">
+                        <a href="edicion-editorial.jsp">
                             <img src="icons/edition.png">          
                         </a>
                     </label>
@@ -52,7 +52,7 @@
                     <input type="radio" id="penguinrandom" name="editorial">        
                     <label for="penguinrandom">
                         <p>Pengüin Random House</p>
-                        <a href="edicion-editorial.html">
+                        <a href="edicion-editorial.jsp">
                             <img src="icons/edition.png">       
                         </a>
                     </label>
@@ -60,7 +60,7 @@
                     <input type="radio" id="grijalbo" name="editorial">
                     <label for="grijalbo">
                         <p>Grijalbo</p>
-                        <a href="edicion-editorial.html">
+                        <a href="edicion-editorial.jsp">
                             <img src="icons/edition.png">           
                         </a>
                     </label>
@@ -69,13 +69,13 @@
                 <div class="buttons">
 
                     <div class="button-add">
-                        <a href="admin-agregar-editorial.html">
+                        <a href="admin-agregar-editorial.jsp">
                             <input type="submit" value="Agregar" class="add-input">
                         </a>
                     </div>
 
                     <div class="buttons-cancel-save">
-                        <a href="edicion-libro.html">
+                        <a href="edicion-libro.jsp">
                             <input type="submit" value="Cancelar" class="cancel-input">
                         </a>
                         <input type="submit" value="Guardar" class="save-input" form="form">

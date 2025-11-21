@@ -48,7 +48,7 @@
                         </div>
                         
                         <div class="pedido-btn">
-                            <a href="./pedido-realizado-exitosamente.html" class="ver-pedidos-btn">Volver</a>
+                            <a href="./pedido-realizado-exitosamente.jsp" class="ver-pedidos-btn">Volver</a>
                         </div>
                     </div>
                 </div>

@@ -40,7 +40,7 @@
                         </div>
 
                         <div class="error-btn">
-                            <a href="./carrito.html" class="volver-carrito-btn">Volver al carrito</a>
+                            <a href="./carrito.jsp" class="volver-carrito-btn">Volver al carrito</a>
                         </div>
                     </div>
                 </div>

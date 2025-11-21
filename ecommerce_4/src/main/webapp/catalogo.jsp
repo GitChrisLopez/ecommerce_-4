@@ -31,7 +31,7 @@
 
                             <div class="options-lookup">
                                 <div class="search-filtros">
-                                    <a href="./catalogo-filtros-mobile.html" class="filtrar-btn">
+                                    <a href="./catalogo-filtros-mobile.jsp" class="filtrar-btn">
                                         <img src="./icons/filtro.png" alt="Filtro" class="icono-filtro">
                                         <span>Filtrar</span>
                                     </a>
@@ -74,7 +74,7 @@
                             <div class="libros-container">
 
                                 <button class="libro">
-                                    <a href="./resenia-del-producto.html">
+                                    <a href="./resenia-del-producto.jsp">
                                         <img src="./imgs/morir-en-la-arena.png" alt="Morir en la arena">
                                         <h3>Morir en la arena</h3>
                                         <p>Leonardo Padura</p>
@@ -83,7 +83,7 @@
                                 </button>
 
                                 <button class="libro">
-                                    <a href="./resenia-del-producto.html">
+                                    <a href="./resenia-del-producto.jsp">
                                         <img src="./imgs/la-novela-de-mi-vida.png" alt="La novela de mi vida (Andanzas)">
                                         <h3>La novela de mi vida (Andanzas)</h3>
                                         <p>Leonardo Padura</p>
@@ -92,7 +92,7 @@
                                 </button>
 
                                 <button class="libro">
-                                    <a href="./resenia-del-producto.html">
+                                    <a href="./resenia-del-producto.jsp">
                                         <img src="./imgs/el-ultimo-secreto.png" alt="El Último Secreto">
                                         <h3>El Último Secreto</h3>
                                         <p>Dan Brown</p>

@@ -22,7 +22,7 @@
 
             <div class="c2">
 
-                <form action="./proceder-pago.html" class="direcciones-container">
+                <form action="./proceder-pago.jsp" class="direcciones-container">
                     <h1 class="direcciones-title">Direcciones guardadas</h1>
 
                     <div class="general-container">
@@ -31,7 +31,7 @@
                             <input type="radio" id="direccion1" name="direccion" required>
                             <label class="direccion-individual" for="direccion1">
                                 <p class="direccion-texto">Calle de los Cipreses #248, Colonia Jardines del Sol</p>
-                                <a href="./editar-direccion.html" class="editar-btn">
+                                <a href="./editar-direccion.jsp" class="editar-btn">
                                     <img src="./icons/edition.png" alt="editar" class="editar-icon">
                                 </a>
                             </label>
@@ -41,7 +41,7 @@
                             <input type="radio" id="direccion2" name="direccion" required>
                             <label for="direccion2" class="direccion-individual">
                                 <p class="direccion-texto">Calle Azul #1, Colonia Colores</p>
-                                <a href="./editar-direccion.html" class="editar-btn">
+                                <a href="./editar-direccion.jsp" class="editar-btn">
                                     <img src="./icons/edition.png" alt="editar" class="editar-icon">
                                 </a>
                             </label>
@@ -51,7 +51,7 @@
                             <input type="radio" id="direccion3" name="direccion" required>
                             <label for="direccion3" class="direccion-individual">
                                 <p class="direccion-texto">Calle Nainari #123, Colonia Morelos</p>
-                                <a href="./editar-direccion.html" class="editar-btn">
+                                <a href="./editar-direccion.jsp" class="editar-btn">
                                     <img src="./icons/edition.png" alt="editar" class="editar-icon">
                                 </a>
                             </label>
@@ -60,7 +60,7 @@
                     </div>
 
                     <div class="direcciones-btns">
-                        <a href="./admin-agregar-direccion.html" class="agregar-direccion-btn">Agregar dirección</a>
+                        <a href="./admin-agregar-direccion.jsp" class="agregar-direccion-btn">Agregar dirección</a>
                         <button type="submit" class="escoger-direccion-btn">Escoger</button>
                     </div>
                 </form>

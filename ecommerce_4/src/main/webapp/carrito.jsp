@@ -36,7 +36,7 @@
                                         <p>Leonardo Padura</p>
                                         <p class="precio">Precio: $300.00</p>
 
-                                        <form action="proceder-pago.html" class="div-botones">
+                                        <form action="proceder-pago.jsp" class="div-botones">
                                             <input type="number" class="input-cantidad" value="1" min="0" max="3" required/>
                                             <button type="button" class="btn-cantidad-mas">+</button>
                                             <button type="button" class="btn-cantidad-menos">-</button>
@@ -53,7 +53,7 @@
                                         <p>Leonardo Padura</p>
                                         <p class="precio">Precio: $300.00</p>
 
-                                        <form action="proceder-pago.html" class="div-botones">
+                                        <form action="proceder-pago.jsp" class="div-botones">
                                             <input type="number" class="input-cantidad" value="1" min="0" max="3" required/>
                                             <button type="button" class="btn-cantidad-mas">+</button>
                                             <button type="button" class="btn-cantidad-menos">-</button>
@@ -66,7 +66,7 @@
                                 <p class="subtotal">
                                     Subtotal: <span class="precio">$300.00</span>
                                 </p>
-                                <form action="proceder-pago.html">
+                                <form action="proceder-pago.jsp">
                                     <input type="submit" class="btn-pago" value="Proceder al pago">
                                 </form>
                             </div>
@@ -75,7 +75,7 @@
                                 <p class="subtotal">
                                     Subtotal: <span class="precio">$300.00</span>
                                 </p>
-                                <form action="proceder-pago.html">
+                                <form action="proceder-pago.jsp">
                                     <input type="submit" class="btn-pago" value="Proceder al pago">
                                 </form>
                             </div>

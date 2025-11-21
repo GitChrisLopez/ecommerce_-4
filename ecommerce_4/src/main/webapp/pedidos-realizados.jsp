@@ -37,7 +37,7 @@
                                     </ul>
                                 </div>
                                 <div class="pedido-btn">
-                                    <a href="./detalles-pedido.html" class="ver-detalles-btn">Detalles</a>
+                                    <a href="./detalles-pedido.jsp" class="ver-detalles-btn">Detalles</a>
                                 </div>
                             </div>
 
@@ -51,7 +51,7 @@
                                     </ul>
                                 </div>
                                 <div class="pedido-btn">
-                                    <a href="./detalles-pedido.html" class="ver-detalles-btn">Detalles</a>
+                                    <a href="./detalles-pedido.jsp" class="ver-detalles-btn">Detalles</a>
                                 </div>
                             </div>
 
@@ -65,7 +65,7 @@
                                     </ul>
                                 </div>
                                 <div class="pedido-btn">
-                                    <a href="./detalles-pedido.html" class="ver-detalles-btn">Detalles</a>
+                                    <a href="./detalles-pedido.jsp" class="ver-detalles-btn">Detalles</a>
                                 </div>
                             </div>
                         </div>

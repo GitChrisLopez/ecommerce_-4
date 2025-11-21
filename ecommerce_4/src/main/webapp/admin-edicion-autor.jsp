@@ -1,6 +1,6 @@
 <%-- 
 Document   : comunidad
-Created on : 19 nov 2025, 4:10:47 p.m.
+Created on : 19 nov 2025, 4:10:47 p.m.
 Author     : chris
 --%>
 
@@ -16,7 +16,6 @@ Author     : chris
         <link rel="stylesheet" type="text/css" href="./styles/styles-add-edition.css">
     </head>
 
-
     <body>
         <main>
             <div class="c1">
@@ -26,25 +25,23 @@ Author     : chris
             <div class="container-add-edition">
 
                 <div class="title-container">
-
                     <h1>Editar autor</h1>
-
                 </div>
 
                 <form class="form-add-edition" id="form-add-edition">
 
                     <div class="name-container">
-                        <label>Nombre: </label>
+                        <label>Nombre:</label>
                         <input type="text" value="Leonardo" maxlength="50" required>
                     </div>
 
                     <div class="last-name-1-container">
-                        <label>Apellido paterno: </label>
+                        <label>Apellido paterno:</label>
                         <input type="text" value="Padura" maxlength="50" required>
                     </div>
 
                     <div class="last-name-2-container">
-                        <label>Apellido materno: </label>
+                        <label>Apellido materno:</label>
                         <input type="text" value="Fuentes" maxlength="50">
                     </div>
 

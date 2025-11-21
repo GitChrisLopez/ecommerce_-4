@@ -29,7 +29,7 @@
                             <h1>Agregar editorial</h1>
                         </div>
 
-                        <form action="editoriales-registradas.html" class="form-add-edition" id="form-add-edition">
+                        <form action="editoriales-registradas.jsp" class="form-add-edition" id="form-add-edition">
                             <div class="name-container">
                                 <label>Nombre: </label>
                                 <input type="text" value="Editorial PorrÃºa" maxlength="50" required />
@@ -37,7 +37,7 @@
                         </form>
 
                         <div class="buttons-cancel-add-edition">
-                            <a href="editoriales-registradas.html">
+                            <a href="editoriales-registradas.jsp">
                                 <input type="button" value="Cancelar" class="cancel-input" />
                             </a>
                             <input type="submit" value="Guardar" class="add-edition-input add-input" form="form-add-edition"/>

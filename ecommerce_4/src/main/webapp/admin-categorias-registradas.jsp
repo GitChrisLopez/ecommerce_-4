@@ -1,6 +1,6 @@
 <%-- 
 Document   : comunidad
-Created on : 19 nov 2025, 4:10:47 p.m.
+Created on : 19 nov 2025, 4:10:47 p.m.
 Author     : chris
 --%>
 
@@ -10,7 +10,7 @@ Author     : chris
 
 <html>
     <head>
-        <title>Categori­as Registradass</title>
+        <title>Categorías Registradas</title>
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="./styles/styles-nav.css">
         <link rel="stylesheet" type="text/css" href="./styles/styles-registrado.css">
@@ -26,7 +26,7 @@ Author     : chris
 
                 <div class="title-search">
 
-                    <h1>Categori­as registradas</h1>
+                    <h1>Categorías registradas</h1>
 
                     <div class="search-bar">
                         <input type="search" placeholder="Buscar" id="input-search">
@@ -37,46 +37,44 @@ Author     : chris
 
                 </div>
 
-                <form action="edicion-libro.html" class="container-list" id="form">
+                <form action="edicion-libro.jsp" class="container-list" id="form">
 
-
-                    <input type = "radio" id="thriller" name="registered" required>
+                    <input type="radio" id="thriller" name="registered" required>
                     <label for="thriller">
                         <p>Thriller</p>
-                        <a href="edicion-categoria.html">
+                        <a href="admin-edicion-categoria.jsp">
                             <img src="icons/edition.png"> 
                         </a>
                     </label>
 
-
-                    <input type = "radio" id="terror" name="registered">
+                    <input type="radio" id="terror" name="registered">
                     <label for="terror">
                         <p>Terror</p>
-                        <a href="edicion-categoria.html">
+                        <a href="admin-edicion-categoria.jsp">
                             <img src="icons/edition.png">          
                         </a>
                     </label>
 
-                    <input type = "radio" id="drama" name="registered">        
+                    <input type="radio" id="drama" name="registered">        
                     <label for="drama">
                         <p>Drama</p>
-                        <a href="edicion-categoria.html">
+                        <a href="admin-edicion-categoria.jsp">
                             <img src="icons/edition.png">       
                         </a>
                     </label>
 
-                    <input type = "radio" id="ciencia-ficcion" name="registered">
+                    <input type="radio" id="ciencia-ficcion" name="registered">
                     <label for="ciencia-ficcion">
-                        <p>Ciencia ficcion</p>
-                        <a href="edicion-categoria.html">
+                        <p>Ciencia ficción</p>
+                        <a href="admin-edicion-categoria.jsp">
                             <img src="icons/edition.png">           
                         </a>
                     </label>
 
-                    <input type = "radio" id="biografia" name="registered">
+                    <input type="radio" id="biografia" name="registered">
                     <label for="biografia">
-                        <p>Biografi­a</p>
-                        <a href="edicion-categoria.html">
+                        <p>Biografía</p>
+                        <a href="admin-edicion-categoria.jsp">
                             <img src="icons/edition.png">            
                         </a>
                     </label>
@@ -85,14 +83,13 @@ Author     : chris
                 <div class="buttons">
 
                     <div class="button-add">
-                        <a href="admin-agregar-categoria.html">
+                        <a href="admin-agregar-categoria.jsp">
                             <input type="submit" value="Agregar" class="add-input">
                         </a>
-
                     </div>
 
                     <div class="buttons-cancel-save">
-                        <a href="edicion-libro.html">
+                        <a href="admin-edicion-libro.jsp">
                             <input type="submit" value="Cancelar" class="cancel-input">
                         </a>
                         <input type="submit" value="Guardar" class="save-input" form="form">
