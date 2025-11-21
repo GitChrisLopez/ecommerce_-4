@@ -13,7 +13,7 @@ Author     : chris
         <title>Editar Autor</title>
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="./styles/styles-nav.css">
-        <link rel="stylesheet" type="text/css" href="./styles/styles-add-edition.css">
+        <link rel="stylesheet" type="text/css" href="./styles/styles-admin-agregar.css">
     </head>
 
     <body>

@@ -43,7 +43,7 @@ Author     : chris
                     <input type = "radio" id="leonardo-padura" name="autor" required>
                     <label for="leonardo-padura">
                         <p>Leonardo Padura Fuentes</p>
-                        <a href="edicion-autor.html">
+                        <a href="admin-edicion-autor.jsp">
                             <img src="icons/edition.png"> 
                         </a>
                     </label>
@@ -52,7 +52,7 @@ Author     : chris
                     <input type = "radio" id="dan-brown" name="autor">
                     <label for="dan-brown">
                         <p>Dan Brown</p>
-                        <a href="edicion-autor.jsp">
+                        <a href="admin-edicion-autor.jsp">
                             <img src="icons/edition.png">          
                         </a>
                     </label>
@@ -60,7 +60,7 @@ Author     : chris
                     <input type = "radio" id="george-orwell" name="autor">        
                     <label for="penguinrandom">
                         <p>George Orwell</p>
-                        <a href="edicion-autor.jsp">
+                        <a href="admin-edicion-autor.jsp">
                             <img src="icons/edition.png">       
                         </a>
                     </label>
@@ -68,7 +68,7 @@ Author     : chris
                     <input type = "radio" id="antoine-exupery" name="autor">
                     <label for="antoine-exupery">
                         <p>Antoine de Saint-Exupary</p>
-                        <a href="edicion-autor.jsp">
+                        <a href="admin-edicion-autor.jsp">
                             <img src="icons/edition.png">           
                         </a>
                     </label>
