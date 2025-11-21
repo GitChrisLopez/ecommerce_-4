@@ -32,6 +32,6 @@ public class CerrarSesionServlet extends HttpServlet {
         }
 
         // se manda al usuario de vuelta a la pagina de inicio de sesion
-        response.sendRedirect(request.getContextPath() + "/index.jsp");
+        response.sendRedirect(request.getContextPath() + "/login");
     }
 }
