@@ -43,7 +43,7 @@
         </li>
 
         <li class="nav-libros">
-            <a href="./admin-agregar-libro.jsp"> <div class="libros">
+            <a href="./admin-libros-registrados"> <div class="libros">
                     <img src="./icons/libros.png" class="varios-icon" /> 
                     <span class="nav-text">Libros</span>
                 </div>
