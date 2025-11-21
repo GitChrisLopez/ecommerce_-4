@@ -1,7 +1,7 @@
-<%-- 
-Document   : comunidad
-Created on : 19 nov 2025, 4:10:47 p.m.
-Author     : chris
+<%--
+Document : comunidad
+Created on : 19 nov 2025, 4:10:47 p.m.
+Author : chris
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -29,14 +29,14 @@ Author     : chris
                             <h1>Agregar libro</h1>
                         </div>
 
-                        <form class="form-add-edition" id="form-add-edition">
+                        <form class="form-add-edition" id="form-add-edition" action="admin-nuevo-libro" method="POST">
+                            
                             <div>
                                 <label>Título: </label>
                                 <input
                                     class="input-form-add-edition"
                                     type="text"
-                                    value="El Último Secreto"
-                                    required
+                                    name="titulo" value="${libroAgregar.titulo}" required
                                     />
                             </div>
 
@@ -45,8 +45,7 @@ Author     : chris
                                 <input
                                     class="input-form-add-edition"
                                     type="text"
-                                    value="Dan Brown"
-                                    readonly
+                                    name="nombreAutor" value="${libroAgregar.nombreAutor}" readonly
                                     required
                                     />
                                 <a href="admin-autores-registrados.jsp">
@@ -54,6 +53,7 @@ Author     : chris
                                         Seleccionar
                                     </button>
                                 </a>
+                                <input type="hidden" name="idAutor" value="${libroAgregar.idAutor}"/> 
                             </div>
 
                             <div>
@@ -61,8 +61,7 @@ Author     : chris
                                 <input
                                     class="input-form-add-edition"
                                     type="text"
-                                    value="Thriller"
-                                    readonly
+                                    name="nombreCategoria" value="${libroAgregar.nombreCategoria}" readonly
                                     required
                                     />
                                 <a href="admin-categorias-registradas.jsp">
@@ -70,6 +69,7 @@ Author     : chris
                                         Seleccionar
                                     </button>
                                 </a>
+                                <input type="hidden" name="idCategoria" value="${libroAgregar.idCategoria}"/>
                             </div>
 
                             <div>
@@ -77,8 +77,7 @@ Author     : chris
                                 <input
                                     class="input-form-add-edition"
                                     type="text"
-                                    value="Editorial Planeta"
-                                    readonly
+                                    name="nombreEditorial" value="${libroAgregar.nombreEditorial}" readonly
                                     required
                                     />
                                 <a href="editoriales-registradas.jsp">
@@ -86,6 +85,7 @@ Author     : chris
                                         Seleccionar
                                     </button>
                                 </a>
+                                <input type="hidden" name="idEditorial" value="${libroAgregar.idEditorial}"/>
                             </div>
 
                             <div>
@@ -93,8 +93,7 @@ Author     : chris
                                 <input
                                     class="input-form-add-edition"
                                     type="date"
-                                    value="2025-09-09"
-                                    required
+                                    name="fechaPublicacion" value="${libroAgregar.fechaPublicacion}" required
                                     />
                             </div>
 
@@ -102,11 +101,9 @@ Author     : chris
                                 <label>Sinopsis: </label>
                                 <textarea
                                     class="input-form-add-edition"
-                                    maxlength="350"
+                                    name="sinopsis" maxlength="350"
                                     required
-                                    >
-                                    En El último secreto, el profesor de simbología Robert Langdon se ve envuelto en una carrera contrarreloj en Praga tras el brutal asesinato de su colega, Katherine Solomon...
-                                </textarea
+                                    >${libroAgregar.sinopsis}</textarea
                                 >
                             </div>
 
