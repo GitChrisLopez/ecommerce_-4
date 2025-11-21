@@ -56,7 +56,7 @@ public class AdminFiltro implements Filter {
                 chain.doFilter(request, response);
             } else {
                 // no es admin
-                httpResponse.sendRedirect(httpRequest.getContextPath() + "/iniciar-sesion.html");
+                httpResponse.sendRedirect(httpRequest.getContextPath() + "/iniciar-sesion.jsp");
             }
         } else {
             // si no empieza con admin pues no se hace nada
