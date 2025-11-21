@@ -23,7 +23,7 @@
 
                     <div class="catalogo-container">
 
-                        <form class="sidebar" action="menu-principal-admin" method="GET">
+                        <form class="sidebar" action="admin-menu-principal" method="GET">
                             <div class="options-lookup">
                                 <div class="search-filtros">
                                     <a href="./catalogo-filtros-mobile.html" class="filtrar-btn">

@@ -27,7 +27,7 @@ import java.util.Map;
  * ID: 00000253080
  * 
  */
-@WebServlet(name = "MenuPrincipalAdmin", urlPatterns = {"/menu-principal-admin"})
+@WebServlet(name = "MenuPrincipalAdmin", urlPatterns = {"/admin-menu-principal"})
 public class MenuPrincipalAdmin extends HttpServlet {
 
     private IProductosBO productosBO;

@@ -1,5 +1,5 @@
 <nav>
-    <a href="./menu-principal-admin">
+    <a href="./admin-menu-principal">
         <div class="home">
             <img src="./icons/home.svg" alt="home" class="home-icon" />
         </div>
