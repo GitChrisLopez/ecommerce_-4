@@ -1,5 +1,6 @@
 
 
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
@@ -34,19 +35,13 @@
 
                 </div>
 
-                <form action="admin-editar-libro" class="container-list" id="form">
+                <div class="container-list">
 
                     <c:if test="${empty listaLibros}">
                         <p>No hay libros registrados.</p>
                     </c:if>
 
                     <c:forEach var="libro" items="${listaLibros}" varStatus="status">
-
-                        <input type="radio" 
-                               id="libro_${status.index}" 
-                               name="titulo-libro" 
-                               value="${libro.titulo}" 
-                               required>
 
                         <label for="libro_${status.index}">
 
@@ -58,14 +53,15 @@
                                 </span>
                             </p>
 
-                            <a href="admin-editar-libro?titulo=${libro.titulo}">
-                                <img src="icons/edition.png" alt="Editar libro" title="Editar libro">  
-                            </a>                      
+                            <a href="admin-editar-libro?id=${libro.id}" class="button-edition">
+                                <img src="icons/edition.png" alt="Editar">
+                            </a>
+
                         </label>
 
                     </c:forEach>
 
-                </form>
+                </div>
 
                 <div class="buttons">
 
@@ -74,7 +70,7 @@
                             <input type="submit" value="Cancelar" class="cancel-input">
                         </a>
 
-                        <a href="admin-nuevo-libro">
+                        <a href="admin-agregar-libro.jsp">
                             <input type="submit" value="Agregar" class="add-input">
                         </a>
                     </div>

@@ -133,6 +133,12 @@ input{
 
 }
 
+.button-edition{
+    background: none;
+    border: none;
+    padding: 0;
+}
+
 .buttons{
     display: flex;
     flex-direction: row;

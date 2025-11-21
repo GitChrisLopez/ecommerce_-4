@@ -12,6 +12,7 @@ import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.JoinType;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
@@ -160,6 +161,9 @@ public class LibrosDAO implements ILibrosDAO {
         // resultados de la consulta.
         Root<Libro> entidadLibro = criteriaQuery.from(Libro.class);
 
+        // Se indica que se quieren obtener las categorías del libro.
+        entidadLibro.fetch("categorias", JoinType.INNER);
+        
         // Se seleccionan todos los atributos de la entidad Libro,
         // luego se obtienen solo los que tiene el valor del id del parámetro
         // como valor de su atributo id.
