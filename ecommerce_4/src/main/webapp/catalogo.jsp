@@ -12,8 +12,8 @@
     <head>
         <title>Catálogo</title>
         <meta charset="UTF-8">
-        <link rel="stylesheet" type="text/css" href="./styles/styles-catalogo-menu-administrador.css">
         <link rel="stylesheet" type="text/css" href="./styles/styles-nav.css">
+        <link rel="stylesheet" type="text/css" href="./styles/styles-catalogo.css">
     </head>
 
     <body>
