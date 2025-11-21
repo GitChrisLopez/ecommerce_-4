@@ -1,5 +1,5 @@
 <nav>
-    <a href="./principal-registrado.html">
+    <a href="./principal-registrado.jsp">
         <div class="home">
             <img src="./icons/home.svg" alt="home" class="home-icon"> 
         </div>
@@ -7,7 +7,7 @@
 
     <ul class="nav-links">
         <li>
-            <a href="./catalogo.html" class="nav-btn" target="_blank">Catálogo</a>
+            <a href="./catalogo.jsp" class="nav-btn" target="_blank">Catálogo</a>
         </li>
         <li>
             <div class="carrito">
@@ -23,17 +23,17 @@
                     </div>
                     <hr class="separador"> 
 
-                    <a class="user-option" href="pedidos-realizados.html">
+                    <a class="user-option" href="pedidos-realizados.jsp">
                         <img src="./icons/mis-pedidos.png" alt="Pedidos" class="option-icon">
                         <p>Mis Pedidos</p>
                     </a>
 
-                    <a class="user-option" href="edicion-datos-cuenta.html">
+                    <a class="user-option" href="edicion-datos-cuenta.jsp">
                         <img src="./icons/edition.png" alt="Editar" class="option-icon">
                         <p>Editar mis datos</p>
                     </a>
 
-                    <a class="user-option" href="direcciones-guardadas.html">
+                    <a class="user-option" href="direcciones-guardadas.jsp">
                         <img src="./icons/direccion.png" alt="Direcciones" class="option-icon">
                         <p>Direcciones</p>
                     </a>
@@ -47,7 +47,7 @@
             </button>
         </li>
         <li>
-            <a href="./catalogo.html">
+            <a href="./catalogo.jsp">
                 <div class="catalogo">
                     <img src="./icons/catalogo.png" alt="catalogo" class="catalogo-icon"> 
                 </div>
