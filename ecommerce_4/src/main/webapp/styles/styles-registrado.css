@@ -88,7 +88,6 @@ input{
 
 
 .container-list label{
-    cursor: pointer;
     display: flex;
     flex-direction: row;
     background-color: var(--color-registered-container);
@@ -330,6 +329,10 @@ nav > a .home {
         padding: 0 1%;
     }
 
+    .buttons{
+        padding-right: 0;
+    }
+    
     .buttons input{
         width: 200px;
         border-radius: 20px;
