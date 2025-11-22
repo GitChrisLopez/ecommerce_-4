@@ -51,7 +51,7 @@
         </li>
 
         <li class="nav-categorias">
-            <a href="./admin-categorias-registradas.jsp">
+            <a href="./admin-categorias-registradas">
                 <div class="categorias">
                     <img src="./icons/categorias.png" class="varios-icon" /> 
                     <span class="nav-text">Categorías</span>

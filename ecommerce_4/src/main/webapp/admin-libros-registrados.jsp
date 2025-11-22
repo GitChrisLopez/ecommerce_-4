@@ -33,8 +33,7 @@
                             <input type="search" 
                                    placeholder="Buscar" 
                                    id="input-search" 
-                                   name="titulo-buscado" 
-                                   required>
+                                   name="titulo-buscado">
                             
                             <button type="submit" class="btn-lupa">
                                 <img src="./icons/lupa.png" alt="Buscar">    
@@ -48,12 +47,24 @@
                 <div class="container-list">
 
                     <c:if test="${empty listaLibros}">
-                        <p>No hay libros registrados.</p>
+                        <c:choose>
+        
+                            <c:when test="${not empty tituloBuscado}">
+                                <p>
+                                    No se encontraron resultados para "<c:out value="${tituloBuscado}"/>".
+                                </p>
+                            </c:when>
+
+                            <c:otherwise>
+                                <p>No hay libros registrados.</p>
+                            </c:otherwise>
+
+                        </c:choose>
                     </c:if>
 
-                    <c:forEach var="libro" items="${listaLibros}" varStatus="status">
+                    <c:forEach var="libro" items="${listaLibros}" varStatus="contador">
 
-                        <label for="libro_${status.index}">
+                        <label for="libro_${contador.index}">
 
                             <p>
                                 <c:out value="${libro.titulo}" />
@@ -77,7 +88,7 @@
 
                     <div class="buttons-cancel-save">
                         <a href="admin-menu-principal">
-                            <input type="submit" value="Cancelar" class="cancel-input">
+                            <input type="submit" value="Volver" class="cancel-input">
                         </a>
 
                         <a href="admin-nuevo-libro">

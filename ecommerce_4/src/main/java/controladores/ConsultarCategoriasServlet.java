@@ -1,8 +1,9 @@
 
 package controladores;
 
+import definiciones.ICategoriasBO;
 import definiciones.ILibrosBO;
-import dominio.LibroDTO;
+import dominio.CategoriaDTO;
 import fabrica.FabricaBO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -16,21 +17,18 @@ import java.util.List;
 
 /**
  *
- * @author Romo López Manuel
- * ID: 00000253080
- * 
+ * @author Romo López Manuel ID: 00000253080
  */
+@WebServlet(name = "ConsultarCategoriasServlet", urlPatterns = {"/admin-categorias-registradas"})
+public class ConsultarCategoriasServlet extends HttpServlet {
 
-@WebServlet(name = "ConsultarLibrosServlet", urlPatterns = {"/admin-libros-registrados"})
-public class ConsultarLibrosServlet extends HttpServlet {
-
-    private ILibrosBO librosBO;
+    private ICategoriasBO categoriasBO;
     
     @Override
     public void init() throws ServletException {
         super.init();
         
-        this.librosBO = FabricaBO.obtenerLibrosBO();
+        this.categoriasBO = FabricaBO.obtenerCategoriasBO();
         
     }
     
@@ -51,10 +49,10 @@ public class ConsultarLibrosServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ConsultarLibrosServlet</title>");
+            out.println("<title>Servlet ConsultarCategoriasServlet</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ConsultarLibrosServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet ConsultarCategoriasServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -73,26 +71,27 @@ public class ConsultarLibrosServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        // Se obtiene el título de los libros buscados, si los hay.
-        String tituloLibroBuscado = request.getParameter("titulo-buscado");
+        
+        // Se obtiene el nombre de las categorías buscadas, si las hay.
+        String nombreCategoriaBuscada = request.getParameter("nombre-buscado");
 
-        // Se crea una lista vacía de dto para guardar los libros recuperados.
-        List<LibroDTO> listaLibros = new LinkedList<>(); 
+        // Se crea una lista vacía de dto para guardar las categorías recuperadas.
+        List<CategoriaDTO> listaCategorias = new LinkedList<>(); 
         
         // Se consultan los libros coincidentes con el título ingresado si se ingresó.
-        if(tituloLibroBuscado != null && !tituloLibroBuscado.isBlank()){
+        if(nombreCategoriaBuscada != null && !nombreCategoriaBuscada.isBlank()){
             try {
                 
-                listaLibros = librosBO.consultarLibros(tituloLibroBuscado);
+                listaCategorias = categoriasBO.consultarCategorias(nombreCategoriaBuscada);
                 
             } catch (Exception ex) {
                 
-                request.setAttribute("mensajeError", "Error al cargar los libros con el título ingresado.");
+                request.setAttribute("mensajeError", "Error al cargar las categorías con el nombre ingresado.");
             }
         } else{
             
             try {
-                listaLibros = librosBO.consultarLibros();
+                listaCategorias = categoriasBO.consultarCategorias();
 
             } catch (Exception ex) {
 
@@ -102,12 +101,10 @@ public class ConsultarLibrosServlet extends HttpServlet {
         
         }
 
-        request.setAttribute("listaLibros", listaLibros);
-        request.setAttribute("tituloBuscado", tituloLibroBuscado);
+        request.setAttribute("listaCategorias", listaCategorias);
+        request.setAttribute("nombreBuscado", nombreCategoriaBuscada);
 
-        request.getRequestDispatcher("admin-libros-registrados.jsp").forward(request, response);
-
-        
+        request.getRequestDispatcher("admin-categorias-registradas.jsp").forward(request, response);
     }
 
     /**
