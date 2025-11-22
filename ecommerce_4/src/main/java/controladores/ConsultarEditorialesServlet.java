@@ -75,7 +75,7 @@ public class ConsultarEditorialesServlet extends HttpServlet {
         // Se crea una lista vacía de dto para guardar las editoriales recuperadas.
         List<EditorialDTO> listaEditoriales = new LinkedList<>(); 
         
-        // Se consultan los libros coincidentes con el título ingresado si se ingresó.
+        // Se consultan los libros coincidentes con el nobre ingresado si se ingresó.
         if(nombreEditorialBuscada != null && !nombreEditorialBuscada.isBlank()){
             try {
                 
