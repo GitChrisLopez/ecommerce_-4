@@ -213,7 +213,7 @@ public class ProductosDAO implements IProductosDAO{
         // Se realiza un INNER JOIN entre Productos y Libros.
         Join<Producto, Libro> joinLibro = entidadProducto.join("libro", JoinType.INNER); 
         
-        //Se realiza un Join con Categoria.
+        //Se realiza un INNER JOIN con Categoria.
         Join<Libro, Categoria> joinCategoria = joinLibro.join("categorias", JoinType.INNER); 
 
         // Predicado para categorías.
@@ -237,10 +237,13 @@ public class ProductosDAO implements IProductosDAO{
 
         // Rango máximo (Precio <= precioMaximo)
         if (precioMaximo != null) {
-            Predicate pMax = criteriaBuilder.lessThanOrEqualTo(entidadProducto.get("precio"), precioMaximo);
-            predicados.add(pMax);
+            Predicate predicadoPrecioMaximo = criteriaBuilder.lessThanOrEqualTo(entidadProducto.get("precio"), precioMaximo);
+            predicados.add(predicadoPrecioMaximo);
         }
 
+        // Se obtienen productos únicos.
+        criteriaQuery.distinct(true);
+        
         // Si hay predicados, se unen todos y se aplican al objeto Criteria Query.
         if (!predicados.isEmpty()) {
 
