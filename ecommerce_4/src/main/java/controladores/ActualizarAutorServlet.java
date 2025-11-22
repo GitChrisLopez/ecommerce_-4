@@ -1,8 +1,8 @@
 
 package controladores;
 
-import definiciones.ICategoriasBO;
-import dominio.CategoriaDTO;
+import definiciones.IAutoresBO;
+import dominio.AutorDTO;
 import fabrica.FabricaBO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -16,18 +16,21 @@ import jakarta.servlet.http.HttpSession;
 /**
  *
  * @author Romo López Manuel ID: 00000253080
+ * 
  */
-@WebServlet(name = "ActualizarCategoriaServlet", urlPatterns = {"/admin-actualizar-categoria"})
-public class ActualizarCategoriaServlet extends HttpServlet {
+@WebServlet(name = "ActualizarAutorServlet", urlPatterns = {"/admin-actualizar-autor"})
+public class ActualizarAutorServlet extends HttpServlet {
 
-    private ICategoriasBO categoriasBO;
-
+    private IAutoresBO autoresBO;
+    
     @Override
     public void init() throws ServletException {
         super.init();
 
-        this.categoriasBO = FabricaBO.obtenerCategoriasBO();
+        this.autoresBO = FabricaBO.obtenerAutoresBO();
+        
     }
+    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -45,10 +48,10 @@ public class ActualizarCategoriaServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ActualizarCategoriaServlet</title>");
+            out.println("<title>Servlet ActualizarAutorServlet</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ActualizarCategoriaServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet ActualizarAutorServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -81,59 +84,67 @@ public class ActualizarCategoriaServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        // Se obtienen los datos enviados para la actualización.
-        String idCategoriaStr = request.getParameter("id");
+        // Se obtienen los datos enviados para agregar el autor.
+        String idAutorStr = request.getParameter("id");
         String nombre = request.getParameter("nombre");
+        String apellidoPaterno = request.getParameter("apellido-paterno");
+        String apellidoMaterno = request.getParameter("apellido-materno");
+        
 
         try{
-            
-            // Se obtiene el Id de la categoría.
-            Long idCategoria = null;
-            if(idCategoriaStr != null && !idCategoriaStr.isEmpty()){
-                idCategoria = Long.valueOf(idCategoriaStr);
+
+            // Se obtiene el Id del autor a actualizar.
+            Long idAutor = null;
+            if(idAutorStr != null && !idAutorStr.isEmpty()){
+                idAutor = Long.parseLong(idAutorStr);
             }
-
-            // Se crea un dto con los nuevos datos de la categoría.
-            CategoriaDTO categoriaDTO = new CategoriaDTO();
-            categoriaDTO.setId(idCategoria);
-            categoriaDTO.setNombre(nombre);
             
-            categoriasBO.actualizarCategoria(categoriaDTO);
+            // Se crea un dto con los datos del autor.
+            AutorDTO autorDTO = new AutorDTO();
+            autorDTO.setId(idAutor);
+            autorDTO.setNombre(nombre);
+            autorDTO.setApellidoPaterno(apellidoPaterno);
+            autorDTO.setApellidoMaterno(apellidoMaterno);
+            
+            autoresBO.actualizarAutor(autorDTO);
 
-            // Como la actualización fue exitosa, se elimina cualquier categoría pendiente y error guardados
+            // Como la actualización fue exitosa, se elimina cualquier autor pendiente y error guardados
             // en la sesión.
-            request.getSession().removeAttribute("categoriaPendienteActualizar");
+            request.getSession().removeAttribute("autorPendienteActualizar");
             request.getSession().removeAttribute("errorSesion");
             request.getSession().removeAttribute("mensajeError");
 
-            response.sendRedirect("admin-categorias-registradas");
+            response.sendRedirect("admin-autores-registrados");
 
         } catch (Exception e) {
 
             // Se guardan los datos ingresados por el usuario.
-            CategoriaDTO categoriaPendienteActualizar = new CategoriaDTO();
-            try {
+            AutorDTO autorPendienteActualizar = new AutorDTO();
+            
+            try{
+                // Se guarda el Id del autor.
+                autorPendienteActualizar.setId(Long.valueOf(idAutorStr));
 
-                // Se obtiene el Id de la categoría.
-                categoriaPendienteActualizar.setId(Long.valueOf(idCategoriaStr));
+                // Se obtiene el nombre del autor.
+                autorPendienteActualizar.setNombre(request.getParameter("nombre"));
 
-                // Se obtiene el nombre de la categoría.
-                categoriaPendienteActualizar.setNombre(request.getParameter("nombre"));
+                // Se guarda el apellido paterno del autor.
+                autorPendienteActualizar.setApellidoPaterno(request.getParameter("apellido-paterno"));
+
+                // Se guarda el apellido materno del autor.
+                autorPendienteActualizar.setApellidoMaterno(request.getParameter("apellido-materno"));
 
             } catch (Exception ex) {
                 // Si falla la recuperación de algún dato, no se considera.
             }
-
-            // Se guarda la categoría pendiente en la sesión y el mensaje de error.
+            
+            // Se guarda el autor pendiente en la sesión y el mensaje de error.
             HttpSession session = request.getSession();
-            session.setAttribute("categoriaPendienteActualizar", categoriaPendienteActualizar);
+            session.setAttribute("autorPendienteActualizar", autorPendienteActualizar);
             session.setAttribute("errorSesion", e.getMessage());
 
-            response.sendRedirect("admin-edicion-categoria?id=" + idCategoriaStr);
+            response.sendRedirect("admin-actualizar-autor?id=");
         }
-        
-        
-        
     }
 
     /**

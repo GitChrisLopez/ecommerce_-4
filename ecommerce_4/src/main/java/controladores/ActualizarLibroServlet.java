@@ -251,7 +251,7 @@ public class ActualizarLibroServlet extends HttpServlet {
                 // Si falla la recuperación de algún dato, no se considera.
             }
 
-            // Se guarda el producto pendiente en la sesión y el mensaje de error.
+            // Se guarda el libro pendiente en la sesión y el mensaje de error.
             HttpSession session = request.getSession();
             session.setAttribute("libroPendienteActualizar", libroPendienteActualizar);
             session.setAttribute("errorSesion", e.getMessage());

@@ -15,7 +15,7 @@ import jakarta.servlet.http.HttpSession;
 
 /**
  *
- * @author romom
+ * @author Romo López Manuel ID: 00000253080
  */
 @WebServlet(name = "ActualizarEditorial", urlPatterns = {"/admin-actualizar-editorial"})
 public class ActualizarEditorialServlet extends HttpServlet {
@@ -115,6 +115,7 @@ public class ActualizarEditorialServlet extends HttpServlet {
             EditorialDTO editorialPendienteActualizar = new EditorialDTO();
             try {
 
+                // Se obtiene el Id de la editoral.
                 editorialPendienteActualizar.setId(Long.valueOf(idEditorialStr));
 
                 // Se obtiene el nombre de la editorial.

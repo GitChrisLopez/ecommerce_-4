@@ -109,7 +109,7 @@ public class AgregarCategoriaServlet extends HttpServlet {
             // Se obtiene el nombre de la categoría.
             categoriaPendienteAgregar.setNombre(request.getParameter("nombre"));
 
-            // Se guarda el producto pendiente en la sesión y el mensaje de error.
+            // Se guarda la categoría pendiente en la sesión y el mensaje de error.
             HttpSession session = request.getSession();
             session.setAttribute("categoriaPendienteAgregar", categoriaPendienteAgregar);
             session.setAttribute("errorSesion", e.getMessage());

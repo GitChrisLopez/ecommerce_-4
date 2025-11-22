@@ -111,7 +111,7 @@ public class AgregarEditorialServlet extends HttpServlet {
             // Se obtiene el nombre de la editorial.
             editorialPendienteAgregar.setNombre(request.getParameter("nombre"));
 
-            // Se guarda el producto pendiente en la sesión y el mensaje de error.
+            // Se guarda la editorial pendiente en la sesión y el mensaje de error.
             HttpSession session = request.getSession();
             session.setAttribute("editorialPendienteAgregar", editorialPendienteAgregar);
             session.setAttribute("errorSesion", e.getMessage());
