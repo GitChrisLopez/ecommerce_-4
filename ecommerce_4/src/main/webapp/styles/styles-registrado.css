@@ -46,6 +46,18 @@ input{
     width: 100%;
 }
 
+.form-search{
+    width: 100%;
+    display: flex;
+    
+}
+
+.search-bar button{
+    background: none;
+    border:none;
+    padding:0;
+}
+
 .search-bar input{
     cursor: pointer;
     width: 30%;

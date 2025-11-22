@@ -27,10 +27,20 @@
                     <h1>Libros registrados</h1>
 
                     <div class="search-bar">
-                        <input type="search" placeholder="Buscar" id="input-search">
-                        <label for="input-search">
-                            <img src="./icons/lupa.png">    
-                        </label>
+    
+                        <form class="form-search" action="admin-libros-registrados" method="GET">
+
+                            <input type="search" 
+                                   placeholder="Buscar" 
+                                   id="input-search" 
+                                   name="titulo-buscado" 
+                                   required>
+                            
+                            <button type="submit" class="btn-lupa">
+                                <img src="./icons/lupa.png" alt="Buscar">    
+                            </button>
+
+                        </form>
                     </div>
 
                 </div>
