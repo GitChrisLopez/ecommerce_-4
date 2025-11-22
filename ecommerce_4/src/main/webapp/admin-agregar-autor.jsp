@@ -1,11 +1,9 @@
-
-
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Agregar Categoría</title>
+        <title>Agregar Autor</title>
         <meta charset="UTF-8" />
         <link rel="stylesheet" type="text/css" href="./styles/styles-nav.css" />
         <link rel="stylesheet" type="text/css" href="./styles/styles-admin-agregar.css"/>
@@ -24,6 +22,7 @@
                             <c:out value="${mensajeError}" />
                         </div>
                     </c:if>
+                    
                     <div class="container-add-edition">
 
                         <div class="title-container">
@@ -46,15 +45,22 @@
                                 <label>Apellido materno: </label>
                                 <input class="input-form-add-edition" type="text" name="apellido-materno" />
                             </div>
-
-                            <div class="buttons-cancel-add-edition">
+                            
+                            <div class="autor-btns-mobile">
                                 <a href="admin-autores-registrados">
-                                    <input type="button" value="Cancelar" class="cancel-input" />
+                                    <input type="button" value="Cancelar" class="btn-autor-cancel" />
                                 </a>
-                                <input type="submit" value="Guardar" class="add-edition-input add-input" />
+                                <input type="submit" value="Guardar" class="btn-autor-save" />
                             </div>
                         </form>
+                    </div> 
+                    <div class="autor-btns-desktop">
+                        <a href="admin-autores-registrados">
+                            <input type="button" value="Cancelar" class="btn-autor-cancel" />
+                        </a>
+                        <input type="submit" value="Guardar" class="btn-autor-save" form="form-add-edition" />
                     </div>
+
                 </div>
             </main>
         </div>
