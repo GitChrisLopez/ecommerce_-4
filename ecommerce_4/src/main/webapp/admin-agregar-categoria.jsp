@@ -35,7 +35,7 @@
 
                             <div>
                                 <label>Nombre: </label>
-                                <input class="input-form-add-edition-category" type="text" name="nombre" value="${categoriaAgregar.nombre}" required />
+                                <input class="input-form-add-edition" type="text" name="nombre" value="${categoriaAgregar.nombre}" required />
                             </div>
 
                             <div class="cat-btns-mobile">

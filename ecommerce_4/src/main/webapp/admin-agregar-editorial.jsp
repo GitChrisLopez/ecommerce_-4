@@ -1,5 +1,3 @@
-
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -24,6 +22,7 @@
                             <c:out value="${mensajeError}" />
                         </div>
                     </c:if>
+                    
                     <div class="container-add-edition">
 
                         <div class="title-container">
@@ -38,17 +37,24 @@
                                 <input class="input-form-add-edition" type="text" name="nombre" value="${editorialAgregar.nombre}" required />
                             </div>
 
-                            <div class="buttons-cancel-add-edition">
+                            <div class="edit-btns-mobile">
                                 <a href="admin-editoriales-registradas">
-                                    <input type="button" value="Cancelar" class="cancel-input" />
+                                    <input type="button" value="Cancelar" class="btn-edit-cancel" />
                                 </a>
-                                <input type="submit" value="Guardar" class="add-edition-input add-input" />
+                                <input type="submit" value="Guardar" class="btn-edit-save" />
                             </div>
                         </form>
                     </div>
+                            
+                    <div class="edit-btns-desktop">
+                        <a href="admin-editoriales-registradas">
+                            <input type="button" value="Cancelar" class="btn-edit-cancel" />
+                        </a>
+                        <input type="submit" value="Guardar" class="btn-edit-save" form="form-add-edition" />
+                    </div>
+
                 </div>
             </main>
         </div>
     </body>
 </html>
-

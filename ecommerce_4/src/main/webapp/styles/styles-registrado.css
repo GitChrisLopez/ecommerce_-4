@@ -17,7 +17,7 @@ body{
 
 main{
     display: flex;
-    background-color: white;
+    background-color: var(--lighter-grey);
     height: auto;
     min-height: 100vh;
 }
@@ -130,7 +130,6 @@ input{
 
 }
 
-
 .container-list img{
 
     width: 40px;
@@ -159,6 +158,7 @@ input{
     padding-right: 10%;
     padding-top:5%;
     background-color: white;
+    border-radius: 20px;
 }
 
 .buttons input{
@@ -167,6 +167,7 @@ input{
     font-weight: 500;
     border-radius: 10px;
     border: 1px solid black;
+    margin: 10px;
 }
 
 .button-add{
