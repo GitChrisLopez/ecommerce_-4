@@ -18,6 +18,11 @@
 
             <main>
                 <div class="general-container">
+                    <c:if test="${not empty mensajeError}">
+                        <div class="error-alert">
+                            <c:out value="${mensajeError}" />
+                        </div>
+                    </c:if>
                     <div class="container-add-edition">
 
                         <div class="title-container">

@@ -1,7 +1,7 @@
 
 
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
@@ -66,11 +66,11 @@
                 <div class="buttons">
 
                     <div class="buttons-cancel-save">
-                        <a href="menu-principal-admin">
+                        <a href="admin-menu-principal">
                             <input type="submit" value="Cancelar" class="cancel-input">
                         </a>
 
-                        <a href="admin-agregar-libro.jsp">
+                        <a href="admin-nuevo-libro">
                             <input type="submit" value="Agregar" class="add-input">
                         </a>
                     </div>
