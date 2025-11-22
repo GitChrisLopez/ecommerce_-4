@@ -85,7 +85,7 @@
                             <input type="submit" value="Volver" class="cancel-input">
                         </a>
 
-                        <a href="admin-nuevo-libro">
+                        <a href="admin-nueva-categoria">
                             <input type="submit" value="Agregar" class="add-input">
                         </a>
                     </div>
