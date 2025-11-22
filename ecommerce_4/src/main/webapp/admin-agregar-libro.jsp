@@ -8,7 +8,7 @@
         <title>Agregar Libro</title>
         <meta charset="UTF-8" />
         <link rel="stylesheet" type="text/css" href="./styles/styles-nav.css" />
-        <link rel="stylesheet" type="text/css" href="./styles/styles-agregar-libro.css"/>
+        <link rel="stylesheet" type="text/css" href="./styles/styles-admin-agregar.css"/>
     </head>
 
     <body>
@@ -24,61 +24,73 @@
                             <c:out value="${mensajeError}" />
                         </div>
                     </c:if>
-                    <div class="container-add-edition">
+                    <div class="container-add-edition-page">
 
                         <div class="title-container">
-                            <h1>Agregar libro</h1>
+                            <h1 class="h1-page">Agregar libro</h1>
                         </div>
 
-                        <form action="admin-agregar-libro" class="form-add-edition" id="form-add-edition" method="POST">
+                        <form action="admin-agregar-libro" class="form-add-edition-page" id="form-add-edition" method="POST">
 
                             <div>
                                 <label>Título: </label>
                                 <input class="input-form-add-edition" type="text" name="titulo" required />
                             </div>
 
-                            <div> 
-                                <label>Autor:</label>
-                                <select name="id-autor" required>
-                                    <c:forEach var="autor" items="${listaAutores}">
-                                        <option value="${autor.id}">
-                                            <c:out value="${autor.nombre}" /> <c:out value="${autor.apellidoPaterno}" />
-                                        </option>
-                                    </c:forEach>
-                                </select>
-                            </div>
-                            
-                            <div>
-                                <label>Categorías: </label>
-
-                                <div>
-
-                                    <c:forEach var="categoriaDisponible" items="${listaCategorias}">
-
-                                        <div class="category-container">
-                                            
-                                            <label class="label-category-name" for="categoria-${categoriaDisponible.id}">
-                                                <c:out value="${categoriaDisponible.nombre}" />
-                                            </label>
-                                            
-                                            <input type="checkbox" id="categoria-${categoriaDisponible.id}" name="ids-categorias" value="${categoriaDisponible.id}" />     
-                                        </div>
-
-                                    </c:forEach>
-
+                            <div class="field-with-button">
+                                <div class="field-left">
+                                    <label>Autor:</label>
+                                    <select name="id-autor" required>
+                                        <c:forEach var="autor" items="${listaAutores}">
+                                            <option value="${autor.id}">
+                                                <c:out value="${autor.nombre}" /> <c:out value="${autor.apellidoPaterno}" />
+                                            </option>
+                                        </c:forEach>
+                                    </select>
                                 </div>
+
+                                <a href="admin-autores-registrados">
+                                    <input type="button" value="Seleccionar" class="btn-inline"/>
+                                </a>
                             </div>
-                            
-                            <div> 
-                                <label>Editorial:</label>
-                                <select name="id-editorial" required>
-                                    <c:forEach var="editorial" items="${listaEditoriales}">
-                                        <option value="${editorial.id}">
-                                            <c:out value="${editorial.nombre}" />
-                                        </option>
-                                    </c:forEach>
-                                </select>
+
+
+                            <div class="field-with-button">
+                                <div class="field-left">
+                                    <label>Categoría:</label> <select name="ids-categorias" required>                                 
+                                        <c:forEach var="categoria" items="${listaCategorias}">
+                                            <option value="${categoria.id}">
+                                                <c:out value="${categoria.nombre}" />
+                                            </option>
+                                        </c:forEach>
+                                    </select>
+                                </div>
+
+                                <a href="admin-categorias-registradas">
+                                    <input type="button" value="Seleccionar" class="btn-inline"/>
+                                </a>
+
                             </div>
+
+
+
+                            <div class="field-with-button">
+                                <div class="field-left">
+                                    <label>Editorial:</label>
+                                    <select name="id-editorial" required>
+                                        <c:forEach var="editorial" items="${listaEditoriales}">
+                                            <option value="${editorial.id}">
+                                                <c:out value="${editorial.nombre}" />
+                                            </option>
+                                        </c:forEach>
+                                    </select>
+                                </div>
+
+                                <a href="admin-editoriales-registradas">
+                                    <input type="button" value="Seleccionar" class="btn-inline"/>
+                                </a>
+                            </div>
+
 
                             <div>
                                 <label>Publicación: </label>
@@ -90,14 +102,17 @@
                                 <textarea class="input-form-add-edition" name="sinopsis" maxlength="350" required></textarea>
                             </div>
 
-                            <div class="buttons-cancel-add-edition">
+                            <div class="buttons-add-edition-page">
                                 <a href="admin-libros-registrados">
-                                    <input type="button" value="Cancelar" class="cancel-input" />
+                                    <input type="button" value="Cancelar" class="cancel-input-page" />
                                 </a>
-                                <input type="submit" value="Guardar" class="add-edition-input add-input" />
+                                <input type="submit" value="Guardar" class="add-input-page" />
                             </div>
+
                         </form>
+
                     </div>
+
                 </div>
             </main>
         </div>

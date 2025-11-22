@@ -24,28 +24,36 @@
                             <c:out value="${mensajeError}" />
                         </div>
                     </c:if>
-                    <div class="container-add-edition">
 
+                    <div class="container-add-edition">
                         <div class="title-container">
                             <h1>Agregar categoría</h1>
                         </div>
 
                         <form action="admin-agregar-categoria" class="form-add-edition" id="form-add-edition" method="POST">
-
                             <input type="hidden" value="${categoriaAgregar.id}" name="id">
+
                             <div>
                                 <label>Nombre: </label>
-                                <input class="input-form-add-edition" type="text" name="nombre" value="${categoriaAgregar.nombre}" required />
+                                <input class="input-form-add-edition-category" type="text" name="nombre" value="${categoriaAgregar.nombre}" required />
                             </div>
 
-                            <div class="buttons-cancel-add-edition">
+                            <div class="cat-btns-mobile">
                                 <a href="admin-categorias-registradas">
-                                    <input type="button" value="Cancelar" class="cancel-input" />
+                                    <input type="button" value="Cancelar" class="btn-cat-cancel" />
                                 </a>
-                                <input type="submit" value="Guardar" class="add-edition-input add-input" />
+                                <input type="submit" value="Guardar" class="btn-cat-save" />
                             </div>
                         </form>
                     </div>
+
+                    <div class="cat-btns-desktop">
+                        <a href="admin-categorias-registradas">
+                            <input type="button" value="Cancelar" class="btn-cat-cancel" />
+                        </a>
+                        <input type="submit" value="Guardar" class="btn-cat-save" form="form-add-edition" />
+                    </div>
+
                 </div>
             </main>
         </div>
