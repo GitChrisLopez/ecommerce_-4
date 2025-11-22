@@ -1,12 +1,11 @@
 
-
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%> 
 <!DOCTYPE html>
 
 <html>
     <head>
-        <title>Categorías Registradas</title>
+        <title>Editoriales Registradas</title>
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="./styles/styles-nav.css">
         <link rel="stylesheet" type="text/css" href="./styles/styles-registrado.css">
@@ -22,11 +21,11 @@
 
                 <div class="title-search">
 
-                    <h1>Categorías registradas</h1>
+                    <h1>Editoriales registradas</h1>
 
                     <div class="search-bar">
     
-                        <form class="form-search" action="admin-categorias-registradas" method="GET">
+                        <form class="form-search" action="admin-editoriales-registradas" method="GET">
 
                             <input type="search" 
                                    placeholder="Buscar" 
@@ -44,7 +43,7 @@
 
                 <div class="container-list">
 
-                    <c:if test="${empty listaCategorias}">
+                    <c:if test="${empty listaEditoriales}">
                         <c:choose>
         
                             <c:when test="${not empty nombreBuscado}">
@@ -54,21 +53,21 @@
                             </c:when>
 
                             <c:otherwise>
-                                <p>No hay categorías registradas.</p>
+                                <p>No hay editoriales registradas.</p>
                             </c:otherwise>
 
                         </c:choose>
                     </c:if>
 
-                    <c:forEach var="categoria" items="${listaCategorias}" varStatus="contador">
+                    <c:forEach var="editorial" items="${listaEditoriales}" varStatus="contador">
 
-                        <label for="categoria-${contador.index}">
+                        <label for="editorial-${contador.index}">
 
                             <p>
-                                <c:out value="${categoria.nombre}" />
+                                <c:out value="${editorial.nombre}" />
                             </p>
 
-                            <a href="admin-editar-categoria?id=${categoria.id}" class="button-edition">
+                            <a href="admin-editar-editorial?id=${editorial.id}" class="button-edition">
                                 <img src="icons/edition.png" alt="Editar">
                             </a>
 

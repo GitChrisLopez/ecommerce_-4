@@ -64,7 +64,7 @@
 
                     <c:forEach var="libro" items="${listaLibros}" varStatus="contador">
 
-                        <label for="libro_${contador.index}">
+                        <label for="libro-${contador.index}">
 
                             <p>
                                 <c:out value="${libro.titulo}" />

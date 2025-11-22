@@ -1,8 +1,8 @@
 
 package controladores;
 
-import definiciones.ICategoriasBO;
-import dominio.CategoriaDTO;
+import definiciones.IEditorialesBO;
+import dominio.EditorialDTO;
 import fabrica.FabricaBO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -18,19 +18,18 @@ import java.util.List;
  *
  * @author Romo López Manuel ID: 00000253080
  */
-@WebServlet(name = "ConsultarCategoriasServlet", urlPatterns = {"/admin-categorias-registradas"})
-public class ConsultarCategoriasServlet extends HttpServlet {
+@WebServlet(name = "ConsultarEditorialesServlet", urlPatterns = {"/admin-editoriales-registradas"})
+public class ConsultarEditorialesServlet extends HttpServlet {
 
-    private ICategoriasBO categoriasBO;
+    private IEditorialesBO editorialesBO;
     
     @Override
     public void init() throws ServletException {
         super.init();
         
-        this.categoriasBO = FabricaBO.obtenerCategoriasBO();
+        this.editorialesBO = FabricaBO.obtenerEditorialesBO();
         
     }
-    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -48,10 +47,10 @@ public class ConsultarCategoriasServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ConsultarCategoriasServlet</title>");
+            out.println("<title>Servlet ConsultarEditorialesServlet</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ConsultarCategoriasServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet ConsultarEditorialesServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -70,40 +69,41 @@ public class ConsultarCategoriasServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        
-        // Se obtiene el nombre de las categorías buscadas, si las hay.
-        String nombreCategoriaBuscada = request.getParameter("nombre-buscado");
+        // Se obtiene el nombre de las editoriales buscadas, si las hay.
+        String nombreEditorialBuscada = request.getParameter("nombre-buscado");
 
-        // Se crea una lista vacía de dto para guardar las categorías recuperadas.
-        List<CategoriaDTO> listaCategorias = new LinkedList<>(); 
+        // Se crea una lista vacía de dto para guardar las editoriales recuperadas.
+        List<EditorialDTO> listaEditoriales = new LinkedList<>(); 
         
         // Se consultan los libros coincidentes con el título ingresado si se ingresó.
-        if(nombreCategoriaBuscada != null && !nombreCategoriaBuscada.isBlank()){
+        if(nombreEditorialBuscada != null && !nombreEditorialBuscada.isBlank()){
             try {
                 
-                listaCategorias = categoriasBO.consultarCategorias(nombreCategoriaBuscada);
+                listaEditoriales = editorialesBO.consultarEditoriales(nombreEditorialBuscada);
                 
             } catch (Exception ex) {
                 
-                request.setAttribute("mensajeError", "Error al cargar las categorías con el nombre ingresado.");
+                request.setAttribute("mensajeError", "Error al cargar las editoriales con el nombre ingresado.");
             }
         } else{
             
             try {
-                listaCategorias = categoriasBO.consultarCategorias();
+                listaEditoriales = editorialesBO.consultarEditoriales();
 
             } catch (Exception ex) {
 
-                request.setAttribute("mensajeError", "Error al cargar las categorías registradas.");
+                request.setAttribute("mensajeError", "Error al cargar las editoriales registradas.");
 
             }
         
         }
 
-        request.setAttribute("listaCategorias", listaCategorias);
-        request.setAttribute("nombreBuscado", nombreCategoriaBuscada);
+        request.setAttribute("listaEditoriales", listaEditoriales);
+        request.setAttribute("nombreBuscado", nombreEditorialBuscada);
 
-        request.getRequestDispatcher("admin-categorias-registradas.jsp").forward(request, response);
+        request.getRequestDispatcher("admin-editoriales-registradas.jsp").forward(request, response);
+        
+        
     }
 
     /**
