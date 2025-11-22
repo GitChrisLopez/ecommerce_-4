@@ -191,7 +191,7 @@ public class AutoresDAO implements IAutoresDAO{
                 criteriaBuilder.coalesce(entidadAutor.get("apellidoPaterno"), "")
             );
 
-            // Se une lo anterior, al apellido paterno.
+            // Se une lo anterior, al apellido materno.
             Expression<String> nombreCompleto = criteriaBuilder.concat(
                 nombreApellidoPaterno, 
                 criteriaBuilder.coalesce(entidadAutor.get("apellidoMaterno"), "")
