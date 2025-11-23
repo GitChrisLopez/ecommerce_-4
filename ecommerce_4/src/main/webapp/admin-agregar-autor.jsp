@@ -22,7 +22,6 @@
                             <c:out value="${mensajeError}" />
                         </div>
                     </c:if>
-                    
                     <div class="container-add-edition">
 
                         <div class="title-container">
@@ -45,7 +44,6 @@
                                 <label>Apellido materno: </label>
                                 <input class="input-form-add-edition" type="text" name="apellido-materno" />
                             </div>
-                            
                             <div class="autor-btns-mobile">
                                 <a href="admin-autores-registrados">
                                     <input type="button" value="Cancelar" class="btn-autor-cancel" />
@@ -53,7 +51,7 @@
                                 <input type="submit" value="Guardar" class="btn-autor-save" />
                             </div>
                         </form>
-                    </div> 
+                    </div>
                     <div class="autor-btns-desktop">
                         <a href="admin-autores-registrados">
                             <input type="button" value="Cancelar" class="btn-autor-cancel" />
